@@ -1,0 +1,42 @@
+# Noviq Development Log
+
+This file records significant project changes in chronological order. Times use India Standard Time (IST, UTC+05:30).
+
+## Log 1 — Landing-page scaffold and initial elements
+
+**Timestamp:** 2026-07-13 00:13:13 IST
+
+### Project scaffold
+
+- Created the Noviq landing page as a React 18 single-page application.
+- Configured Vite as the development server and production build system.
+- Added Tailwind CSS, PostCSS, and Autoprefixer for styling.
+- Added Framer Motion for transitions, section reveals, and the page scroll-progress indicator.
+- Added Three.js, React Three Fiber, and Drei for interactive 3D visuals.
+- Centralized marketing copy and structured page data in `src/data/content.js`.
+- Organized reusable components into navigation, footer, UI, section, and Three.js directories.
+
+### Landing-page elements
+
+- Added a fixed navigation bar with links to the platform, modules, scale, benefits, and roadmap sections.
+- Created the hero section with an interactive Three.js scene.
+- Added the business-problem section covering duplicate work, inconsistent data, manual reporting, and slow decisions.
+- Added the “Meet Noviq” section to introduce the modular platform and its expansion path.
+- Added the connected-platform section and shared business-database visualization.
+- Added CRM and HR/payroll module presentations with supporting feature details.
+- Added the scaling model: foundation, operations, intelligence, and enterprise layers.
+- Added enterprise content for security, access control, cloud scalability, and modular architecture.
+- Added a comparison between fragmented software stacks and the unified Noviq platform.
+- Added a four-phase product roadmap.
+- Added the contact call to action and site footer.
+- Added shared reveal, layout, and responsive-resizing utilities.
+- Split the heavier Three.js and Framer Motion dependencies into long-cacheable production chunks.
+
+### Deployment preparation
+
+- Confirmed that the Vite production build completes successfully.
+- Removed local `node_modules/` dependencies and generated `dist/` output; Vercel recreates both during deployment.
+- Removed unused local assistant metadata.
+- Added `.vercelignore` rules for repository metadata, agent metadata, dependencies, generated output, logs, and environment files.
+- Recreated project documentation with this README and timestamped development log.
+
