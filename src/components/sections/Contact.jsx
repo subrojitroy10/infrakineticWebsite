@@ -1,0 +1,157 @@
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Reveal from '../ui/Reveal'
+import { cta } from '../../data/content'
+
+const fields = [
+  { name: 'name', label: 'Full name', type: 'text', placeholder: 'Jane Doe' },
+  { name: 'email', label: 'Work email', type: 'email', placeholder: 'jane@company.com' },
+  { name: 'company', label: 'Company', type: 'text', placeholder: 'Acme Inc.' },
+]
+
+const modules = ['CRM', 'HR', 'Payroll', 'Operations', 'Finance', 'AI & Analytics']
+
+export default function Contact() {
+  const [submitted, setSubmitted] = useState(false)
+  const [picked, setPicked] = useState(['CRM'])
+
+  const toggle = (m) =>
+    setPicked((p) => (p.includes(m) ? p.filter((x) => x !== m) : [...p, m]))
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // Placeholder: wire to a real endpoint / CRM later.
+    setSubmitted(true)
+  }
+
+  return (
+    <section id="contact" className="relative overflow-hidden py-24 md:py-32">
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[30rem] w-[50rem] -translate-x-1/2 rounded-full bg-teal-500/10 blur-[120px]" />
+
+      <div className="container-page relative">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl">
+          <div className="grid lg:grid-cols-2">
+            {/* Copy side */}
+            <div className="relative border-b border-white/10 p-8 md:p-12 lg:border-b-0 lg:border-r">
+              <Reveal variant="fade">
+                <span className="eyebrow">{cta.eyebrow}</span>
+              </Reveal>
+              <Reveal variant="up" delay={0.05}>
+                <h2 className="heading-serif mt-5 text-3xl leading-tight md:text-4xl">
+                  {cta.title}
+                </h2>
+              </Reveal>
+              <Reveal variant="up" delay={0.1}>
+                <p className="mt-4 text-white/60">{cta.lead}</p>
+              </Reveal>
+              <Reveal variant="up" delay={0.15}>
+                <div className="mt-8 space-y-3 text-sm text-white/50">
+                  {['30-minute guided walkthrough', 'Tailored to your team’s modules', 'No commitment required'].map(
+                    (t) => (
+                      <div key={t} className="flex items-center gap-3">
+                        <span className="grid h-5 w-5 place-items-center rounded-full bg-teal-400/20 text-[11px] text-teal-300">
+                          ✓
+                        </span>
+                        {t}
+                      </div>
+                    ),
+                  )}
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Form side */}
+            <div className="p-8 md:p-12">
+              <AnimatePresence mode="wait">
+                {submitted ? (
+                  <motion.div
+                    key="thanks"
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex h-full flex-col items-center justify-center py-10 text-center"
+                  >
+                    <div className="grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-teal-400 to-cyan-400 text-2xl text-ink-900">
+                      ✓
+                    </div>
+                    <h3 className="heading-serif mt-6 text-2xl">You're on the list.</h3>
+                    <p className="mt-2 max-w-xs text-sm text-white/55">
+                      Thanks for your interest in Noviq. Our team will reach out to schedule your
+                      demo shortly.
+                    </p>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="mt-6 text-sm font-medium text-teal-300 hover:text-teal-200"
+                    >
+                      Submit another request
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.form
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onSubmit={handleSubmit}
+                    className="space-y-5"
+                  >
+                    {fields.map((f) => (
+                      <div key={f.name}>
+                        <label
+                          htmlFor={f.name}
+                          className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-white/40"
+                        >
+                          {f.label}
+                        </label>
+                        <input
+                          id={f.name}
+                          name={f.name}
+                          type={f.type}
+                          required
+                          placeholder={f.placeholder}
+                          className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-colors focus:border-teal-400/60 focus:bg-white/[0.05]"
+                        />
+                      </div>
+                    ))}
+
+                    <div>
+                      <span className="mb-2 block text-xs font-medium uppercase tracking-wider text-white/40">
+                        Modules of interest
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {modules.map((m) => {
+                          const on = picked.includes(m)
+                          return (
+                            <button
+                              type="button"
+                              key={m}
+                              onClick={() => toggle(m)}
+                              className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all ${
+                                on
+                                  ? 'border-teal-400/60 bg-teal-400/15 text-teal-200'
+                                  : 'border-white/10 bg-white/[0.02] text-white/50 hover:border-white/25'
+                              }`}
+                            >
+                              {m}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </div>
+
+                    <button type="submit" className="btn-primary w-full">
+                      Book a demo
+                      <span aria-hidden>→</span>
+                    </button>
+                    <p className="text-center text-xs text-white/30">
+                      We'll never share your details. Demo requests only.
+                    </p>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
