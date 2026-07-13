@@ -43,19 +43,25 @@ body {
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/5
-           px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-teal-400;
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-teal-400;
   }
 
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-teal-400/60;
+  }
+
+  /* Historically serif; now a tight modern sans for a product-platform look.
+     Class name kept to avoid churn across section files. */
   .heading-serif {
-    @apply font-serif font-light tracking-tight text-white;
+    @apply font-sans font-semibold tracking-[-0.03em] text-white;
   }
 
   .btn-primary {
     @apply relative inline-flex items-center justify-center gap-2 rounded-full
-           bg-gradient-to-r from-teal-400 to-cyan-400 px-7 py-3.5 text-sm font-semibold
-           text-ink-900 transition-all duration-300 hover:shadow-[0_0_40px_-8px_rgba(45,212,191,0.7)]
-           hover:brightness-110 active:scale-[0.98];
+           bg-white px-7 py-3.5 text-sm font-semibold text-ink-900 shadow-[0_1px_0_rgba(255,255,255,0.4)_inset,0_8px_24px_-8px_rgba(255,255,255,0.25)]
+           transition-all duration-300 hover:bg-white/90 hover:shadow-[0_1px_0_rgba(255,255,255,0.4)_inset,0_12px_32px_-8px_rgba(45,212,191,0.35)]
+           active:scale-[0.98];
   }
 
   .btn-ghost {

@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal from '../ui/Reveal'
+import ParallaxCard from '../ui/ParallaxCard'
 import { cta } from '../../data/content'
+import { Check, ArrowRight } from '../ui/Icons'
 
 const fields = [
   { name: 'name', label: 'Full name', type: 'text', placeholder: 'Jane Doe' },
@@ -29,7 +31,10 @@ export default function Contact() {
       <div className="pointer-events-none absolute left-1/2 top-0 h-[30rem] w-[50rem] -translate-x-1/2 rounded-full bg-teal-500/10 blur-[120px]" />
 
       <div className="container-page relative">
-        <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl">
+        <ParallaxCard
+          depth={20}
+          className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl"
+        >
           <div className="grid lg:grid-cols-2">
             {/* Copy side */}
             <div className="relative border-b border-white/10 p-8 md:p-12 lg:border-b-0 lg:border-r">
@@ -49,8 +54,8 @@ export default function Contact() {
                   {['30-minute guided walkthrough', 'Tailored to your team’s modules', 'No commitment required'].map(
                     (t) => (
                       <div key={t} className="flex items-center gap-3">
-                        <span className="grid h-5 w-5 place-items-center rounded-full bg-teal-400/20 text-[11px] text-teal-300">
-                          ✓
+                        <span className="grid h-5 w-5 place-items-center rounded-full bg-teal-400/20 text-teal-300">
+                          <Check size={10} />
                         </span>
                         {t}
                       </div>
@@ -70,8 +75,8 @@ export default function Contact() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="flex h-full flex-col items-center justify-center py-10 text-center"
                   >
-                    <div className="grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-teal-400 to-cyan-400 text-2xl text-ink-900">
-                      ✓
+                    <div className="grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-teal-400 to-cyan-400 text-ink-900">
+                      <Check size={26} />
                     </div>
                     <h3 className="heading-serif mt-6 text-2xl">You're on the list.</h3>
                     <p className="mt-2 max-w-xs text-sm text-white/55">
@@ -140,7 +145,7 @@ export default function Contact() {
 
                     <button type="submit" className="btn-primary w-full">
                       Book a demo
-                      <span aria-hidden>→</span>
+                      <ArrowRight size={15} />
                     </button>
                     <p className="text-center text-xs text-white/30">
                       We'll never share your details. Demo requests only.
@@ -150,7 +155,7 @@ export default function Contact() {
               </AnimatePresence>
             </div>
           </div>
-        </div>
+        </ParallaxCard>
       </div>
     </section>
   )

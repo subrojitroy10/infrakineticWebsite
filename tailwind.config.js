@@ -24,7 +24,6 @@ export default {
         mint: '#5eead4',
       },
       fontFamily: {
-        serif: ['"Fraunces"', 'Georgia', 'serif'],
         sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       keyframes: {

@@ -1,8 +1,10 @@
 import Section from '../ui/Section'
 import Reveal from '../ui/Reveal'
+import ParallaxCard from '../ui/ParallaxCard'
 import { enterprise } from '../../data/content'
+import { Shield, Key, Cloud, Grid } from '../ui/Icons'
 
-const icons = ['🛡️', '🔑', '☁️', '🧩']
+const icons = [Shield, Key, Cloud, Grid]
 
 export default function Enterprise() {
   return (
@@ -14,18 +16,23 @@ export default function Enterprise() {
 
       <Section id="enterprise" eyebrow={enterprise.eyebrow} title={enterprise.title}>
         <div className="mt-14 grid gap-4 sm:grid-cols-2">
-          {enterprise.cards.map((c, i) => (
-            <Reveal key={c.title} variant="up" delay={i * 0.08}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-8 transition-all hover:border-teal-400/40">
-                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-teal-400/0 blur-2xl transition-all duration-500 group-hover:bg-teal-400/15" />
-                <div className="mb-5 grid h-12 w-12 place-items-center rounded-xl border border-teal-400/20 bg-teal-400/10 text-2xl">
-                  {icons[i]}
-                </div>
-                <h3 className="heading-serif text-xl">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/50">{c.desc}</p>
-              </div>
-            </Reveal>
-          ))}
+          {enterprise.cards.map((c, i) => {
+            const Icon = icons[i]
+            return (
+              <Reveal key={c.title} variant="up" delay={i * 0.08}>
+                <ParallaxCard
+                  depth={15 + i * 2}
+                  className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-8 transition-all hover:border-teal-400/30"
+                >
+                  <div className="mb-5 grid h-11 w-11 place-items-center rounded-xl border border-teal-400/20 bg-teal-400/[0.08] text-teal-300">
+                    <Icon size={19} />
+                  </div>
+                  <h3 className="heading-serif text-xl">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/50">{c.desc}</p>
+                </ParallaxCard>
+              </Reveal>
+            )
+          })}
         </div>
       </Section>
     </section>

@@ -1,6 +1,10 @@
 import { Suspense, lazy } from 'react'
 import Reveal from '../ui/Reveal'
+import ParallaxCard from '../ui/ParallaxCard'
 import { connected } from '../../data/content'
+import { Target, Users, Wallet, ChartBar } from '../ui/Icons'
+
+const nodeIcons = [Target, Users, Wallet, ChartBar]
 
 const DatabaseScene = lazy(() => import('../three/DatabaseScene'))
 
@@ -37,15 +41,23 @@ export default function Connected() {
 
           {/* Node descriptions */}
           <div className="order-1 grid gap-4 sm:grid-cols-2 lg:order-2">
-            {connected.nodes.map((n, i) => (
-              <Reveal key={n.label} variant="up" delay={i * 0.08}>
-                <div className="glass-card h-full p-5 transition-colors hover:border-teal-400/30">
-                  <div className="mb-3 h-8 w-8 rounded-lg bg-gradient-to-br from-teal-400/30 to-cyan-400/10" />
-                  <h3 className="font-semibold text-white">{n.label}</h3>
-                  <p className="mt-1 text-sm text-white/50">{n.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+            {connected.nodes.map((n, i) => {
+              const Icon = nodeIcons[i]
+              return (
+                <Reveal key={n.label} variant="up" delay={i * 0.08}>
+                  <ParallaxCard
+                    depth={14 + i * 2}
+                    className="glass-card h-full p-5 transition-colors hover:border-teal-400/30"
+                  >
+                    <div className="mb-3 grid h-9 w-9 place-items-center rounded-lg border border-teal-400/20 bg-teal-400/[0.08] text-teal-300">
+                      <Icon size={16} />
+                    </div>
+                    <h3 className="font-semibold text-white">{n.label}</h3>
+                    <p className="mt-1 text-sm text-white/50">{n.desc}</p>
+                  </ParallaxCard>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import Section from '../ui/Section'
 import Reveal from '../ui/Reveal'
+import ParallaxCard from '../ui/ParallaxCard'
 import { roadmap } from '../../data/content'
 
 export default function Roadmap() {
@@ -39,7 +40,8 @@ export default function Roadmap() {
                       i % 2 === 0 ? 'md:col-start-1 md:pr-12 md:text-right' : 'md:col-start-2 md:pl-12'
                     }`}
                   >
-                    <div
+                    <ParallaxCard
+                      depth={14 + i * 2}
                       className={`glass-card p-6 transition-colors hover:border-teal-400/30 ${
                         isLast ? 'border-teal-400/30 bg-teal-500/[0.06]' : ''
                       }`}
@@ -48,7 +50,7 @@ export default function Roadmap() {
                         {r.phase}
                       </span>
                       <p className="mt-2 leading-relaxed text-white/70">{r.items}</p>
-                    </div>
+                    </ParallaxCard>
                   </div>
                 </div>
               </Reveal>

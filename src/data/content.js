@@ -6,7 +6,7 @@ export const brand = {
   parent: 'A Polynovea Product',
   tagline: 'Your Business. One Operating System.',
   subtitle:
-    'CRM · HR · Payroll — unified from the start, designed to scale across your entire organization.',
+    'CRM · HR · Payroll | unified from the start, designed to scale across your entire organization.',
 }
 
 export const nav = [
@@ -20,7 +20,7 @@ export const nav = [
 export const problem = {
   eyebrow: 'The real problem',
   title: "Businesses don't have a CRM problem.",
-  lead: 'They have a disconnected software problem. Sales, HR, Payroll, Projects, Finance, and Support each run on separate tools that don’t communicate — creating friction at every level of the business.',
+  lead: 'They have a disconnected software problem. Sales, HR, Payroll, Projects, Finance, and Support each run on separate tools that don’t communicate, creating friction at every level of the business.',
   pains: [
     { title: 'Duplicate Work', desc: 'Teams re-enter data across systems.' },
     { title: 'Inconsistent Data', desc: 'Conflicting records drive bad decisions.' },
@@ -32,7 +32,7 @@ export const problem = {
 export const meet = {
   eyebrow: 'Meet Noviq',
   title: 'One platform that grows with you.',
-  lead: 'Noviq is a modular business operating platform — start with what you need today and expand as you grow. Every module shares one unified database, so data flows seamlessly across your entire organization.',
+  lead: 'Noviq is a modular business operating platform. Start with what you need today and expand as you grow. Every module shares one unified database, so data flows seamlessly across your entire organization.',
   startHere: ['CRM', 'HR', 'Payroll'],
   expand: ['Operations', 'Finance', 'Projects', 'Support', 'Marketing', 'AI & Analytics'],
 }
@@ -40,7 +40,7 @@ export const meet = {
 export const connected = {
   eyebrow: 'Everything connected',
   title: 'One shared business database.',
-  lead: 'Noviq replaces your fragmented tool stack with a single, shared business database. Every module — from CRM to Payroll to Finance — reads and writes to the same source of truth, eliminating data silos permanently.',
+  lead: 'Noviq replaces your fragmented tool stack with a single, shared business database. Every module, from CRM to Payroll to Finance, reads and writes to the same source of truth, eliminating data silos permanently.',
   closer: 'One platform. One database. Complete organizational visibility.',
   nodes: [
     { label: 'CRM', desc: 'Unified customer records' },
@@ -56,7 +56,7 @@ export const modules = [
     name: 'CRM',
     tag: 'Commercial Engine',
     summary:
-      'A complete view of every customer relationship — from first lead to closed contract and beyond.',
+      'A complete view of every customer relationship, from first lead to closed contract and beyond.',
     features: [
       {
         title: 'Lead & Opportunity Management',
@@ -81,7 +81,7 @@ export const modules = [
     name: 'HR & Payroll',
     tag: 'People Engine',
     summary:
-      'Manage your people and pay them accurately — all within the same platform where your customer data lives.',
+      'Manage your people and pay them accurately, all within the same platform where your customer data lives.',
     features: [
       {
         title: 'People Management',
@@ -112,7 +112,7 @@ export const scaleLayers = [
 
 export const enterprise = {
   eyebrow: 'Enterprise ready',
-  title: 'Built for security, control, and scale — from day one.',
+  title: 'Built for security, control, and scale, from day one.',
   cards: [
     {
       title: 'Security & Isolation',
@@ -154,7 +154,7 @@ export const why = {
     'One shared database',
   ],
   bottomLine:
-    'Noviq eliminates the cost, complexity, and risk of managing disconnected business software — so your team can focus on growth, not integration.',
+    'Noviq eliminates the cost, complexity, and risk of managing disconnected business software, so your team can focus on growth, not integration.',
 }
 
 export const roadmap = [
@@ -163,12 +163,12 @@ export const roadmap = [
   { phase: 'Phase 3', items: 'Marketing, Support, Research, Analytics' },
   {
     phase: 'Phase 4',
-    items: 'AI Business Operating System — Natural language search, AI Copilot, Workflow automation, Decision intelligence',
+    items: 'AI Business Operating System, Natural language search, AI Copilot, Workflow automation, Decision intelligence',
   },
 ]
 
 export const cta = {
   eyebrow: 'Get started',
   title: 'Run your entire business on one operating system.',
-  lead: 'See how Noviq unifies CRM, HR, and Payroll today — and scales to everything else tomorrow.',
+  lead: 'See how Noviq unifies CRM, HR, and Payroll today, and scales to everything else tomorrow.',
 }

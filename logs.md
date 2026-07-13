@@ -40,3 +40,26 @@ This file records significant project changes in chronological order. Times use 
 - Added `.vercelignore` rules for repository metadata, agent metadata, dependencies, generated output, logs, and environment files.
 - Recreated project documentation with this README and timestamped development log.
 
+## Log 2 — Professional product redesign
+
+**Timestamp:** 2026-07-13 22:41:00 IST
+
+### Product mockups
+
+- Added a realistic dashboard graphic to the hero (sidebar navigation, KPI cards, revenue chart, deals table, floating payroll/lead notifications) rendered in HTML/CSS with 3D perspective tilt.
+- Added product-UI mocks to the Modules section: a CRM pipeline kanban board and an HR payroll-run table, shown beside each module's feature list.
+
+### Design system
+
+- Introduced an inline SVG icon library (`src/components/ui/Icons.jsx`) and replaced all emoji and text-glyph icons across every section.
+- Switched all headings from the Fraunces serif to tight-tracked Inter; removed the Fraunces font load entirely.
+- Changed the primary call-to-action style from a teal gradient pill to a crisp white button; teal remains the accent color.
+- Restyled the section eyebrow from a bordered pill to a minimal rule-plus-label treatment.
+
+### Section refinements
+
+- Hero: two-column layout (copy plus product window), subdued the Three.js backdrop, removed the scroll-hint mouse, and added a metrics strip (1 unified database, 9+ modules, 4 expansion layers, 0 integrations needed).
+- Problem: replaced rotated emoji pills with a fragmented-stack diagram of tool chips separated by broken dashed connectors.
+- Meet Noviq, Connected, Enterprise, Why Noviq, Contact: replaced placeholder glyphs and gradient squares with the SVG icon system.
+- Scale and brand marks: aligned numerals and the logo "N" with the new sans-serif treatment.
+

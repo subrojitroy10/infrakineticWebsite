@@ -21,7 +21,7 @@ export default function Navbar() {
     >
       <nav className="container-page flex h-16 items-center justify-between md:h-20">
         <a href="#top" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-teal-400 to-cyan-400 font-serif text-lg font-bold text-ink-900">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-teal-400 to-cyan-400 text-lg font-bold tracking-tight text-ink-900">
             N
           </span>
           <span className="text-lg font-semibold tracking-tight text-white">{brand.name}</span>
