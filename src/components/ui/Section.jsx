@@ -1,4 +1,4 @@
-import Reveal from './Reveal'
+﻿import Reveal from './Reveal'
 
 /**
  * Standard section shell: id anchor, vertical rhythm, optional eyebrow + title header.

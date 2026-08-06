@@ -1,4 +1,4 @@
-# Noviq Development Log
+# Infrakinetic Development Log
 
 This file records significant project changes in chronological order. Times use India Standard Time (IST, UTC+05:30).
 
@@ -62,4 +62,13 @@ This file records significant project changes in chronological order. Times use 
 - Problem: replaced rotated emoji pills with a fragmented-stack diagram of tool chips separated by broken dashed connectors.
 - Meet Noviq, Connected, Enterprise, Why Noviq, Contact: replaced placeholder glyphs and gradient squares with the SVG icon system.
 - Scale and brand marks: aligned numerals and the logo "N" with the new sans-serif treatment.
+
+## Log 3 — Rebrand: Noviq → Infrakinetic
+
+**Timestamp:** 2026-07-28 22:00:00 IST
+
+- Renamed the product across the entire codebase from "Noviq" to "Infrakinetic": `brand.name` in `src/data/content.js`, page `<title>`/meta description/OG tags in `index.html`, npm package name in `package.json`, the logo monogram ("N" → "I") in `Navbar.jsx`, `Footer.jsx`, and `DashboardMock.jsx`, the footer email (`hello@infrakinetic.io`), the dashboard mock's app URL (`app.infrakinetic.io`), and all in-copy mentions across `Roadmap.jsx`, `Scale.jsx`, `Contact.jsx`, `ModuleMocks.jsx`.
+- Renamed `WhyNoviq.jsx` → `WhyInfrakinetic.jsx` and `MeetNoviq.jsx` → `MeetInfrakinetic.jsx` (component names and imports in `App.jsx` updated to match).
+- Renamed the `why.noviq` content key to `why.infrakinetic`.
+- This is the Workplace domain's product under Polynovea's HBIF — the same architectural role the Acquisition System plays for Hospitality.
 

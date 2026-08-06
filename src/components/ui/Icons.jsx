@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Inline SVG icon set (lucide-style, stroke-based).
  * Replaces emoji/text glyphs so the site reads as a real product, not a template.
  */
@@ -80,6 +80,17 @@ export const Grid = make(
   </>,
 )
 
+export const GitBranch = make(
+  <>
+    <path d="M6 3v12" />
+    <path d="M18 3v12" />
+    <path d="M6 9h12" />
+    <circle cx="18" cy="9" r="3" />
+    <circle cx="6" cy="9" r="3" />
+    <circle cx="12" cy="9" r="3" />
+  </>,
+)
+
 export const ChartBar = make(
   <>
     <path d="M3 3v16a2 2 0 0 0 2 2h16" />
@@ -133,6 +144,14 @@ export const AlertTriangle = make(
     <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
     <path d="M12 9v4" />
     <path d="M12 17h.01" />
+  </>,
+)
+
+export const AlertCircle = make(
+  <>
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 8v4" />
+    <path d="M12 16h.01" />
   </>,
 )
 
@@ -197,6 +216,82 @@ export const Building = make(
 
 export const Zap = make(<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />)
 
+export const HeartPulse = make(
+  <>
+    <path d="M21 12.79A9 9 0 1 1 9.5 4.5" />
+    <path d="M15 12a3 3 0 1 1 0 6H9" />
+    <path d="M9 19h6" />
+    <path d="M12 17v4" />
+  </>,
+)
+
+export const RefreshCw = make(
+  <>
+    <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+    <path d="M3 3v5h5" />
+    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1 6.74-2.74L21 16" />
+    <path d="M21 16v5h-5" />
+  </>,
+)
+
+export const Ticket = make(
+  <>
+    <path d="M15 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+    <path d="M10 10h4" />
+    <path d="M10 14h4" />
+  </>,
+)
+
+export const BrainCircuit = make(
+  <>
+    <path d="M12 5v5" />
+    <path d="M9 8h6" />
+    <rect x="3" y="11" width="18" height="11" rx="2" />
+    <path d="M7 16h4" />
+    <path d="M13 16h4" />
+    <path d="M9 11v5" />
+    <path d="M15 11v5" />
+  </>,
+)
+
+export const Gauge = make(
+  <>
+    <path d="M12 22c7.5 0 12-4.5 12-10S19.5 2 12 2 0 6.5 0 14s4.5 10 12 10z" />
+    <path d="M12 18v-6l4 4" />
+  </>,
+)
+
+export const BarChart2 = make(
+  <>
+    <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+    <path d="M7 16v-9" />
+    <path d="M12 16v-4" />
+    <path d="M17 16v-6" />
+  </>,
+)
+
+export const Network = make(
+  <>
+    <rect x="3" y="3" width="7" height="7" rx="1.5" />
+    <rect x="14" y="3" width="7" height="7" rx="1.5" />
+    <rect x="3" y="14" width="7" height="7" rx="1.5" />
+    <rect x="14" y="14" width="7" height="7" rx="1.5" />
+    <path d="M6.5 10.5 10.5 6.5" />
+    <path d="M17.5 10.5 13.5 6.5" />
+    <path d="M6.5 17.5 10.5 13.5" />
+    <path d="M17.5 17.5 13.5 13.5" />
+  </>,
+)
+
+export const Server = make(
+  <>
+    <rect x="2" y="2" width="20" height="8" rx="2" />
+    <rect x="2" y="14" width="20" height="8" rx="2" />
+    <path d="M6 6h.01M10 6h.01M14 6h.01M18 6h.01" />
+    <path d="M6 18h.01M10 18h.01M14 18h.01M18 18h.01" />
+  </>,
+)
+
 export const Unlink = make(
   <>
     <path d="m18.84 12.25 1.72-1.71a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
@@ -219,9 +314,50 @@ export const Search = make(
   </>,
 )
 
+export const ChevronUp = make(<path d="m18 15-6-6-6 6" />)
+
+export const ChevronDown = make(<path d="m6 9 6 6 6-6" />)
+
+export const ChevronLeft = make(<path d="m15 18-6-6 6-6" />)
+
+export const ChevronRight = make(<path d="m9 18 6-6-6-6" />)
+
 export const Home = make(
   <>
     <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
     <path d="M9 22V12h6v10" />
+  </>,
+)
+
+export const Lock = make(
+  <>
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+  </>,
+)
+
+export const BadgeCheck = make(
+  <>
+    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1 0-6.76Z" />
+    <path d="M9 12l2 2 4-4" />
+  </>,
+)
+
+export const Sun = make(
+  <>
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+  </>,
+)
+
+export const Moon = make(
+  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />,
+)
+
+export const FileCheck = make(
+  <>
+    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+    <path d="M9 12l2 2 4-4" />
   </>,
 )

@@ -2,61 +2,46 @@ import Section from '../ui/Section'
 import Reveal from '../ui/Reveal'
 import ParallaxCard from '../ui/ParallaxCard'
 import { roadmap } from '../../data/content'
+import { Check } from '../ui/Icons'
 
 export default function Roadmap() {
   return (
     <Section
       id="roadmap"
-      eyebrow="Product roadmap"
-      title="Where Noviq is headed."
-      lead="How Noviq plans to evolve, expanding its capabilities to meet your growing business needs."
+      eyebrow="Future roadmap"
+      title="A wider operating layer, grouped by the work it improves."
+      lead="The roadmap extends the same governed foundation into workforce intelligence, communication, automation, finance control, compliance, and document execution."
     >
-      <div className="relative mt-16">
-        {/* Vertical timeline spine */}
-        <div className="absolute left-[19px] top-2 h-full w-px bg-gradient-to-b from-teal-400/60 via-teal-400/25 to-transparent md:left-1/2" />
-
-        <div className="space-y-10">
-          {roadmap.map((r, i) => {
-            const isLast = i === roadmap.length - 1
-            return (
-              <Reveal key={r.phase} variant="up" delay={i * 0.08}>
-                <div className="relative flex items-start gap-6 md:grid md:grid-cols-2 md:gap-12">
-                  {/* Node */}
-                  <div className="absolute left-0 top-1 z-10 md:left-1/2 md:-translate-x-1/2">
-                    <div
-                      className={`grid h-10 w-10 place-items-center rounded-full border text-sm font-bold ${
-                        isLast
-                          ? 'border-teal-400 bg-gradient-to-br from-teal-400 to-cyan-400 text-ink-900'
-                          : 'border-teal-400/40 bg-ink-800 text-teal-300'
-                      }`}
-                    >
-                      {i + 1}
-                    </div>
-                  </div>
-
-                  {/* Card (offset to one side on desktop) */}
-                  <div
-                    className={`ml-16 md:ml-0 ${
-                      i % 2 === 0 ? 'md:col-start-1 md:pr-12 md:text-right' : 'md:col-start-2 md:pl-12'
-                    }`}
-                  >
-                    <ParallaxCard
-                      depth={14 + i * 2}
-                      className={`glass-card p-6 transition-colors hover:border-teal-400/30 ${
-                        isLast ? 'border-teal-400/30 bg-teal-500/[0.06]' : ''
-                      }`}
-                    >
-                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-300">
-                        {r.phase}
-                      </span>
-                      <p className="mt-2 leading-relaxed text-white/70">{r.items}</p>
-                    </ParallaxCard>
-                  </div>
+      <div className="mt-14 grid gap-5 lg:grid-cols-2">
+        {roadmap.map((group, i) => (
+          <Reveal key={group.phase} variant="up" delay={i * 0.08}>
+            <ParallaxCard
+              depth={15 + i * 3}
+              className="glass-card h-full overflow-hidden p-6 transition-colors hover:border-gold-400/30 md:p-8"
+            >
+              <div className="flex items-start gap-4">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-gold-400/30 bg-gold-400/[0.08] text-sm font-bold text-gold-300">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="heading-serif text-2xl">{group.phase}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/50">{group.summary}</p>
                 </div>
-              </Reveal>
-            )
-          })}
-        </div>
+              </div>
+
+              <div className="mt-7 space-y-3 border-t border-white/10 pt-5">
+                {group.items.map((item) => (
+                  <div key={item} className="flex gap-3 text-sm leading-relaxed text-white/60">
+                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gold-400/15 text-gold-300">
+                      <Check size={10} />
+                    </span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </ParallaxCard>
+          </Reveal>
+        ))}
       </div>
     </Section>
   )

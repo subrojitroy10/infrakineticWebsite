@@ -1,19 +1,16 @@
-import { Suspense, lazy } from 'react'
+﻿import { Suspense, lazy } from 'react'
 import Reveal from '../ui/Reveal'
 import ParallaxCard from '../ui/ParallaxCard'
 import { connected } from '../../data/content'
-import { Target, Users, Wallet, ChartBar } from '../ui/Icons'
+import { Database, Sliders, Shield, ChartBar } from '../ui/Icons'
 
-const nodeIcons = [Target, Users, Wallet, ChartBar]
+const nodeIcons = [Database, Sliders, Shield, ChartBar]
 
 const DatabaseScene = lazy(() => import('../three/DatabaseScene'))
 
 export default function Connected() {
   return (
     <section id="connected" className="relative overflow-hidden py-24 md:py-32">
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-500/10 blur-[120px]" />
-
       <div className="container-page relative">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal variant="fade">
@@ -47,9 +44,9 @@ export default function Connected() {
                 <Reveal key={n.label} variant="up" delay={i * 0.08}>
                   <ParallaxCard
                     depth={14 + i * 2}
-                    className="glass-card h-full p-5 transition-colors hover:border-teal-400/30"
+                    className="glass-card h-full p-5 transition-colors hover:border-gold-400/30"
                   >
-                    <div className="mb-3 grid h-9 w-9 place-items-center rounded-lg border border-teal-400/20 bg-teal-400/[0.08] text-teal-300">
+                    <div className="mb-3 grid h-9 w-9 place-items-center rounded-lg border border-gold-400/20 bg-gold-400/[0.08] text-gold-300">
                       <Icon size={16} />
                     </div>
                     <h3 className="font-semibold text-white">{n.label}</h3>
@@ -72,7 +69,7 @@ export default function Connected() {
 function SceneFallback() {
   return (
     <div className="grid h-full w-full place-items-center">
-      <div className="h-24 w-24 animate-pulse-glow rounded-full bg-teal-400/30 blur-xl" />
+      <div className="h-24 w-24 animate-pulse-glow rounded-full bg-gold-400/30 blur-xl" />
     </div>
   )
 }

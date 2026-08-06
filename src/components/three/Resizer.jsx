@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 import { useThree } from '@react-three/fiber'
 
 /**
  * Deterministic canvas sizing + off-screen render pausing.
  *
  * R3F's built-in sizing relies on ResizeObserver (via react-use-measure), which
- * silently no-ops in some embedded/headless browsers — leaving the canvas stuck at
+ * silently no-ops in some embedded/headless browsers â€” leaving the canvas stuck at
  * the 300x150 HTML default. This measures the container directly and drives both
  * R3F's size state and the renderer/camera, with a short rAF poll so it works even
  * where ResizeObserver never fires. It also pauses the render loop when the canvas
@@ -53,7 +53,7 @@ export default function Resizer() {
 
     window.addEventListener('resize', fit)
 
-    // These are progressive enhancements — harmless where they don't fire.
+    // These are progressive enhancements â€” harmless where they don't fire.
     let ro, io
     try {
       ro = new ResizeObserver(fit)

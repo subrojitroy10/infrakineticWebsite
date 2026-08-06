@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef } from 'react'
+﻿import { Suspense, useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
   Float,
@@ -10,11 +10,11 @@ import {
 import * as THREE from 'three'
 import Resizer from './Resizer'
 
-const NODE_COLOR = '#2dd4bf'
-const CORE_COLOR = '#0d9488'
+const NODE_COLOR = '#E6D3A3'
+const CORE_COLOR = '#9A8F6A'
 
 /* A ring of glowing "module" nodes orbiting the core. */
-function OrbitingNodes({ count = 6, radius = 3.1, speed = 0.18 }) {
+function OrbitingNodes({ count = 8, radius = 3.45, speed = 0.28 }) {
   const group = useRef()
   const nodes = useMemo(
     () =>
@@ -46,7 +46,7 @@ function OrbitingNodes({ count = 6, radius = 3.1, speed = 0.18 }) {
               <meshStandardMaterial
                 color={NODE_COLOR}
                 emissive={NODE_COLOR}
-                emissiveIntensity={1.6}
+                emissiveIntensity={2.4}
                 roughness={0.25}
                 metalness={0.4}
               />
@@ -72,14 +72,14 @@ function OrbitRings() {
       {[3.1, 3.9, 4.7].map((r, i) => (
         <mesh key={i} rotation={[Math.PI / 2 + i * 0.35, i * 0.4, 0]}>
           <torusGeometry args={[r, 0.006, 16, 120]} />
-          <meshBasicMaterial color="#22d3ee" transparent opacity={0.25 - i * 0.05} />
+          <meshBasicMaterial color="#7C3AED" transparent opacity={0.42 - i * 0.07} />
         </mesh>
       ))}
     </group>
   )
 }
 
-/* The glowing distorted central core — the "operating system". */
+/* The glowing distorted central core â€” the "operating system". */
 function Core() {
   const ref = useRef()
   useFrame((state) => {
@@ -95,7 +95,7 @@ function Core() {
         <MeshDistortMaterial
           color={CORE_COLOR}
           emissive={CORE_COLOR}
-          emissiveIntensity={0.55}
+          emissiveIntensity={0.9}
           roughness={0.15}
           metalness={0.6}
           distort={0.35}
@@ -104,7 +104,7 @@ function Core() {
       </Icosahedron>
       {/* Wireframe shell */}
       <Icosahedron args={[1.95, 2]}>
-        <meshBasicMaterial color="#5eead4" wireframe transparent opacity={0.18} />
+        <meshBasicMaterial color="#E6D3A3" wireframe transparent opacity={0.3} />
       </Icosahedron>
     </group>
   )
@@ -133,16 +133,16 @@ export default function HeroScene() {
     >
       <Suspense fallback={null}>
         <Resizer />
-        <ambientLight intensity={0.35} />
-        <pointLight position={[6, 6, 6]} intensity={2.2} color="#5eead4" />
-        <pointLight position={[-6, -4, 2]} intensity={1.4} color="#22d3ee" />
-        <Stars radius={60} depth={40} count={2200} factor={3} saturation={0} fade speed={0.6} />
+        <ambientLight intensity={0.5} />
+        <pointLight position={[6, 6, 6]} intensity={3.3} color="#E6D3A3" />
+        <pointLight position={[-6, -4, 2]} intensity={2.4} color="#7C3AED" />
+        <Stars radius={60} depth={40} count={3200} factor={3.6} saturation={0} fade speed={0.9} />
         <Rig>
           <Core />
           <OrbitRings />
           <OrbitingNodes />
         </Rig>
-        <Sparkles count={60} scale={11} size={2.4} speed={0.35} color="#67e8f9" opacity={0.7} />
+        <Sparkles count={90} scale={12} size={3.2} speed={0.55} color="#E6D3A3" opacity={0.95} />
       </Suspense>
     </Canvas>
   )

@@ -1,11 +1,8 @@
-import { Suspense, lazy } from 'react'
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { brand } from '../../data/content'
 import DashboardMock from '../mock/DashboardMock'
 import { ArrowRight } from '../ui/Icons'
-
-// Lazy-load the WebGL scene so first paint isn't blocked by Three.js.
-const HeroScene = lazy(() => import('../three/HeroScene'))
+import { TrendingUp, Users, Wallet, Target } from '../ui/Icons'
 
 const fade = {
   hidden: { opacity: 0, y: 24 },
@@ -16,30 +13,24 @@ const fade = {
   }),
 }
 
-const stats = [
-  { value: '1', label: 'Unified database' },
-  { value: '9+', label: 'Business modules' },
-  { value: '4', label: 'Expansion layers' },
-  { value: '0', label: 'Integrations needed' },
+const heroStats = [
+  { label: 'Business data layer', value: '1', icon: Target },
+  { label: 'Operating engines', value: '11+', icon: Users },
+  { label: 'Platform infra engines', value: '5', icon: Wallet },
+  { label: 'Context resets', value: '0', icon: TrendingUp },
 ]
 
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      {/* 3D backdrop — deliberately subdued so the product window leads */}
-      <div className="absolute inset-0 z-0 opacity-40">
-        <Suspense fallback={null}>
-          <HeroScene />
-        </Suspense>
-      </div>
-
-      {/* Readability gradients over the canvas */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-ink-900/60 via-ink-900/10 to-ink-900" />
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-ink-900/70 via-transparent to-ink-900/40" />
+      {/* Ambient backdrop — quiet radial glow, no motion competing with the product window */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-ink-900" />
+      <div className="pointer-events-none absolute -top-1/3 right-0 z-0 h-[60rem] w-[60rem] rounded-full bg-gold-500/[0.07] blur-[140px]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-ink-900/20 via-transparent to-ink-900" />
 
       <div className="container-page relative z-20 pb-16 pt-32 md:pt-40 lg:pb-24">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
-          {/* ── Copy ─────────────────────────────────── */}
+        <div className="grid items-start gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
+          {/* ————— Copy ————— */}
           <div>
             <motion.div variants={fade} initial="hidden" animate="show" custom={0}>
               <span className="eyebrow">{brand.parent}</span>
@@ -50,11 +41,11 @@ export default function Hero() {
               initial="hidden"
               animate="show"
               custom={1}
-              className="mt-6 font-sans text-5xl font-semibold leading-[1.04] tracking-[-0.045em] text-white sm:text-6xl lg:text-[4.4rem]"
+              className="mt-6 font-display text-5xl font-semibold leading-[1.04] tracking-[-0.045em] text-white sm:text-6xl lg:text-[4.4rem]"
             >
-              Your business.
+              Run the company.
               <br />
-              <span className="text-gradient">One operating system.</span>
+              <span className="text-gradient">Not the software stack.</span>
             </motion.h1>
 
             <motion.p
@@ -75,38 +66,47 @@ export default function Hero() {
               className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
               <a href="#contact" className="btn-primary">
-                Book a demo
+                Request a briefing
                 <ArrowRight size={15} />
               </a>
-              <a href="#platform" className="btn-ghost">
-                Explore the platform
-              </a>
+            </motion.div>
+
+            {/* Compact stat strip — purpose-built for this narrow 4-across row */}
+            <motion.div
+              variants={fade}
+              initial="hidden"
+              animate="show"
+              custom={4}
+              className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4"
+            >
+              {heroStats.map(({ label, value, icon: Icon }) => (
+                <div
+                  key={label}
+                  className="rounded-xl border border-white/10 bg-white/[0.02] p-3.5"
+                >
+                  <Icon size={16} className="text-gold-300/70" />
+                  <p className="mt-2.5 text-xl font-semibold tracking-tight text-white">{value}</p>
+                  <p className="mt-1 text-[11px] font-medium uppercase leading-snug tracking-wide text-white/40">
+                    {label}
+                  </p>
+                </div>
+              ))}
             </motion.div>
           </div>
 
-          {/* ── Product window ───────────────────────── */}
-          <div className="relative">
-            <DashboardMock />
-          </div>
-        </div>
+          {/* ————— Product window ————— */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {/* Ambient glow behind the window */}
+            <div className="absolute -inset-8 rounded-[2rem] bg-gold-500/10 blur-3xl" aria-hidden />
 
-        {/* ── Stat strip ───────────────────────────────── */}
-        <motion.div
-          variants={fade}
-          initial="hidden"
-          animate="show"
-          custom={5}
-          className="mt-20 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-white/10 pt-8 sm:grid-cols-4 lg:mt-24"
-        >
-          {stats.map((s) => (
-            <div key={s.label}>
-              <p className="font-sans text-3xl font-semibold tracking-tight text-white">
-                {s.value}
-              </p>
-              <p className="mt-1 text-sm text-white/45">{s.label}</p>
-            </div>
-          ))}
-        </motion.div>
+            <DashboardMock />
+          </motion.div>
+        </div>
       </div>
     </section>
   )

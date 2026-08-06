@@ -1,11 +1,26 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 
 const variants = {
-  up: { hidden: { opacity: 0, y: 32 }, show: { opacity: 1, y: 0 } },
-  fade: { hidden: { opacity: 0 }, show: { opacity: 1 } },
-  left: { hidden: { opacity: 0, x: -40 }, show: { opacity: 1, x: 0 } },
-  right: { hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0 } },
-  scale: { hidden: { opacity: 0, scale: 0.94 }, show: { opacity: 1, scale: 1 } },
+  up: {
+    hidden: { opacity: 0, y: 72, filter: 'blur(10px)' },
+    show: { opacity: 1, y: 0, filter: 'blur(0px)' },
+  },
+  fade: {
+    hidden: { opacity: 0, filter: 'blur(8px)' },
+    show: { opacity: 1, filter: 'blur(0px)' },
+  },
+  left: {
+    hidden: { opacity: 0, x: -72, rotateY: -8, filter: 'blur(10px)' },
+    show: { opacity: 1, x: 0, rotateY: 0, filter: 'blur(0px)' },
+  },
+  right: {
+    hidden: { opacity: 0, x: 72, rotateY: 8, filter: 'blur(10px)' },
+    show: { opacity: 1, x: 0, rotateY: 0, filter: 'blur(0px)' },
+  },
+  scale: {
+    hidden: { opacity: 0, scale: 0.9, filter: 'blur(12px)' },
+    show: { opacity: 1, scale: 1, filter: 'blur(0px)' },
+  },
 }
 
 /**
@@ -15,7 +30,7 @@ export default function Reveal({
   children,
   variant = 'up',
   delay = 0,
-  duration = 0.7,
+  duration = 0.9,
   className = '',
   as = 'div',
   amount = 0.25,
@@ -26,7 +41,7 @@ export default function Reveal({
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount }}
+      viewport={{ once: false, amount }}
       transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
       variants={variants[variant]}
     >

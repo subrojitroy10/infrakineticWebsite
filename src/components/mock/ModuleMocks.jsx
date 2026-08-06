@@ -1,7 +1,7 @@
-import { Check, Clock } from '../ui/Icons'
+﻿import { Check, Clock } from '../ui/Icons'
 
 /**
- * Compact product-UI mocks shown inside the Modules section —
+ * Compact product-UI mocks shown inside the Modules section â€”
  * a CRM pipeline board and an HR/payroll run table.
  */
 
@@ -21,7 +21,7 @@ function Window({ title, children }) {
   )
 }
 
-/* ── CRM: pipeline kanban ─────────────────────────────── */
+/* â”€â”€ CRM: pipeline kanban â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 const columns = [
   {
@@ -52,7 +52,7 @@ const columns = [
 
 export function PipelineMock() {
   return (
-    <Window title="Noviq CRM — Pipeline">
+    <Window title="Infrakinetic CRM â€” Pipeline">
       <div className="grid grid-cols-3 gap-2.5">
         {columns.map((col) => (
           <div key={col.stage} className="min-w-0">
@@ -68,11 +68,11 @@ export function PipelineMock() {
               {col.cards.map((c) => (
                 <div key={c.name} className="rounded-lg border border-white/[0.07] bg-white/[0.03] p-2.5">
                   <p className="truncate text-[11px] font-medium text-white/85">{c.name}</p>
-                  <p className="mt-0.5 text-[10px] font-semibold tabular-nums text-teal-300">{c.value}</p>
+                  <p className="mt-0.5 text-[10px] font-semibold tabular-nums text-gold-300">{c.value}</p>
                   <div className="mt-2 flex items-center gap-2">
                     <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/[0.08]">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"
+                        className="h-full rounded-full bg-gradient-to-r from-gold-400 to-violet-400"
                         style={{ width: `${c.pct}%` }}
                       />
                     </div>
@@ -90,7 +90,7 @@ export function PipelineMock() {
   )
 }
 
-/* ── HR: payroll run table ────────────────────────────── */
+/* â”€â”€ HR: payroll run table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 const people = [
   { name: 'Ananya Rao', role: 'Sales Lead', status: 'Paid', amount: '$4,850' },
@@ -101,13 +101,13 @@ const people = [
 
 export function PayrollMock() {
   return (
-    <Window title="Noviq HR — Payroll run · July">
-      <div className="mb-3 flex items-center justify-between rounded-lg border border-teal-400/20 bg-teal-400/[0.06] px-3 py-2.5">
+    <Window title="Infrakinetic HR â€” Payroll run Â· July">
+      <div className="mb-3 flex items-center justify-between rounded-lg border border-gold-400/20 bg-gold-400/[0.06] px-3 py-2.5">
         <div>
           <p className="text-[11px] font-semibold text-white">July payroll</p>
-          <p className="text-[9px] text-white/40">62 employees · runs in 2 days</p>
+          <p className="text-[9px] text-white/40">62 employees Â· runs in 2 days</p>
         </div>
-        <span className="rounded-md bg-teal-400/90 px-2.5 py-1 text-[10px] font-semibold text-ink-900">
+        <span className="rounded-md bg-gold-400/90 px-2.5 py-1 text-[10px] font-semibold text-ink-900">
           Approve run
         </span>
       </div>
@@ -135,7 +135,7 @@ export function PayrollMock() {
             </div>
             <span
               className={`flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-medium ${
-                p.status === 'Paid' ? 'bg-teal-400/15 text-teal-300' : 'bg-amber-400/15 text-amber-300'
+                p.status === 'Paid' ? 'bg-gold-400/15 text-gold-300' : 'bg-violet-400/15 text-violet-300'
               }`}
             >
               {p.status === 'Paid' ? <Check size={9} /> : <Clock size={9} />}

@@ -1,174 +1,328 @@
-// All landing-page copy, sourced directly from the Noviq pitch deck.
-// Centralized here so content edits never touch component logic.
+﻿// Homepage copy for Infrakinetic.
+// The narrative is intentionally problem-led: enterprise friction first,
+// shared operating infrastructure second, product capabilities as evidence.
 
 export const brand = {
-  name: 'Noviq',
+  name: 'Infrakinetic',
   parent: 'A Polynovea Product',
-  tagline: 'Your Business. One Operating System.',
+  tagline: 'Run the company, not the software stack.',
   subtitle:
-    'CRM · HR · Payroll | unified from the start, designed to scale across your entire organization.',
+    'Infrakinetic connects commercial, workforce, finance, operations, documents, workflow, and reporting on one governed business data layer.',
 }
 
 export const nav = [
-  { label: 'Platform', href: '#platform' },
-  { label: 'Modules', href: '#modules' },
-  { label: 'Scale', href: '#scale' },
-  { label: 'Why Noviq', href: '#why' },
-  { label: 'Roadmap', href: '#roadmap' },
+  { label: 'Reality', href: '#problem' },
+  { label: 'Foundation', href: '#platform' },
+  { label: 'Journeys', href: '#modules' },
+  { label: 'Intelligence', href: '#intelligence' },
+  { label: 'Enterprise', href: '#enterprise' },
 ]
 
 export const problem = {
-  eyebrow: 'The real problem',
-  title: "Businesses don't have a CRM problem.",
-  lead: 'They have a disconnected software problem. Sales, HR, Payroll, Projects, Finance, and Support each run on separate tools that don’t communicate, creating friction at every level of the business.',
+  eyebrow: 'The operating reality',
+  title: 'Companies don\'t lack software. The work between systems still breaks.',
+  lead:
+    'Your CRM, HRIS, and finance tools each work fine in isolation. But the handoffs between them — lead to contract, hire to payroll, project to invoice — run on spreadsheets, Slack, and hope. This is the status quo.',
   pains: [
-    { title: 'Duplicate Work', desc: 'Teams re-enter data across systems.' },
-    { title: 'Inconsistent Data', desc: 'Conflicting records drive bad decisions.' },
-    { title: 'Manual Reporting', desc: 'Hours lost compiling spreadsheets.' },
-    { title: 'Slow Decisions', desc: 'Leadership lacks real-time visibility.' },
+    {
+      title: 'Renewals fall through the cracks',
+      desc: 'With disconnected tools, a renewal is just a date on a contract — not an opportunity that re-enters Sales with full context. The loop never closes.',
+    },
+    {
+      title: 'Health scores are guesswork',
+      desc: 'Four different scorers (lead quality, opportunity priority, intelligence confidence, customer health) — all browser-only, never persisted, never versioned. Every weight is asserted, not measured.',
+    },
+    {
+      title: 'Finance is invisible to the rest of the org',
+      desc: 'Invoice status changes, payment receipts, and write-offs emit zero events. Your churn model is blind to the single most objective signal a B2B business has.',
+    },
+    {
+      title: 'Nobody knows why customers leave',
+      desc: 'No loss_reason, churn_reason, or win_reason fields exist. Without labeled outcomes, no model can learn why customers churn — only that they did.',
+    },
+    {
+      title: "Deals don't hand off cleanly",
+      desc: 'Sales closes in the CRM, delivery starts in a different tool with no shared record — lost context, a delayed kickoff, and no trail showing what changed hands or when.',
+    },
+    {
+      title: 'Approvals work differently everywhere',
+      desc: 'Leave goes through one tool, budgets through email, contracts through a shared drive. Six approval processes means six sets of rules — and nobody owns the audit trail.',
+    },
+    {
+      title: 'Org charts live in slide decks',
+      desc: 'Reporting lines and access live in a slide nobody updates. New hires get routed to the wrong approver because the system has no idea who actually reports to whom.',
+    },
+  ],
+}
+
+export const notThis = {
+  eyebrow: 'What Infrakinetic is not',
+  title: "It doesn't fit neatly into a category you already know.",
+  items: [
+    { label: 'A CRM', reason: "Too narrow — it also runs finance, HR, governance, operations, and customer success." },
+    { label: 'An ERP', reason: 'Too rigid — built around event-driven automation, not batch processing.' },
+    { label: 'An HRIS or payroll tool', reason: 'Too siloed — hiring is inseparable from payroll, and payroll posts straight to an immutable ledger.' },
+    { label: 'A workflow tool', reason: 'Too generic — approvals, events, and governance are platform primitives, not bolt-on features.' },
+    { label: 'An integration platform', reason: 'Wrong architecture — one data model and one source of truth, not synced copies drifting apart.' },
   ],
 }
 
 export const meet = {
-  eyebrow: 'Meet Noviq',
-  title: 'One platform that grows with you.',
-  lead: 'Noviq is a modular business operating platform. Start with what you need today and expand as you grow. Every module shares one unified database, so data flows seamlessly across your entire organization.',
-  startHere: ['CRM', 'HR', 'Payroll'],
-  expand: ['Operations', 'Finance', 'Projects', 'Support', 'Marketing', 'AI & Analytics'],
-}
-
-export const connected = {
-  eyebrow: 'Everything connected',
-  title: 'One shared business database.',
-  lead: 'Noviq replaces your fragmented tool stack with a single, shared business database. Every module, from CRM to Payroll to Finance, reads and writes to the same source of truth, eliminating data silos permanently.',
-  closer: 'One platform. One database. Complete organizational visibility.',
-  nodes: [
-    { label: 'CRM', desc: 'Unified customer records' },
-    { label: 'HR', desc: 'Employee data in one place' },
-    { label: 'Payroll', desc: 'Accurate pay and records' },
-    { label: 'Executive Dashboard', desc: 'Real-time company insights' },
+  eyebrow: 'Infrakinetic foundation',
+  title: 'The operational foundation that keeps business work connected.',
+  lead:
+    'Infrakinetic provides shared infrastructure for identity, permissions, workflow, approvals, documents, audit trails, reporting, notifications, and organizational structure. Every operating engine runs on the same foundation.',
+  foundation: [
+    'Shared identity',
+    'Shared permissions',
+    'Shared workflow',
+    'Shared approvals',
+    'Shared documents',
+    'Shared records',
+    'Shared audit trails',
+    'Shared reporting',
+    'Shared notifications',
+  ],
+  engines: [
+    'Commercial',
+    'Sales',
+    'Marketing',
+    'Finance',
+    'HR',
+    'Recruitment',
+    'Workforce',
+    'Payroll',
+    'Documents',
+    'Executive Reporting',
+    'Approvals',
+    'Workflow',
+    'Tickets',
+    'Governance',
   ],
 }
 
-export const modules = [
+export const connected = {
+  eyebrow: 'Operating architecture',
+  title: 'Every engine contributes to one connected operating environment.',
+  lead:
+    'Infrakinetic is not organized around isolated applications. Commercial, workforce, finance, documents, workflow, and reporting share the same business context, controls, events, and visibility model.',
+  closer: 'Continuity across work. Governance across process. Visibility across the organization.',
+  nodes: [
+    { label: 'Business context', desc: 'Customers, people, vendors, agreements, projects, and documents' },
+    { label: 'Workflow', desc: 'Approvals, transitions, events, notifications, and accountability' },
+    { label: 'Control', desc: 'Roles, teams, permissions, audit history, and operational policies' },
+    { label: 'Visibility', desc: 'Executive reporting from connected operational activity' },
+  ],
+}
+
+export const journeys = [
   {
-    key: 'crm',
-    name: 'CRM',
-    tag: 'Commercial Engine',
+    key: 'revenue',
+    name: 'Revenue execution',
+    tag: 'Commercial continuity',
     summary:
-      'A complete view of every customer relationship, from first lead to closed contract and beyond.',
-    features: [
-      {
-        title: 'Lead & Opportunity Management',
-        desc: 'Track leads, qualify opportunities, and manage your full pipeline with precision.',
-      },
-      {
-        title: 'Accounts, Contacts & Timeline',
-        desc: 'Unified customer profiles with full interaction history and relationship context.',
-      },
-      {
-        title: 'Contracts & Engagements',
-        desc: 'Manage agreements and ongoing engagements directly within each customer record.',
-      },
-      {
-        title: 'Pipeline Analytics',
-        desc: 'Real-time visibility into deal flow, conversion rates, and revenue forecasting.',
-      },
+      'A customer journey should not break when it leaves the CRM. Infrakinetic carries context from demand to agreement, delivery, finance, and reporting.',
+    steps: ['Lead', 'Opportunity', 'Agreement', 'Project', 'Invoice', 'Revenue', 'Executive reporting'],
+    evidence: [
+      'Customer and agreement context stay connected',
+      'Finance activity links back to commercial work',
+      'Reporting reflects operational events, not spreadsheet reconstruction',
     ],
   },
   {
-    key: 'hr',
-    name: 'HR & Payroll',
-    tag: 'People Engine',
+    key: 'workforce',
+    name: 'Workforce execution',
+    tag: 'People continuity',
     summary:
-      'Manage your people and pay them accurately, all within the same platform where your customer data lives.',
-    features: [
-      {
-        title: 'People Management',
-        desc: 'Employee profiles, organizational structure, and department & team configuration.',
-      },
-      {
-        title: 'Attendance & Leave',
-        desc: 'Attendance tracking and leave management built into the same record.',
-      },
-      {
-        title: 'Automated Payroll',
-        desc: 'Automated payroll processing with accurate pay and complete records.',
-      },
-      {
-        title: 'Role-Based Access',
-        desc: 'Granular, team-level permissions across users and departments.',
-      },
+      'A workforce journey should not reset at hiring. Infrakinetic connects recruitment, onboarding, HR operations, payroll, performance, and employee records.',
+    steps: ['Candidate', 'Recruitment', 'Hiring', 'Onboarding', 'HR', 'Payroll', 'Performance'],
+    evidence: [
+      'Employee records connect across workforce and payroll',
+      'Approvals and audit history follow sensitive changes',
+      'Payroll runs from governed records instead of disconnected handoffs',
+    ],
+  },
+  {
+    key: 'cx360',
+    name: 'Customer lifecycle intelligence',
+    tag: 'CX360',
+    summary:
+      'Portfolio Radar, health scoring, measured interventions, action rail, document management, and calibrated churn risk — the customer record that connects commercial, finance, support, and success. Built and deployed end-to-end.',
+    steps: ['Lifecycle state', 'Health score', 'Interventions', 'Action rail', 'Churn risk'],
+    evidence: [
+      'Unified customer view across commercial, finance, support',
+      'Measured interventions with +30d outcome tracking',
+      'Calibrated ML predictions with SHAP explanations',
     ],
   },
 ]
 
+export const differentiators = {
+  eyebrow: 'Platform differentiators',
+  title: 'Built for governed execution, not disconnected activity.',
+  lead:
+    'Infrakinetic is designed around the controls complex operations need as work moves across commercial, workforce, finance, documents, approvals, and reporting.',
+  points: [
+    {
+      title: 'Tamper-evident finance controls',
+      desc:
+        'Financial activity is designed around append-only discipline, actor attribution, approval context, and traceable change history.',
+    },
+    {
+      title: 'Bitemporal payroll history',
+      desc:
+        'Payroll and compensation changes can be superseded without losing the rule, rate, or package context that produced a historical outcome.',
+    },
+    {
+      title: 'Database-level tenant isolation',
+      desc:
+        'Tenant boundaries are enforced at the data layer so isolation is not dependent only on application-screen logic.',
+    },
+    {
+      title: 'Source-bound AI assistance',
+      desc:
+        'AI-assisted outputs are treated as governed drafts tied to source facts, review states, and audit context.',
+    },
+    {
+      title: 'Cross-engine event automation',
+      desc:
+        'Business events and approval states can connect commercial, finance, workforce, project, and document workflows without rebuilding context.',
+    },
+    {
+      title: 'Operational execution history',
+      desc:
+        'Approvals, ownership, workflow transitions, and sensitive changes are captured as part of execution, not reconstructed later.',
+    },
+    {
+      title: 'Calibrated churn intelligence',
+      desc:
+        'Three-tier model (heuristic → statistical → learned) with isotonic calibration, conformal prediction intervals, and SHAP explanations — per tenant, never pooled.',
+    },
+    {
+      title: 'Platform infrastructure included from day one',
+      desc:
+        'Approvals, Workflow, Tickets, Governance, and Documents ship with every tenant — not held back as something you have to unlock later.',
+    },
+    {
+      title: 'Engines that come as complete systems',
+      desc:
+        'Commerce is Commercial and Sales working as one connected pipeline, not two products stitched together. People is HR, Recruitment, Workforce, and Payroll sharing a single employee record, not four tools synced after the fact.',
+    },
+  ],
+}
+
 export const scaleLayers = [
-  { n: '01', title: 'Foundation', items: 'CRM · HR · Payroll' },
-  { n: '02', title: 'Operations Layer', items: 'Finance · Projects · Support' },
-  { n: '03', title: 'Intelligence Layer', items: 'Marketing · AI Assistants · Analytics' },
-  { n: '04', title: 'Enterprise Layer', items: 'Executive Dashboards · Industry Modules' },
+  {
+    n: '01',
+    title: 'Operational continuity',
+    items: 'Work moves across functions without losing context.',
+    details: [
+      'Commercial, workforce, finance, and document workflows share one execution path.',
+      'Teams do not rebuild the same business context at every handoff.',
+    ],
+  },
+  {
+    n: '02',
+    title: 'Governed execution',
+    items: 'Permissions, approvals, audit history, and workflow states operate together.',
+    details: [
+      'Sensitive changes carry actor, approval, and timing context.',
+      'Controls live with the workflow instead of sitting in separate admin screens.',
+    ],
+  },
+  {
+    n: '03',
+    title: 'Enterprise visibility',
+    items: 'Reporting is built from connected operational activity.',
+    details: [
+      'Leadership sees the movement of work, not only after-the-fact exports.',
+      'Operational signals stay tied to the functions that produced them.',
+    ],
+  },
+  {
+    n: '04',
+    title: 'Expansion without rebuilding',
+    items: 'New domains join the same foundation instead of creating another stack.',
+    details: [
+      'Additional engines can reuse identity, permissions, approvals, documents, and reporting.',
+      'The roadmap extends the foundation rather than multiplying isolated control planes.',
+    ],
+  },
 ]
 
 export const enterprise = {
-  eyebrow: 'Enterprise ready',
-  title: 'Built for security, control, and scale, from day one.',
+  eyebrow: 'Governance',
+  title: 'Governance is an operating capability, not a settings page.',
   cards: [
     {
-      title: 'Security & Isolation',
-      desc: 'Multi-tenant architecture with secure data isolation and audit-ready logging across all modules.',
+      title: 'Permissioned execution',
+      desc: 'Role and team controls define who can see, approve, and act across sensitive operational domains.',
     },
     {
-      title: 'Access Control',
-      desc: 'Role-based permissions and team-level access ensure the right people see the right data.',
+      title: 'Approval accountability',
+      desc: 'Decisions are routed through governed workflows with clear responsibility and operational history.',
     },
     {
-      title: 'Cloud & Scalability',
-      desc: 'Fully cloud-hosted with scalable APIs designed to grow alongside your organization.',
+      title: 'Audit-ready records',
+      desc: 'Operational changes create history that can be reviewed, traced, and governed as the company scales.',
     },
     {
-      title: 'Modular Architecture',
-      desc: 'Add or configure modules independently without disrupting existing operations or data.',
+      title: 'Organizational structure',
+      desc: 'Teams, roles, hierarchy, and ownership are part of the operating model, not disconnected admin data.',
     },
+  ],
+}
+
+export const enables = {
+  eyebrow: 'What the architecture enables',
+  title: 'The controls aren\'t bolted on — they\'re why the platform works.',
+  items: [
+    { capability: 'Real-time budget vs. actual', foundation: 'One shared ledger that every spend event writes to immediately, not overnight' },
+    { capability: 'Deal to onboarding in seconds', foundation: 'Deal close fires an event that routes through approvals and org structure automatically' },
+    { capability: 'Audit-ready at any moment', foundation: 'An append-only, cryptographically verified trail — not a reconstruction exercise' },
+    { capability: 'Governance-aware routing', foundation: 'Org structure and governance model decide who approves what, automatically' },
+    { capability: 'Per-country payroll compliance', foundation: 'Each legal entity carries its own statutory rules, not a single global template' },
+    { capability: 'Customer health from real signals', foundation: 'One versioned scoring system tied to outcomes, not four disconnected formulas' },
+    { capability: 'AI assistance without the risk', foundation: 'Every output is gated, transparent, bounded, and overridable by a human' },
   ],
 }
 
 export const why = {
-  eyebrow: 'Why Noviq',
-  title: "The choice isn't between CRMs.",
-  lead: "It's between a fragmented stack and a unified operating system.",
+  eyebrow: 'Operating model',
+  title: 'The difference is continuity.',
+  lead:
+    'Most business software optimizes departments. Infrakinetic is built around the work that moves between them.',
   traditional: [
-    'CRM only covers customer data',
-    'Separate HR software',
-    'Separate Payroll system',
-    'Separate Operations tools',
-    'Multiple subscriptions & logins',
-    'No shared data layer',
+    'Department-specific tools',
+    'Manual handoffs between systems',
+    'Duplicate operational records',
+    'Approvals in email and chat',
+    'Reporting rebuilt after the fact',
+    'Governance applied inconsistently',
   ],
-  noviq: [
-    'Customers, Employees & Payroll',
-    'Operations & Finance',
-    'Projects, Support & Marketing',
-    'AI Assistants & Analytics',
-    'One platform, one subscription',
-    'One shared database',
+  infrakinetic: [
+    'Shared operating foundation',
+    'Connected cross-functional workflows',
+    'Common business data layer',
+    'Governed approvals and records',
+    'Operational visibility by design',
+    'Controls that scale with the organization',
   ],
   bottomLine:
-    'Noviq eliminates the cost, complexity, and risk of managing disconnected business software, so your team can focus on growth, not integration.',
+    'Infrakinetic reduces the structural friction created when business work, records, approvals, and reporting are split across disconnected systems.',
 }
 
 export const roadmap = [
-  { phase: 'Phase 1', items: 'CRM, HR, Payroll' },
-  { phase: 'Phase 2', items: 'Finance, Projects, Operations' },
-  { phase: 'Phase 3', items: 'Marketing, Support, Research, Analytics' },
   {
-    phase: 'Phase 4',
-    items: 'AI Business Operating System, Natural language search, AI Copilot, Workflow automation, Decision intelligence',
+    phase: 'Will be published soon',
+    summary: 'Detailed roadmap coming to /resources.',
+    items: [],
   },
 ]
 
 export const cta = {
-  eyebrow: 'Get started',
-  title: 'Run your entire business on one operating system.',
-  lead: 'See how Noviq unifies CRM, HR, and Payroll today, and scales to everything else tomorrow.',
+  eyebrow: 'Platform briefing',
+  title: 'Evaluate Infrakinetic as operating infrastructure.',
+  lead:
+    'Review how the platform connects commercial, workforce, finance, governance, and reporting workflows on one operational foundation.',
 }

@@ -1,6 +1,22 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { brand, nav } from '../data/content'
+import { useTheme } from '../shared/theme/ThemeContext.jsx'
+import { Sun, Moon } from './ui/Icons'
+
+function ThemeToggle({ className = '' }) {
+  const { theme, toggleTheme } = useTheme()
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      className={`grid h-9 w-9 place-items-center rounded-lg border border-white/10 text-white/60 transition-colors hover:border-white/20 hover:text-white ${className}`}
+    >
+      {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+    </button>
+  )
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -21,8 +37,8 @@ export default function Navbar() {
     >
       <nav className="container-page flex h-16 items-center justify-between md:h-20">
         <a href="#top" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-teal-400 to-cyan-400 text-lg font-bold tracking-tight text-ink-900">
-            N
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-gold-300 to-violet-400 text-lg font-bold tracking-tight text-ink-900">
+            I
           </span>
           <span className="text-lg font-semibold tracking-tight text-white">{brand.name}</span>
         </a>
@@ -40,29 +56,33 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
           <a href="#contact" className="btn-ghost !px-5 !py-2.5 text-xs">
             Sign in
           </a>
           <a href="#contact" className="btn-primary !px-5 !py-2.5 text-xs">
-            Book a demo
+            Request briefing
           </a>
         </div>
 
-        <button
-          className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          <div className="space-y-1.5">
-            <span
-              className={`block h-0.5 w-5 bg-white transition-transform ${open ? 'translate-y-2 rotate-45' : ''}`}
-            />
-            <span className={`block h-0.5 w-5 bg-white transition-opacity ${open ? 'opacity-0' : ''}`} />
-            <span
-              className={`block h-0.5 w-5 bg-white transition-transform ${open ? '-translate-y-2 -rotate-45' : ''}`}
-            />
-          </div>
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            className="grid h-10 w-10 place-items-center rounded-lg border border-white/10"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            <div className="space-y-1.5">
+              <span
+                className={`block h-0.5 w-5 bg-white transition-transform ${open ? 'translate-y-2 rotate-45' : ''}`}
+              />
+              <span className={`block h-0.5 w-5 bg-white transition-opacity ${open ? 'opacity-0' : ''}`} />
+              <span
+                className={`block h-0.5 w-5 bg-white transition-transform ${open ? '-translate-y-2 -rotate-45' : ''}`}
+              />
+            </div>
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -90,7 +110,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="btn-primary mt-3 w-full"
               >
-                Book a demo
+                Request briefing
               </a>
             </div>
           </motion.div>

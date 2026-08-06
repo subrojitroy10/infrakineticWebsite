@@ -10,3 +10,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vite
+
+# Internal docs — not part of the public website
+DESIGN_STRATEGY.md
+MARKETING_STRATEGY.md
+SAAS_CRM_TECHNICAL_DOCUMENTATION.md
+Enterprise Operational Pain Points.md
+debug.log

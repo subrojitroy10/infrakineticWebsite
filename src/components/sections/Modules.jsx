@@ -1,101 +1,131 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Section from '../ui/Section'
 import Reveal from '../ui/Reveal'
-import { modules } from '../../data/content'
-import { PipelineMock, PayrollMock } from '../mock/ModuleMocks'
+import ParallaxCard from '../ui/ParallaxCard'
+import { differentiators, journeys } from '../../data/content'
 import { Check } from '../ui/Icons'
 
-const mocks = { crm: PipelineMock, hr: PayrollMock }
+const journeyAccent = {
+  revenue: {
+    badge: 'border-gold-400/25 bg-gold-400/[0.1] text-gold-300',
+    line: 'bg-gradient-to-b from-gold-400/40 to-transparent',
+    tag: 'text-gold-400',
+    check: 'bg-gold-400/15 text-gold-300',
+    glow: 'bg-gold-400/10',
+  },
+  workforce: {
+    badge: 'border-violet-400/25 bg-violet-400/[0.1] text-violet-300',
+    line: 'bg-gradient-to-b from-violet-400/40 to-transparent',
+    tag: 'text-violet-300',
+    check: 'bg-violet-400/15 text-violet-300',
+    glow: 'bg-violet-400/10',
+  },
+  cx360: {
+    badge: 'border-white/20 bg-gradient-to-br from-gold-400/20 to-violet-400/20 text-white/85',
+    line: 'bg-gradient-to-b from-white/25 to-transparent',
+    tag: 'text-white/70',
+    check: 'bg-white/10 text-white/80',
+    glow: 'bg-gradient-to-br from-gold-400/10 to-violet-400/10',
+  },
+}
 
 export default function Modules() {
-  const [active, setActive] = useState(0)
-  const mod = modules[active]
-  const Mock = mocks[mod.key]
-
   return (
     <Section
       id="modules"
-      eyebrow="The modules"
-      title="Depth where it counts."
-      lead="Each engine is a full-featured product in its own right, sharing one database so nothing lives in a silo."
+      eyebrow="Connected journeys"
+      title="Business work should keep its context."
+      lead="The platform is best understood through operational journeys, not isolated modules. Each journey keeps business context, approvals, workflow, finance, and reporting connected as work crosses departments."
     >
-      {/* Tab switcher */}
-      <Reveal variant="up" className="mt-12">
-        <div className="inline-flex flex-wrap gap-1 rounded-full border border-white/10 bg-white/[0.02] p-1">
-          {modules.map((m, i) => (
-            <button
-              key={m.key}
-              onClick={() => setActive(i)}
-              className={`relative rounded-full px-6 py-2.5 text-sm font-semibold transition-colors ${
-                active === i ? 'text-ink-900' : 'text-white/60 hover:text-white'
-              }`}
-            >
-              {active === i && (
-                <motion.span
-                  layoutId="module-pill"
-                  className="absolute inset-0 rounded-full bg-white"
-                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                />
-              )}
-              <span className="relative z-10">{m.name}</span>
-            </button>
+      <div className="mt-14 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+        {journeys.map((journey, index) => {
+          const accent = journeyAccent[journey.key]
+          return (
+            <Reveal key={journey.key} variant={index === 0 ? 'left' : index === 1 ? 'right' : 'up'} delay={index * 0.08}>
+              <ParallaxCard
+                depth={18 + index * 4}
+                className="glass-card relative flex h-full flex-col overflow-hidden p-6 md:p-8"
+              >
+                <div className={`pointer-events-none absolute -right-10 -top-10 -z-10 h-40 w-40 rounded-full ${accent.glow} blur-3xl`} aria-hidden />
+
+                <span className={`text-xs font-semibold uppercase tracking-[0.18em] ${accent.tag}`}>
+                  {journey.tag}
+                </span>
+                <h3 className="heading-serif mt-3 text-2xl md:text-3xl">{journey.name}</h3>
+                <p className="mt-3 leading-relaxed text-white/55">{journey.summary}</p>
+
+                {/* Journey Steps — vertical timeline, holds up at any card width */}
+                <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+                  {journey.steps.map((step, i) => {
+                    const isLast = i === journey.steps.length - 1
+                    return (
+                      <motion.div
+                        key={step}
+                        className="relative flex items-start gap-3 pb-4 last:pb-0"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.6 }}
+                        transition={{ duration: 0.4, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                      >
+                        {!isLast && (
+                          <span className={`absolute left-[13px] top-7 h-[calc(100%-1.75rem)] w-px ${accent.line}`} aria-hidden />
+                        )}
+                        <span className={`relative z-10 grid h-7 w-7 shrink-0 place-items-center rounded-full border text-[10px] font-semibold ${accent.badge}`}>
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <span className="pt-1 text-sm font-medium text-white/75">{step}</span>
+                      </motion.div>
+                    )
+                  })}
+                </div>
+
+                {/* Evidence / KPIs */}
+                <div className="mt-auto border-t border-white/10 pt-4">
+                  {journey.evidence.map((item) => (
+                    <div key={item} className="mt-3 flex gap-3 text-sm text-white/55 first:mt-0">
+                      <span className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full ${accent.check}`}>
+                        <Check size={10} />
+                      </span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </ParallaxCard>
+            </Reveal>
+          )
+        })}
+      </div>
+
+      <div className="mt-20 border-t border-white/10 pt-12">
+        <Reveal variant="fade">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
+            {differentiators.eyebrow}
+          </span>
+          <h3 className="heading-serif mt-4 max-w-3xl text-3xl md:text-4xl">
+            {differentiators.title}
+          </h3>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
+            {differentiators.lead}
+          </p>
+        </Reveal>
+
+        <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {differentiators.points.map((point, index) => (
+            <Reveal key={point.title} variant="up" delay={index * 0.05}>
+              <ParallaxCard
+                depth={12 + index}
+                className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-gold-400/30"
+              >
+                <div className="mb-4 grid h-9 w-9 place-items-center rounded-lg border border-gold-400/20 bg-gold-400/[0.08] text-gold-300">
+                  <Check size={15} />
+                </div>
+                <h4 className="text-base font-semibold text-white">{point.title}</h4>
+                <p className="mt-2 text-sm leading-relaxed text-white/50">{point.desc}</p>
+              </ParallaxCard>
+            </Reveal>
           ))}
         </div>
-      </Reveal>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={mod.key}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.4 }}
-          className="mt-12 grid items-center gap-12 lg:grid-cols-2"
-        >
-          {/* Feature list */}
-          <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-400">
-              {mod.tag}
-            </span>
-            <h3 className="heading-serif mt-3 text-3xl md:text-[2.1rem]">{mod.name}</h3>
-            <p className="mt-3 max-w-lg leading-relaxed text-white/55">{mod.summary}</p>
-
-            <div className="mt-8 space-y-1">
-              {mod.features.map((f, i) => (
-                <motion.div
-                  key={f.title}
-                  initial={{ opacity: 0, x: -14 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.15 + i * 0.07 }}
-                  className="group flex gap-4 rounded-xl p-4 transition-colors hover:bg-white/[0.03]"
-                >
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-teal-400/25 bg-teal-400/10 text-teal-300">
-                    <Check size={12} />
-                  </span>
-                  <div>
-                    <h4 className="font-semibold text-white">{f.title}</h4>
-                    <p className="mt-1 text-sm leading-relaxed text-white/50">{f.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Product mock */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="relative"
-          >
-            <div className="absolute -inset-6 rounded-[2rem] bg-teal-500/[0.07] blur-3xl" aria-hidden />
-            <div className="relative">
-              <Mock />
-            </div>
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
+      </div>
     </Section>
   )
 }

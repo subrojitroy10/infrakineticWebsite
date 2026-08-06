@@ -1,6 +1,6 @@
-# Noviq Landing Page
+# Infrakinetic Landing Page
 
-Marketing landing page for **Noviq**, a modular business operating platform that brings CRM, HR, payroll, operations, finance, projects, support, marketing, and analytics into one connected system.
+Marketing landing page for **Infrakinetic**, a modular business operating platform that brings CRM, HR, payroll, operations, finance, projects, support, marketing, and analytics into one connected system.
 
 ## Technology
 
@@ -17,12 +17,12 @@ The page contains:
 1. Navigation and scroll-progress indicator
 2. Hero
 3. Problem statement
-4. Meet Noviq platform introduction
+4. Meet Infrakinetic platform introduction
 5. Connected shared-database visualization
 6. CRM and HR/payroll modules
 7. Platform scaling layers
 8. Enterprise capabilities
-9. Noviq comparison and benefits
+9. Infrakinetic comparison and benefits
 10. Product roadmap
 11. Contact call to action
 12. Footer
