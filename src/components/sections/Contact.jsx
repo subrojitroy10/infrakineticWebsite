@@ -129,7 +129,7 @@ export default function Contact() {
                               type="button"
                               key={area}
                               onClick={() => toggle(area)}
-                              className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all ${
+                              className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all min-w-[80px] ${
                                 active
                                   ? 'border-gold-400/60 bg-gold-400/15 text-gold-200'
                                   : 'border-white/10 bg-white/[0.02] text-white/50 hover:border-white/25'

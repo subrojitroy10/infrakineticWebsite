@@ -77,12 +77,12 @@ export default function DashboardMock() {
       <div className="absolute -inset-8 rounded-[2rem] bg-gold-500/10 blur-3xl" aria-hidden />
 
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="relative lg:[transform:rotateX(6deg)_rotateY(-8deg)_rotateZ(1deg)]"
-        style={{ transformStyle: 'preserve-3d' }}
-      >
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="relative max-w-full lg:[transform:rotateX(6deg)_rotateY(-8deg)_rotateZ(1deg)]"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
         {/* â”€â”€ App window â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <div className="overflow-hidden rounded-xl border border-white/10 bg-ink-800/90 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] backdrop-blur-xl">
           {/* Title bar */}

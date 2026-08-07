@@ -12,7 +12,7 @@ export default function Scale() {
       title="Expansion without rebuilding the operating foundation."
       lead="As organizations grow, approvals multiply, reporting slows, and governance becomes harder. Infrakinetic lets new operating domains reuse the same identity, workflow, approvals, documents, and reporting foundation."
     >
-      <div className="mt-14 grid gap-5 lg:grid-cols-2">
+      <div className="mt-14 grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
         {scaleLayers.map((layer, i) => (
           <Reveal key={layer.n} variant="up" delay={i * 0.08}>
             <ParallaxCard

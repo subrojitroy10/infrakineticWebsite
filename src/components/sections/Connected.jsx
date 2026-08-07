@@ -1,4 +1,4 @@
-﻿import { Suspense, lazy } from 'react'
+﻿import { Suspense, lazy, useEffect, useState } from 'react'
 import Reveal from '../ui/Reveal'
 import ParallaxCard from '../ui/ParallaxCard'
 import { connected } from '../../data/content'
@@ -9,6 +9,15 @@ const nodeIcons = [Database, Sliders, Shield, ChartBar]
 const DatabaseScene = lazy(() => import('../three/DatabaseScene'))
 
 export default function Connected() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   return (
     <section id="connected" className="relative overflow-hidden py-24 md:py-32">
       <div className="container-page relative">
@@ -27,14 +36,44 @@ export default function Connected() {
         </div>
 
         <div className="mt-4 grid items-center gap-8 lg:grid-cols-2">
-          {/* 3D shared database */}
-          <Reveal variant="scale" className="order-2 lg:order-1">
-            <div className="relative h-[24rem] w-full md:h-[30rem]">
-              <Suspense fallback={<SceneFallback />}>
-                <DatabaseScene nodes={connected.nodes.map((n) => n.label)} />
-              </Suspense>
-            </div>
-          </Reveal>
+          {/* 3D shared database - only on desktop */}
+          {!isMobile && (
+            <Reveal variant="scale" className="order-2 lg:order-1">
+              <div className="relative h-[24rem] w-full md:h-[30rem]">
+                <Suspense fallback={<SceneFallback />}>
+                  <DatabaseScene nodes={connected.nodes.map((n) => n.label)} />
+                </Suspense>
+              </div>
+            </Reveal>
+          )}
+
+          {/* Mobile fallback - static illustration */}
+          {isMobile && (
+            <Reveal variant="scale" className="order-2 lg:order-1">
+              <div className="relative h-[20rem] w-full flex items-center justify-center">
+                <div className="relative z-10">
+                  <div className="rounded-3xl bg-gradient-to-br from-gold-500/10 to-violet-500/10 border border-gold-400/20 p-8 md:p-12 text-center">
+                    <div className="inline-flex items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-gold-400 to-violet-400 mb-6">
+                      <Database size={32} md:size={40} className="text-ink-900" />
+                    </div>
+                    <p className="text-white/70 text-lg md:text-xl">
+                      Shared business data layer connecting all engines
+                    </p>
+                  </div>
+                  {/* Decorative orbit rings */}
+                  <div className="absolute inset-0 pointer-events-none">
+                    {[1, 2, 3].map((r) => (
+                      <div
+                        key={r}
+                        className="absolute inset-0 rounded-full border border-gold-400/10 animate-pulse"
+                        style={{ animationDelay: `${r * 0.5}s`, animationDuration: '4s' }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          )}
 
           {/* Node descriptions */}
           <div className="order-1 grid gap-4 sm:grid-cols-2 lg:order-2">

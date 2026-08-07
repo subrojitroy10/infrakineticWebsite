@@ -37,12 +37,12 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1
-              variants={fade}
-              initial="hidden"
-              animate="show"
-              custom={1}
-              className="mt-6 font-display text-5xl font-semibold leading-[1.04] tracking-[-0.045em] text-white sm:text-6xl lg:text-[4.4rem]"
-            >
+                          variants={fade}
+                          initial="hidden"
+                          animate="show"
+                          custom={1}
+                          className="mt-6 font-display text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-white sm:text-5xl md:text-6xl lg:text-[4.4rem] xl:text-[5rem]"
+                        >
               Run the company.
               <br />
               <span className="text-gradient">Not the software stack.</span>
@@ -72,26 +72,26 @@ export default function Hero() {
             </motion.div>
 
             {/* Compact stat strip — purpose-built for this narrow 4-across row */}
-            <motion.div
-              variants={fade}
-              initial="hidden"
-              animate="show"
-              custom={4}
-              className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4"
-            >
-              {heroStats.map(({ label, value, icon: Icon }) => (
-                <div
-                  key={label}
-                  className="rounded-xl border border-white/10 bg-white/[0.02] p-3.5"
-                >
-                  <Icon size={16} className="text-gold-300/70" />
-                  <p className="mt-2.5 text-xl font-semibold tracking-tight text-white">{value}</p>
-                  <p className="mt-1 text-[11px] font-medium uppercase leading-snug tracking-wide text-white/40">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
+                        <motion.div
+                          variants={fade}
+                          initial="hidden"
+                          animate="show"
+                          custom={4}
+                          className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4"
+                        >
+                          {heroStats.map(({ label, value, icon: Icon }) => (
+                            <div
+                              key={label}
+                              className="rounded-xl border border-white/10 bg-white/[0.02] p-3.5 min-w-0"
+                            >
+                              <Icon size={16} className="text-gold-300/70" />
+                              <p className="mt-2.5 text-xl font-semibold tracking-tight text-white truncate">{value}</p>
+                              <p className="mt-1 text-[11px] font-medium uppercase leading-snug tracking-wide text-white/40 truncate">
+                                {label}
+                              </p>
+                            </div>
+                          ))}
+                        </motion.div>
           </div>
 
           {/* ————— Product window ————— */}

@@ -49,7 +49,7 @@ export default function Enterprise() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink-900 to-transparent" />
 
       <Section id="enterprise" eyebrow={enterprise.eyebrow} title={enterprise.title}>
-        <div className="mt-14 grid gap-4 sm:grid-cols-2">
+        <div className="mt-14 grid gap-4 sm:grid-cols-1 md:grid-cols-2">
           {enterprise.cards.map((c, i) => {
             const Icon = icons[i]
             return (

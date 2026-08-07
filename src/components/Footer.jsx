@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-white/10 bg-ink-900">
       <div className="container-page py-14">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2.5">
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-gold-400 to-violet-400 text-lg font-bold tracking-tight text-ink-900">

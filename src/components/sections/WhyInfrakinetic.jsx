@@ -13,7 +13,7 @@ export default function WhyInfrakinetic() {
           {notThis.eyebrow}
         </p>
         <h3 className="heading-serif mt-3 max-w-2xl text-xl md:text-2xl">{notThis.title}</h3>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {notThis.items.map((item, i) => (
             <Reveal key={item.label} variant="up" delay={i * 0.05}>
               <div className="h-full rounded-xl border border-white/10 bg-white/[0.02] p-4">

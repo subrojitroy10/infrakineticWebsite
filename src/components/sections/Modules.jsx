@@ -37,7 +37,7 @@ export default function Modules() {
       title="Business work should keep its context."
       lead="The platform is best understood through operational journeys, not isolated modules. Each journey keeps business context, approvals, workflow, finance, and reporting connected as work crosses departments."
     >
-      <div className="mt-14 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-14 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
         {journeys.map((journey, index) => {
           const accent = journeyAccent[journey.key]
           return (

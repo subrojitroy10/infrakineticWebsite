@@ -74,21 +74,38 @@ export default function Problem() {
                           <span className="text-sm font-medium text-white/75">{flowLabels[flow.flow][i]}</span>
                         </div>
                         {i < 4 && (
-                          <div className="hidden items-center px-1.5 sm:flex" aria-hidden>
-                            <span className="w-3 border-t border-dashed border-white/15 md:w-5" />
-                            {i === flow.brokenAt && (
-                              <span className="relative mx-1 grid h-6 w-6 place-items-center rounded-full border border-red-400/40 bg-red-400/10 text-red-300">
-                                <span className="absolute inset-0 animate-pulse-glow rounded-full bg-red-400/20" />
-                                <XMark size={11} className="relative" />
-                              </span>
-                            )}
-                            {i !== flow.brokenAt && (
-                              <span className="mx-1 grid h-6 w-6 place-items-center rounded-full border border-gold-300/25 bg-gold-300/10 text-gold-300/80">
-                                <Zap size={10} />
-                              </span>
-                            )}
-                            <span className="w-3 border-t border-dashed border-white/15 md:w-5" />
-                          </div>
+                          <>
+                            <div className="hidden items-center px-1.5 sm:flex" aria-hidden>
+                              <span className="w-3 border-t border-dashed border-white/15 md:w-5" />
+                              {i === flow.brokenAt && (
+                                <span className="relative mx-1 grid h-6 w-6 place-items-center rounded-full border border-red-400/40 bg-red-400/10 text-red-300">
+                                  <span className="absolute inset-0 animate-pulse-glow rounded-full bg-red-400/20" />
+                                  <XMark size={11} className="relative" />
+                                </span>
+                              )}
+                              {i !== flow.brokenAt && (
+                                <span className="mx-1 grid h-6 w-6 place-items-center rounded-full border border-gold-300/25 bg-gold-300/10 text-gold-300/80">
+                                  <Zap size={10} />
+                                </span>
+                              )}
+                              <span className="w-3 border-t border-dashed border-white/15 md:w-5" />
+                            </div>
+                            {/* Mobile: simplified connector with break indicator */}
+                            <div className="flex items-center px-1.5 sm:hidden" aria-hidden>
+                              <span className="w-3 border-t border-dashed border-white/15" />
+                              {i === flow.brokenAt && (
+                                <span className="mx-1 grid h-6 w-6 place-items-center rounded-full border border-red-400/40 bg-red-400/10 text-red-300">
+                                  <XMark size={11} className="relative" />
+                                </span>
+                              )}
+                              {i !== flow.brokenAt && (
+                                <span className="mx-1 grid h-6 w-6 place-items-center rounded-full border border-gold-300/25 bg-gold-300/10 text-gold-300/80">
+                                  <Zap size={10} />
+                                </span>
+                              )}
+                              <span className="w-3 border-t border-dashed border-white/15" />
+                            </div>
+                          </>
                         )}
                       </Fragment>
                     ))}
