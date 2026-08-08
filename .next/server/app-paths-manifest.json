@@ -1,0 +1,13 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/platform/intelligence/page": "app/platform/intelligence/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/briefing/page": "app/briefing/page.js",
+  "/platform/page": "app/platform/page.js",
+  "/cx360/page": "app/cx360/page.js",
+  "/products/page": "app/products/page.js",
+  "/platform/infra/page": "app/platform/infra/page.js",
+  "/page": "app/page.js"
+}

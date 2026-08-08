@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Theme tokens — dark values are the Polynovea Primary Brand Palette,
+ * light values are the Presentation & Client Document Palette.
+ * Stored as space-separated RGB channels so Tailwind's `rgb(var(--x) / <alpha-value>)`
+ * pattern keeps opacity modifiers (e.g. bg-white/[0.03]) working in both themes.
+ */
+:root {
+  color-scheme: dark;
+
+  --color-bg-primary: 10 10 10;        /* #0A0A0A */
+  --color-bg-secondary: 18 18 18;      /* #121212 */
+  --color-bg-card: 24 24 27;           /* #18181B */
+  --color-bg-border: 39 39 42;         /* #27272A */
+
+  --color-fg: 245 245 245;             /* #F5F5F5 — the "white" token */
+  --color-fg-secondary: 161 161 170;   /* #A1A1AA */
+  --color-fg-muted: 113 113 122;       /* #71717A */
+
+  --color-gold-200: 245 245 245;
+  --color-gold-300: 230 211 163;       /* #E6D3A3 */
+  --color-gold-400: 212 184 140;       /* #D4B88C */
+  --color-gold-500: 154 143 106;       /* #9A8F6A */
+
+  --color-violet-300: 167 139 250;     /* #A78BFA */
+  --color-violet-400: 139 92 246;      /* #8B5CF6 */
+  --color-violet-500: 124 58 237;      /* #7C3AED */
+
+  --gradient-text: linear-gradient(120deg, #F5F5F5 0%, #E6D3A3 46%, #7C3AED 100%);
+  --selection-bg: rgba(230, 211, 163, 0.32);
+  --selection-fg: #0A0A0A;
+  --scrollbar-track: #0A0A0A;
+  --scrollbar-thumb: #27272A;
+  --scrollbar-thumb-hover: #9A8F6A;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --color-bg-primary: 248 246 242;     /* #F8F6F2 warm off-white */
+  --color-bg-secondary: 239 234 226;   /* #EFEAE2 soft beige */
+  --color-bg-card: 255 255 255;        /* #FFFFFF */
+  --color-bg-border: 216 208 196;      /* #D8D0C4 warm border */
+
+  --color-fg: 10 10 10;                /* #0A0A0A deep black text */
+  --color-fg-secondary: 107 114 128;   /* #6B7280 */
+  --color-fg-muted: 148 152 160;       /* lighter, still muted */
+
+  --color-gold-200: 40 33 20;
+  --color-gold-300: 138 109 58;        /* deepened for AA text contrast on off-white */
+  --color-gold-400: 122 96 51;
+  --color-gold-500: 96 87 62;
+
+  --color-violet-300: 109 40 217;
+  --color-violet-400: 124 58 237;
+  --color-violet-500: 91 33 182;
+
+  --gradient-text: linear-gradient(120deg, #0A0A0A 0%, #8A6D3A 46%, #7C3AED 100%);
+  --selection-bg: rgba(138, 109, 58, 0.22);
+  --selection-fg: #0A0A0A;
+  --scrollbar-track: #F8F6F2;
+  --scrollbar-thumb: #D8D0C4;
+  --scrollbar-thumb-hover: #9A8F6A;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.font-display {
+  font-family: 'Clash Display', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: -20%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(230, 211, 163, 0.09), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(124, 58, 237, 0.11), transparent 26%),
+    radial-gradient(circle at 50% 84%, rgba(154, 143, 106, 0.08), transparent 30%);
+  animation: field-drift 18s ease-in-out infinite alternate;
+}
+
+[data-theme='light'] body::before {
+  opacity: 0.6;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  animation: grid-drift 24s linear infinite;
+}
+
+[data-theme='light'] body::after {
+  background-image:
+    linear-gradient(rgba(10, 10, 10, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.03) 1px, transparent 1px);
+  opacity: 0.5;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-10;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold-300;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-gold-300/60;
+  }
+
+  .heading-serif {
+    @apply font-display font-semibold tracking-[-0.03em] text-white;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full
+           bg-gold-300 px-7 py-3.5 text-sm font-semibold text-ink-900 shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_10px_28px_-10px_rgba(230,211,163,0.45)]
+           transition-all duration-300 hover:bg-gold-400 hover:shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_14px_36px_-10px_rgba(124,58,237,0.42)]
+           active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15
+           bg-white/[0.03] px-7 py-3.5 text-sm font-semibold text-white/90 backdrop-blur
+           transition-all duration-300 hover:border-gold-300/50 hover:bg-white/[0.06];
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_-48px_rgba(230,211,163,0.45)] backdrop-blur-xl;
+  }
+}
+
+@keyframes field-drift {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(2%, 1.5%, 0) scale(1.05);
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 96px 192px, 192px 96px;
+  }
+}
+
+/* Gradient text helper */
+.text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Faint grid backdrop */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(var(--color-fg) / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--color-fg) / 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}

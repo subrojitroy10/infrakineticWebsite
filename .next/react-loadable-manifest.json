@@ -1,0 +1,18 @@
+{
+  "components\\sections\\Connected.tsx -> @/components/three/DatabaseScene": {
+    "id": 9689,
+    "files": [
+      "static/chunks/b536a0f1.9d54f2844bc46630.js",
+      "static/chunks/745.62ee9e63f0b053a8.js",
+      "static/chunks/257.f419932bcfede22c.js"
+    ]
+  },
+  "node_modules\\@react-three\\drei\\core\\VideoTexture.js -> hls.js": {
+    "id": null,
+    "files": []
+  },
+  "node_modules\\@react-three\\drei\\web\\FaceLandmarker.js -> @mediapipe/tasks-vision": {
+    "id": null,
+    "files": []
+  }
+}
