@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { brand, nav } from '@/lib/content'
 import { useTheme } from '@/components/theme/ThemeProvider'
 import { Sun, Moon } from '@/components/ui/Icons'
@@ -21,9 +22,22 @@ function ThemeToggle({ className = '' }: { className?: string }) {
   )
 }
 
+function isAnchorLink(href: string) {
+  return href.startsWith('#')
+}
+
+function getNavHref(href: string, pathname: string) {
+  if (isAnchorLink(href)) {
+    // If on homepage, use anchor link; otherwise navigate to homepage + anchor
+    return pathname === '/' ? href : `/${href}`
+  }
+  return href
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -61,7 +75,7 @@ export default function Navbar() {
           {nav.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={getNavHref(item.href, pathname)}
               className="text-sm font-medium text-white/60 transition-colors hover:text-white"
             >
               {item.label}
@@ -112,7 +126,7 @@ export default function Navbar() {
               {nav.map((item) => (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={getNavHref(item.href, pathname)}
                   onClick={() => setOpen(false)}
                   className="rounded-lg px-3 py-3 text-base font-medium text-white/70 hover:bg-white/5 hover:text-white"
                 >

@@ -1,7 +1,22 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { brand, nav } from '@/lib/content'
 
+function isAnchorLink(href: string) {
+  return href.startsWith('#')
+}
+
+function getNavHref(href: string, pathname: string) {
+  if (isAnchorLink(href)) {
+    return pathname === '/' ? href : `/${href}`
+  }
+  return href
+}
+
 export default function Footer() {
+  const pathname = usePathname()
   const currentYear = new Date().getFullYear()
   const lastUpdated = '2026-08-08'
 
@@ -51,7 +66,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {nav.map((n) => (
                 <li key={n.href}>
-                  <Link href={n.href} className="text-sm text-white/55 transition-colors hover:text-white">
+                  <Link href={getNavHref(n.href, pathname)} className="text-sm text-white/55 transition-colors hover:text-white">
                     {n.label}
                   </Link>
                 </li>

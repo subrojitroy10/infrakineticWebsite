@@ -1,10 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/app/globals.css'
-import { ThemeProvider } from '@/components/theme/ThemeProvider'
-import ScrollProgress from '@/components/ui/ScrollProgress'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import ClientLayout from '@/components/ClientLayout'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -120,14 +117,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-ink-900 text-white min-h-screen antialiased">
-        <ThemeProvider>
-          <ScrollProgress />
-          <div className="relative">
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   )
