@@ -143,6 +143,9 @@ export const nav: NavItem[] = [
   { label: 'Journeys', href: '#modules' },
   { label: 'Intelligence', href: '#intelligence' },
   { label: 'Enterprise', href: '#enterprise' },
+  { label: 'Platform', href: '/platform' },
+  { label: 'CX360', href: '/cx360' },
+  { label: 'Products', href: '/products' },
 ]
 
 export const problem: ProblemSection = {
