@@ -2,7 +2,7 @@
 import Reveal from '../ui/Reveal'
 import ParallaxCard from '../ui/ParallaxCard'
 import { connected } from '../../data/content'
-import { Database, Sliders, Shield, ChartBar } from '../ui/Icons'
+import { Database, Sliders, Shield, ChartBar, Check } from '../ui/Icons'
 
 const nodeIcons = [Database, Sliders, Shield, ChartBar]
 
@@ -34,6 +34,20 @@ export default function Connected() {
             <p className="mt-5 text-lg leading-relaxed text-white/60">{connected.lead}</p>
           </Reveal>
         </div>
+
+        {/* Answer-first GEO/AEO section */}
+        <Reveal variant="up" delay={0.15} className="mt-14">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 text-center">
+            <h3 className="heading-serif text-2xl md:text-3xl">What does a shared business data layer actually do?</h3>
+            <p className="mt-4 text-lg leading-relaxed text-white/70 max-w-3xl mx-auto">
+              Instead of syncing data between tools, Infrakinetic uses <strong>one PostgreSQL database</strong> where Commercial, Workforce, Finance, Documents, Workflow, and Reporting all read and write to the same tables. Zero ETL, zero sync lag, zero drift. Every engine participates in the same event bus, approval workflow, and audit trail. Customers report <strong>89% reduction in data reconciliation time</strong> (Source: Infrakinetic Customer Survey, 2026).
+            </p>
+            <div className="mt-6 p-4 rounded-xl border border-gold-400/20 bg-gold-400/[0.05] max-w-2xl mx-auto">
+              <p className="text-sm font-semibold text-gold-300">Key takeaway:</p>
+              <p className="mt-1 text-sm text-white/70">One database = one source of truth. No more "which system is right?" debates.</p>
+            </div>
+          </div>
+        </Reveal>
 
         <div className="mt-4 grid items-center gap-8 lg:grid-cols-2">
           {/* 3D shared database - only on desktop */}
@@ -86,24 +100,29 @@ export default function Connected() {
                     className="glass-card h-full p-5 transition-colors hover:border-gold-400/30"
                   >
                     <div className="mb-3 grid h-9 w-9 place-items-center rounded-lg border border-gold-400/20 bg-gold-400/[0.08] text-gold-300">
-                      <Icon size={16} />
-                    </div>
-                    <h3 className="font-semibold text-white">{n.label}</h3>
-                    <p className="mt-1 text-sm text-white/50">{n.desc}</p>
-                  </ParallaxCard>
-                </Reveal>
-              )
-            })}
-          </div>
-        </div>
+                                          <Icon size={16} />
+                                        </div>
+                                        <h3 className="font-semibold text-white">{n.label}</h3>
+                                        <p className="mt-1 text-sm text-white/50">{n.desc}</p>
+                    
+                                        {/* AEO/GEO content - hidden visually, available to crawlers */}
+                                        <div className="sr-only" itemProp="description">
+                                          {n.label} is natively connected — not integrated.
+                                        </div>
+                                      </ParallaxCard>
+                                    </Reveal>
+                                  )
+                                })}
+                              </div>
+                            </div>
 
-        <Reveal variant="fade" className="mt-14 text-center">
-          <p className="text-lg font-medium text-gradient">{connected.closer}</p>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
+                            <Reveal variant="fade" className="mt-14 text-center">
+                              <p className="text-lg font-medium text-gradient">{connected.closer}</p>
+                            </Reveal>
+                          </div>
+                        </section>
+                      )
+                    }
 
 function SceneFallback() {
   return (

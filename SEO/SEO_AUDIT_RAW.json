@@ -1,0 +1,53 @@
+[
+  {
+    "url": "https://www.infrakinetic.in/",
+    "overall_score": 6,
+    "keyword": "Infrakinetic",
+    "title": "Infrakinetic – Business Operating System for Growth",
+    "meta": "Infrakinetic provides a unified operating system that streamlines all business processes, boosts efficiency, and drives growth. Learn how our platform integrates CRM, finance, and analytics for seamless operations.",
+    "fails": [
+      "meta_description",
+      "single_h1",
+      "canonical",
+      "viewport",
+      "lang_attribute",
+      "favicon_present",
+      "analytics_present",
+      "word_count",
+      "answer_first",
+      "h2_questions",
+      "keyword_in_first_100",
+      "faq_section",
+      "statistics_present",
+      "internal_links",
+      "paragraphs_short",
+      "image_alt_attrs",
+      "article_schema",
+      "faqpage_schema",
+      "org_schema",
+      "localbusiness_schema",
+      "date_modified_schema",
+      "date_visible",
+      "author_present",
+      "og_tags",
+      "twitter_cards",
+      "inline_citations",
+      "quote_present",
+      "entity_sameAs",
+      "topical_depth",
+      "key_takeaways",
+      "paa_format_faq",
+      "featured_snippet_ready",
+      "nap_content",
+      "location_h1"
+    ],
+    "schema": [],
+    "quick_wins": [
+      "Add a concise meta description (~155 characters)",
+      "Implement Article and FAQ JSON‑LD schema markup",
+      "Expand content to 300+ words with clear H2 questions",
+      "Include relevant internal links with descriptive anchors",
+      "Add Open Graph and Twitter Card tags for social sharing"
+    ]
+  }
+]

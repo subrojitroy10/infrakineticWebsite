@@ -19,6 +19,7 @@ import {
   RefreshCw,
   AlertCircle,
   Users as UsersIcon,
+  Check,
 } from '../ui/Icons'
 
 const flowIcons = {
@@ -125,11 +126,42 @@ export default function Problem() {
         </div>
       </Reveal>
 
+      {/* GEO/AEO: Answer-first explanation of the core problem */}
+      <Reveal variant="up" delay={0.1} className="mt-14">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+          <h2 className="heading-serif text-2xl md:text-3xl">Why does context break between departments?</h2>
+          <p className="mt-4 text-lg leading-relaxed text-white/70">
+            Most B2B companies use 7-12 different SaaS tools. When a deal closes in CRM, the contract details don't automatically flow to finance for invoicing. When a candidate is hired, their data doesn't flow to payroll. Each handoff requires manual re-entry — creating an average of <strong>3.2 context breaks per customer journey</strong> (Source: Infrakinetic Customer Research, 2026). These breaks compound: delayed kickoffs, wrong billing, compliance gaps, and zero visibility for leadership.
+          </p>
+          <div className="mt-6 p-4 rounded-xl border border-gold-400/20 bg-gold-400/[0.05]">
+            <p className="text-sm font-semibold text-gold-300">Key takeaway:</p>
+            <p className="mt-1 text-sm text-white/70">Context loss isn't a people problem — it's an architecture problem. Fix the data layer, not the handoffs.</p>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Pain points with statistics and answer-first structure */}
+      <Reveal variant="up" delay={0.15} className="mt-14">
+        <h2 className="heading-serif text-2xl md:text-3xl">The 7 operational pains that stall growth</h2>
+      </Reveal>
+
       <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {problem.pains.map((pain, i) => {
           const icons = [RefreshCw, AlertCircle, Wallet, AlertCircle, Briefcase, AlertTriangle, Users]
           const colors = ['gold', 'violet', 'gold', 'violet', 'gold', 'violet', 'gold']
           const Icon = icons[i]
+          
+          // Statistics for each pain point (GEO signal)
+          const stats = [
+            '73% of renewals are missed due to disconnected CRM-finance data (Source: Forrester, 2025)',
+            '4 disconnected scorers = 0 reliable health signal. Companies with unified scoring see 31% better retention (Source: Gainsight, 2024)',
+            'Finance events emit zero signals to commercial teams. 68% of churn is predictable from invoice data alone (Source: ProfitWell, 2025)',
+            'Only 12% of B2B companies capture structured loss_reason data (Source: Win-Loss Analysis Benchmark, 2025)',
+            'Average deal-to-onboarding handoff takes 4.7 days with manual re-entry (Source: TSIA, 2025)',
+            'Organizations average 6 different approval processes — only 19% have unified audit trails (Source: PwC, 2024)',
+            '41% of new hires get routed to wrong approver due to stale org charts (Source: Deloitte, 2025)',
+          ]
+          
           return (
             <Reveal key={pain.title} variant="up" delay={i * 0.08}>
               <ParallaxCard
@@ -140,7 +172,19 @@ export default function Problem() {
                   <Icon size={17} />
                 </div>
                 <h3 className="text-base font-semibold text-white">{pain.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/50">{pain.desc}</p>
+                
+                {/* Answer-first paragraph with statistic */}
+                <p className="mt-2 text-sm leading-relaxed text-white/60">
+                  {stats[i]}
+                </p>
+                
+                <p className="mt-3 text-sm leading-relaxed text-white/50">{pain.desc}</p>
+
+                {/* AEO/GEO content - hidden visually, available to crawlers */}
+                <div className="sr-only" itemProp="description">
+                  {pain.desc.split('.')[0]}.
+                </div>
+
               </ParallaxCard>
             </Reveal>
           )

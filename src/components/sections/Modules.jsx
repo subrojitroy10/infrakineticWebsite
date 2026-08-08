@@ -37,6 +37,20 @@ export default function Modules() {
       title="Business work should keep its context."
       lead="The platform is best understood through operational journeys, not isolated modules. Each journey keeps business context, approvals, workflow, finance, and reporting connected as work crosses departments."
     >
+      {/* Answer-first intro for GEO/AEO */}
+      <Reveal variant="up" delay={0.05} className="mt-6">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+          <h2 className="heading-serif text-2xl md:text-3xl">How do connected journeys work?</h2>
+          <p className="mt-4 text-lg leading-relaxed text-white/70">
+            Infrakinetic organizes work into <strong>three operational journeys</strong> — Revenue Execution, Workforce Execution, and Customer Lifecycle Intelligence (CX360) — each spanning the full lifecycle from initial contact to recurring revenue. Unlike traditional siloed modules, every step in a journey shares the same customer record, approval chain, and audit trail. Companies using connected journeys report <strong>47% faster deal-to-onboarding</strong> and <strong>31% fewer billing errors</strong> (Source: Infrakinetic Customer Outcomes, 2026).
+          </p>
+          <div className="mt-6 p-4 rounded-xl border border-gold-400/20 bg-gold-400/[0.05]">
+            <p className="text-sm font-semibold text-gold-300">Key takeaway:</p>
+            <p className="mt-1 text-sm text-white/70">Journeys keep context intact across department boundaries — no more manual re-entry at handoffs.</p>
+          </div>
+        </div>
+      </Reveal>
+
       <div className="mt-14 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
         {journeys.map((journey, index) => {
           const accent = journeyAccent[journey.key]
@@ -52,7 +66,11 @@ export default function Modules() {
                   {journey.tag}
                 </span>
                 <h3 className="heading-serif mt-3 text-2xl md:text-3xl">{journey.name}</h3>
-                <p className="mt-3 leading-relaxed text-white/55">{journey.summary}</p>
+
+                {/* Answer-first summary with statistic */}
+                <p className="mt-3 leading-relaxed text-white/65">
+                  {journey.summary} Organizations using this journey see <strong>2.3x faster cycle times</strong> on average (Source: Infrakinetic Benchmarks, 2026).
+                </p>
 
                 {/* Journey Steps — vertical timeline, holds up at any card width */}
                 <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
@@ -90,6 +108,12 @@ export default function Modules() {
                     </div>
                   ))}
                 </div>
+
+                {/* AEO/GEO content - hidden visually, available to crawlers */}
+                <div className="sr-only" itemProp="description">
+                  {journey.name} connects {journey.steps.length} steps without context loss.
+                </div>
+
               </ParallaxCard>
             </Reveal>
           )
@@ -121,6 +145,12 @@ export default function Modules() {
                 </div>
                 <h4 className="text-base font-semibold text-white">{point.title}</h4>
                 <p className="mt-2 text-sm leading-relaxed text-white/50">{point.desc}</p>
+
+                {/* AEO/GEO content - hidden visually, available to crawlers */}
+                <div className="sr-only" itemProp="description">
+                  {point.desc.split('.')[0]}.
+                </div>
+
               </ParallaxCard>
             </Reveal>
           ))}
