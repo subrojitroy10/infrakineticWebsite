@@ -126,34 +126,6 @@ export default function Navbar() {
               >
                 Briefing
               </Link>
-              <Link
-                href="/platform"
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-white/70 hover:bg-white/5 hover:text-white"
-              >
-                Platform
-              </Link>
-              <Link
-                href="/cx360"
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-white/70 hover:bg-white/5 hover:text-white"
-              >
-                CX360
-              </Link>
-              <Link
-                href="/products"
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-white/70 hover:bg-white/5 hover:text-white"
-              >
-                Products
-              </Link>
-              <Link
-                href="/briefing"
-                onClick={() => setOpen(false)}
-                className="btn-primary mt-3 w-full"
-              >
-                Request briefing
-              </Link>
             </div>
           </motion.div>
         )}
