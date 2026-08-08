@@ -32,24 +32,11 @@ export default function Footer() {
               {brand.parent}
             </p>
 
-            <div className="mt-6 pt-6 border-t border-white/10" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+            <div className="mt-6 pt-6 border-t border-white/10">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400/80">Contact</p>
-              <address className="mt-2 not-italic text-sm text-white/55 space-y-1">
-                <span itemProp="streetAddress">Plot 42, Sector 18, Gurugram</span>
-                <span className="block"><span itemProp="addressLocality">Gurugram</span>, <span itemProp="addressRegion">Haryana</span> <span itemProp="postalCode">122015</span></span>
-                <span itemProp="addressCountry" content="IN">India</span>
-              </address>
-              <a 
-                href="tel:+911244000000" 
-                className="mt-2 inline-flex items-center gap-1.5 text-sm text-white/55 hover:text-white transition-colors"
-                itemProp="telephone"
-              >
-                <span>+91 124 400 0000</span>
-              </a>
-              <br />
               <a 
                 href="mailto:hello@infrakinetic.io" 
-                className="inline-flex items-center gap-1.5 text-sm text-white/55 hover:text-white transition-colors"
+                className="mt-2 inline-flex items-center gap-1.5 text-sm text-white/55 hover:text-white transition-colors"
                 itemProp="email"
               >
                 hello@infrakinetic.io
@@ -96,7 +83,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-xs text-white/35">
-            &copy; {currentYear} Infrakinetic - A Polynovea Product. All rights reserved.
+            &copy; {new Date().getFullYear()} Infrakinetic - A Polynovea Product. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/35">
             <Link href="/" className="transition-colors hover:text-white/70">
@@ -108,8 +95,8 @@ export default function Footer() {
             <Link href="/" className="transition-colors hover:text-white/70">
               Security
             </Link>
-            <span className="text-gold-400/60" itemProp="dateModified" content={lastUpdated}>
-              Last updated: {new Date(lastUpdated).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+            <span className="text-gold-400/60" itemProp="dateModified" content="2026-08-08">
+              Last updated: {new Date('2026-08-08').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
             </span>
           </div>
         </div>

@@ -1,13 +1,13 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/cx360/page": "app/cx360/page.js",
-  "/platform/infra/page": "app/platform/infra/page.js",
+  "/platform/page": "app/platform/page.js",
   "/briefing/page": "app/briefing/page.js",
   "/page": "app/page.js",
   "/products/page": "app/products/page.js",
   "/platform/intelligence/page": "app/platform/intelligence/page.js",
-  "/platform/page": "app/platform/page.js"
+  "/platform/infra/page": "app/platform/infra/page.js"
 }
