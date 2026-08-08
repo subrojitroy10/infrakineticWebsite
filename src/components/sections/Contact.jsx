@@ -228,17 +228,24 @@ export default function Contact() {
             <div className="mt-8 space-y-3">
               {faqs.map((faq, i) => (
                 <Reveal key={faq.q} variant="up" delay={i * 0.05}>
-                  <div itemScope itemType="https://schema.org/Question" className="rounded-xl border border-white/10 bg-white/[0.02] p-5 hover:border-gold-400/20 transition-colors">
-                    <h4 itemProp="name" className="font-semibold text-white">{faq.q}</h4>
-                    <div itemProp="acceptedAnswer" itemScope itemType="https://schema.org/Answer">
-                      <p itemProp="text" className="mt-3 text-sm leading-relaxed text-white/60">{faq.a}</p>
+                  <details itemScope itemType="https://schema.org/Question" className="rounded-xl border border-white/10 bg-white/[0.02] p-5 hover:border-gold-400/20 transition-colors group">
+                    <summary itemProp="name" className="font-semibold text-white cursor-pointer flex items-center justify-between list-none">
+                      {faq.q}
+                      <span className="text-gold-400 transition-transform group-open:rotate-180">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </span>
+                    </summary>
+                    <div itemProp="acceptedAnswer" itemScope itemType="https://schema.org/Answer" className="mt-4 text-sm leading-relaxed text-white/60">
+                      <p itemProp="text">{faq.a}</p>
                     </div>
-                    {/* Key takeaway */}
-                    <div className="mt-3 p-3 rounded-lg border border-gold-400/15 bg-gold-400/[0.03]">
-                      <p className="text-xs font-semibold text-gold-300">Key takeaway:</p>
-                      <p className="mt-1 text-xs text-white/60">{faq.a.split('.')[0]}.</p>
+                    
+                    {/* AEO/GEO content - hidden visually, available to crawlers */}
+                    <div className="sr-only" itemProp="description">
+                      {faq.a.split('.')[0]}.{' '}
                     </div>
-                  </div>
+                  </details>
                 </Reveal>
               ))}
             </div>

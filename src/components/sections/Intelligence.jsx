@@ -66,27 +66,27 @@ const shapExample = {
 
 const intelligenceDifferentiators = [
   {
-    title: 'Three-tier degradation',
-    desc: 'Heuristic → Statistical → Learned. Automatic fallback if calibration degrades (Brier score >20% worse or AUC >0.05 worse). Never serves confident nonsense.',
+    title: 'Honest uncertainty',
+    desc: 'Three-tier model (Heuristic → Statistical → Learned) degrades truthfully. Small tenants get an honest "insufficient history" label, not a borrowed prediction. Automatic fallback if calibration degrades.',
   },
   {
-    title: 'Conformal prediction intervals',
-    desc: 'Distribution-free, valid at small n. Honest interval (69–77%) not a point estimate dressed as certainty.',
+    title: 'Honest intervals',
+    desc: 'Conformal prediction intervals — distribution-free, valid at small n. You get a real confidence range (69–77%), not a point estimate dressed as certainty.',
   },
   {
-    title: 'SHAP explanations in business language',
+    title: 'Explanations in business language',
     desc: '"Payment latency increased from 4 to 31 days" not "feature_12: 0.28". The explanation is the product; the probability is just the sort key.',
   },
   {
-    title: 'Strict per-tenant isolation',
-    desc: 'The scoring pipeline can never bypass tenant isolation, by design — not by convention. Standing test: the model for tenant A produces identical output whether tenant B\'s rows exist or not. DPDP 2023 compliant by architecture, not policy.',
+    title: 'Per-tenant isolation by architecture',
+    desc: 'Scoring pipeline can never bypass tenant isolation — by design, not convention. Standing test: tenant A\'s model produces identical output whether tenant B\'s rows exist or not. DPDP 2023 compliant by architecture, not policy.',
   },
   {
     title: 'Calibration monitoring built-in',
     desc: 'Brier score + reliability curve computed per training run. Reliability curve (10 bins) stored and surfaced in calibration dashboard.',
   },
   {
-    title: 'UI contract: every number shows provenance',
+    title: 'Every number shows provenance',
     desc: 'Mode (heuristic/statistical/learned), confidence interval, sample size. No number appears without its provenance.',
   },
 ]
