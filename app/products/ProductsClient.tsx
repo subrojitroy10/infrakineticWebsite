@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
-import { KpiTileRow, StatusBadge, EntityAvatar, DataTable, Sparkline, TrendDelta, FAQSection, KeyTakeaway } from '@/components/shared'
+import { KpiTileRow, StatusBadge, EntityAvatar, DataTable, Sparkline, TrendDelta, FAQSection } from '@/components/shared'
 import { KpiVariant } from '@/components/shared/KpiTile'
 import {
   Target,
@@ -465,19 +465,6 @@ export default function ProductsClient() {
           </motion.div>
         </div>
       </section>
-
-      <Section id="how-pricing-works" eyebrow="In one paragraph" title="How is Infrakinetic priced?">
-        <Reveal variant="fade" className="mt-6 max-w-3xl">
-          <p className="text-lg leading-relaxed text-white/70">
-            Infrakinetic is priced as two atomic packs (Commerce, People), two standalone products (Finance,
-            Marketing), and two add-ons (Customer 360, Marketing Agency) — with Approvals, Workflow, Tickets,
-            Governance, and Documents included free on every tenant, regardless of which packs you buy.
-          </p>
-          <KeyTakeaway>
-            Platform infrastructure — Approvals, Workflow, Tickets, Governance, Documents — is never a paywalled tier at Infrakinetic. Every tenant gets all five, on every plan, from day one.
-          </KeyTakeaway>
-        </Reveal>
-      </Section>
 
       {/* Engine Selector Tabs */}
       <Section id="engine-selector" className="py-12">
