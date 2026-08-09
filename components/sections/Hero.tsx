@@ -56,7 +56,7 @@ export default function Hero() {
               custom={2}
               className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70"
             >
-              Infrakinetic unifies commercial, workforce, finance, governance, and reporting on one shared database — eliminating disconnected handoffs between CRM, HR, payroll, and finance. (Source: Infrakinetic Architecture, 2026)
+              Infrakinetic unifies commercial, workforce, finance, governance, and reporting on one shared database — eliminating disconnected handoffs between CRM, HR, payroll, and finance.
             </motion.p>
 
             <motion.p

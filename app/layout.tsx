@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/app/globals.css'
 import ClientLayout from '@/components/ClientLayout'
+import Analytics from '@/components/Analytics'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,6 +30,10 @@ export const metadata: Metadata = {
   authors: [{ name: 'Polynovea LLP' }],
   creator: 'Polynovea',
   publisher: 'Polynovea',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
   alternates: {
     canonical: 'https://www.infrakinetic.in/',
   },
@@ -117,6 +122,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-ink-900 text-white min-h-screen antialiased">
+        <Analytics />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

@@ -4,6 +4,31 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check } from '@/components/ui/Icons'
 import { cta } from '@/lib/content'
+import { FAQSection, KeyTakeaway } from '@/components/shared'
+import Section from '@/components/ui/Section'
+
+const briefingFaqItems = [
+  {
+    question: 'Who runs the platform briefing?',
+    answer: 'A platform engineer, not a sales rep. The session is a technical walkthrough of the architecture, governance model, and lifecycle spine — you can bring implementation questions and expect a direct, specific answer.',
+  },
+  {
+    question: 'How long does the briefing take?',
+    answer: 'Sixty minutes. It covers the shared-database architecture, governance and security model, lifecycle spine and signal framework, and calibrated ML intelligence, with time left for your specific questions.',
+  },
+  {
+    question: 'Do I need to prepare anything before the call?',
+    answer: 'No preparation is required. If you already know which engines matter most to your organization — Commerce, People, Finance, Marketing, Operations, or Customer 360 — flagging that when you request the briefing helps us focus the walkthrough.',
+  },
+  {
+    question: 'Is this a sales pitch or a technical review?',
+    answer: 'A technical review. The briefing covers architecture, data model, and governance in enough depth for an engineering or platform evaluation — not a features-and-pricing deck.',
+  },
+  {
+    question: 'What happens after I submit the request?',
+    answer: 'The Infrakinetic team reaches out within 24 hours to schedule the session at a time that works for you and your team.',
+  },
+]
 
 const fields = [
   { name: 'name', label: 'Full name', type: 'text', placeholder: 'Ananya Sharma' },
@@ -28,6 +53,7 @@ export default function BriefingClient() {
   }
 
   return (
+    <>
     <section id="contact" className="relative overflow-hidden py-24 md:py-32">
       <div className="container-page relative">
         <div className="mx-auto max-w-5xl">
@@ -39,10 +65,13 @@ export default function BriefingClient() {
               className="relative border-r border-white/10 pr-8 lg:pr-12"
             >
               <span className="eyebrow">{cta.eyebrow}</span>
-              <h2 className="heading-serif mt-5 text-3xl leading-tight md:text-4xl">
+              <h1 className="heading-serif mt-5 text-3xl leading-tight md:text-4xl">
                 {cta.title}
-              </h2>
+              </h1>
               <p className="mt-4 text-white/60">{cta.lead}</p>
+              <p className="mt-3 text-sm text-white/50">
+                A platform engineer walks you through the shared-database architecture, governance and security model, and lifecycle spine in a single 60-minute session — no sales deck, no SDR.
+              </p>
 
               <div className="mt-10 space-y-4">
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-gold-300">What the briefing covers</h3>
@@ -170,5 +199,43 @@ export default function BriefingClient() {
         </div>
       </div>
     </section>
+
+    <Section
+      id="who-its-for"
+      eyebrow="Who this is for"
+      title="Who is the platform briefing for?"
+      lead="The briefing is aimed at whoever owns the decision to run commercial, workforce, finance, and reporting on one connected platform instead of six disconnected tools."
+    >
+      <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
+          <p className="text-sm font-semibold text-white mb-1">Founders & operators</p>
+          <p className="text-sm text-white/50">Deciding what the company runs its operations on before the stack fragments across departments.</p>
+        </div>
+        <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
+          <p className="text-sm font-semibold text-white mb-1">Platform & engineering leads</p>
+          <p className="text-sm text-white/50">Evaluating the data model, tenant isolation, and event architecture before committing to a migration.</p>
+        </div>
+        <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
+          <p className="text-sm font-semibold text-white mb-1">Finance & governance owners</p>
+          <p className="text-sm text-white/50">Assessing the ledger, approval engine, and audit trail against compliance and control requirements.</p>
+        </div>
+      </div>
+      <KeyTakeaway>
+        The briefing is a 60-minute architecture review led by a platform engineer — bring your hardest integration or governance question, not just a features checklist.
+      </KeyTakeaway>
+      <p className="mt-6 text-sm text-white/45 max-w-2xl">
+        In 60 minutes, we walk through how Infrakinetic&apos;s 15 engines, 5 always-included platform
+        capabilities, and 8-layer security architecture map onto your specific commercial, workforce,
+        and finance workflows.
+      </p>
+    </Section>
+
+    <FAQSection
+      id="briefing-faq"
+      eyebrow="Briefing FAQ"
+      title="Questions people ask before booking"
+      items={briefingFaqItems}
+    />
+    </>
   )
 }

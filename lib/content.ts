@@ -143,6 +143,7 @@ export const nav: NavItem[] = [
   { label: 'Journeys', href: '#modules' },
   { label: 'Intelligence', href: '#intelligence' },
   { label: 'Enterprise', href: '#enterprise' },
+  { label: 'Platform', href: '/platform' },
   { label: 'Products', href: '/products' },
 ]
 
@@ -445,6 +446,38 @@ export const roadmap: RoadmapPhase[] = [
     phase: 'Will be published soon',
     summary: 'Detailed roadmap coming to /resources.',
     items: [],
+  },
+]
+
+export interface FAQItem {
+  question: string
+  answer: string
+}
+
+export const homeFaqItems: FAQItem[] = [
+  {
+    question: 'What is Infrakinetic?',
+    answer: 'Infrakinetic is a unified business operating system that runs commercial, workforce, finance, governance, and reporting on one shared database — replacing the CRM, HRIS, payroll, and workflow tools most companies stitch together with integrations.',
+  },
+  {
+    question: 'Is Infrakinetic a CRM or an ERP?',
+    answer: 'Neither, on its own. It includes CRM-style pipeline and account management and ERP-style finance and operations, but is built around event-driven automation and a single shared data model rather than either category alone.',
+  },
+  {
+    question: 'How is Infrakinetic different from using Salesforce, SAP, and a payroll tool together?',
+    answer: 'Those are three separate systems synced by APIs, each with its own login, approval logic, and audit trail. Infrakinetic runs every function on one database and one approval engine, so a deal closing and an employee being hired both flow through the same event bus without a sync job in between.',
+  },
+  {
+    question: 'Does Infrakinetic support multi-country payroll?',
+    answer: 'Yes. Each legal entity carries its own statutory rules, so payroll compliance is handled per country rather than forced through a single global template.',
+  },
+  {
+    question: 'Is Infrakinetic single-tenant or multi-tenant?',
+    answer: 'Multi-tenant with database-enforced row-level isolation per tenant. Cross-tenant data access and cross-tenant ML pooling are architecturally blocked, not just restricted by application logic.',
+  },
+  {
+    question: 'Who is Infrakinetic built for?',
+    answer: 'Organizations that have outgrown a spreadsheet-and-Slack operating model and need commercial, workforce, and finance work to share one governed system instead of six disconnected tools with manual handoffs between them.',
   },
 ]
 

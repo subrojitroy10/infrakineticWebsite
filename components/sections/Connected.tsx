@@ -53,7 +53,7 @@ export default function Connected() {
           <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 text-center">
             <h3 className="heading-serif text-2xl md:text-3xl">What does a shared business data layer actually do?</h3>
             <p className="mt-4 text-lg leading-relaxed text-white/70 max-w-3xl mx-auto">
-              Instead of syncing data between tools, Infrakinetic uses <strong>one PostgreSQL database</strong> where Commercial, Workforce, Finance, Documents, Workflow, and Reporting all read and write to the same tables. Zero ETL, zero sync lag, zero drift. Every engine participates in the same event bus, approval workflow, and audit trail. Customers report <strong>89% reduction in data reconciliation time</strong> (Source: Infrakinetic Customer Survey, 2026).
+              Instead of syncing data between tools, Infrakinetic uses <strong>one PostgreSQL database</strong> where Commercial, Workforce, Finance, Documents, Workflow, and Reporting all read and write to the same tables. Zero ETL, zero sync lag, zero drift. Every engine participates in the same event bus, approval workflow, and audit trail.
             </p>
             <div className="mt-6 p-4 rounded-xl border border-gold-400/20 bg-gold-400/[0.05] max-w-2xl mx-auto">
               <p className="text-sm font-semibold text-gold-300">Key takeaway:</p>

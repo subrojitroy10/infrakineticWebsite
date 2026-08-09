@@ -32,27 +32,27 @@ export default function Contact() {
   const faqs = [
     {
       q: 'What happens after I submit a briefing request?',
-      a: 'Our team reviews your request within 24 hours and reaches out to schedule a 60-minute platform briefing tailored to your operational priorities. (Source: Infrakinetic Process, 2026)',
+      a: 'Our team reviews your request within 24 hours and reaches out to schedule a 60-minute platform briefing tailored to your operational priorities.',
     },
     {
       q: 'How long does a platform briefing take?',
-      a: 'Standard briefings are 60 minutes — 30 minutes for architecture walkthrough, 20 minutes for your use case mapping, 10 minutes for next steps. (Source: Infrakinetic Process, 2026)',
+      a: 'Standard briefings are 60 minutes — 30 minutes for architecture walkthrough, 20 minutes for your use case mapping, 10 minutes for next steps.',
     },
     {
       q: 'Is there a cost for the briefing?',
-      a: 'No. Platform briefings are complimentary and come with no obligation. We believe you should evaluate the architecture before any commercial discussion. (Source: Infrakinetic Policy, 2026)',
+      a: 'No. Platform briefings are complimentary and come with no obligation. We believe you should evaluate the architecture before any commercial discussion.',
     },
     {
       q: 'What should I prepare for the briefing?',
-      a: 'Come with your top 3 operational friction points (e.g., "renewals fall through cracks," "payroll data doesn\'t match HR"). No slide decks needed. (Source: Infrakinetic Best Practices, 2026)',
+      a: 'Come with your top 3 operational friction points (e.g., "renewals fall through cracks," "payroll data doesn\'t match HR"). No slide decks needed.',
     },
     {
       q: 'Can multiple stakeholders attend?',
-      a: 'Yes — we encourage bringing your CFO, CTO, Head of People, and RevOps lead. The briefing covers architecture that spans all functions. (Source: Infrakinetic Process, 2026)',
+      a: 'Yes — we encourage bringing your CFO, CTO, Head of People, and RevOps lead. The briefing covers architecture that spans all functions.',
     },
     {
       q: 'What happens after the briefing?',
-      a: 'You receive a customized architecture mapping document, a recommended module rollout sequence, and a clear pricing framework. No pressure — just clarity. (Source: Infrakinetic Deliverables, 2026)',
+      a: 'You receive a customized architecture mapping document, a recommended module rollout sequence, and a clear pricing framework. No pressure — just clarity.',
     },
   ]
 
@@ -62,7 +62,7 @@ export default function Contact() {
         <Reveal variant="up" delay={0.05} className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="heading-serif text-3xl md:text-4xl">Why request a briefing instead of a demo?</h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            A demo shows features. A briefing shows <strong>how the architecture solves your specific operational friction</strong>. We map your current context breaks (revenue, workforce, finance, governance) to Infrakinetic&apos;s connected journeys — so you see exactly where the platform eliminates manual handoffs, reconcilation, and audit gaps. 94% of briefing attendees say it changed how they evaluate business software (Source: Infrakinetic Attendee Survey, 2026).
+            A demo shows features. A briefing shows <strong>how the architecture solves your specific operational friction</strong>. We map your current context breaks (revenue, workforce, finance, governance) to Infrakinetic&apos;s connected journeys — so you see exactly where the platform eliminates manual handoffs, reconciliation, and audit gaps.
           </p>
           <div className="mt-6 p-4 rounded-xl border border-gold-400/20 bg-gold-400/[0.05]">
             <p className="text-sm font-semibold text-gold-300">Key takeaway:</p>

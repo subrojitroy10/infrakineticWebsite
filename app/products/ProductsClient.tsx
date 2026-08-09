@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
-import { KpiTileRow, StatusBadge, EntityAvatar, DataTable, Sparkline, TrendDelta } from '@/components/shared'
+import { KpiTileRow, StatusBadge, EntityAvatar, DataTable, Sparkline, TrendDelta, FAQSection, KeyTakeaway } from '@/components/shared'
 import { KpiVariant } from '@/components/shared/KpiTile'
 import {
   Target,
@@ -414,6 +414,29 @@ const engineOrder = [
   'platform-infra',
 ]
 
+const productsFaqItems = [
+  {
+    question: 'What is included in the Commerce atomic pack?',
+    answer: 'Commerce bundles the Commercial Engine (organizations, contacts, agreements) and the Sales Engine (pipeline, quotes, deal conversion) as one connected pack — not two products stitched together. Renewal and expansion opportunities are created automatically.',
+  },
+  {
+    question: 'What is included in the People atomic pack?',
+    answer: 'People covers HR and Payroll as one governed flow: recruitment, compensation, leave, and payroll all share the same employee record, with statutory compliance reminders and multi-country support built in.',
+  },
+  {
+    question: 'Are Approvals, Workflow, and Governance separate add-ons?',
+    answer: 'No. Approvals, Workflow, Tickets, Governance, and Documents are included free with every tenant on every plan — they are the substrate every engine runs on, not a tier you unlock later.',
+  },
+  {
+    question: 'Do I need Commerce to use the Customer 360 add-on?',
+    answer: 'Yes. Customer 360 (CX360) requires Commerce because it anchors its lifecycle spine, health scoring, and churn-risk model on Commercial organization records.',
+  },
+  {
+    question: 'Can I buy Finance or Marketing without the atomic packs?',
+    answer: 'Yes. Finance and Marketing are standalone products and can run independently of the Commerce or People atomic packs.',
+  },
+]
+
 export default function ProductsClient() {
   const [activeEngine, setActiveEngine] = useState('commerce')
   const engine = engines.find(e => e.id === activeEngine)!
@@ -436,9 +459,25 @@ export default function ProductsClient() {
               Two atomic packs, two standalone products, two add-ons, five platform capabilities
               included with every tenant. All on one database. One event bus. One transaction boundary.
             </p>
+            <p className="mt-4 text-sm md:text-base text-white/45 max-w-2xl mx-auto">
+              Infrakinetic is priced as Commerce and People atomic packs, standalone Finance and Marketing engines, and Customer 360 and Marketing Agency add-ons — with Approvals, Workflow, Tickets, Governance, and Documents included free for every tenant, on every plan.
+            </p>
           </motion.div>
         </div>
       </section>
+
+      <Section id="how-pricing-works" eyebrow="In one paragraph" title="How is Infrakinetic priced?">
+        <Reveal variant="fade" className="mt-6 max-w-3xl">
+          <p className="text-lg leading-relaxed text-white/70">
+            Infrakinetic is priced as two atomic packs (Commerce, People), two standalone products (Finance,
+            Marketing), and two add-ons (Customer 360, Marketing Agency) — with Approvals, Workflow, Tickets,
+            Governance, and Documents included free on every tenant, regardless of which packs you buy.
+          </p>
+          <KeyTakeaway>
+            Platform infrastructure — Approvals, Workflow, Tickets, Governance, Documents — is never a paywalled tier at Infrakinetic. Every tenant gets all five, on every plan, from day one.
+          </KeyTakeaway>
+        </Reveal>
+      </Section>
 
       {/* Engine Selector Tabs */}
       <Section id="engine-selector" className="py-12">
@@ -729,6 +768,13 @@ export default function ProductsClient() {
           </Reveal>
         </Section>
       </motion.div>
+
+      <FAQSection
+        id="products-faq"
+        eyebrow="Pricing FAQ"
+        title="How Infrakinetic packaging works"
+        items={productsFaqItems}
+      />
     </div>
   )
 }
