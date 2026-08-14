@@ -29,6 +29,8 @@ import {
   ChevronRight,
   RefreshCw,
   AlertTriangle,
+  Database,
+  FileCheck,
 } from '@/components/ui/Icons'
 
 type EngineKpi = {
@@ -49,6 +51,44 @@ type EngineAction = {
 }
 // Engine definitions - each engine gets CX360-level depth
 const engines = [
+  {
+    id: 'migration',
+    label: 'Migration Engine',
+    icon: GitBranch,
+    color: 'gold',
+    subtitle: 'Governed Data Onboarding — Included for Every Tenant',
+    description: 'The governed front door for your existing data — Salesforce, Zoho, HubSpot, Tally, or files. Immutable snapshots, versioned mapping, a staged airlock, dependency-ordered execution, and an explicit human verification gate. Proven end-to-end against a real production run, not a demo.',
+    kpis: [
+      { label: 'Records Migrated (Canary)', value: '626/626', icon: Database, variant: 'positive' },
+      { label: 'Relationships Verified', value: '313/313', icon: GitBranch, variant: 'positive' },
+      { label: 'Reconciliation Checks', value: '12/12', icon: Shield, variant: 'positive' },
+      { label: 'Historical Events Leaked', value: '0', icon: FileCheck, variant: 'positive' },
+      { label: 'Zero-Failure Throughput Run', value: '10,000 records', icon: RefreshCw, variant: 'positive' },
+    ] satisfies EngineKpi[],
+    features: [
+      'Multi-file and connector-based source analysis — Salesforce, Zoho CRM, HubSpot, Tally',
+      'Versioned mapping specification with governed custom-field support',
+      'Staged airlock — validated before anything touches production',
+      'Dependency-ordered, checkpointed execution with pause, resume, and per-record fault containment',
+      'Reconciliation plus explicit human verification before a migration is ever called complete',
+    ],
+    detail: {
+      healthComponents: [
+        { component: 'Canary Completion', score: 100, weight: 100, detail: '626/626 records migrated', color: 'gold' },
+        { component: 'Relationship Accuracy', score: 100, weight: 100, detail: '313/313 relationships verified', color: 'gold' },
+        { component: 'Reconciliation', score: 100, weight: 100, detail: '12/12 hard checks passed', color: 'violet' },
+        { component: 'Automation Isolation', score: 100, weight: 100, detail: 'Zero historical events leaked to live automations', color: 'violet' },
+      ],
+      interventions: [],
+      actions: [
+        { action: 'start_migration', icon: RefreshCw, label: 'Start Migration', desc: 'Connect a source or upload files', color: 'gold', variant: 'primary' },
+        { action: 'review_mapping', icon: GitBranch, label: 'Review Mapping', desc: 'Versioned, evidence-backed suggestions', color: 'gold', variant: 'primary' },
+        { action: 'run_reconciliation', icon: Shield, label: 'Run Reconciliation', desc: 'Counts, relationships, totals', color: 'violet', variant: 'secondary' },
+        { action: 'verify_migration', icon: Check, label: 'Verify & Complete', desc: 'Explicit human sign-off', color: 'violet', variant: 'secondary' },
+        { action: 'create_reversal_plan', icon: FileText, label: 'Create Reversal Plan', desc: 'Governed, never a silent delete', color: 'red', variant: 'danger' },
+      ],
+    },
+  },
   {
     id: 'commerce',
     label: 'Commerce',
@@ -145,9 +185,9 @@ const engines = [
     features: [
       'Cryptographic ledger — hash-chained, auditor-verifiable',
       'Budget planning with hard spend limits, not soft warnings',
-      'Invoicing with full payment-change history',
+      'Customer invoicing runs in the independent Billing & Invoicing engine — see below',
       'Multi-currency, multi-account, automatic reconciliation',
-      'Native postings from payroll lock and campaign spend',
+      'Native postings from payroll lock, campaign spend, and optional Billing & Payments activity',
     ],
     detail: {
       healthComponents: [
@@ -166,6 +206,43 @@ const engines = [
         { action: 'generate_invoice', icon: FileText, label: 'Generate Invoice', desc: 'From subscription schedule', color: 'violet', variant: 'secondary' },
         { action: 'create_case', icon: Activity, label: 'Create Case', desc: 'Routes to finance team', color: 'violet', variant: 'secondary' },
         { action: 'reconcile_accounts', icon: Shield, label: 'Reconcile Accounts', desc: 'Auto-match + exceptions', color: 'red', variant: 'danger' },
+      ],
+    },
+  },
+  {
+    id: 'billing',
+    label: 'Billing & Invoicing',
+    icon: FileText,
+    color: 'violet',
+    subtitle: 'Standalone Product — Independent of Finance',
+    description: 'Billing runs whether or not Finance is even switched on. A deterministic rating engine turns commercial facts into governed invoices; documents, delivery, and reminders run on policy; and certified payment connections handle collection and settlement. When Finance is enabled, billing activity posts straight into the ledger — when it isn\'t, nothing breaks.',
+    kpis: [
+      { label: 'Invoices Issued / Month', value: '412', icon: FileText, variant: 'neutral', delta: '+9%' },
+      { label: 'Outstanding', value: '$186K', icon: Wallet, variant: 'warning' },
+      { label: 'Avg Days to Pay', value: '18 days', icon: ChartBar, variant: 'positive', delta: '-3 days' },
+      { label: 'Reminder Delivery', value: '99.6%', icon: Bell, variant: 'positive' },
+    ] satisfies EngineKpi[],
+    features: [
+      'Independent entitlement — runs with or without Finance enabled',
+      'Deterministic rating engine — fixed, tiered, usage, milestone, and prorated billing rules',
+      'Governed, versioned billing configuration — nothing changes underneath a live rate card',
+      'Automated invoice documents, delivery, and policy-driven reminders',
+      'Certified payment connections with settlement ingestion and reconciliation',
+    ],
+    detail: {
+      healthComponents: [
+        { component: 'Invoice Integrity', score: 98, weight: 100, detail: 'Immutable, hashed issued snapshots', color: 'gold' },
+        { component: 'Rating Accuracy', score: 99, weight: 100, detail: 'Deterministic fixed-point rating engine', color: 'gold' },
+        { component: 'Reminder Delivery', score: 96, weight: 100, detail: 'Policy-driven, pauses on dispute/hold', color: 'violet' },
+        { component: 'Payment Reconciliation', score: 92, weight: 100, detail: 'Automated settlement matching', color: 'violet' },
+      ],
+      interventions: [],
+      actions: [
+        { action: 'generate_invoice', icon: FileText, label: 'Generate Invoice', desc: 'From a governed billing run', color: 'gold', variant: 'primary' },
+        { action: 'send_reminder', icon: Bell, label: 'Send Reminder', desc: 'Policy-driven, pausable', color: 'gold', variant: 'primary' },
+        { action: 'record_payment', icon: Zap, label: 'Record Payment', desc: 'Via certified payment connection', color: 'violet', variant: 'secondary' },
+        { action: 'reconcile_settlement', icon: Shield, label: 'Reconcile Settlement', desc: 'Batch match + exceptions', color: 'violet', variant: 'secondary' },
+        { action: 'view_invoice_history', icon: Activity, label: 'View Invoice History', desc: 'Full issued-version trail', color: 'violet', variant: 'secondary' },
       ],
     },
   },
@@ -403,9 +480,11 @@ const engines = [
 ]
 
 const engineOrder = [
+  'migration',
   'commerce',
   'people',
   'finance',
+  'billing',
   'marketing',
   'operations',
   'customer360',
@@ -435,10 +514,18 @@ const productsFaqItems = [
     question: 'Can I buy Finance or Marketing without the atomic packs?',
     answer: 'Yes. Finance and Marketing are standalone products and can run independently of the Commerce or People atomic packs.',
   },
+  {
+    question: 'Is the Migration Engine an extra product I have to buy?',
+    answer: 'No. Governed data onboarding is included for every tenant — it is how you get your existing Salesforce, Zoho, HubSpot, Tally, or file-based data onto the platform in the first place, not a separate line item.',
+  },
+  {
+    question: 'Do I need Finance to use Billing & Invoicing, or vice versa?',
+    answer: 'No. Billing & Invoicing and Payments are independent, separately entitled engines. Billing runs whether or not Finance is enabled for your tenant; when Finance is also enabled, billing activity posts into the same ledger automatically.',
+  },
 ]
 
 export default function ProductsClient() {
-  const [activeEngine, setActiveEngine] = useState('commerce')
+  const [activeEngine, setActiveEngine] = useState('migration')
   const engine = engines.find(e => e.id === activeEngine)!
 
   return (
@@ -456,11 +543,11 @@ export default function ProductsClient() {
               Every Engine. One Platform. Zero Drift.
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
-              Two atomic packs, two standalone products, two add-ons, five platform capabilities
-              included with every tenant. All on one database. One event bus. One transaction boundary.
+              Two atomic packs, three standalone products, two add-ons, five platform capabilities,
+              and governed data onboarding included for every tenant. All on one database. One event bus. One transaction boundary.
             </p>
             <p className="mt-4 text-sm md:text-base text-white/45 max-w-2xl mx-auto">
-              Infrakinetic is priced as Commerce and People atomic packs, standalone Finance and Marketing engines, and Customer 360 and Marketing Agency add-ons — with Approvals, Workflow, Tickets, Governance, and Documents included free for every tenant, on every plan.
+              Infrakinetic is priced as Commerce and People atomic packs, standalone Finance, Billing & Invoicing, and Marketing engines, and Customer 360 and Marketing Agency add-ons — with Approvals, Workflow, Tickets, Governance, Documents, and the Migration Engine included free for every tenant, on every plan.
             </p>
           </motion.div>
         </div>
@@ -520,14 +607,10 @@ export default function ProductsClient() {
                     <div className={`mb-4 grid h-12 w-12 place-items-center rounded-xl border ${engine.color === 'gold' ? 'border-gold-300/30 bg-gold-300/[0.08] text-gold-300' : 'border-violet-400/30 bg-violet-400/[0.08] text-violet-300'}`}>
                       <engine.icon size={20} />
                     </div>
-                    <ul className="space-y-2 text-sm text-white/60 flex-1">
-                      {engine.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2">
-                          <Check size={12} className="shrink-0 mt-0.5" />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="flex items-start gap-2 text-sm text-white/60 flex-1">
+                      <Check size={12} className="shrink-0 mt-0.5" />
+                      {feature}
+                    </p>
                   </ParallaxCard>
                 </motion.div>
               ))}

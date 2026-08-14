@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
 import WhatIsInfrakinetic from '@/components/sections/WhatIsInfrakinetic'
 import Problem from '@/components/sections/Problem'
+import MigrationEngine from '@/components/sections/MigrationEngine'
 import MeetInfrakinetic from '@/components/sections/MeetInfrakinetic'
 import Connected from '@/components/sections/Connected'
 import Modules from '@/components/sections/Modules'
@@ -25,6 +26,7 @@ export default function HomePage() {
       <Hero />
       <WhatIsInfrakinetic />
       <Problem />
+      <MigrationEngine />
       <MeetInfrakinetic />
       <Connected />
       <Modules />

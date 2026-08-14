@@ -17,7 +17,7 @@ const fade = {
 
 const heroStats = [
   { label: 'Business data layer', value: '1', icon: Target },
-  { label: 'Operating engines', value: '11+', icon: Users },
+  { label: 'Operating engines', value: '14+', icon: Users },
   { label: 'Platform infra engines', value: '5', icon: Wallet },
   { label: 'Context resets', value: '0', icon: TrendingUp },
 ]

@@ -37,6 +37,35 @@ export interface NotThisSection {
   items: NotThisItem[]
 }
 
+export interface MigrationStep {
+  n: string
+  title: string
+  desc: string
+}
+
+export interface MigrationProof {
+  label: string
+  value: string
+}
+
+export interface MigrationDifferentiator {
+  title: string
+  desc: string
+}
+
+export interface MigrationSection {
+  eyebrow: string
+  title: string
+  lead: string
+  steps: MigrationStep[]
+  proof: MigrationProof[]
+  proofNote: string
+  scaleProof: { value: string; label: string; note: string }
+  connectors: string[]
+  connectorsNote: string
+  differentiators: MigrationDifferentiator[]
+}
+
 export interface MeetSection {
   eyebrow: string
   title: string
@@ -139,6 +168,7 @@ export const brand: Brand = {
 
 export const nav: NavItem[] = [
   { label: 'Reality', href: '#problem' },
+  { label: 'Migration', href: '#migration' },
   { label: 'Foundation', href: '#platform' },
   { label: 'Journeys', href: '#modules' },
   { label: 'Intelligence', href: '#intelligence' },
@@ -196,6 +226,43 @@ export const notThis: NotThisSection = {
   ],
 }
 
+export const migrationEngine: MigrationSection = {
+  eyebrow: 'Governed data onboarding',
+  title: 'The one claim on this page proven with a number, not a promise.',
+  lead:
+    "Every platform asks you to trust a migration wizard with your customer history. Infrakinetic's Migration Engine is the governed front door for it instead — immutable snapshots, versioned mapping, a staged airlock, dependency-ordered execution, and a human verification gate before anything is called done. It already ran end-to-end against production and passed.",
+  steps: [
+    { n: '01', title: 'Snapshot', desc: 'Every source record is captured as an immutable snapshot before anything touches production.' },
+    { n: '02', title: 'Analyze & map', desc: 'Source fields are profiled and matched to governed destinations, with full evidence — nothing unsupported is silently discarded.' },
+    { n: '03', title: 'Stage', desc: 'Validated data sits in a governed airlock, fully separated from production, until it clears readiness.' },
+    { n: '04', title: 'Execute', desc: 'Dependency-ordered, checkpointed writes with pause, resume, and per-record fault containment.' },
+    { n: '05', title: 'Reconcile', desc: 'Automated checks confirm record counts, relationships, and financial totals before anyone signs off.' },
+    { n: '06', title: 'Verify', desc: 'A permitted person signs off explicitly — the pipeline finishing its work is never enough on its own.' },
+  ],
+  proof: [
+    { label: 'Records migrated', value: '626/626' },
+    { label: 'Relationships verified', value: '313/313' },
+    { label: 'Reconciliation checks passed', value: '12/12' },
+    { label: 'Historical events leaked', value: '0' },
+  ],
+  proofNote: 'Our audited correctness run — every record, relationship, and reconciliation check reviewed and signed off, not a demo environment.',
+  scaleProof: {
+    value: '10,000',
+    label: 'Records processed in a single run, zero failures',
+    note: 'A separate throughput run, run independently of the correctness canary above.',
+  },
+  connectors: ['Salesforce CRM', 'Zoho CRM', 'HubSpot CRM', 'Tally'],
+  connectorsNote: 'Plus direct file and document upload (CSV, Excel, PDF, Word) for anything else.',
+  differentiators: [
+    { title: 'Staged, not live', desc: 'Data is validated in a governed airlock, completely separated from production, until it is explicitly approved.' },
+    { title: 'Durable identity', desc: 'Records are matched by durable source identity, not mutable names — retries and re-imports are safe by construction.' },
+    { title: 'Dependency-ordered', desc: 'Related records — organizations, contacts, deals, employment history, invoices — write in the order their relationships require.' },
+    { title: 'Reconciled and verified', desc: 'Automated hard checks plus an explicit human sign-off gate. A worker finishing its job is never treated as "done."' },
+    { title: 'Reversible, not destructive', desc: 'Financial and historical records use governed reversal plans instead of silent deletes.' },
+    { title: "Doesn't wake up your automations", desc: 'Historical writes are structurally prevented from firing the live business events your team already relies on.' },
+  ],
+}
+
 export const meet: MeetSection = {
   eyebrow: 'Infrakinetic foundation',
   title: 'The operational foundation that keeps business work connected.',
@@ -213,10 +280,13 @@ export const meet: MeetSection = {
     'Shared notifications',
   ],
   engines: [
+    'Migration',
     'Commercial',
     'Sales',
     'Marketing',
     'Finance',
+    'Billing & Invoicing',
+    'Payments',
     'HR',
     'Recruitment',
     'Workforce',
