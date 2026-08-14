@@ -74,10 +74,11 @@ const engines = [
     ],
     detail: {
       healthComponents: [
-        { component: 'Canary Completion', score: 100, weight: 100, detail: '626/626 records migrated', color: 'gold' },
+        { component: 'Correctness Canary', score: 100, weight: 100, detail: '626/626 records migrated, audited', color: 'gold' },
         { component: 'Relationship Accuracy', score: 100, weight: 100, detail: '313/313 relationships verified', color: 'gold' },
         { component: 'Reconciliation', score: 100, weight: 100, detail: '12/12 hard checks passed', color: 'violet' },
         { component: 'Automation Isolation', score: 100, weight: 100, detail: 'Zero historical events leaked to live automations', color: 'violet' },
+        { component: 'Throughput Run', score: 100, weight: 100, detail: '10,000 records processed, zero failures (separate run)', color: 'violet' },
       ],
       interventions: [],
       actions: [
