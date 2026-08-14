@@ -60,9 +60,9 @@ const engines = [
     description: 'The governed front door for your existing data — Salesforce, Zoho, HubSpot, Tally, or files. Immutable snapshots, versioned mapping, a staged airlock, dependency-ordered execution, and an explicit human verification gate. Proven end-to-end against a real production run, not a demo.',
     kpis: [
       { label: 'Records Migrated', value: '10,000/10,000', icon: Database, variant: 'positive' },
-      { label: 'Reconciliation Checks', value: '12/12', icon: Shield, variant: 'positive' },
-      { label: 'Relationship Integrity', value: 'Passed', icon: GitBranch, variant: 'positive' },
-      { label: 'Historical Events Leaked', value: '0', icon: FileCheck, variant: 'positive' },
+      { label: 'Reconciliation', value: '12/12', icon: Shield, variant: 'positive' },
+      { label: 'Relationships', value: 'Passed', icon: GitBranch, variant: 'positive' },
+      { label: 'Events Leaked', value: '0', icon: FileCheck, variant: 'positive' },
     ] satisfies EngineKpi[],
     features: [
       'Multi-file and connector-based source analysis — Salesforce, Zoho CRM, HubSpot, Tally',
@@ -216,10 +216,10 @@ const engines = [
     subtitle: 'Standalone Product — Independent of Finance',
     description: 'Billing runs whether or not Finance is even switched on. A deterministic rating engine turns commercial facts into governed invoices; documents, delivery, and reminders run on policy; and certified payment connections handle collection and settlement. When Finance is enabled, billing activity posts straight into the ledger — when it isn\'t, nothing breaks.',
     kpis: [
-      { label: 'Invoices Issued / Month', value: '412', icon: FileText, variant: 'neutral', delta: '+9%' },
+      { label: 'Invoices / Month', value: '412', icon: FileText, variant: 'neutral', delta: '+9%' },
       { label: 'Outstanding', value: '$186K', icon: Wallet, variant: 'warning' },
-      { label: 'Avg Days to Pay', value: '18 days', icon: ChartBar, variant: 'positive', delta: '-3 days' },
-      { label: 'Reminder Delivery', value: '99.6%', icon: Bell, variant: 'positive' },
+      { label: 'Days to Pay', value: '18 days', icon: ChartBar, variant: 'positive', delta: '-3 days' },
+      { label: 'Reminders Sent', value: '99.6%', icon: Bell, variant: 'positive' },
     ] satisfies EngineKpi[],
     features: [
       'Independent entitlement — runs with or without Finance enabled',
