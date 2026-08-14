@@ -42,18 +42,6 @@ export default function MigrationEngine() {
         </ParallaxCard>
       </Reveal>
 
-      {/* Scale proof — a distinct throughput run, kept separate from the correctness canary above */}
-      <Reveal variant="fade" className="mt-4">
-        <div className="flex flex-col items-start gap-3 rounded-2xl border border-violet-400/20 bg-violet-400/[0.05] p-5 sm:flex-row sm:items-center md:p-6">
-          <p className="text-2xl font-semibold tracking-tight text-violet-200 sm:text-3xl shrink-0">
-            {migrationEngine.scaleProof.value}
-          </p>
-          <div>
-            <p className="text-sm font-medium text-white/75">{migrationEngine.scaleProof.label}</p>
-            <p className="mt-1 text-xs text-white/45">{migrationEngine.scaleProof.note}</p>
-          </div>
-        </div>
-      </Reveal>
 
       {/* The six-step governed pipeline */}
       <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

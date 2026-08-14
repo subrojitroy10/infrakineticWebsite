@@ -60,7 +60,6 @@ export interface MigrationSection {
   steps: MigrationStep[]
   proof: MigrationProof[]
   proofNote: string
-  scaleProof: { value: string; label: string; note: string }
   connectors: string[]
   connectorsNote: string
   differentiators: MigrationDifferentiator[]
@@ -240,17 +239,12 @@ export const migrationEngine: MigrationSection = {
     { n: '06', title: 'Verify', desc: 'A permitted person signs off explicitly — the pipeline finishing its work is never enough on its own.' },
   ],
   proof: [
-    { label: 'Records migrated', value: '626/626' },
-    { label: 'Relationships verified', value: '313/313' },
+    { label: 'Records migrated', value: '10,000/10,000' },
     { label: 'Reconciliation checks passed', value: '12/12' },
+    { label: 'Relationship integrity', value: 'Passed' },
     { label: 'Historical events leaked', value: '0' },
   ],
   proofNote: 'Our audited correctness run — every record, relationship, and reconciliation check reviewed and signed off, not a demo environment.',
-  scaleProof: {
-    value: '10,000',
-    label: 'Records processed in a single run, zero failures',
-    note: 'A separate throughput run, run independently of the correctness canary above.',
-  },
   connectors: ['Salesforce CRM', 'Zoho CRM', 'HubSpot CRM', 'Tally'],
   connectorsNote: 'Plus direct file and document upload (CSV, Excel, PDF, Word) for anything else.',
   differentiators: [

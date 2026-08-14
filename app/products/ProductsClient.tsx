@@ -59,11 +59,10 @@ const engines = [
     subtitle: 'Governed Data Onboarding — Included for Every Tenant',
     description: 'The governed front door for your existing data — Salesforce, Zoho, HubSpot, Tally, or files. Immutable snapshots, versioned mapping, a staged airlock, dependency-ordered execution, and an explicit human verification gate. Proven end-to-end against a real production run, not a demo.',
     kpis: [
-      { label: 'Records Migrated (Canary)', value: '626/626', icon: Database, variant: 'positive' },
-      { label: 'Relationships Verified', value: '313/313', icon: GitBranch, variant: 'positive' },
+      { label: 'Records Migrated', value: '10,000/10,000', icon: Database, variant: 'positive' },
       { label: 'Reconciliation Checks', value: '12/12', icon: Shield, variant: 'positive' },
+      { label: 'Relationship Integrity', value: 'Passed', icon: GitBranch, variant: 'positive' },
       { label: 'Historical Events Leaked', value: '0', icon: FileCheck, variant: 'positive' },
-      { label: 'Zero-Failure Throughput Run', value: '10,000 records', icon: RefreshCw, variant: 'positive' },
     ] satisfies EngineKpi[],
     features: [
       'Multi-file and connector-based source analysis — Salesforce, Zoho CRM, HubSpot, Tally',
@@ -74,11 +73,10 @@ const engines = [
     ],
     detail: {
       healthComponents: [
-        { component: 'Correctness Canary', score: 100, weight: 100, detail: '626/626 records migrated, audited', color: 'gold' },
-        { component: 'Relationship Accuracy', score: 100, weight: 100, detail: '313/313 relationships verified', color: 'gold' },
+        { component: 'Correctness Canary', score: 100, weight: 100, detail: '10,000/10,000 records migrated, audited', color: 'gold' },
+        { component: 'Relationship Integrity', score: 100, weight: 100, detail: 'Relationship checks passed', color: 'gold' },
         { component: 'Reconciliation', score: 100, weight: 100, detail: '12/12 hard checks passed', color: 'violet' },
         { component: 'Automation Isolation', score: 100, weight: 100, detail: 'Zero historical events leaked to live automations', color: 'violet' },
-        { component: 'Throughput Run', score: 100, weight: 100, detail: '10,000 records processed, zero failures (separate run)', color: 'violet' },
       ],
       interventions: [],
       actions: [
