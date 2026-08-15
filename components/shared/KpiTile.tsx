@@ -56,10 +56,10 @@ export default function KpiTile({
           </div>
         )}
         <div className="min-w-0 flex-1">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-white/40 truncate">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-white/40 leading-snug">
             {label}
           </p>
-          <p className="mt-1 text-xl font-semibold tracking-tight text-white">{value}</p>
+          <p className="mt-1 break-words text-xl font-semibold tracking-tight text-white">{value}</p>
           {subLine && (
             <p className="mt-2 flex items-center gap-1.5 text-sm font-medium text-white/60">
               {SubIcon && <SubIcon size={12} />}

@@ -633,13 +633,26 @@ export default function ProductsClient() {
                   transition={{ duration: 0.6 }}
                 >
                   <ParallaxCard depth={18} className="h-full p-6 md:p-8">
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center justify-between mb-3">
                       <div>
                         <h3 className="heading-serif text-xl">Health Score — Versioned</h3>
-                        <p className="text-sm text-white/50 mt-1">{engine.label} · Heuristic v2</p>
+                        <p className="text-sm text-white/50 mt-1">
+                          {engine.label} · {engine.id === 'migration' ? 'Audited production run' : 'Heuristic v2'}
+                        </p>
                       </div>
-                      <StatusBadge value="heuristic" family="lifecycle" size="sm" />
+                      {engine.id === 'migration' ? (
+                        <span className="rounded-full border border-gold-300/30 bg-gold-300/10 px-2.5 py-1 text-[11px] font-medium text-gold-300">
+                          Audited
+                        </span>
+                      ) : (
+                        <StatusBadge value="heuristic" family="lifecycle" size="sm" />
+                      )}
                     </div>
+                    <p className="text-xs text-white/40 mb-6">
+                      {engine.id === 'migration'
+                        ? 'Measured from a real production run, not a projection — see the correctness proof above.'
+                        : `Illustrative example — shows what ${engine.label}'s scoring model computes, not a claim about your own data.`}
+                    </p>
 
                     <div className="space-y-3">
                       {engine.detail.healthComponents.map((comp) => (
