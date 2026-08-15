@@ -21,3 +21,4 @@ debug.log
 tsconfig.tsbuildinfo
 SEO/report*/
 SEO/raw*/
+.vercel

@@ -166,6 +166,7 @@ export const brand: Brand = {
 }
 
 export const nav: NavItem[] = [
+  { label: 'Home', href: '/' },
   { label: 'Migration', href: '/migration' },
   { label: 'Platform', href: '/platform' },
   { label: 'Products', href: '/products' },

@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check } from '@/components/ui/Icons'
 import { cta } from '@/lib/content'
+import { submitLead } from '@/lib/formsubmit'
 import { FAQSection, KeyTakeaway } from '@/components/shared'
 import Section from '@/components/ui/Section'
 
@@ -40,6 +41,8 @@ const areas = ['Commerce', 'People', 'Finance', 'Marketing', 'Operations', 'CX36
 
 export default function BriefingClient() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [picked, setPicked] = useState(['Commerce'])
 
   const toggle = (area: string) =>
@@ -47,9 +50,26 @@ export default function BriefingClient() {
       current.includes(area) ? current.filter((item) => item !== area) : [...current, area],
     )
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setSubmitted(true)
+    setError(null)
+    setSubmitting(true)
+
+    const formData = new FormData(event.currentTarget)
+    try {
+      await submitLead({
+        name: String(formData.get('name') ?? ''),
+        email: String(formData.get('email') ?? ''),
+        company: String(formData.get('company') ?? ''),
+        areas: picked,
+        source: 'briefing',
+      })
+      setSubmitted(true)
+    } catch {
+      setError("Something went wrong — email us directly at hello@infrakinetic.io")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -183,13 +203,17 @@ export default function BriefingClient() {
                         </div>
                       </div>
 
-                      <button type="submit" className="btn-primary w-full">
-                        Request a platform briefing
-                        <ArrowRight size={15} />
+                      <button type="submit" disabled={submitting} className="btn-primary w-full disabled:opacity-60">
+                        {submitting ? 'Sending…' : 'Request a platform briefing'}
+                        {!submitting && <ArrowRight size={15} />}
                       </button>
-                      <p className="text-center text-xs text-white/30">
-                        Briefing requests are reviewed by the Infrakinetic team.
-                      </p>
+                      {error ? (
+                        <p className="text-center text-xs text-red-400">{error}</p>
+                      ) : (
+                        <p className="text-center text-xs text-white/30">
+                          Briefing requests are reviewed by the Infrakinetic team.
+                        </p>
+                      )}
                     </motion.form>
                   )}
                 </AnimatePresence>
