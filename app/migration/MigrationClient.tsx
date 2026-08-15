@@ -319,7 +319,7 @@ export default function MigrationClient() {
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-gold-400/15 text-gold-300">
                 <Check size={14} />
               </span>
-              Bring your own export. We'll show you the mapping before anything moves.
+              Bring your own export. We&apos;ll show you the mapping before anything moves.
             </div>
             <a href="/briefing" className="btn-primary inline-flex shrink-0">
               Assess a migration
