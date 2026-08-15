@@ -166,14 +166,11 @@ export const brand: Brand = {
 }
 
 export const nav: NavItem[] = [
-  { label: 'Reality', href: '#problem' },
-  { label: 'Migration', href: '#migration' },
-  { label: 'Foundation', href: '#platform' },
-  { label: 'Journeys', href: '#modules' },
-  { label: 'Intelligence', href: '#intelligence' },
-  { label: 'Enterprise', href: '#enterprise' },
+  { label: 'Migration', href: '/migration' },
   { label: 'Platform', href: '/platform' },
   { label: 'Products', href: '/products' },
+  { label: 'Journeys', href: '#modules' },
+  { label: 'Enterprise', href: '#enterprise' },
 ]
 
 export const problem: ProblemSection = {
@@ -226,10 +223,10 @@ export const notThis: NotThisSection = {
 }
 
 export const migrationEngine: MigrationSection = {
-  eyebrow: 'Governed data onboarding',
-  title: 'The one claim on this page proven with a number, not a promise.',
+  eyebrow: 'CRM, HRIS & ERP data migration',
+  title: 'Move business systems without losing what makes the data meaningful.',
   lead:
-    "Every platform asks you to trust a migration wizard with your customer history. Infrakinetic's Migration Engine is the governed front door for it instead — immutable snapshots, versioned mapping, a staged airlock, dependency-ordered execution, and a human verification gate before anything is called done. It already ran end-to-end against production and passed.",
+    "CRM migration, HRIS migration, and ERP migration usually mean export a CSV, map some columns, and hope the relationships survived. Infrakinetic's Migration Engine treats it as a systems problem instead: it discovers your source schema, maps entities and relationships (not just fields), stages everything in a governed airlock, executes in dependency order, and reconciles the result before a human signs off. It already ran end-to-end against production and passed.",
   steps: [
     { n: '01', title: 'Snapshot', desc: 'Every source record is captured as an immutable snapshot before anything touches production.' },
     { n: '02', title: 'Analyze & map', desc: 'Source fields are profiled and matched to governed destinations, with full evidence — nothing unsupported is silently discarded.' },
@@ -542,6 +539,33 @@ export const homeFaqItems: FAQItem[] = [
   {
     question: 'Who is Infrakinetic built for?',
     answer: 'Organizations that have outgrown a spreadsheet-and-Slack operating model and need commercial, workforce, and finance work to share one governed system instead of six disconnected tools with manual handoffs between them.',
+  },
+]
+
+export const migrationFaqItems: FAQItem[] = [
+  {
+    question: 'What is CRM migration?',
+    answer: 'CRM migration is moving customer, contact, deal, and activity data from one CRM to another — for example Salesforce to HubSpot, or Zoho CRM to Salesforce — while preserving the relationships between records, not just the records themselves. A naive export/import moves rows; a governed migration preserves who owns what, which contact belongs to which account, and what happened when.',
+  },
+  {
+    question: 'What is the difference between CRM migration and general data migration?',
+    answer: 'CRM migration is one category of the broader problem. The same discover-map-transform-execute-validate-reconcile pipeline applies whether you are moving a CRM (Salesforce, HubSpot, Zoho), an HRIS (BambooHR, Workday, Rippling), an ERP, or a finance platform (QuickBooks, Xero, NetSuite) — the entities and relationships differ, but the risk (broken references, lost history, silent corruption) is the same.',
+  },
+  {
+    question: 'Why is a CSV export/import not enough for a CRM or ERP migration?',
+    answer: "A CSV import maps source_field to destination_field, one column at a time. It breaks down as soon as data has relationships (a deal belongs to an account, an account has contacts), custom fields with no direct equivalent, duplicate entities, or lifecycle states that don't map 1:1 between systems. Infrakinetic's Migration Engine maps entities and relationships, not just fields, and flags anything ambiguous for human review instead of silently guessing.",
+  },
+  {
+    question: 'How do I know a migration actually succeeded, not just that the import finished?',
+    answer: '"Import completed" only proves the pipeline ran — not that the destination is consistent with the source. Infrakinetic reconciles record counts, relationship integrity, and financial totals between source and destination, and produces an auditable report: what matched exactly, what was transformed, what is unresolved, and what has no equivalent in the destination.',
+  },
+  {
+    question: 'Which systems can Infrakinetic migrate between?',
+    answer: 'Live connectors today: Salesforce CRM, Zoho CRM, HubSpot CRM, and Tally, plus direct upload for CSV, Excel, PDF, and Word. The same governed pipeline — discover, map, transform, execute, validate, reconcile — applies to CRM, HRIS, ERP, and finance-platform migrations as more connectors ship.',
+  },
+  {
+    question: 'Is migrated data live in production immediately?',
+    answer: 'No. Data lands in a staged, governed airlock — fully separated from production — until it clears reconciliation and a permitted person signs off explicitly. Historical writes are also structurally prevented from firing your live automations, so a migration never wakes up workflows meant for real-time activity.',
   },
 ]
 

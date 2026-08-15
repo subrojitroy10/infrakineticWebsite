@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { brand } from '@/lib/content'
+import Link from 'next/link'
 import DashboardMock from '@/components/mock/DashboardMock'
 import { ArrowRight, TrendingUp, Users, Wallet, Target } from '@/components/ui/Icons'
 
@@ -82,6 +83,10 @@ export default function Hero() {
                 Request a briefing
                 <ArrowRight size={15} />
               </a>
+              <Link href="/migration" className="btn-ghost">
+                Assess a migration
+                <ArrowRight size={15} />
+              </Link>
             </motion.div>
 
             <div className="sr-only" itemProp="description">

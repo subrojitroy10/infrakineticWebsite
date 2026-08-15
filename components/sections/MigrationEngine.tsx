@@ -6,6 +6,7 @@ import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
 import { migrationEngine } from '@/lib/content'
+import Link from 'next/link'
 import { Check, ArrowRight, Database, Shield, GitBranch, FileCheck, Layers, RefreshCw } from '@/components/ui/Icons'
 
 const differentiatorIcons = [Layers, Database, GitBranch, FileCheck, RefreshCw, Shield]
@@ -107,10 +108,16 @@ export default function MigrationEngine() {
             </span>
             Live in production, canary-proven, and ready to evaluate against your own data.
           </div>
-          <a href="/briefing" className="btn-primary inline-flex shrink-0">
-            See your migration mapped
-            <ArrowRight size={15} />
-          </a>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
+            <Link href="/migration" className="btn-ghost inline-flex">
+              Explore the Migration Engine
+              <ArrowRight size={15} />
+            </Link>
+            <a href="/briefing" className="btn-primary inline-flex">
+              See your migration mapped
+              <ArrowRight size={15} />
+            </a>
+          </div>
         </div>
       </Reveal>
     </Section>

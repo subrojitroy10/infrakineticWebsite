@@ -1,0 +1,61 @@
+# Infrakinetic
+
+> Infrakinetic is a unified business operating system — commercial, workforce,
+> finance, governance, and reporting on one shared database — with a Migration
+> Engine that discovers, maps, transforms, executes, validates, and reconciles
+> data when a business moves between CRM, HRIS, ERP, or finance systems.
+
+## What is it?
+
+Infrakinetic is both an operating foundation for running a business (CRM/sales,
+HR/payroll, finance, customer success, governance) and migration infrastructure
+for moving onto or off of business systems without losing the data's meaning.
+
+## What does the Migration Engine do?
+
+It discovers a source system's schema (entities, fields, relationships, custom
+objects), models what the data actually represents (not just field names),
+maps source structures to destination equivalents with a confidence label,
+stages the result in a governed airlock separated from production, executes
+in dependency order, and validates and reconciles the outcome — record counts,
+relationship integrity, and financial totals — before a human signs off.
+
+## Why isn't a CSV importer enough?
+
+Because real business systems contain relationships (a deal belongs to an
+account, an employee has compensation history), custom fields and objects,
+duplicate entities, and incompatible lifecycle states. A column-to-column
+CSV mapping breaks down the moment any of that is present.
+
+## What makes Infrakinetic different?
+
+It treats migration as a systems problem — understand, map, move, prove —
+rather than a file-import problem. AI proposes mappings and explanations;
+deterministic validation and human approval decide what actually executes.
+
+## Where does it work?
+
+CRM (Salesforce, HubSpot, Zoho CRM), HRIS/payroll (BambooHR, Workday,
+Rippling), finance (QuickBooks, Xero, NetSuite, Tally), and file-based
+sources (CSV, Excel, PDF, Word). The same governed pipeline underlies every
+one of them.
+
+## Why should I trust the result?
+
+Because the migration is analyzed and risk-scored before execution, staged
+in an environment separated from production, and validated with a
+reconciliation report afterward — not just an "import complete" message.
+
+## Key pages
+
+- Homepage: https://www.infrakinetic.in/ — full operating-system narrative
+- Migration Engine: https://www.infrakinetic.in/migration — migration
+  infrastructure, pipeline, and category-specific guidance (CRM, HRIS, ERP,
+  finance)
+- Platform architecture: https://www.infrakinetic.in/platform
+- Products & packaging: https://www.infrakinetic.in/products
+- Request a briefing: https://www.infrakinetic.in/briefing
+
+## Contact
+
+hello@infrakinetic.io

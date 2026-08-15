@@ -71,12 +71,12 @@ export default function Navbar() {
           <span className="text-lg font-semibold tracking-tight text-white">{brand.name}</span>
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 md:flex lg:gap-8">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={getNavHref(item.href, pathname)}
-              className="text-sm font-medium text-white/60 transition-colors hover:text-white"
+              className="whitespace-nowrap text-sm font-medium text-white/60 transition-colors hover:text-white"
             >
               {item.label}
             </Link>
