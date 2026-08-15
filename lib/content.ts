@@ -169,8 +169,6 @@ export const nav: NavItem[] = [
   { label: 'Migration', href: '/migration' },
   { label: 'Platform', href: '/platform' },
   { label: 'Products', href: '/products' },
-  { label: 'Journeys', href: '#modules' },
-  { label: 'Enterprise', href: '#enterprise' },
 ]
 
 export const problem: ProblemSection = {
