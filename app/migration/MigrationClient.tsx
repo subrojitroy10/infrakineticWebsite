@@ -147,22 +147,33 @@ export default function MigrationClient() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <Section
-        id="migration-top"
-        eyebrow="Migration infrastructure"
-        title="Move business systems without losing what makes the data meaningful."
-        lead="CRM migration, HRIS migration, and ERP migration are usually treated as a file-import problem: export, clean a CSV, map some columns, hope. Infrakinetic treats it as a systems problem — discover the source schema, map entities and relationships, transform and execute in a governed airlock, then validate and reconcile before anyone calls it done."
-      >
-        <Reveal variant="fade" className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="/briefing" className="btn-primary inline-flex w-fit">
-            Assess a migration
-            <ArrowRight size={15} />
-          </a>
-          <Link href="/#migration" className="btn-ghost inline-flex w-fit">
-            See the governed pipeline
-          </Link>
-        </Reveal>
-      </Section>
+      <section id="migration-top" className="relative py-24 md:py-32">
+        <div className="container-page">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mx-auto max-w-4xl text-center"
+          >
+            <span className="eyebrow">Migration infrastructure</span>
+            <h1 className="heading-serif mt-5 text-4xl md:text-5xl lg:text-[4.4rem] leading-[1.04]">
+              Move business systems without losing what makes the data meaningful.
+            </h1>
+            <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
+              CRM migration, HRIS migration, and ERP migration are usually treated as a file-import problem: export, clean a CSV, map some columns, hope. Infrakinetic treats it as a systems problem — discover the source schema, map entities and relationships, transform and execute in a governed airlock, then validate and reconcile before anyone calls it done.
+            </p>
+            <Reveal variant="fade" className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <a href="/briefing" className="btn-primary inline-flex w-fit">
+                Assess a migration
+                <ArrowRight size={15} />
+              </a>
+              <Link href="/#migration" className="btn-ghost inline-flex w-fit">
+                See the governed pipeline
+              </Link>
+            </Reveal>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Proof strip, reused from the audited run */}
       <Section id="migration-proof" className="pt-0">
