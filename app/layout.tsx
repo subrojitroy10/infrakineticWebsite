@@ -125,6 +125,7 @@ export default function RootLayout({
     <html lang="en" data-theme="dark" className={inter.variable}>
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
           rel="stylesheet"

@@ -33,32 +33,23 @@ export default function Hero() {
       <div className="container-page relative z-20 pb-16 pt-32 md:pt-40 lg:pb-24">
         <div className="grid items-start gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
           <div>
-            <motion.div variants={fade} initial="hidden" animate="show" custom={0}>
-              <span className="eyebrow">{brand.parent}</span>
-            </motion.div>
+            {/* Eyebrow, H1, and lead paragraph render immediately (no entrance
+                animation) — this text is the LCP candidate, and animating it
+                in was adding ~2.8s of element render delay to LCP. */}
+            <span className="eyebrow">{brand.parent}</span>
 
-            <motion.h1
+            <h1
               itemProp="name"
-              variants={fade}
-              initial="hidden"
-              animate="show"
-              custom={1}
               className="mt-6 font-display text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-white sm:text-5xl md:text-6xl lg:text-[4.4rem] xl:text-[5rem]"
             >
               Run the company.
               <br />
               <span className="text-gradient">Not the software stack.</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={fade}
-              initial="hidden"
-              animate="show"
-              custom={2}
-              className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70"
-            >
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
               Infrakinetic is a business operating system that connects CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success on one shared operating foundation — eliminating the disconnected handoffs between separate tools.
-            </motion.p>
+            </p>
 
             <motion.p
               variants={fade}
