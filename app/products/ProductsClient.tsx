@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
@@ -210,11 +211,11 @@ const engines = [
   },
   {
     id: 'billing',
-    label: 'Billing & Invoicing',
+    label: 'Billing & Payments',
     icon: FileText,
     color: 'violet',
     subtitle: 'Standalone Product — Independent of Finance',
-    description: 'Billing runs whether or not Finance is even switched on. A deterministic rating engine turns commercial facts into governed invoices; documents, delivery, and reminders run on policy; and certified payment connections handle collection and settlement. When Finance is enabled, billing activity posts straight into the ledger — when it isn\'t, nothing breaks.',
+    description: 'Billing runs whether or not Finance is even switched on. A deterministic rating engine turns commercial facts into governed invoices; documents, delivery, and reminders run on policy; and certified payment connections handle payment requests, collection, and settlement reconciliation. When Finance is enabled, billing activity posts straight into the ledger — when it isn\'t, nothing breaks.',
     kpis: [
       { label: 'Invoices / Month', value: '412', icon: FileText, variant: 'neutral', delta: '+9%' },
       { label: 'Outstanding', value: '$186K', icon: Wallet, variant: 'warning' },
@@ -441,11 +442,11 @@ const engines = [
   },
   {
     id: 'platform-infra',
-    label: 'Platform Infra',
+    label: 'Operations & Governance',
     icon: Sliders,
     color: 'gold',
     subtitle: 'Free for Every Tenant — Always',
-    description: 'Approvals, Workflow, Tickets, Governance, and Documents — the five capabilities every engine is built on. Not a tier you unlock. Not a feature flag. Included from day one, for every tenant.',
+    description: 'Approval management, workflow automation, ticket management, governance, and document workflow — the five capabilities every engine is built on. Not a tier you unlock. Not a feature flag. Included from day one, for every tenant.',
     kpis: [
       { label: 'Engines Active', value: '11', icon: Sliders, variant: 'neutral' },
       { label: 'Uptime', value: '99.97%', icon: Shield, variant: 'positive' },
@@ -527,6 +528,16 @@ export default function ProductsClient() {
   const [activeEngine, setActiveEngine] = useState('migration')
   const engine = engines.find(e => e.id === activeEngine)!
 
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '')
+    if (hash && engines.some((e) => e.id === hash)) {
+      setActiveEngine(hash)
+      requestAnimationFrame(() => {
+        document.getElementById(hash)?.scrollIntoView({ block: 'start' })
+      })
+    }
+  }, [])
+
   return (
     <div className="relative pt-16">
       <section className="relative overflow-hidden py-24 md:py-32">
@@ -543,10 +554,21 @@ export default function ProductsClient() {
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
               Two atomic packs, three standalone products, two add-ons, five platform capabilities,
-              and governed data onboarding included for every tenant. All on one database. One event bus. One transaction boundary.
+              and governed data onboarding included for every tenant. One business data model. Governed events. Atomic where it matters.
             </p>
-            <p className="mt-4 text-sm md:text-base text-white/45 max-w-2xl mx-auto">
+            <p className="mt-4 text-sm md:text-base text-white/65 max-w-2xl mx-auto">
               Infrakinetic is priced as Commerce and People atomic packs, standalone Finance, Billing & Invoicing, and Marketing engines, and Customer 360 and Marketing Agency add-ons — with Approvals, Workflow, Tickets, Governance, Documents, and the Migration Engine included free for every tenant, on every plan.
+            </p>
+            <p className="mt-4 text-sm text-white/50 max-w-2xl mx-auto">
+              See the{' '}
+              <Link href="/platform" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+                architecture
+              </Link>{' '}
+              these engines share, or{' '}
+              <Link href="/migration" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+                bring your existing data in
+              </Link>
+              .
             </p>
           </motion.div>
         </div>
@@ -562,7 +584,10 @@ export default function ProductsClient() {
               return (
                 <button
                   key={engineId}
-                  onClick={() => setActiveEngine(engineId)}
+                  onClick={() => {
+                    setActiveEngine(engineId)
+                    window.history.replaceState(null, '', `#${engineId}`)
+                  }}
                   className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                     isActive
                       ? `bg-gold-300/20 border-gold-300/40 text-gold-300 shadow-[0_0_20px_rgba(230,211,163,0.2)]`
@@ -591,6 +616,7 @@ export default function ProductsClient() {
         <Section id={engine.id} eyebrow={engine.subtitle} title={engine.label} lead={engine.description}>
           <Reveal variant="fade" className="mt-10">
             <KpiTileRow tiles={engine.kpis} gap="gap-3 sm:gap-4" />
+            <p className="mt-3 text-xs text-white/65">Real product interface · illustrative data, not a customer outcome.</p>
           </Reveal>
 
           <Reveal variant="fade" className="mt-14">
@@ -648,7 +674,7 @@ export default function ProductsClient() {
                         <StatusBadge value="heuristic" family="lifecycle" size="sm" />
                       )}
                     </div>
-                    <p className="text-xs text-white/40 mb-6">
+                    <p className="text-xs text-white/65 mb-6">
                       {engine.id === 'migration'
                         ? 'Measured from a real production run, not a projection — see the correctness proof above.'
                         : `Illustrative example — shows what ${engine.label}'s scoring model computes, not a claim about your own data.`}
@@ -784,7 +810,7 @@ export default function ProductsClient() {
                     </div>
                     <p className="text-5xl font-semibold tracking-tight text-white mb-1">73%</p>
                     <p className="text-sm text-white/50">Churn Risk · Learned · n=342 · 90% CI: 69–77%</p>
-                    <p className="mt-4 text-xs text-white/40">Per-tenant. Never pooled. DPDP 2023 compliant by architecture.</p>
+                    <p className="mt-4 text-xs text-white/65">Per-tenant. Never pooled. DPDP 2023 aligned by architecture.</p>
                   </ParallaxCard>
                 </motion.div>
 

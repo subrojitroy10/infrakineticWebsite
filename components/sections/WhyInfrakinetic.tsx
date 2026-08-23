@@ -11,7 +11,7 @@ export default function WhyInfrakinetic() {
   return (
     <Section id="why" eyebrow={why.eyebrow} title={why.title} lead={why.lead}>
       <Reveal variant="fade" className="mt-14">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/35">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
           {notThis.eyebrow}
         </p>
         <h3 className="heading-serif mt-3 max-w-2xl text-xl md:text-2xl">{notThis.title}</h3>
@@ -20,8 +20,8 @@ export default function WhyInfrakinetic() {
             <Reveal key={item.label} variant="up" delay={i * 0.05}>
               <div className="h-full rounded-xl border border-white/10 bg-white/[0.02] p-4">
                 <div className="flex items-center gap-2">
-                  <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-violet-400/15 text-violet-300/85">
-                    <XMark size={9} />
+                  <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gold-400/15 text-gold-300">
+                    <Check size={9} />
                   </span>
                   <p className="text-sm font-semibold text-white/85">{item.label}</p>
                 </div>

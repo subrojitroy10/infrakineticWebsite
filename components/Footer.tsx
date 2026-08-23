@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { brand, nav } from '@/lib/content'
+import { brand, footerGroups } from '@/lib/content'
 
 function isAnchorLink(href: string) {
   return href.startsWith('#')
@@ -31,7 +31,7 @@ export default function Footer() {
       <link itemProp="sameAs" href="https://www.google.com/maps/place/Infrakinetic" />
 
       <div className="container-page py-14">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2.5">
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-gold-400 to-violet-400 text-lg font-bold tracking-tight text-ink-900">
@@ -39,7 +39,7 @@ export default function Footer() {
               </span>
               <span className="text-lg font-semibold tracking-tight text-white" itemProp="name">{brand.name}</span>
             </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/45">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/65">
               Operating infrastructure for connected workflows, governed records, and enterprise
               visibility.
             </p>
@@ -49,8 +49,8 @@ export default function Footer() {
 
             <div className="mt-6 pt-6 border-t border-white/10">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400/80">Contact</p>
-              <a 
-                href="mailto:hello@infrakinetic.io" 
+              <a
+                href="mailto:hello@infrakinetic.io"
                 className="mt-2 inline-flex items-center gap-1.5 text-sm text-white/55 hover:text-white transition-colors"
                 itemProp="email"
               >
@@ -59,61 +59,31 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40">
-              Platform
-            </h4>
-            <ul className="mt-4 space-y-2.5">
-              {nav.map((n) => (
-                <li key={n.href}>
-                  <Link href={getNavHref(n.href, pathname)} className="text-sm text-white/55 transition-colors hover:text-white">
-                    {n.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40">
-              Get in touch
-            </h4>
-            <ul className="mt-4 space-y-2.5">
-              <li>
-                <Link href="/briefing" className="text-sm text-white/55 transition-colors hover:text-white">
-                  Request a platform briefing
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="mailto:hello@infrakinetic.io"
-                  className="text-sm text-white/55 transition-colors hover:text-white"
-                >
-                  hello@infrakinetic.io
-                </a>
-              </li>
-            </ul>
-          </div>
+          {footerGroups.map((group) => (
+            <div key={group.label}>
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-white/60">
+                {group.label}
+              </h4>
+              <ul className="mt-4 space-y-2.5">
+                {group.items.map((item) => (
+                  <li key={item.href}>
+                    <Link href={getNavHref(item.href, pathname)} className="text-sm text-white/55 transition-colors hover:text-white">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-xs text-white/35">
-            &copy; {new Date().getFullYear()} Infrakinetic - A Polynovea Product. All rights reserved.
+          <p className="text-xs text-white/60">
+            &copy; {new Date().getFullYear()} Infrakinetic — A Polynovea Product. All rights reserved.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/35">
-            <Link href="/" className="transition-colors hover:text-white/70">
-              Privacy
-            </Link>
-            <Link href="/" className="transition-colors hover:text-white/70">
-              Terms
-            </Link>
-            <Link href="/" className="transition-colors hover:text-white/70">
-              Security
-            </Link>
-            <span className="text-gold-400/60" itemProp="dateModified" content="2026-08-08">
-              Last updated: {new Date('2026-08-08').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
-            </span>
-          </div>
+          <p className="text-xs text-gold-400/70" itemProp="dateModified" content="2026-08-08">
+            Last updated: {new Date('2026-08-08').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+          </p>
         </div>
       </div>
     </footer>

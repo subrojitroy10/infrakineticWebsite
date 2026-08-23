@@ -4,8 +4,9 @@ import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
-import { connected } from '@/lib/content'
+import { connected, connectedWorkflows } from '@/lib/content'
 import { Database, Sliders, Shield, ChartBar } from '@/components/ui/Icons'
+import { ConnectedWorkflow } from '@/components/shared'
 
 const nodeIcons = [Database, Sliders, Shield, ChartBar]
 
@@ -53,7 +54,7 @@ export default function Connected() {
           <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 text-center">
             <h3 className="heading-serif text-2xl md:text-3xl">What does a shared business data layer actually do?</h3>
             <p className="mt-4 text-lg leading-relaxed text-white/70 max-w-3xl mx-auto">
-              Instead of syncing data between tools, Infrakinetic uses <strong>one PostgreSQL database</strong> where Commercial, Workforce, Finance, Documents, Workflow, and Reporting all read and write to the same tables. Zero ETL, zero sync lag, zero drift. Every engine participates in the same event bus, approval workflow, and audit trail.
+              Instead of syncing data between tools, Infrakinetic uses <strong>one PostgreSQL database</strong> where Commercial, Workforce, Finance, Documents, Workflow, and Reporting all read and write to the same tables. Zero ETL, zero sync lag, zero drift. Engines react to the same catalogued business events, approval framework, and audit trail.
             </p>
             <div className="mt-6 p-4 rounded-xl border border-gold-400/20 bg-gold-400/[0.05] max-w-2xl mx-auto">
               <p className="text-sm font-semibold text-gold-300">Key takeaway:</p>
@@ -62,7 +63,18 @@ export default function Connected() {
           </div>
         </Reveal>
 
-        <div className="mt-4 grid items-center gap-8 lg:grid-cols-2">
+        <Reveal variant="fade" delay={0.1} className="mt-10">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+            <p className="text-sm text-white/60">Two real journeys that move through the platform without a manual handoff:</p>
+            <div className="mt-6 space-y-8">
+              {connectedWorkflows.map((workflow) => (
+                <ConnectedWorkflow key={workflow.key} title={workflow.title} steps={workflow.steps} />
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid items-center gap-8 lg:grid-cols-2">
           {!isMobile && (
             <Reveal variant="scale" className="order-2 lg:order-1">
               <div className="relative h-[24rem] w-full md:h-[30rem]">

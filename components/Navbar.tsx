@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { brand, nav } from '@/lib/content'
+import { brand, navGroups } from '@/lib/content'
 import { useTheme } from '@/components/theme/ThemeProvider'
-import { Sun, Moon } from '@/components/ui/Icons'
+import { Sun, Moon, ChevronDown } from '@/components/ui/Icons'
 
 function ThemeToggle({ className = '' }: { className?: string }) {
   const { theme, toggleTheme } = useTheme()
@@ -28,10 +28,130 @@ function isAnchorLink(href: string) {
 
 function getNavHref(href: string, pathname: string) {
   if (isAnchorLink(href)) {
-    // If on homepage, use anchor link; otherwise navigate to homepage + anchor
     return pathname === '/' ? href : `/${href}`
   }
   return href
+}
+
+function DesktopNavGroup({ label, href, items, pathname }: { label: string; href?: string; items?: { label: string; href: string }[]; pathname: string }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!open) return
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('click', onClick)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('click', onClick)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
+
+  if (!items || items.length === 0) {
+    return (
+      <Link
+        href={getNavHref(href ?? '/', pathname)}
+        className="whitespace-nowrap text-sm font-medium text-white/60 transition-colors hover:text-white"
+      >
+        {label}
+      </Link>
+    )
+  }
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-haspopup="true"
+        className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-white/60 transition-colors hover:text-white"
+      >
+        {label}
+        <ChevronDown size={13} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.15 }}
+            className="absolute left-0 top-full z-50 mt-3 min-w-[15rem] rounded-xl border border-white/10 bg-ink-900/95 p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)] backdrop-blur-xl"
+          >
+            {items.map((child) => (
+              <Link
+                key={child.href}
+                href={getNavHref(child.href, pathname)}
+                onClick={() => setOpen(false)}
+                className="block rounded-lg px-3 py-2.5 text-sm text-white/65 transition-colors hover:bg-white/5 hover:text-white"
+              >
+                {child.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
+function MobileNavGroup({ label, href, items, pathname, onNavigate }: { label: string; href?: string; items?: { label: string; href: string }[]; pathname: string; onNavigate: () => void }) {
+  const [expanded, setExpanded] = useState(false)
+
+  if (!items || items.length === 0) {
+    return (
+      <Link
+        href={getNavHref(href ?? '/', pathname)}
+        onClick={onNavigate}
+        className="rounded-lg px-3 py-3 text-base font-medium text-white/70 hover:bg-white/5 hover:text-white"
+      >
+        {label}
+      </Link>
+    )
+  }
+
+  return (
+    <div>
+      <button
+        type="button"
+        onClick={() => setExpanded((v) => !v)}
+        aria-expanded={expanded}
+        className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-white/70 hover:bg-white/5 hover:text-white"
+      >
+        {label}
+        <ChevronDown size={16} className={`transition-transform ${expanded ? 'rotate-180' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden pl-3"
+          >
+            {items.map((child) => (
+              <Link
+                key={child.href}
+                href={getNavHref(child.href, pathname)}
+                onClick={onNavigate}
+                className="block rounded-lg px-3 py-2.5 text-sm text-white/55 hover:bg-white/5 hover:text-white"
+              >
+                {child.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
 }
 
 export default function Navbar() {
@@ -72,24 +192,18 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-6 md:flex lg:gap-8">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={getNavHref(item.href, pathname)}
-              className="whitespace-nowrap text-sm font-medium text-white/60 transition-colors hover:text-white"
-            >
-              {item.label}
-            </Link>
+          {navGroups.map((group) => (
+            <DesktopNavGroup key={group.label} label={group.label} href={group.href} items={group.children} pathname={pathname} />
           ))}
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
-          <Link href="/briefing" className="btn-ghost !px-5 !py-2.5 text-xs">
-            Sign in
+          <Link href="/migration" className="btn-ghost !px-5 !py-2.5 text-xs">
+            Assess a migration
           </Link>
           <Link href="/briefing" className="btn-primary !px-5 !py-2.5 text-xs">
-            Request briefing
+            Request a briefing
           </Link>
         </div>
 
@@ -99,6 +213,7 @@ export default function Navbar() {
             className="grid h-10 w-10 place-items-center rounded-lg border border-white/10"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
             <div className="space-y-1.5">
               <span
@@ -122,23 +237,30 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="overflow-hidden border-t border-white/10 bg-ink-900/95 backdrop-blur-xl md:hidden"
           >
-            <div className="container-page flex flex-col gap-1 py-4">
-              {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={getNavHref(item.href, pathname)}
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-3 text-base font-medium text-white/70 hover:bg-white/5 hover:text-white"
-                >
-                  {item.label}
-                </Link>
+            <div className="container-page flex max-h-[70vh] flex-col gap-1 overflow-y-auto py-4">
+              {navGroups.map((group) => (
+                <MobileNavGroup
+                  key={group.label}
+                  label={group.label}
+                  href={group.href}
+                  items={group.children}
+                  pathname={pathname}
+                  onNavigate={() => setOpen(false)}
+                />
               ))}
               <Link
-                href="/briefing"
+                href="/migration"
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-3 py-3 text-base font-medium text-white/70 hover:bg-white/5 hover:text-white"
               >
-                Briefing
+                Assess a migration
+              </Link>
+              <Link
+                href="/briefing"
+                onClick={() => setOpen(false)}
+                className="mt-2 rounded-lg bg-gold-300 px-3 py-3 text-center text-base font-semibold text-ink-900"
+              >
+                Request a briefing
               </Link>
             </div>
           </motion.div>

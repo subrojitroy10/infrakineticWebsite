@@ -13,17 +13,21 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.infrakinetic.in'),
   title: {
-    default: 'Infrakinetic — Your Business. One Operating System.',
+    default: 'Infrakinetic — Business Operating System for CRM, Finance, HR & Operations',
     template: '%s | Infrakinetic',
   },
   description:
-    'Infrakinetic — Your Business. One Operating System. CRM, HR & Payroll unified from the start on a single shared database, designed to scale across your entire organization. A Polynovea product.',
+    'Infrakinetic is a unified business operating system for CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration — connected on one shared operating foundation. A Polynovea product.',
   keywords: [
     'Business Operating System',
-    'Unified CRM HR Payroll',
-    'Shared Database Platform',
-    'Enterprise Governance',
-    'Operational Infrastructure',
+    'CRM',
+    'ERP alternative',
+    'HRIS',
+    'Payroll software',
+    'Billing and invoicing',
+    'Workflow automation',
+    'Customer success platform',
+    'CRM migration',
     'Polynovea',
     'Infrakinetic',
   ],
@@ -38,9 +42,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.infrakinetic.in/',
   },
   openGraph: {
-    title: 'Infrakinetic — Your Business. One Operating System.',
+    title: 'Infrakinetic — Run Your Business on One Operating System',
     description:
-      'CRM · HR · Payroll unified from the start, designed to scale. One platform. One database. Complete organizational visibility.',
+      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success — connected on one shared operating foundation, not synced between separate tools.',
     url: 'https://www.infrakinetic.in/',
     siteName: 'Infrakinetic',
     images: [
@@ -56,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Infrakinetic — Your Business. One Operating System.',
+    title: 'Infrakinetic — Run Your Business on One Operating System',
     description:
-      'CRM · HR · Payroll unified from the start, designed to scale. One platform. One database. Complete organizational visibility.',
+      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success — connected on one shared operating foundation, not synced between separate tools.',
     images: ['https://www.infrakinetic.in/og-image.jpg'],
   },
   robots: {
@@ -93,7 +97,7 @@ export default function RootLayout({
           'https://www.google.com/maps/place/Infrakinetic',
         ],
         'description':
-          'Infrakinetic provides a unified business operating system connecting commercial, workforce, finance, governance, and reporting on one shared database.',
+          'Infrakinetic is a unified business operating system for CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration.',
       },
       {
         '@type': 'WebSite',
@@ -104,6 +108,15 @@ export default function RootLayout({
           'target': 'https://www.infrakinetic.in/?q={search_term_string}',
           'query-input': 'required name=search_term_string',
         },
+      },
+      {
+        '@type': 'SoftwareApplication',
+        'name': 'Infrakinetic',
+        'applicationCategory': 'BusinessApplication',
+        'operatingSystem': 'Web',
+        'url': 'https://www.infrakinetic.in/',
+        'description':
+          'A unified business operating system connecting CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration on one shared operating foundation.',
       },
     ],
   }

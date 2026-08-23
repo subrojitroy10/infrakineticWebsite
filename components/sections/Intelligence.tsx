@@ -79,7 +79,7 @@ const intelligenceDifferentiators = [
   },
   {
     title: 'Per-tenant isolation by architecture',
-    desc: "Scoring pipeline can never bypass tenant isolation — by design, not convention. Standing test: tenant A's model produces identical output whether tenant B's rows exist or not. DPDP 2023 compliant by architecture, not policy.",
+    desc: "Scoring pipeline can never bypass tenant isolation — by design, not convention. Standing test: tenant A's model produces identical output whether tenant B's rows exist or not. Built to align with DPDP 2023 by architecture, not policy.",
   },
   {
     title: 'Calibration monitoring built-in',
@@ -157,8 +157,8 @@ export default function Intelligence() {
               <p className="text-sm text-white/50">
                 Churn Risk · {shapExample.tier} · n={shapExample.sampleSize} · 90% CI: {shapExample.confidenceInterval}
               </p>
-              <p className="mt-4 text-xs text-white/40">
-                Per-tenant. Never pooled. DPDP 2023 compliant by architecture.
+              <p className="mt-4 text-xs text-white/65">
+                Per-tenant. Never pooled. DPDP 2023 aligned by architecture.
               </p>
             </div>
             <div className="space-y-3">

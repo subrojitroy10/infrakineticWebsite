@@ -1,30 +1,31 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
-import { FAQSection, KeyTakeaway } from '@/components/shared'
+import { FAQSection, KeyTakeaway, UnderTheHood } from '@/components/shared'
 import { Database, GitBranch, Zap, Shield, Lock, ArrowRight, HeartPulse, TrendingUp, RefreshCw } from '@/components/ui/Icons'
 
 const architecturePillars = [
   {
     icon: Database,
-    title: 'Single Shared Database',
-    desc: 'Commercial, Finance, HR, Payroll, Documents, and Workflow all read and write to the same records. No syncing, no copies drifting out of date — just one source of truth.',
+    title: 'One Business Data Model',
+    desc: 'Commercial, Finance, HR, Payroll, Documents, and Workflow operate on shared business entities rather than maintaining independent synchronized copies. No syncing, no copies drifting out of date.',
     color: 'gold',
   },
   {
     icon: GitBranch,
-    title: 'One Event Bus',
-    desc: 'Every business action — a deal won, an invoice paid, a candidate hired — triggers automation instantly across every engine. Cross-team handoffs become automatic, not an integration project.',
+    title: 'Governed Events',
+    desc: 'Catalogued business events — a deal won, an invoice paid, a candidate hired — can trigger workflows, automations, and registered platform actions across engine boundaries. Cross-team handoffs become automatic, not an integration project.',
     color: 'violet',
   },
   {
     icon: Zap,
-    title: 'One Transaction Boundary',
-    desc: 'A deal closing and an invoice being created happen together, or not at all. There\'s no in-between state where one system has moved on and another hasn\'t caught up yet.',
+    title: 'Atomic Where It Matters',
+    desc: 'Operations that must succeed or fail together are executed transactionally. A won opportunity can create its Deal, Project, and Order as one controlled transaction — downstream processes like finance notification then react through the automation layer.',
     color: 'gold',
   },
 ]
@@ -66,7 +67,7 @@ const faqItems = [
   },
   {
     question: 'How does Infrakinetic keep customer data isolated between tenants?',
-    answer: 'Isolation is enforced below the application layer, not just in screens and permissions. That guarantee is checked automatically on every release, rather than relying on every feature remembering to apply the right filter.',
+    answer: 'Isolation is enforced below the application layer, not just in screens and permissions, using database-level row policies rather than relying on every feature remembering to apply the right filter. Production certification remains an explicit release-evidence step.',
   },
   {
     question: 'What is the lifecycle spine?',
@@ -95,10 +96,10 @@ export default function PlatformClient() {
           >
             <span className="eyebrow">Platform Architecture</span>
             <h1 className="heading-serif mt-5 text-4xl md:text-5xl lg:text-[4.4rem] leading-[1.04]">
-              One Database. One Event Bus. One Transaction Boundary.
+              One Business Data Model. Governed Events. Atomic Where It Matters.
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
-              Infrakinetic runs every business engine — Commercial, Finance, HR, Documents, Workflow — on one shared foundation, so the 11+ engines it ships with cannot drift apart the way separate, synced tools do.
+              Infrakinetic runs every business engine — Commercial, Finance, HR, Documents, Workflow — on one shared foundation, so the 17 engines it ships with cannot drift apart the way separate, synced tools do.
             </p>
           </motion.div>
         </div>
@@ -107,10 +108,11 @@ export default function PlatformClient() {
       <Section id="what-is-the-architecture" eyebrow="In one paragraph" title="What makes Infrakinetic's architecture different?">
         <Reveal variant="fade" className="mt-6 max-w-3xl">
           <p className="text-lg leading-relaxed text-white/70">
-            Every Infrakinetic engine shares the same underlying data and reacts to the same events,
-            so there&apos;s no background process trying to keep separate systems in agreement — a deal
-            closing and an invoice being created happen together, not as two systems catching up
-            with each other later.
+            Infrakinetic engines operate on shared business entities and react to a catalogued set of
+            business events, so there&apos;s no background process trying to keep separate systems in
+            agreement. A won opportunity can create its Deal, Project, and Order as one controlled
+            transaction, while downstream processes like finance notification react through the
+            automation layer.
           </p>
         </Reveal>
       </Section>
@@ -144,6 +146,17 @@ export default function PlatformClient() {
         <KeyTakeaway>
           Infrakinetic&apos;s engines share one foundation instead of syncing copies between separate tools — so cross-engine automation just works, instead of being a project every time.
         </KeyTakeaway>
+        <p className="mt-6 text-sm text-white/50">
+          This is also what makes{' '}
+          <Link href="/migration" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+            migration reconciliation
+          </Link>{' '}
+          possible — data lands on the same governed model, not a separate synced copy. See how it&apos;s packaged across{' '}
+          <Link href="/products" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+            product families
+          </Link>
+          .
+        </p>
       </Section>
 
       <Section
@@ -225,7 +238,7 @@ export default function PlatformClient() {
         id="tenant-isolation"
         eyebrow="Data Isolation"
         title="Built to Align With DPDP 2023 by Architecture, Not Policy"
-        lead="Your data is never mixed with another customer's — not just as a policy, but as a structural guarantee that's checked automatically on every release."
+        lead="Your data is never mixed with another customer's — not just as a policy, but as a structural guarantee enforced by database-level controls below the application layer."
       >
         <Reveal variant="fade" className="mt-14">
           <div className="grid gap-6 md:grid-cols-3">
@@ -241,8 +254,15 @@ export default function PlatformClient() {
           </div>
         </Reveal>
         <KeyTakeaway>
-          Isolation is a structural guarantee, not a screen-by-screen policy — and that guarantee is verified automatically on every single release, not just at design time.
+          Isolation is a structural guarantee enforced by database-level controls, not a screen-by-screen policy — production certification remains an explicit release-evidence step, not an assumption.
         </KeyTakeaway>
+        <UnderTheHood label="Under the hood: how isolation is enforced">
+          <ul className="space-y-2">
+            <li><span className="font-medium text-white/80">PostgreSQL Row-Level Security</span> — tenant context is set per request and enforced by database policies, not filtered in application code.</li>
+            <li><span className="font-medium text-white/80">Audit triggers</span> — writes to tenant-scoped tables are logged at the database layer, independent of which API route made the change.</li>
+            <li><span className="font-medium text-white/80">Tenant-local model boundaries</span> — relationships between records are validated as tenant-safe, so a foreign key can never point across a tenant boundary.</li>
+          </ul>
+        </UnderTheHood>
       </Section>
 
       <FAQSection

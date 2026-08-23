@@ -130,7 +130,7 @@ export default function MeetInfrakinetic() {
                         </div>
                       ))}
                     </div>
-                    <p className="mt-3 text-xs text-white/35">
+                    <p className="mt-3 text-xs text-white/65">
                       Computed by resolver; transitions written atomically with business_events + work automation dispatch.
                     </p>
                   </div>

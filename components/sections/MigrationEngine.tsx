@@ -1,10 +1,10 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
+import { ProofStrip } from '@/components/shared'
 import { migrationEngine } from '@/lib/content'
 import Link from 'next/link'
 import { Check, ArrowRight, Database, Shield, GitBranch, FileCheck, Layers, RefreshCw } from '@/components/ui/Icons'
@@ -20,28 +20,7 @@ export default function MigrationEngine() {
       lead={migrationEngine.lead}
     >
       {/* Proof strip — the real, evidenced numbers */}
-      <Reveal variant="fade" className="mt-10">
-        <ParallaxCard depth={20} className="border-gold-300/30 bg-gold-300/[0.05] p-6 md:p-8">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {migrationEngine.proof.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.6 }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="rounded-xl border border-white/10 bg-white/[0.02] p-4"
-              >
-                <p className="text-2xl font-semibold tracking-tight text-gold-300 sm:text-3xl">{stat.value}</p>
-                <p className="mt-1.5 text-[11px] font-medium uppercase leading-snug tracking-wide text-white/45">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-          <p className="mt-5 text-xs text-white/45">{migrationEngine.proofNote}</p>
-        </ParallaxCard>
-      </Reveal>
+      <ProofStrip className="mt-10" stats={migrationEngine.proof} note={migrationEngine.proofNote} />
 
 
       {/* The six-step governed pipeline */}
@@ -63,7 +42,7 @@ export default function MigrationEngine() {
       <Reveal variant="fade" className="mt-12">
         <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">
-            Live source connectors
+            Implemented connector paths
           </span>
           <div className="mt-4 flex flex-wrap gap-3">
             {migrationEngine.connectors.map((connector) => (
@@ -76,6 +55,7 @@ export default function MigrationEngine() {
             ))}
           </div>
           <p className="mt-4 text-sm text-white/50">{migrationEngine.connectorsNote}</p>
+          <p className="mt-2 text-xs text-white/40">Live third-party certification has separate environment requirements and is tracked independently of the connector implementation.</p>
         </div>
       </Reveal>
 

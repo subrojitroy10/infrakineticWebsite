@@ -17,10 +17,10 @@ const fade = {
 }
 
 const heroStats = [
-  { label: 'Business data layer', value: '1', icon: Target },
-  { label: 'Operating engines', value: '14+', icon: Users },
-  { label: 'Platform infra engines', value: '5', icon: Wallet },
-  { label: 'Context resets', value: '0', icon: TrendingUp },
+  { label: 'Shared operating foundation', value: '1', icon: Target },
+  { label: 'Interconnected engines', value: '17', icon: Users },
+  { label: 'Core platform capabilities', value: '5', icon: Wallet },
+  { label: 'Migration gates passed', value: '12/12', icon: TrendingUp },
 ]
 
 export default function Hero() {
@@ -57,7 +57,7 @@ export default function Hero() {
               custom={2}
               className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70"
             >
-              Infrakinetic unifies commercial, workforce, finance, governance, and reporting on one shared database — eliminating disconnected handoffs between CRM, HR, payroll, and finance.
+              Infrakinetic is a business operating system that connects CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success on one shared operating foundation — eliminating the disconnected handoffs between separate tools.
             </motion.p>
 
             <motion.p
@@ -127,7 +127,7 @@ export default function Hero() {
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-violet-400" />
-                DPDP 2023 compliant by architecture
+                DPDP 2023 aligned by architecture
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-gold-400" />

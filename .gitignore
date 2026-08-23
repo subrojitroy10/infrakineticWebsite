@@ -16,6 +16,8 @@ DESIGN_STRATEGY.md
 MARKETING_STRATEGY.md
 SAAS_CRM_TECHNICAL_DOCUMENTATION.md
 Enterprise Operational Pain Points.md
+WebsiteRefactor/
+.claude/
 debug.log
 .next/
 tsconfig.tsbuildinfo

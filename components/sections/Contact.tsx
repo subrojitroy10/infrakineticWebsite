@@ -129,7 +129,7 @@ export default function Contact() {
                 <div className="mt-4 space-y-3">
                   {[
                     { icon: MessageSquare, title: 'Friction mapping', desc: 'We map your top 3 context breaks across revenue, workforce, finance' },
-                    { icon: Calendar, title: 'Architecture walkthrough', desc: 'One database, one event bus, one transaction boundary — live' },
+                    { icon: Calendar, title: 'Architecture walkthrough', desc: 'One business data model, governed events, atomic where it matters — live' },
                     { icon: UsersIcon, title: 'Rollout sequence', desc: 'Recommended module activation order based on your org structure' },
                     { icon: Check, title: 'Pricing framework', desc: 'Transparent per-module pricing with platform infra included' },
                   ].map((step) => (
@@ -183,7 +183,7 @@ export default function Contact() {
                       <div key={field.name}>
                         <label
                           htmlFor={field.name}
-                          className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-white/40"
+                          className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-white/70"
                         >
                           {field.label}
                         </label>
@@ -199,7 +199,7 @@ export default function Contact() {
                     ))}
 
                     <div>
-                      <span className="mb-2 block text-xs font-medium uppercase tracking-wider text-white/40">
+                      <span className="mb-2 block text-xs font-medium uppercase tracking-wider text-white/70">
                         Areas to review
                       </span>
                       <div className="flex flex-wrap gap-2">

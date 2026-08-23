@@ -7,7 +7,8 @@ import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
 import FAQSection from '@/components/shared/FAQSection'
-import { migrationEngine, migrationFaqItems } from '@/lib/content'
+import { ProofStrip } from '@/components/shared'
+import { migrationEngine, migrationFaqItems, migrationFailureReasons, migrationFileFormats } from '@/lib/content'
 import {
   ArrowRight,
   Check,
@@ -20,6 +21,7 @@ import {
   Users,
   Wallet,
   Briefcase,
+  XMark,
 } from '@/components/ui/Icons'
 
 const pipeline = [
@@ -35,114 +37,120 @@ type Pair = {
   category: string
   source: string
   destination: string
+  contextNote: string
   objects: number
   fields: number
   relationships: number
-  autoMappable: number
-  transformations: number
-  review: number
-  unsupported: number
-  risk: 'Low' | 'Medium' | 'High'
+  direct: number
+  transformed: number
+  humanConfirm: number
+  disposition: number
+  complexity: 'Foundational' | 'Moderate' | 'Advanced'
 }
 
 const pairs: Pair[] = [
   {
-    key: 'sf-hs',
+    key: 'sf-ik',
     category: 'CRM',
     source: 'Salesforce',
-    destination: 'HubSpot',
+    destination: 'Infrakinetic',
+    contextNote: 'Representative complex Salesforce environment',
     objects: 31,
     fields: 1842,
     relationships: 427,
-    autoMappable: 1391,
-    transformations: 281,
-    review: 143,
-    unsupported: 27,
-    risk: 'High',
+    direct: 1391,
+    transformed: 281,
+    humanConfirm: 143,
+    disposition: 27,
+    complexity: 'Advanced',
   },
   {
-    key: 'zoho-sf',
+    key: 'zoho-ik',
     category: 'CRM',
     source: 'Zoho CRM',
-    destination: 'Salesforce',
+    destination: 'Infrakinetic',
+    contextNote: 'Representative Zoho CRM environment',
     objects: 18,
     fields: 690,
     relationships: 204,
-    autoMappable: 561,
-    transformations: 98,
-    review: 27,
-    unsupported: 4,
-    risk: 'Medium',
+    direct: 561,
+    transformed: 98,
+    humanConfirm: 27,
+    disposition: 4,
+    complexity: 'Moderate',
   },
   {
-    key: 'bamboo-workday',
-    category: 'HRIS',
-    source: 'BambooHR',
-    destination: 'Workday',
+    key: 'csv-ik',
+    category: 'People',
+    source: 'CSV / Excel export',
+    destination: 'Infrakinetic',
+    contextNote: 'Representative HRIS export',
     objects: 22,
     fields: 940,
     relationships: 168,
-    autoMappable: 705,
-    transformations: 176,
-    review: 51,
-    unsupported: 8,
-    risk: 'Medium',
+    direct: 705,
+    transformed: 176,
+    humanConfirm: 51,
+    disposition: 8,
+    complexity: 'Moderate',
   },
   {
-    key: 'qb-netsuite',
+    key: 'tally-ik',
     category: 'Finance',
-    source: 'QuickBooks',
-    destination: 'NetSuite',
+    source: 'Tally',
+    destination: 'Infrakinetic',
+    contextNote: 'Representative Tally environment',
     objects: 14,
     fields: 512,
     relationships: 96,
-    autoMappable: 448,
-    transformations: 51,
-    review: 12,
-    unsupported: 1,
-    risk: 'Low',
+    direct: 448,
+    transformed: 51,
+    humanConfirm: 12,
+    disposition: 1,
+    complexity: 'Foundational',
   },
 ]
-
-const riskStyle: Record<Pair['risk'], string> = {
-  Low: 'border-emerald-400/30 bg-emerald-400/10 text-emerald-300',
-  Medium: 'border-gold-300/30 bg-gold-300/10 text-gold-300',
-  High: 'border-red-400/30 bg-red-400/10 text-red-300',
-}
 
 const categories = [
   {
     key: 'crm',
     label: 'CRM Migration',
     icon: Users,
-    pairs: 'Salesforce ↔ HubSpot · Zoho CRM ↔ Salesforce · Pipedrive → HubSpot · Dynamics 365 → Salesforce',
-    body: "The hardest part of a CRM migration is rarely the contact record — it's the pipeline stage that doesn't map 1:1, the owner field that points to a user ID the destination has never seen, and five years of activity history sitting on the account it belongs to. Infrakinetic maps accounts, contacts, deals, and activities as connected entities, not four unrelated tables.",
+    pairs: 'Salesforce → Infrakinetic · Zoho CRM → Infrakinetic · HubSpot CRM → Infrakinetic',
+    body: "The hardest part of a CRM migration is rarely the contact record — it's the pipeline stage that doesn't map 1:1, the owner field that points to a user ID the destination has never seen, and five years of activity history sitting on the account it belongs to. Infrakinetic maps accounts, contacts, deals, and activities as connected entities onboarding into the platform, not four unrelated tables.",
   },
   {
     key: 'hris',
-    label: 'HRIS & Payroll Migration',
+    label: 'HRIS & Payroll Onboarding',
     icon: Briefcase,
-    pairs: 'BambooHR → Workday · BambooHR → Rippling · Workday → Rippling',
-    body: 'Employee records carry compensation history, statutory identifiers, and reporting-line relationships that most HRIS exports flatten into a single snapshot. The Migration Engine preserves history as history — superseded, not overwritten — and keeps org-chart relationships intact.',
+    pairs: 'CSV / Excel export → Infrakinetic',
+    body: 'Employee records carry compensation history, statutory identifiers, and reporting-line relationships that most HRIS exports flatten into a single snapshot. The Migration Engine preserves history as history — superseded, not overwritten — and keeps org-chart relationships intact when bringing that data into Infrakinetic.',
   },
   {
     key: 'erp',
-    label: 'ERP Migration',
+    label: 'Legacy System Onboarding',
     icon: Building,
-    pairs: 'Custom database → ERP · Cross-domain (CRM → ERP)',
-    body: 'ERP schemas are usually the most customized system in the stack — years of custom objects and fields nobody fully documented. Discovery surfaces every custom structure before mapping starts, so nothing gets silently dropped because it looked unfamiliar.',
+    pairs: 'Custom database export → Infrakinetic · CSV / Excel → Infrakinetic',
+    body: 'Legacy and custom-built systems are usually the most idiosyncratic in the stack — years of custom objects and fields nobody fully documented. Discovery surfaces every custom structure before mapping starts, so nothing gets silently dropped because it looked unfamiliar.',
   },
   {
     key: 'finance',
-    label: 'Finance & Accounting Migration',
+    label: 'Finance & Accounting Onboarding',
     icon: Wallet,
-    pairs: 'QuickBooks → NetSuite · Xero → NetSuite · QuickBooks → Xero',
+    pairs: 'Tally → Infrakinetic',
     body: 'Financial migrations fail quietly — a rounding difference, a duplicated invoice, a write-off that lands in the wrong period. Reconciliation checks totals and record counts between source and destination before anyone calls it done, the same discipline Infrakinetic runs on its own ledger.',
   },
 ]
 
 export default function MigrationClient() {
   const [activePair, setActivePair] = useState<Pair>(pairs[0])
+
+  const total = activePair.fields
+  const pctDirect = (activePair.direct / total) * 100
+  const pctTransformed = (activePair.transformed / total) * 100
+  const pctHuman = (activePair.humanConfirm / total) * 100
+  const pctDisposition = (activePair.disposition / total) * 100
+  const pctResolved = pctDirect + pctTransformed
 
   return (
     <div className="pt-20">
@@ -175,30 +183,30 @@ export default function MigrationClient() {
         </div>
       </section>
 
+      {/* Why ordinary migration fails */}
+      <Section
+        id="migration-why-fails"
+        eyebrow="Why ordinary migration fails"
+        title="A CSV export is not a migration plan."
+        lead="Most tools treat migration as a file-import problem. The failures that actually hurt happen after the file loads."
+      >
+        <div className="mt-10 grid gap-3 sm:grid-cols-2">
+          {migrationFailureReasons.map((reason, i) => (
+            <Reveal key={reason} variant="up" delay={i * 0.05}>
+              <div className="flex h-full items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-red-400/15 text-red-300/85">
+                  <XMark size={10} />
+                </span>
+                <p className="text-sm leading-relaxed text-white/60">{reason}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
       {/* Proof strip, reused from the audited run */}
       <Section id="migration-proof" className="pt-0">
-        <Reveal variant="fade">
-          <ParallaxCard depth={20} className="border-gold-300/30 bg-gold-300/[0.05] p-6 md:p-8">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-              {migrationEngine.proof.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.6 }}
-                  transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className="rounded-xl border border-white/10 bg-white/[0.02] p-4"
-                >
-                  <p className="text-2xl font-semibold tracking-tight text-gold-300 sm:text-3xl">{stat.value}</p>
-                  <p className="mt-1.5 text-[11px] font-medium uppercase leading-snug tracking-wide text-white/45">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-            <p className="mt-5 text-xs text-white/45">{migrationEngine.proofNote}</p>
-          </ParallaxCard>
-        </Reveal>
+        <ProofStrip stats={migrationEngine.proof} note={migrationEngine.proofNote} />
       </Section>
 
       {/* The five-stage analysis pipeline */}
@@ -227,8 +235,8 @@ export default function MigrationClient() {
       <Section
         id="migration-assessment"
         eyebrow="Illustrative example"
-        title="What a migration assessment looks like before anything moves."
-        lead="Every migration is analyzed before execution — objects, fields, and relationships discovered, then scored for how much can be mapped automatically versus what needs a human decision. The numbers below are a representative example, not a live scan of your data."
+        title="See what Infrakinetic understands before anything moves."
+        lead="In a complex Salesforce environment like this representative example, Infrakinetic discovers the objects, fields, and relationships first. It then separates direct mappings from transformations and genuinely ambiguous decisions — so uncertainty is surfaced before production data is touched. The numbers below are a representative example, not a live scan of your data."
       >
         <Reveal variant="fade" className="mt-10">
           <div className="flex flex-wrap gap-2">
@@ -250,21 +258,27 @@ export default function MigrationClient() {
 
         <Reveal variant="fade" className="mt-6" key={activePair.key}>
           <ParallaxCard depth={18} className="p-6 md:p-8">
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
-              <div className="flex items-center gap-3">
-                <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
-                  {activePair.category}
-                </span>
-                <h3 className="heading-serif text-lg text-white sm:text-xl">
-                  {activePair.source} <ArrowRight size={16} className="inline -translate-y-0.5 text-white/30" /> {activePair.destination}
-                </h3>
+            <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-6">
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
+                    {activePair.category}
+                  </span>
+                  <h3 className="heading-serif text-lg text-white sm:text-xl">
+                    {activePair.source} <ArrowRight size={16} className="inline -translate-y-0.5 text-white/30" /> {activePair.destination}
+                  </h3>
+                </div>
+                <p className="mt-2 text-xs text-white/50">{activePair.contextNote}</p>
               </div>
-              <span className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${riskStyle[activePair.risk]}`}>
-                Migration Risk: {activePair.risk.toUpperCase()}
-              </span>
+              <div className="text-right">
+                <p className="text-2xl font-semibold text-gold-300 sm:text-3xl">{pctResolved.toFixed(1)}%</p>
+                <p className="text-[11px] uppercase tracking-wide text-white/50">Automatically resolved</p>
+                <p className="mt-1.5 text-[11px] text-white/40">Source complexity: {activePair.complexity}</p>
+              </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-white/45">Source discovery</p>
+            <div className="mt-3 grid grid-cols-3 gap-3">
               <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
                 <p className="text-xl font-semibold text-white">{activePair.objects}</p>
                 <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Objects discovered</p>
@@ -277,21 +291,45 @@ export default function MigrationClient() {
                 <p className="text-xl font-semibold text-white">{activePair.relationships}</p>
                 <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Relationships</p>
               </div>
+            </div>
+
+            <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-white/45">Mapping outcome</p>
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
               <div className="rounded-xl border border-gold-300/20 bg-gold-300/[0.04] p-4">
-                <p className="text-xl font-semibold text-gold-300">{activePair.autoMappable.toLocaleString()}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Auto-mappable</p>
+                <p className="text-xl font-semibold text-gold-300">{activePair.direct.toLocaleString()}</p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Direct mappings</p>
               </div>
               <div className="rounded-xl border border-violet-400/20 bg-violet-400/[0.04] p-4">
-                <p className="text-xl font-semibold text-violet-300">{activePair.transformations}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Transformations</p>
+                <p className="text-xl font-semibold text-violet-300">{activePair.transformed}</p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Governed transformations</p>
               </div>
-              <div className="rounded-xl border border-red-400/20 bg-red-400/[0.04] p-4">
-                <p className="text-xl font-semibold text-red-300">{activePair.review + activePair.unsupported}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Review + unsupported</p>
+              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-xl font-semibold text-white/80">{activePair.humanConfirm}</p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Human confirmations</p>
               </div>
             </div>
-            <p className="mt-6 text-xs text-white/40">
-              {activePair.review} mappings require human review; {activePair.unsupported} have no direct equivalent in {activePair.destination} and need an explicit decision before migration.
+            <p className="mt-3 text-xs text-white/50">
+              {activePair.humanConfirm} ambiguous mappings are deliberately held for human confirmation rather than guessed — when confidence is insufficient, Infrakinetic asks instead of inventing a decision.
+            </p>
+
+            <p className="mt-8 text-xs font-semibold uppercase tracking-wide text-white/45">Mapping coverage — 100% accounted for</p>
+            <div className="mt-3 flex h-3 w-full overflow-hidden rounded-full border border-white/10 bg-white/[0.02]">
+              <div className="h-full bg-gold-300" style={{ width: `${pctDirect}%` }} title={`Direct mapping — ${pctDirect.toFixed(1)}%`} />
+              <div className="h-full bg-violet-400" style={{ width: `${pctTransformed}%` }} title={`Governed transformation — ${pctTransformed.toFixed(1)}%`} />
+              <div className="h-full bg-white/40" style={{ width: `${pctHuman}%` }} title={`Human confirmation — ${pctHuman.toFixed(1)}%`} />
+              <div className="h-full bg-amber-400/70" style={{ width: `${pctDisposition}%` }} title={`Explicit disposition — ${pctDisposition.toFixed(1)}%`} />
+            </div>
+            <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[11px] text-white/50">
+              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-gold-300" />{pctDirect.toFixed(1)}% Direct mapping</span>
+              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-violet-400" />{pctTransformed.toFixed(1)}% Governed transformation</span>
+              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-white/40" />{pctHuman.toFixed(1)}% Human confirmation</span>
+              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-amber-400/70" />{pctDisposition.toFixed(1)}% Explicit disposition</span>
+            </div>
+            <p className="mt-4 text-xs text-white/50">
+              {(activePair.direct + activePair.transformed).toLocaleString()} of {activePair.fields.toLocaleString()} fields can proceed through direct mapping or governed transformation. Remaining ambiguity is surfaced for explicit review before production data is touched.
+            </p>
+            <p className="mt-3 text-xs text-white/40">
+              {activePair.disposition} fields ({pctDisposition.toFixed(1)}%) have no direct equivalent in {activePair.destination} and require an explicit disposition before migration. Nothing is silently discarded.
             </p>
           </ParallaxCard>
         </Reveal>
@@ -314,10 +352,67 @@ export default function MigrationClient() {
                   <h3 className="heading-serif text-lg text-white">{cat.label}</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-white/55">{cat.body}</p>
-                <p className="mt-4 text-xs font-medium uppercase tracking-wide text-white/35">{cat.pairs}</p>
+                <p className="mt-4 text-xs font-medium uppercase tracking-wide text-white/65">{cat.pairs}</p>
               </ParallaxCard>
             </Reveal>
           ))}
+        </div>
+        <p className="mt-6 text-sm text-white/50">
+          The same governed data model receiving this data is documented in the{' '}
+          <Link href="/platform" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+            platform architecture
+          </Link>
+          . See where migrated CRM, finance, and people data lives once it arrives in the{' '}
+          <Link href="/products" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+            product families
+          </Link>
+          .
+        </p>
+      </Section>
+
+      {/* Supported sources */}
+      <Section
+        id="migration-sources"
+        eyebrow="Supported sources"
+        title="What can move into Infrakinetic today."
+      >
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          <Reveal variant="left">
+            <ParallaxCard depth={14} className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+              <h3 className="text-base font-semibold text-white/80">Implemented connector paths</h3>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {migrationEngine.connectors.map((connector) => (
+                  <span
+                    key={connector}
+                    className="rounded-full border border-violet-400/25 bg-violet-400/[0.08] px-4 py-2 text-sm font-medium text-violet-200"
+                  >
+                    {connector}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-5 text-xs text-white/40">
+                Source-tested and deployable. Live third-party certification has separate environment requirements and is tracked independently of the connector implementation.
+              </p>
+            </ParallaxCard>
+          </Reveal>
+          <Reveal variant="right" delay={0.1}>
+            <ParallaxCard depth={14} className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+              <h3 className="text-base font-semibold text-white/80">File-based onboarding</h3>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {migrationFileFormats.map((format) => (
+                  <span
+                    key={format}
+                    className="rounded-full border border-gold-300/25 bg-gold-300/[0.08] px-4 py-2 text-sm font-medium text-gold-200"
+                  >
+                    {format}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-5 text-xs text-white/40">
+                Direct upload for anything not covered by an implemented connector — the same discovery, mapping, staging, and reconciliation pipeline applies.
+              </p>
+            </ParallaxCard>
+          </Reveal>
         </div>
       </Section>
 

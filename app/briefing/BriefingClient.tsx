@@ -98,7 +98,7 @@ export default function BriefingClient() {
                 <div className="space-y-3">
                   {[
                     'Architecture walkthrough — one schema, one event bus, one TX boundary',
-                    'Governance & security — RLS, tenant isolation, DPDP 2023 by architecture',
+                    'Governance & security — RLS, tenant isolation, DPDP 2023 alignment by architecture',
                     'Lifecycle spine & signal framework — how the loop closes',
                     'Calibrated ML intelligence — three tiers, conformal intervals, SHAP',
                     'Pilot scope & timeline — 4-6 weeks, your data, your pace',
@@ -163,7 +163,7 @@ export default function BriefingClient() {
                         <div key={field.name}>
                           <label
                             htmlFor={field.name}
-                            className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-white/40"
+                            className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-white/70"
                           >
                             {field.label}
                           </label>
@@ -179,7 +179,7 @@ export default function BriefingClient() {
                       ))}
 
                       <div>
-                        <span className="mb-2 block text-xs font-medium uppercase tracking-wider text-white/40">
+                        <span className="mb-2 block text-xs font-medium uppercase tracking-wider text-white/70">
                           Areas to review
                         </span>
                         <div className="flex flex-wrap gap-2">
@@ -247,8 +247,8 @@ export default function BriefingClient() {
       <KeyTakeaway>
         The briefing is a 60-minute architecture review led by a platform engineer — bring your hardest integration or governance question, not just a features checklist.
       </KeyTakeaway>
-      <p className="mt-6 text-sm text-white/45 max-w-2xl">
-        In 60 minutes, we walk through how Infrakinetic&apos;s 15 engines, 5 always-included platform
+      <p className="mt-6 text-sm text-white/65 max-w-2xl">
+        In 60 minutes, we walk through how Infrakinetic&apos;s 17 engines, 5 always-included platform
         capabilities, and 8-layer security architecture map onto your specific commercial, workforce,
         and finance workflows.
       </p>

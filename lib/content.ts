@@ -14,6 +14,12 @@ export interface NavItem {
   href: string
 }
 
+export interface NavGroup {
+  label: string
+  href?: string
+  children?: NavItem[]
+}
+
 export interface PainPoint {
   title: string
   desc: string
@@ -35,6 +41,28 @@ export interface NotThisSection {
   eyebrow: string
   title: string
   items: NotThisItem[]
+}
+
+export interface ConsolidatesSection {
+  eyebrow: string
+  title: string
+  lead: string
+  categories: string[]
+  note: string
+}
+
+export interface EngineeringProofItem {
+  title: string
+  outcome: string
+  mechanism: string
+  detail?: string
+}
+
+export interface EngineeringProofSection {
+  eyebrow: string
+  title: string
+  lead: string
+  items: EngineeringProofItem[]
 }
 
 export interface MigrationStep {
@@ -162,14 +190,87 @@ export const brand: Brand = {
   parent: 'A Polynovea Product',
   tagline: 'Run the company, not the software stack.',
   subtitle:
-    'Infrakinetic connects commercial, workforce, finance, operations, documents, workflow, and reporting on one governed business data layer.',
+    'Instead of synchronizing separate applications after the fact, the operating engines share business context, permissions, approvals, events, and audit history from the start.',
 }
 
-export const nav: NavItem[] = [
+export const navGroups: NavGroup[] = [
   { label: 'Home', href: '/' },
-  { label: 'Migration', href: '/migration' },
-  { label: 'Platform', href: '/platform' },
-  { label: 'Products', href: '/products' },
+  {
+    label: 'Product',
+    href: '/products',
+    children: [
+      { label: 'Commerce', href: '/products#commerce' },
+      { label: 'Finance', href: '/products#finance' },
+      { label: 'Billing & Payments', href: '/products#billing' },
+      { label: 'People', href: '/products#people' },
+      { label: 'Customer Success', href: '/products#customer360' },
+      { label: 'Operations & Governance', href: '/products#platform-infra' },
+      { label: 'Migration', href: '/migration' },
+    ],
+  },
+  {
+    label: 'Platform',
+    href: '/platform',
+    children: [
+      { label: 'Architecture', href: '/platform#architecture' },
+      { label: 'Security & Isolation', href: '/platform#tenant-isolation' },
+      { label: 'Customer Intelligence', href: '/platform#signal-framework' },
+    ],
+  },
+  {
+    label: 'Solutions',
+    children: [
+      { label: 'CRM', href: '/products#commerce' },
+      { label: 'HR & Payroll', href: '/products#people' },
+      { label: 'Finance', href: '/products#finance' },
+      { label: 'Workflow', href: '/products#platform-infra' },
+      { label: 'Customer Success', href: '/products#customer360' },
+      { label: 'Data Migration', href: '/migration' },
+    ],
+  },
+]
+
+export interface FooterGroup {
+  label: string
+  items: NavItem[]
+}
+
+export const footerGroups: FooterGroup[] = [
+  {
+    label: 'Product',
+    items: [
+      { label: 'Commerce', href: '/products#commerce' },
+      { label: 'Finance', href: '/products#finance' },
+      { label: 'Billing & Payments', href: '/products#billing' },
+      { label: 'People', href: '/products#people' },
+      { label: 'Customer Success', href: '/products#customer360' },
+      { label: 'Operations & Governance', href: '/products#platform-infra' },
+    ],
+  },
+  {
+    label: 'Platform',
+    items: [
+      { label: 'Architecture', href: '/platform#architecture' },
+      { label: 'Security & Isolation', href: '/platform#tenant-isolation' },
+      { label: 'Customer Intelligence', href: '/platform#signal-framework' },
+    ],
+  },
+  {
+    label: 'Solutions',
+    items: [
+      { label: 'CRM', href: '/products#commerce' },
+      { label: 'HR & Payroll', href: '/products#people' },
+      { label: 'Data Migration', href: '/migration' },
+    ],
+  },
+  {
+    label: 'Company',
+    items: [
+      { label: 'Request a briefing', href: '/briefing' },
+      { label: 'Assess a migration', href: '/migration' },
+      { label: 'Security', href: '/platform#tenant-isolation' },
+    ],
+  },
 ]
 
 export const problem: ProblemSection = {
@@ -210,16 +311,114 @@ export const problem: ProblemSection = {
 }
 
 export const notThis: NotThisSection = {
-  eyebrow: 'What Infrakinetic is not',
-  title: "It doesn't fit neatly into a category you already know.",
+  eyebrow: 'How the categories fit together',
+  title: "Each category you already know is part of Infrakinetic — none of them is the whole product.",
   items: [
-    { label: 'A CRM', reason: "Too narrow — it also runs finance, HR, governance, operations, and customer success." },
-    { label: 'An ERP', reason: 'Too rigid — built around event-driven automation, not batch processing.' },
-    { label: 'An HRIS or payroll tool', reason: 'Too siloed — hiring is inseparable from payroll, and payroll posts straight to an immutable ledger.' },
-    { label: 'A workflow tool', reason: 'Too generic — approvals, events, and governance are platform primitives, not bolt-on features.' },
-    { label: 'An integration platform', reason: 'Wrong architecture — one data model and one source of truth, not synced copies drifting apart.' },
+    { label: 'CRM is part of the system, not the whole system.', reason: 'It shares the same operating foundation as finance, HR, governance, operations, and customer success — not a bolt-on module.' },
+    { label: 'ERP-like financial control without the rigid boundary.', reason: 'Built around event-driven automation instead of forcing the rest of the company into batch-processing constraints.' },
+    { label: 'HR and payroll share the same workforce context.', reason: 'Hiring, compensation, and payroll are one continuous flow, posting straight to an immutable ledger.' },
+    { label: 'Workflow and approvals are platform primitives.', reason: 'Not a separate automation product bolted on — every engine routes through the same approval and governance layer.' },
+    { label: "Integrations connect Infrakinetic to the outside — they aren't what keeps its own engines in sync.", reason: 'One data model and one source of truth internally, not synced copies drifting apart.' },
   ],
 }
+
+export const consolidates: ConsolidatesSection = {
+  eyebrow: 'One operating environment',
+  title: 'What Infrakinetic consolidates.',
+  lead: 'The categories below are usually bought, configured, and integrated separately. Infrakinetic runs them on one shared operating foundation instead.',
+  categories: ['CRM', 'HRIS', 'Payroll', 'Billing', 'Finance', 'Workflow', 'Customer Success', 'Governance'],
+  note: "Not every customer removes every external application. Infrakinetic is the shared foundation those categories run on — not a mandate to rip everything else out.",
+}
+
+export const engineeringProof: EngineeringProofSection = {
+  eyebrow: 'Built differently',
+  title: 'The architecture is part of the product.',
+  lead: 'Six properties that hold across the platform — not marketing language layered on top of it.',
+  items: [
+    {
+      title: 'Database-level tenant isolation',
+      outcome: 'Customer data boundaries do not depend only on application screens behaving correctly.',
+      mechanism: 'Tenant context plus database-level row policies and tenant-safe relationships.',
+      detail: 'PostgreSQL RLS',
+    },
+    {
+      title: 'Financial history built around reversal',
+      outcome: 'Posted financial history cannot be silently rewritten.',
+      mechanism: 'Append-only financial records, cryptographic integrity evidence, and explicit reversal paths.',
+    },
+    {
+      title: 'One approval framework',
+      outcome: 'Finance, HR, workflow, and governance decisions do not each invent their own approval logic.',
+      mechanism: 'Shared routing, conditional branches, delegation, escalation, SLA tracking, and decision history.',
+    },
+    {
+      title: 'Governed event automation',
+      outcome: 'Cross-functional work can react automatically when real business events occur.',
+      mechanism: 'Catalogued business events trigger registered workflows and approved platform actions.',
+    },
+    {
+      title: 'Historical truth',
+      outcome: 'Historical payroll, compensation, roles, and budgets can be interpreted using the rules actually in effect at the time.',
+      mechanism: 'Effective dating, version history, and temporal records where implemented.',
+    },
+    {
+      title: 'Migration with reconciliation',
+      outcome: 'A migration is not complete simply because rows were inserted.',
+      mechanism: 'Staging, dependency-aware execution, reconciliation gates, and explicit verification.',
+    },
+  ],
+}
+
+export interface WorkflowStep {
+  label: string
+  desc?: string
+}
+
+export interface ConnectedWorkflowDef {
+  key: string
+  title: string
+  steps: WorkflowStep[]
+}
+
+export const connectedWorkflows: ConnectedWorkflowDef[] = [
+  {
+    key: 'revenue',
+    title: 'Revenue',
+    steps: [
+      { label: 'Lead' },
+      { label: 'Opportunity' },
+      { label: 'Agreement' },
+      { label: 'Project' },
+      { label: 'Invoice' },
+      { label: 'Payment' },
+      { label: 'Customer Lifecycle' },
+      { label: 'Renewal' },
+    ],
+  },
+  {
+    key: 'workforce',
+    title: 'Workforce',
+    steps: [
+      { label: 'Candidate' },
+      { label: 'Offer' },
+      { label: 'Employment' },
+      { label: 'Compensation' },
+      { label: 'Payroll' },
+      { label: 'Ledger' },
+    ],
+  },
+]
+
+export const migrationFailureReasons: string[] = [
+  "Flat CSV mapping destroys relationships — a contact loses which account it belongs to.",
+  'Mutable names are unreliable identifiers — a renamed field or record breaks the link silently.',
+  'Finance cannot tolerate silent discrepancies — a rounding difference or duplicated invoice has to be caught, not discovered later.',
+  "Historical imports should not trigger present-day automations — a five-year-old deal shouldn't fire today's renewal emails.",
+  'Retries should not create duplicates — a failed run and a re-run need to produce the same result, not two records.',
+  'Completion should require reconciliation — the pipeline finishing is not the same as the destination being correct.',
+]
+
+export const migrationFileFormats: string[] = ['CSV', 'Excel', 'PDF', 'Word']
 
 export const migrationEngine: MigrationSection = {
   eyebrow: 'CRM, HRIS & ERP data migration',
@@ -544,11 +743,11 @@ export const homeFaqItems: FAQItem[] = [
 export const migrationFaqItems: FAQItem[] = [
   {
     question: 'What is CRM migration?',
-    answer: 'CRM migration is moving customer, contact, deal, and activity data from one CRM to another — for example Salesforce to HubSpot, or Zoho CRM to Salesforce — while preserving the relationships between records, not just the records themselves. A naive export/import moves rows; a governed migration preserves who owns what, which contact belongs to which account, and what happened when.',
+    answer: 'CRM migration is moving customer, contact, deal, and activity data from an existing CRM into Infrakinetic — for example from Salesforce, Zoho CRM, or HubSpot — while preserving the relationships between records, not just the records themselves. A naive export/import moves rows; a governed migration preserves who owns what, which contact belongs to which account, and what happened when.',
   },
   {
     question: 'What is the difference between CRM migration and general data migration?',
-    answer: 'CRM migration is one category of the broader problem. The same discover-map-transform-execute-validate-reconcile pipeline applies whether you are moving a CRM (Salesforce, HubSpot, Zoho), an HRIS (BambooHR, Workday, Rippling), an ERP, or a finance platform (QuickBooks, Xero, NetSuite) — the entities and relationships differ, but the risk (broken references, lost history, silent corruption) is the same.',
+    answer: 'CRM migration is one category of the broader problem. The same discover-map-transform-execute-validate-reconcile pipeline applies whether you are onboarding a CRM (Salesforce, Zoho CRM, HubSpot), People and payroll data (via CSV/Excel export), or a finance platform (Tally, or CSV/Excel export) into Infrakinetic — the entities and relationships differ, but the risk (broken references, lost history, silent corruption) is the same.',
   },
   {
     question: 'Why is a CSV export/import not enough for a CRM or ERP migration?',
