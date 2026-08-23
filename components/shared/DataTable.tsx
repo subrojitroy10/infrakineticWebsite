@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight } from '@/components/ui/Icons'
+import { statusColors } from '@/lib/colors'
 
 export interface Column<T = any> {
   key: string
@@ -117,23 +118,9 @@ export default function DataTable({
   const getRowAccentColor = (row: any) => {
     if (row.__accentColor) return row.__accentColor
     if (row.status) {
-      const statusColors: Record<string, string> = {
-        active: '#E6D3A3',
-        paid: '#10B981',
-        overdue: '#EF4444',
-        pending: '#F59E0B',
-        draft: '#71717A',
-        in_progress: '#7C3AED',
-        completed: '#10B981',
-        won: '#E6D3A3',
-        lost: '#EF4444',
-        churned: '#EF4444',
-        at_risk: '#F59E0B',
-        renewing: '#8B5CF6',
-      }
-      return statusColors[row.status] || '#27272A'
+      return statusColors.dark[row.status] || '#211B27'
     }
-    return '#27272A'
+    return '#211B27'
   }
 
   if (!data.length) {

@@ -208,7 +208,7 @@ export default function BriefingClient() {
                         {!submitting && <ArrowRight size={15} />}
                       </button>
                       {error ? (
-                        <p className="text-center text-xs text-red-400">{error}</p>
+                        <p className="text-center text-xs text-danger">{error}</p>
                       ) : (
                         <p className="text-center text-xs text-white/30">
                           Briefing requests are reviewed by the Infrakinetic team.

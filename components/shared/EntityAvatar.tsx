@@ -1,10 +1,7 @@
 import React from 'react'
+import { avatarPalette } from '@/lib/colors'
 
-const colours = [
-  '#E6D3A3', '#9A8F6A', '#7C3AED', '#8B5CF6', '#A78BFA',
-  '#06B6D4', '#22D3EE', '#67E8F9', '#10B981', '#34D399',
-  '#F59E0B', '#FBBF24', '#EF4444', '#F87171', '#EC4899',
-]
+const colours = avatarPalette.dark
 
 function hashString(str: string) {
   let hash = 0
@@ -64,7 +61,7 @@ export default function EntityAvatar({
   const initials = getInitials(name)
   const colourIndex = hashString(name) % colours.length
   const bgColor = fallbackColour || colours[colourIndex]
-  const textColor = type === 'org' ? '#0A0A0A' : '#F5F5F5'
+  const textColor = type === 'org' ? '#0B0910' : '#F5F1E8'
 
   return (
     <div

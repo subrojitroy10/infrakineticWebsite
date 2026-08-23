@@ -1,19 +1,19 @@
 import React from 'react'
 
 const TOKEN_COLORS: Record<string, string> = {
-  'gold-300': '#E6D3A3',
-  'gold-400': '#D4B88C',
-  'gold-500': '#9A8F6A',
-  'violet-300': '#A78BFA',
-  'violet-400': '#8B5CF6',
-  'violet-500': '#7C3AED',
-  'white/40': 'rgba(255,255,255,0.4)',
-  'white/60': 'rgba(255,255,255,0.6)',
+  'gold-300': '#D8B56A',
+  'gold-400': '#E3C884',
+  'gold-500': '#C49C4E',
+  'violet-300': '#C3A4D2',
+  'violet-400': '#8C6F99',
+  'violet-500': '#684B76',
+  'white/40': 'rgba(245,241,232,0.4)',
+  'white/60': 'rgba(245,241,232,0.6)',
 }
 
 const resolveColor = (color: string) => {
   if (color.startsWith('#') || color.startsWith('rgb') || color === 'currentColor') return color
-  return TOKEN_COLORS[color] || '#E6D3A3'
+  return TOKEN_COLORS[color] || '#D8B56A'
 }
 
 interface SparklineProps {

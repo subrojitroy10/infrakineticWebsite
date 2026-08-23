@@ -6,7 +6,8 @@ import { Float, Html, Sparkles } from '@react-three/drei'
 import * as THREE from 'three'
 import Resizer from './Resizer'
 
-const ACCENT = '#E6D3A3'
+const ACCENT = '#D8B56A'
+const SECONDARY_COLOR = '#8C6F99'
 extend({ LineSegments: THREE.LineSegments })
 
 function DatabaseCore() {
@@ -20,7 +21,7 @@ function DatabaseCore() {
         <mesh key={i} position={[0, y, 0]}>
           <cylinderGeometry args={[1.05, 1.05, 0.42, 48]} />
           <meshStandardMaterial
-            color="#9A8F6A"
+            color="#B89452"
             emissive={ACCENT}
             emissiveIntensity={0.35}
             roughness={0.2}
@@ -30,7 +31,7 @@ function DatabaseCore() {
       ))}
       <mesh>
         <cylinderGeometry args={[1.16, 1.16, 1.9, 48, 1, true]} />
-        <meshBasicMaterial color="#E6D3A3" wireframe transparent opacity={0.14} />
+        <meshBasicMaterial color={ACCENT} wireframe transparent opacity={0.14} />
       </mesh>
     </group>
   )
@@ -119,11 +120,11 @@ export default function DatabaseScene({ nodes = ['CRM', 'HR', 'Payroll', 'Dashbo
       <Suspense fallback={null}>
         <Resizer />
         <ambientLight intensity={0.55} />
-        <pointLight position={[5, 5, 5]} intensity={3} color="#E6D3A3" />
-        <pointLight position={[-5, -3, 2]} intensity={2} color="#7C3AED" />
+        <pointLight position={[5, 5, 5]} intensity={3} color={ACCENT} />
+        <pointLight position={[-5, -3, 2]} intensity={2} color={SECONDARY_COLOR} />
         <DatabaseCore />
         <Constellation nodes={nodes} />
-        <Sparkles count={70} scale={9.5} size={2.8} speed={0.55} color="#E6D3A3" opacity={0.9} />
+        <Sparkles count={70} scale={9.5} size={2.8} speed={0.55} color={ACCENT} opacity={0.9} />
       </Suspense>
     </Canvas>
   )

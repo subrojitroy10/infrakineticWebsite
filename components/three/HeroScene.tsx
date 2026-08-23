@@ -12,8 +12,9 @@ import {
 import * as THREE from 'three'
 import Resizer from './Resizer'
 
-const NODE_COLOR = '#E6D3A3'
-const CORE_COLOR = '#9A8F6A'
+const NODE_COLOR = '#D8B56A'
+const CORE_COLOR = '#B89452'
+const SECONDARY_COLOR = '#8C6F99'
 
 /* A ring of glowing "module" nodes orbiting the core. */
 function OrbitingNodes({ count = 8, radius = 3.45, speed = 0.28 }) {
@@ -74,7 +75,7 @@ function OrbitRings() {
       {[3.1, 3.9, 4.7].map((r, i) => (
         <mesh key={i} rotation={[Math.PI / 2 + i * 0.35, i * 0.4, 0]}>
           <torusGeometry args={[r, 0.006, 16, 120]} />
-          <meshBasicMaterial color="#7C3AED" transparent opacity={0.42 - i * 0.07} />
+          <meshBasicMaterial color={SECONDARY_COLOR} transparent opacity={0.42 - i * 0.07} />
         </mesh>
       ))}
     </group>
@@ -105,7 +106,7 @@ function Core() {
         />
       </Icosahedron>
       <Icosahedron args={[1.95, 2]}>
-        <meshBasicMaterial color="#E6D3A3" wireframe transparent opacity={0.3} />
+        <meshBasicMaterial color={NODE_COLOR} wireframe transparent opacity={0.3} />
       </Icosahedron>
     </group>
   )
@@ -135,15 +136,15 @@ export default function HeroScene() {
       <Suspense fallback={null}>
         <Resizer />
         <ambientLight intensity={0.5} />
-        <pointLight position={[6, 6, 6]} intensity={3.3} color="#E6D3A3" />
-        <pointLight position={[-6, -4, 2]} intensity={2.4} color="#7C3AED" />
+        <pointLight position={[6, 6, 6]} intensity={3.3} color={NODE_COLOR} />
+        <pointLight position={[-6, -4, 2]} intensity={2.4} color={SECONDARY_COLOR} />
         <Stars radius={60} depth={40} count={3200} factor={3.6} saturation={0} fade speed={0.9} />
         <Rig>
           <Core />
           <OrbitRings />
           <OrbitingNodes />
         </Rig>
-        <Sparkles count={90} scale={12} size={3.2} speed={0.55} color="#E6D3A3" opacity={0.95} />
+        <Sparkles count={90} scale={12} size={3.2} speed={0.55} color={NODE_COLOR} opacity={0.95} />
       </Suspense>
     </Canvas>
   )

@@ -3,67 +3,131 @@
 @tailwind utilities;
 
 /*
- * Theme tokens — dark values are the Polynovea Primary Brand Palette,
- * light values are the Presentation & Client Document Palette.
+ * Theme tokens — Infrakinetic "Imperial Night / Imperial Ivory" color system.
+ * Dark values are Imperial Night, light values are Imperial Ivory (see
+ * Infrakinetic_Color_System_v1_Imperial_Night_Ivory.md for the full spec).
  * Stored as space-separated RGB channels so Tailwind's `rgb(var(--x) / <alpha-value>)`
  * pattern keeps opacity modifiers (e.g. bg-white/[0.03]) working in both themes.
  */
 :root {
   color-scheme: dark;
 
-  --color-bg-primary: 10 10 10;        /* #0A0A0A */
-  --color-bg-secondary: 18 18 18;      /* #121212 */
-  --color-bg-card: 24 24 27;           /* #18181B */
-  --color-bg-border: 39 39 42;         /* #27272A */
+  /* Permanent brand constants — do not swap between themes (spec §4, §34) */
+  --brand-obsidian: 11 9 16;      /* #0B0910 */
+  --brand-ivory: 245 241 232;     /* #F5F1E8 */
+  --brand-aubergine: 36 22 46;    /* #24162E */
+  --brand-plum: 59 35 72;         /* #3B2348 */
+  --brand-violet: 140 111 153;    /* #8C6F99 Regent Violet */
+  --brand-champagne: 216 181 106; /* #D8B56A */
+  --brand-brass: 184 148 82;      /* #B89452 */
+  --brand-bronze: 197 143 120;    /* #C58F78 */
 
-  --color-fg: 245 245 245;             /* #F5F5F5 — the "white" token */
-  --color-fg-secondary: 161 161 170;   /* #A1A1AA */
-  --color-fg-muted: 113 113 122;       /* #71717A */
+  --color-bg-primary: 11 9 16;         /* #0B0910 Obsidian — canvas */
+  --color-bg-secondary: 18 16 23;      /* #121017 Surface 1 */
+  --color-bg-card: 24 20 29;           /* #18141D Surface 2 */
+  --color-bg-border: 33 27 39;         /* #211B27 Surface 3 */
 
-  --color-gold-200: 245 245 245;
-  --color-gold-300: 230 211 163;       /* #E6D3A3 */
-  --color-gold-400: 212 184 140;       /* #D4B88C */
-  --color-gold-500: 154 143 106;       /* #9A8F6A */
+  --color-fg: 245 241 232;             /* #F5F1E8 Warm Ivory — the "white" token */
+  --color-fg-secondary: 199 191 203;   /* #C7BFCB */
+  --color-fg-muted: 147 138 152;       /* #938A98 */
 
-  --color-violet-300: 167 139 250;     /* #A78BFA */
-  --color-violet-400: 139 92 246;      /* #8B5CF6 */
-  --color-violet-500: 124 58 237;      /* #7C3AED */
+  --color-gold-200: 240 228 200;       /* #F0E4C8 bright champagne (hover/selected) */
+  --color-gold-300: 216 181 106;       /* #D8B56A Champagne Gold — primary action */
+  --color-gold-400: 227 200 132;       /* #E3C884 hover */
+  --color-gold-500: 196 156 78;        /* #C49C4E pressed */
 
-  --gradient-text: linear-gradient(120deg, #F5F5F5 0%, #E6D3A3 46%, #7C3AED 100%);
-  --selection-bg: rgba(230, 211, 163, 0.32);
-  --selection-fg: #0A0A0A;
-  --scrollbar-track: #0A0A0A;
-  --scrollbar-thumb: #27272A;
-  --scrollbar-thumb-hover: #9A8F6A;
+  --color-violet-300: 195 164 210;     /* #C3A4D2 lighter (review fg) */
+  --color-violet-400: 140 111 153;     /* #8C6F99 Regent Violet */
+  --color-violet-500: 104 75 118;      /* #684B76 deeper (review border) */
+
+  /* Theme-swapping primary action — gold in dark, plum in light (spec §8.5/§49) */
+  --action-primary: 216 181 106;       /* #D8B56A */
+  --action-primary-hover: 227 200 132; /* #E3C884 */
+  --action-primary-pressed: 196 156 78;/* #C49C4E */
+  --action-primary-text: 11 9 16;      /* #0B0910 */
+  --action-secondary: 140 111 153;     /* #8C6F99 Regent Violet */
+
+  /* Semantic states (spec §11) */
+  --success-fg: 121 211 167;      /* #79D3A7 */
+  --success-bg: 16 40 30;         /* #10281E */
+  --success-border: 47 117 86;    /* #2F7556 */
+  --warning-fg: 240 195 106;      /* #F0C36A */
+  --warning-bg: 43 33 14;         /* #2B210E */
+  --warning-border: 139 104 37;   /* #8B6825 */
+  --danger-fg: 242 140 148;       /* #F28C94 */
+  --danger-bg: 50 21 24;          /* #321518 */
+  --danger-border: 141 57 64;     /* #8D3940 */
+  --info-fg: 139 185 231;         /* #8BB9E7 */
+  --info-bg: 19 37 54;            /* #132536 */
+  --info-border: 61 110 156;      /* #3D6E9C */
+  --review-fg: 195 164 210;       /* #C3A4D2 */
+  --review-bg: 38 26 46;          /* #261A2E */
+  --review-border: 104 75 118;    /* #684B76 */
+  --pending-fg: 190 197 204;      /* #BEC5CC */
+  --pending-bg: 32 37 42;         /* #20252A */
+  --pending-border: 81 90 99;     /* #515A63 */
+
+  --gradient-text: linear-gradient(120deg, #F5F1E8 0%, #D8B56A 46%, #8C6F99 100%);
+  --selection-bg: rgba(216, 181, 106, 0.32);
+  --selection-fg: #0B0910;
+  --scrollbar-track: #0B0910;
+  --scrollbar-thumb: #211B27;
+  --scrollbar-thumb-hover: #B89452;
 }
 
 [data-theme='light'] {
   color-scheme: light;
 
-  --color-bg-primary: 248 246 242;     /* #F8F6F2 warm off-white */
-  --color-bg-secondary: 239 234 226;   /* #EFEAE2 soft beige */
-  --color-bg-card: 255 255 255;        /* #FFFFFF */
-  --color-bg-border: 216 208 196;      /* #D8D0C4 warm border */
+  --color-bg-primary: 246 242 234;     /* #F6F2EA canvas */
+  --color-bg-secondary: 255 252 247;   /* #FFFCF7 Surface 1 */
+  --color-bg-card: 240 234 224;        /* #F0EAE0 Surface 2 */
+  --color-bg-border: 232 224 214;      /* #E8E0D6 Surface 3 */
 
-  --color-fg: 10 10 10;                /* #0A0A0A deep black text */
-  --color-fg-secondary: 107 114 128;   /* #6B7280 */
-  --color-fg-muted: 148 152 160;       /* lighter, still muted */
+  --color-fg: 23 18 26;                /* #17121A */
+  --color-fg-secondary: 76 69 81;      /* #4C4551 */
+  --color-fg-muted: 113 104 118;       /* #716876 */
 
-  --color-gold-200: 40 33 20;
-  --color-gold-300: 138 109 58;        /* deepened for AA text contrast on off-white */
-  --color-gold-400: 122 96 51;
-  --color-gold-500: 96 87 62;
+  --color-gold-200: 140 104 48;        /* #8C6830 deepened (hover/selected emphasis) */
+  --color-gold-300: 162 126 60;        /* #A27E3C prestige accent — NOT primary CTA */
+  --color-gold-400: 184 147 90;        /* #B8935A hover */
+  --color-gold-500: 140 104 48;        /* #8C6830 pressed */
 
-  --color-violet-300: 109 40 217;
-  --color-violet-400: 124 58 237;
-  --color-violet-500: 91 33 182;
+  --color-violet-300: 155 114 170;     /* #9B72AA */
+  --color-violet-400: 120 97 127;      /* #78617F brand-secondary */
+  --color-violet-500: 91 54 106;       /* #5B366A */
 
-  --gradient-text: linear-gradient(120deg, #0A0A0A 0%, #8A6D3A 46%, #7C3AED 100%);
-  --selection-bg: rgba(138, 109, 58, 0.22);
-  --selection-fg: #0A0A0A;
-  --scrollbar-track: #F8F6F2;
-  --scrollbar-thumb: #D8D0C4;
-  --scrollbar-thumb-hover: #9A8F6A;
+  /* Theme-swapping primary action — Deep Plum in light mode (spec §8.5/§49) */
+  --action-primary: 74 43 88;          /* #4A2B58 */
+  --action-primary-hover: 60 35 72;    /* #3C2348 */
+  --action-primary-pressed: 48 27 57;  /* #301B39 */
+  --action-primary-text: 245 241 232;  /* #F5F1E8 */
+  --action-secondary: 162 126 60;      /* #A27E3C prestige accent */
+
+  --success-fg: 33 107 74;        /* #216B4A */
+  --success-bg: 232 244 237;      /* #E8F4ED */
+  --success-border: 143 201 170;  /* #8FC9AA */
+  --warning-fg: 138 91 18;        /* #8A5B12 */
+  --warning-bg: 255 244 216;      /* #FFF4D8 */
+  --warning-border: 214 168 77;   /* #D6A84D */
+  --danger-fg: 162 56 67;         /* #A23843 */
+  --danger-bg: 252 235 236;       /* #FCEBEC */
+  --danger-border: 216 139 146;   /* #D88B92 */
+  --info-fg: 49 95 143;           /* #315F8F */
+  --info-bg: 234 242 250;         /* #EAF2FA */
+  --info-border: 136 173 209;     /* #88ADD1 */
+  --review-fg: 104 73 123;        /* #68497B */
+  --review-bg: 243 236 246;       /* #F3ECF6 */
+  --review-border: 184 155 197;   /* #B89BC5 */
+  --pending-fg: 94 102 112;       /* #5E6670 */
+  --pending-bg: 239 241 243;      /* #EFF1F3 */
+  --pending-border: 192 197 203;  /* #C0C5CB */
+
+  --gradient-text: linear-gradient(120deg, #17121A 0%, #A27E3C 46%, #5B366A 100%);
+  --selection-bg: rgba(162, 126, 60, 0.22);
+  --selection-fg: #17121A;
+  --scrollbar-track: #F6F2EA;
+  --scrollbar-thumb: #E8E0D6;
+  --scrollbar-thumb-hover: #A27E3C;
 }
 
 * {
@@ -100,9 +164,9 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(circle at 18% 12%, rgba(230, 211, 163, 0.09), transparent 28%),
-    radial-gradient(circle at 82% 20%, rgba(124, 58, 237, 0.11), transparent 26%),
-    radial-gradient(circle at 50% 84%, rgba(154, 143, 106, 0.08), transparent 30%);
+    radial-gradient(circle at 18% 12%, rgba(216, 181, 106, 0.07), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(140, 111, 153, 0.11), transparent 26%),
+    radial-gradient(circle at 50% 84%, rgba(184, 148, 82, 0.08), transparent 30%);
   animation: field-drift 18s ease-in-out infinite alternate;
 }
 
@@ -127,8 +191,8 @@ body::after {
 
 [data-theme='light'] body::after {
   background-image:
-    linear-gradient(rgba(10, 10, 10, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10, 10, 10, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(23, 18, 26, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 18, 26, 0.03) 1px, transparent 1px);
   opacity: 0.5;
 }
 
@@ -166,19 +230,19 @@ body::after {
 
   .btn-primary {
     @apply relative inline-flex items-center justify-center gap-2 rounded-full
-           bg-gold-300 px-7 py-3.5 text-sm font-semibold text-ink-900 shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_10px_28px_-10px_rgba(230,211,163,0.45)]
-           transition-all duration-300 hover:bg-gold-400 hover:shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_14px_36px_-10px_rgba(124,58,237,0.42)]
+           bg-action px-7 py-3.5 text-sm font-semibold text-action-text shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_10px_28px_-10px_rgba(216,181,106,0.45)]
+           transition-all duration-300 hover:bg-action-hover hover:shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_14px_36px_-10px_rgba(140,111,153,0.42)]
            active:scale-[0.98];
   }
 
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15
            bg-white/[0.03] px-7 py-3.5 text-sm font-semibold text-white/90 backdrop-blur
-           transition-all duration-300 hover:border-gold-300/50 hover:bg-white/[0.06];
+           transition-all duration-300 hover:border-action/50 hover:bg-white/[0.06];
   }
 
   .glass-card {
-    @apply rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_-48px_rgba(230,211,163,0.45)] backdrop-blur-xl;
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_-48px_rgba(216,181,106,0.45)] backdrop-blur-xl;
   }
 }
 

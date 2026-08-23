@@ -767,12 +767,12 @@ export default function ProductsClient() {
                               action.variant === 'primary'
                                 ? 'border-gold-300/30 bg-gold-300/[0.04] hover:bg-gold-300/[0.08]'
                                 : action.variant === 'danger'
-                                ? 'border-red-400/30 bg-red-400/[0.04] hover:bg-red-400/[0.08]'
+                                ? 'border-danger/30 bg-danger/[0.04] hover:bg-danger/[0.08]'
                                 : 'border-violet-400/30 bg-violet-400/[0.04] hover:bg-violet-400/[0.08]'
                             }`}
                           >
                             <div className="flex items-start gap-2">
-                              <action.icon size={16} className={`shrink-0 mt-0.5 ${action.color === 'gold' ? 'text-gold-300' : action.color === 'violet' ? 'text-violet-300' : 'text-red-400'}`} />
+                              <action.icon size={16} className={`shrink-0 mt-0.5 ${action.color === 'gold' ? 'text-gold-300' : action.color === 'violet' ? 'text-violet-300' : 'text-danger'}`} />
                               <div>
                                 <p className="font-medium text-white">{action.label}</p>
                                 <p className="text-[10px] text-white/40">{action.desc}</p>
@@ -838,14 +838,14 @@ export default function ProductsClient() {
                         >
                           <div className="flex items-center justify-between text-sm mb-1">
                             <span className="text-white/80">{factor.label}</span>
-                            <span className={`font-semibold ${factor.color === 'red' ? 'text-red-400' : 'text-violet-300'}`}>{factor.impact}</span>
+                            <span className={`font-semibold ${factor.color === 'red' ? 'text-danger' : 'text-violet-300'}`}>{factor.impact}</span>
                           </div>
                           <div className="h-2 bg-white/5 rounded-full overflow-hidden">
                             <motion.div
                               initial={{ width: 0 }}
                               animate={{ width: factor.impact }}
                               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                              className={`h-full rounded-full ${factor.color === 'red' ? 'bg-red-400' : 'bg-violet-400'}`}
+                              className={`h-full rounded-full ${factor.color === 'red' ? 'bg-danger' : 'bg-violet-400'}`}
                             />
                           </div>
                         </motion.div>

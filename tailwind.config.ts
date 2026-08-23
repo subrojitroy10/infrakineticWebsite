@@ -53,6 +53,53 @@ const config: Config = {
           secondary: withAlpha('--color-gold-500'),
           intelligence: withAlpha('--color-violet-500'),
         },
+        brand: {
+          obsidian: withAlpha('--brand-obsidian'),
+          ivory: withAlpha('--brand-ivory'),
+          aubergine: withAlpha('--brand-aubergine'),
+          plum: withAlpha('--brand-plum'),
+          violet: withAlpha('--brand-violet'),
+          champagne: withAlpha('--brand-champagne'),
+          brass: withAlpha('--brand-brass'),
+          bronze: withAlpha('--brand-bronze'),
+        },
+        action: {
+          DEFAULT: withAlpha('--action-primary'),
+          hover: withAlpha('--action-primary-hover'),
+          pressed: withAlpha('--action-primary-pressed'),
+          text: withAlpha('--action-primary-text'),
+          secondary: withAlpha('--action-secondary'),
+        },
+        success: {
+          DEFAULT: withAlpha('--success-fg'),
+          bg: withAlpha('--success-bg'),
+          border: withAlpha('--success-border'),
+        },
+        warning: {
+          DEFAULT: withAlpha('--warning-fg'),
+          bg: withAlpha('--warning-bg'),
+          border: withAlpha('--warning-border'),
+        },
+        danger: {
+          DEFAULT: withAlpha('--danger-fg'),
+          bg: withAlpha('--danger-bg'),
+          border: withAlpha('--danger-border'),
+        },
+        info: {
+          DEFAULT: withAlpha('--info-fg'),
+          bg: withAlpha('--info-bg'),
+          border: withAlpha('--info-border'),
+        },
+        review: {
+          DEFAULT: withAlpha('--review-fg'),
+          bg: withAlpha('--review-bg'),
+          border: withAlpha('--review-border'),
+        },
+        pending: {
+          DEFAULT: withAlpha('--pending-fg'),
+          bg: withAlpha('--pending-bg'),
+          border: withAlpha('--pending-border'),
+        },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],

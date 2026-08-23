@@ -172,7 +172,7 @@ export default function Intelligence() {
                 >
                   <div className="flex items-center justify-between text-sm mb-1">
                     <span className="text-white/80">{factor.label}</span>
-                    <span className={`font-semibold ${factor.color === 'red' ? 'text-red-400' : 'text-violet-300'}`}>
+                    <span className={`font-semibold ${factor.color === 'red' ? 'text-danger' : 'text-violet-300'}`}>
                       {factor.impact}
                     </span>
                   </div>
@@ -183,7 +183,7 @@ export default function Intelligence() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                       className={`h-full rounded-full ${
-                        factor.color === 'red' ? 'bg-red-400' : 'bg-violet-400'
+                        factor.color === 'red' ? 'bg-danger' : 'bg-violet-400'
                       }`}
                     />
                   </div>

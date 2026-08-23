@@ -194,7 +194,7 @@ export default function MigrationClient() {
           {migrationFailureReasons.map((reason, i) => (
             <Reveal key={reason} variant="up" delay={i * 0.05}>
               <div className="flex h-full items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4">
-                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-red-400/15 text-red-300/85">
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-danger/15 text-danger/85">
                   <XMark size={10} />
                 </span>
                 <p className="text-sm leading-relaxed text-white/60">{reason}</p>
@@ -303,8 +303,8 @@ export default function MigrationClient() {
                 <p className="text-xl font-semibold text-violet-300">{activePair.transformed}</p>
                 <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Governed transformations</p>
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                <p className="text-xl font-semibold text-white/80">{activePair.humanConfirm}</p>
+              <div className="rounded-xl border border-review/20 bg-review/[0.06] p-4">
+                <p className="text-xl font-semibold text-review">{activePair.humanConfirm}</p>
                 <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Human confirmations</p>
               </div>
             </div>
@@ -316,14 +316,14 @@ export default function MigrationClient() {
             <div className="mt-3 flex h-3 w-full overflow-hidden rounded-full border border-white/10 bg-white/[0.02]">
               <div className="h-full bg-gold-300" style={{ width: `${pctDirect}%` }} title={`Direct mapping — ${pctDirect.toFixed(1)}%`} />
               <div className="h-full bg-violet-400" style={{ width: `${pctTransformed}%` }} title={`Governed transformation — ${pctTransformed.toFixed(1)}%`} />
-              <div className="h-full bg-white/40" style={{ width: `${pctHuman}%` }} title={`Human confirmation — ${pctHuman.toFixed(1)}%`} />
-              <div className="h-full bg-amber-400/70" style={{ width: `${pctDisposition}%` }} title={`Explicit disposition — ${pctDisposition.toFixed(1)}%`} />
+              <div className="h-full bg-review" style={{ width: `${pctHuman}%` }} title={`Human confirmation — ${pctHuman.toFixed(1)}%`} />
+              <div className="h-full bg-warning/70" style={{ width: `${pctDisposition}%` }} title={`Explicit disposition — ${pctDisposition.toFixed(1)}%`} />
             </div>
             <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[11px] text-white/50">
               <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-gold-300" />{pctDirect.toFixed(1)}% Direct mapping</span>
               <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-violet-400" />{pctTransformed.toFixed(1)}% Governed transformation</span>
-              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-white/40" />{pctHuman.toFixed(1)}% Human confirmation</span>
-              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-amber-400/70" />{pctDisposition.toFixed(1)}% Explicit disposition</span>
+              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-review" />{pctHuman.toFixed(1)}% Human confirmation</span>
+              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-warning/70" />{pctDisposition.toFixed(1)}% Explicit disposition</span>
             </div>
             <p className="mt-4 text-xs text-white/50">
               {(activePair.direct + activePair.transformed).toLocaleString()} of {activePair.fields.toLocaleString()} fields can proceed through direct mapping or governed transformation. Remaining ambiguity is surfaced for explicit review before production data is touched.

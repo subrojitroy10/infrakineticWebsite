@@ -258,7 +258,7 @@ export default function Navbar() {
               <Link
                 href="/briefing"
                 onClick={() => setOpen(false)}
-                className="mt-2 rounded-lg bg-gold-300 px-3 py-3 text-center text-base font-semibold text-ink-900"
+                className="mt-2 rounded-lg bg-action px-3 py-3 text-center text-base font-semibold text-action-text"
               >
                 Request a briefing
               </Link>

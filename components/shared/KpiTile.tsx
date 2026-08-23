@@ -7,16 +7,16 @@ export type KpiVariant = 'neutral' | 'positive' | 'warning' | 'danger'
 
 const variantStyles: Record<KpiVariant, string> = {
   neutral: 'border-white/10 bg-white/[0.02]',
-  positive: 'border-gold-300/20 bg-gold-300/[0.04]',
-  warning: 'border-violet-400/20 bg-violet-400/[0.04]',
-  danger: 'border-red-400/20 bg-red-400/[0.04]',
+  positive: 'border-success/20 bg-success/[0.04]',
+  warning: 'border-warning/20 bg-warning/[0.04]',
+  danger: 'border-danger/20 bg-danger/[0.04]',
 }
 
 const iconBgStyles: Record<KpiVariant, string> = {
   neutral: 'bg-white/[0.06] text-white/60',
-  positive: 'bg-gold-300/15 text-gold-300',
-  warning: 'bg-violet-400/15 text-violet-300',
-  danger: 'bg-red-400/15 text-red-300',
+  positive: 'bg-success/15 text-success',
+  warning: 'bg-warning/15 text-warning',
+  danger: 'bg-danger/15 text-danger',
 }
 
 export interface KpiTileProps {

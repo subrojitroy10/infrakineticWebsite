@@ -25,7 +25,7 @@ export default function TrendDelta({
   return (
     <span
       className={`inline-flex items-center gap-1 font-medium ${
-        isPositive ? 'text-gold-300' : 'text-red-400'
+        isPositive ? 'text-success' : 'text-danger'
       } ${className}`}
     >
       {showIcon && (

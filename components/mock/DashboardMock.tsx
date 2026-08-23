@@ -41,8 +41,8 @@ function AreaChart() {
     <svg viewBox="0 0 320 90" className="h-full w-full" preserveAspectRatio="none" aria-hidden>
       <defs>
         <linearGradient id="dm-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#E6D3A3" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#E6D3A3" stopOpacity="0" />
+          <stop offset="0%" stopColor="#D8B56A" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#D8B56A" stopOpacity="0" />
         </linearGradient>
       </defs>
       {[22, 44, 66].map((y) => (
@@ -55,12 +55,12 @@ function AreaChart() {
       <path
         d="M0 72 C 28 68, 44 56, 70 58 S 116 66, 140 54 S 186 30, 212 34 S 262 24, 288 16 L 320 12"
         fill="none"
-        stroke="#E6D3A3"
+        stroke="#D8B56A"
         strokeWidth="2"
         strokeLinecap="round"
       />
       <path d="M0 40 L 320 28" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1.5" strokeDasharray="4 5" />
-      <circle cx="288" cy="16" r="3.5" fill="#0A0A0A" stroke="#E6D3A3" strokeWidth="2" />
+      <circle cx="288" cy="16" r="3.5" fill="#0B0910" stroke="#D8B56A" strokeWidth="2" />
     </svg>
   )
 }

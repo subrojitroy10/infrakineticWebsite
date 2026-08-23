@@ -21,7 +21,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       document.documentElement.setAttribute('data-theme', next)
       document.querySelector('meta[name="theme-color"]')?.setAttribute(
         'content',
-        next === 'dark' ? '#0A0A0A' : '#F8F6F2',
+        next === 'dark' ? '#0B0910' : '#F6F2EA',
       )
       return next
     })

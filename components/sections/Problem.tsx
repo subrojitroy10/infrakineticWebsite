@@ -77,8 +77,8 @@ export default function Problem() {
                             <div className="hidden items-center px-1.5 sm:flex" aria-hidden>
                               <span className="w-3 border-t border-dashed border-white/15 md:w-5" />
                               {i === flow.brokenAt && (
-                                <span className="relative mx-1 grid h-6 w-6 place-items-center rounded-full border border-red-400/40 bg-red-400/10 text-red-300">
-                                  <span className="absolute inset-0 animate-pulse-glow rounded-full bg-red-400/20" />
+                                <span className="relative mx-1 grid h-6 w-6 place-items-center rounded-full border border-danger/40 bg-danger/10 text-danger">
+                                  <span className="absolute inset-0 animate-pulse-glow rounded-full bg-danger/20" />
                                   <XMark size={11} className="relative" />
                                 </span>
                               )}
@@ -92,7 +92,7 @@ export default function Problem() {
                             <div className="flex items-center px-1.5 sm:hidden" aria-hidden>
                               <span className="w-3 border-t border-dashed border-white/15" />
                               {i === flow.brokenAt && (
-                                <span className="mx-1 grid h-6 w-6 place-items-center rounded-full border border-red-400/40 bg-red-400/10 text-red-300">
+                                <span className="mx-1 grid h-6 w-6 place-items-center rounded-full border border-danger/40 bg-danger/10 text-danger">
                                   <XMark size={11} className="relative" />
                                 </span>
                               )}
@@ -108,7 +108,7 @@ export default function Problem() {
                       </Fragment>
                     ))}
                   </div>
-                  <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.15em] text-red-300/60">
+                  <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.15em] text-danger/60">
                     Context lost at step {flow.brokenAt + 1}
                   </p>
                 </div>
