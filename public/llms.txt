@@ -1,60 +1,72 @@
 # Infrakinetic
 
-> Infrakinetic is a unified business operating system — commercial, workforce,
-> finance, governance, and reporting on one shared database — with a Migration
-> Engine that discovers, maps, transforms, executes, validates, and reconciles
-> data when a business moves between CRM, HRIS, ERP, or finance systems.
+> Infrakinetic is a unified business operating system for CRM, sales, finance,
+> billing, payments, HR, payroll, workflow, governance, customer success, and
+> business data migration — connected on one shared operating foundation
+> instead of synced between separate tools.
 
 ## What is it?
 
 Infrakinetic is both an operating foundation for running a business (CRM/sales,
-HR/payroll, finance, customer success, governance) and migration infrastructure
-for moving onto or off of business systems without losing the data's meaning.
+finance, billing & payments, HR/payroll, customer success, operations &
+governance) and a Migration Engine for governed onboarding of legacy data —
+discover, map, stage, execute, reconcile, verify — without losing the data's
+meaning.
 
 ## What does the Migration Engine do?
 
 It discovers a source system's schema (entities, fields, relationships, custom
 objects), models what the data actually represents (not just field names),
-maps source structures to destination equivalents with a confidence label,
-stages the result in a governed airlock separated from production, executes
-in dependency order, and validates and reconciles the outcome — record counts,
-relationship integrity, and financial totals — before a human signs off.
+maps source structures to Infrakinetic's destination model with a confidence
+label, stages the result in a governed airlock separated from production,
+executes in dependency order, and validates and reconciles the outcome —
+record counts, relationship integrity, and financial totals — before a human
+signs off. A demonstrated execution run completed 10,000 of 10,000 staged
+records with 0 failures and 12/12 reconciliation hard checks passed.
 
 ## Why isn't a CSV importer enough?
 
 Because real business systems contain relationships (a deal belongs to an
-account, an employee has compensation history), custom fields and objects,
+account, a contact has compensation history), custom fields and objects,
 duplicate entities, and incompatible lifecycle states. A column-to-column
 CSV mapping breaks down the moment any of that is present.
 
 ## What makes Infrakinetic different?
 
 It treats migration as a systems problem — understand, map, move, prove —
-rather than a file-import problem. AI proposes mappings and explanations;
-deterministic validation and human approval decide what actually executes.
+rather than a file-import problem. Bounded intelligence can assist ambiguous
+mapping decisions; deterministic mapping and human approval decide what
+actually executes. The architecture itself is part of the product: database-
+level tenant isolation, an append-only financial ledger, one shared approval
+framework, and governed cross-engine events.
 
-## Where does it work?
+## Where does data come from?
 
-CRM (Salesforce, HubSpot, Zoho CRM), HRIS/payroll (BambooHR, Workday,
-Rippling), finance (QuickBooks, Xero, NetSuite, Tally), and file-based
-sources (CSV, Excel, PDF, Word). The same governed pipeline underlies every
-one of them.
+Implemented connector paths: Salesforce, Zoho CRM, HubSpot CRM, and Tally —
+source-tested and normalized into the same governed pipeline. File-based
+onboarding: CSV, Excel, PDF, and Word for anything else. This is onboarding
+data into Infrakinetic, not a generic system-to-system migration product.
+
+## Product families
+
+Commerce (CRM & sales), Finance, Billing & Payments (independently entitled
+from Finance), People (HR & payroll), Customer Success, Operations &
+Governance (approvals, workflow, tickets, documents — free for every tenant),
+and the Migration Engine.
 
 ## Why should I trust the result?
 
-Because the migration is analyzed and risk-scored before execution, staged
+Because the migration is analyzed and mapping-scored before execution, staged
 in an environment separated from production, and validated with a
 reconciliation report afterward — not just an "import complete" message.
 
 ## Key pages
 
-- Homepage: https://www.infrakinetic.in/ — full operating-system narrative
-- Migration Engine: https://www.infrakinetic.in/migration — migration
-  infrastructure, pipeline, and category-specific guidance (CRM, HRIS, ERP,
-  finance)
-- Platform architecture: https://www.infrakinetic.in/platform
-- Products & packaging: https://www.infrakinetic.in/products
-- Request a briefing: https://www.infrakinetic.in/briefing
+- [Homepage](https://www.infrakinetic.in/): full business-operating-system narrative, engineering proof, and product families
+- [Migration Engine](https://www.infrakinetic.in/migration): governed onboarding pipeline, connector paths, and category-specific guidance (CRM, HRIS, finance)
+- [Platform architecture](https://www.infrakinetic.in/platform): one business data model, governed events, atomic transactions, tenant isolation
+- [Products & packaging](https://www.infrakinetic.in/products): Commerce, Finance, Billing & Payments, People, Customer Success, Operations & Governance
+- [Request a briefing](https://www.infrakinetic.in/briefing): book a 60-minute technical walkthrough
 
 ## Contact
 
