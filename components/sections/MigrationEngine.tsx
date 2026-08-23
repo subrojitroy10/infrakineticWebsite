@@ -48,7 +48,7 @@ export default function MigrationEngine() {
             {migrationEngine.connectors.map((connector) => (
               <span
                 key={connector}
-                className="rounded-full border border-violet-400/25 bg-violet-400/[0.08] px-4 py-2 text-sm font-medium text-violet-200"
+                className="rounded-full border border-violet-400/25 bg-violet-400/[0.08] px-4 py-2 text-sm font-medium text-violet-300"
               >
                 {connector}
               </span>
