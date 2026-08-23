@@ -48,7 +48,7 @@ export default function MeetInfrakinetic() {
         <Reveal variant="left">
           <ParallaxCard
             depth={18}
-            className="relative h-full overflow-hidden rounded-2xl border border-gold-300/25 bg-gradient-to-br from-gold-500/[0.08] to-violet-500/[0.02] p-6 md:p-8"
+            className="relative h-full overflow-hidden rounded-2xl border border-brand-plum bg-gradient-to-br from-brand-plum to-brand-obsidian p-6 md:p-8"
           >
             <div className="flex items-center justify-between mb-6">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-300">

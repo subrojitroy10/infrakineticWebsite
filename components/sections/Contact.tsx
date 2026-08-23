@@ -84,15 +84,15 @@ export default function Contact() {
           <p className="mt-4 text-lg leading-relaxed text-white/70">
             A demo shows features. A briefing shows <strong>how the architecture solves your specific operational friction</strong>. We map your current context breaks (revenue, workforce, finance, governance) to Infrakinetic&apos;s connected journeys — so you see exactly where the platform eliminates manual handoffs, reconciliation, and audit gaps.
           </p>
-          <div className="mt-6 p-4 rounded-xl border border-gold-400/20 bg-gold-400/[0.05]">
-            <p className="text-sm font-semibold text-gold-300">Key takeaway:</p>
+          <div className="mt-6 p-4 rounded-xl border border-brand-bronze/30 bg-brand-bronze/[0.06]">
+            <p className="text-sm font-semibold text-brand-bronze">Key takeaway:</p>
             <p className="mt-1 text-sm text-white/70">Briefings are architecture consultations, not sales demos. You leave with a migration map, not a pitch deck.</p>
           </div>
         </Reveal>
 
         <ParallaxCard
           depth={20}
-          className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl"
+          className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-brand-violet/20 bg-gradient-to-br from-brand-aubergine to-brand-obsidian backdrop-blur-xl"
         >
           <div className="grid lg:grid-cols-2">
             <div className="relative border-b border-white/10 p-8 md:p-12 lg:border-b-0 lg:border-r">
