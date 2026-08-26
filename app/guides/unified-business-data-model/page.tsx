@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import GuideLayout from '@/components/guides/GuideLayout'
 import { KeyTakeaway, FAQSection } from '@/components/shared'
 import { guides } from '@/lib/guides'
@@ -126,6 +127,18 @@ export default function Page() {
             need to make them agree. The operating-layer approach solves a
             different problem: not making five systems agree, but not having
             five systems to begin with.
+          </p>
+          <p>
+            &quot;Shared data model&quot; and &quot;shared database schema&quot;
+            are easy to conflate. See{' '}
+            <Link
+              href="/guides/transactional-integrity-and-tenant-isolation"
+              className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+            >
+              transactional integrity and tenant isolation, explained
+            </Link>{' '}
+            for how unifying data across engines and isolating data across
+            tenants are enforced independently.
           </p>
         </GuideLayout>
 

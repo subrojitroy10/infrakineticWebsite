@@ -50,4 +50,18 @@ export const guides: GuideMeta[] = [
     dek: 'An API-first CRM makes it easier to build an integration. It does not make the integration correct. Here is the difference between an API you can connect to and a data model that does not need connecting.',
     category: 'Architecture',
   },
+  {
+    slug: 'erp-implementation-failure-rate',
+    eyebrow: 'Migration Risk',
+    title: 'Why ERP Implementations Fail (And Where Migration Fits In)',
+    dek: 'Gartner puts ERP failure rates above 70%, and most postmortems blame leadership and planning, not software. Here is the narrower, honest claim: migration is where planning failure and technical failure compound each other.',
+    category: 'Migration',
+  },
+  {
+    slug: 'transactional-integrity-and-tenant-isolation',
+    eyebrow: 'Architecture',
+    title: 'Transactional Integrity and Tenant Isolation, Explained',
+    dek: 'A shared business data model and a shared database schema are two different questions. Here is what ACID transactions actually guarantee, and how tenant isolation stays intact when engines share a data model.',
+    category: 'Architecture',
+  },
 ]

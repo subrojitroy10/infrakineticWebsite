@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import GuideLayout from '@/components/guides/GuideLayout'
 import { KeyTakeaway, FAQSection } from '@/components/shared'
 import { guides } from '@/lib/guides'
@@ -147,6 +148,18 @@ export default function Page() {
             records with 0 failures and passed 12 of 12 reconciliation checks,
             with one governed pipeline instead of two systems disagreeing with
             each other.
+          </p>
+          <p>
+            A broken sync is one specific technical failure inside a much larger
+            pattern. See{' '}
+            <Link
+              href="/guides/erp-implementation-failure-rate"
+              className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+            >
+              why ERP implementations fail, and where migration fits in
+            </Link>{' '}
+            for how a broken migration compounds an organization&apos;s existing
+            planning risk instead of just delaying a rollout.
           </p>
         </GuideLayout>
 

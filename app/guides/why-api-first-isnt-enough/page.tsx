@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import GuideLayout from '@/components/guides/GuideLayout'
 import { KeyTakeaway, FAQSection } from '@/components/shared'
 import { guides } from '@/lib/guides'
@@ -118,6 +119,16 @@ export default function Page() {
             every API caller behaving correctly. The API still exists, every
             engine is reachable through one, but it is a way to read and act on
             one record, not a bridge between two that might drift apart.
+          </p>
+          <p>
+            For what that route-independent audit trail actually guarantees, see{' '}
+            <Link
+              href="/guides/transactional-integrity-and-tenant-isolation"
+              className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+            >
+              transactional integrity and tenant isolation, explained
+            </Link>
+            .
           </p>
         </GuideLayout>
 
