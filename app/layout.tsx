@@ -13,11 +13,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.infrakinetic.in'),
   title: {
-    default: 'Infrakinetic — Business Operating System for CRM, Finance, HR & Operations',
+    default: 'Infrakinetic — Stop Syncing CRM, ERP & HR. Run Them on One System.',
     template: '%s | Infrakinetic',
   },
   description:
-    'Infrakinetic is a unified business operating system for CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration — connected on one shared operating foundation. A Polynovea product.',
+    'Stop syncing your CRM, ERP, HR, and finance tools together. Infrakinetic runs sales, finance, billing, payroll, workflow, governance, customer success, and business data migration on one shared data model instead — no middleware, no drift, no synced copies. A Polynovea product.',
   keywords: [
     'Business Operating System',
     'CRM',
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.infrakinetic.in/',
   },
   openGraph: {
-    title: 'Infrakinetic — Run Your Business on One Operating System',
+    title: 'Stop Syncing CRM, ERP & HR — Run Them on One System',
     description:
-      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success — connected on one shared operating foundation, not synced between separate tools.',
+      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success — running on one shared data model instead of synced between separate tools.',
     url: 'https://www.infrakinetic.in/',
     siteName: 'Infrakinetic',
     images: [
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Infrakinetic — Run Your Business on One Operating System',
+    title: 'Stop Syncing CRM, ERP & HR — Run Them on One System',
     description:
-      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success — connected on one shared operating foundation, not synced between separate tools.',
+      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success — running on one shared data model instead of synced between separate tools.',
     images: ['https://www.infrakinetic.in/og-image.jpg'],
   },
   robots: {

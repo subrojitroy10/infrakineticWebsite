@@ -17,9 +17,9 @@ import { FAQSection } from '@/components/shared'
 import { homeFaqItems } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: 'Infrakinetic — Business Operating System for CRM, Finance, HR & Operations',
+  title: 'Infrakinetic — Stop Syncing CRM, ERP & HR. Run Them on One System.',
   description:
-    'Infrakinetic is a unified business operating system for CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration — connected on one shared operating foundation. A Polynovea product.',
+    'Stop syncing your CRM, ERP, HR, and finance tools together. Infrakinetic runs sales, finance, billing, payroll, workflow, governance, customer success, and business data migration on one shared data model instead — no middleware, no drift, no synced copies. A Polynovea product.',
 }
 
 export default function HomePage() {

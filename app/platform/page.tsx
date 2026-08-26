@@ -2,16 +2,16 @@ import type { Metadata } from 'next'
 import PlatformClient from './PlatformClient'
 
 export const metadata: Metadata = {
-  title: 'Platform Architecture — One Business Data Model, Governed Events',
+  title: 'Unified CRM, Finance & HR Data Model — No Sync, No Middleware',
   description:
-    'How Infrakinetic unifies commercial, finance, HR, and operations on one shared business data model with governed cross-engine events and database-level tenant isolation — instead of synced tools.',
+    'CRM, finance, HR, and operations read and write the same shared business data model instead of separate synced copies — no integration middleware, no sync jobs, no drift between systems. See the architecture behind it.',
   alternates: {
     canonical: 'https://www.infrakinetic.in/platform',
   },
   openGraph: {
-    title: 'Infrakinetic Platform Architecture',
+    title: 'One Data Model for CRM, Finance & HR — No Sync Required',
     description:
-      'One business data model, governed events, and atomic transactions where it matters — the architecture behind CRM, finance, HR, and operations running on one foundation.',
+      'The architecture behind running CRM, finance, HR, and operations on one shared data model, with governed events and database-level tenant isolation instead of integration middleware.',
     url: 'https://www.infrakinetic.in/platform',
   },
 }
