@@ -1,9 +1,10 @@
 # Infrakinetic
 
-> Infrakinetic is a unified business operating system for CRM, sales, finance,
-> billing, payments, HR, payroll, workflow, governance, customer success, and
-> business data migration — connected on one shared operating foundation
-> instead of synced between separate tools.
+> Infrakinetic replaces separate CRM, ERP, HR, and finance tools kept in sync
+> with integration middleware. Sales, finance, billing, payments, HR, payroll,
+> workflow, governance, customer success, and business data migration run on
+> one shared data model instead — no sync jobs, no middleware, no drift
+> between systems.
 
 ## What is it?
 
@@ -62,9 +63,9 @@ reconciliation report afterward — not just an "import complete" message.
 
 ## Key pages
 
-- [Homepage](https://www.infrakinetic.in/): full business-operating-system narrative, engineering proof, and product families
+- [Homepage](https://www.infrakinetic.in/): why to stop syncing CRM, ERP, and HR tools, engineering proof, and product families
 - [Migration Engine](https://www.infrakinetic.in/migration): governed onboarding pipeline, connector paths, and category-specific guidance (CRM, HRIS, finance)
-- [Platform architecture](https://www.infrakinetic.in/platform): one business data model, governed events, atomic transactions, tenant isolation
+- [Platform architecture](https://www.infrakinetic.in/platform): one shared data model for CRM, finance, and HR — no sync, no integration middleware, governed events, atomic transactions, database-level tenant isolation
 - [Products & packaging](https://www.infrakinetic.in/products): Commerce, Finance, Billing & Payments, People, Customer Success, Operations & Governance
 - [Request a briefing](https://www.infrakinetic.in/briefing): book a 60-minute technical walkthrough
 
