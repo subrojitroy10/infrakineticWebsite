@@ -264,6 +264,44 @@ body::after {
   }
 }
 
+/* Long-form article typography for /guides — no typography plugin in this project */
+.guide-prose {
+  @apply text-[17px] leading-[1.75] text-white/70;
+}
+
+.guide-prose > p {
+  @apply mt-6 first:mt-0;
+}
+
+.guide-prose > h2 {
+  @apply heading-serif mt-14 text-2xl leading-tight text-white md:text-[1.75rem];
+}
+
+.guide-prose > h3 {
+  @apply mt-10 text-lg font-semibold text-white;
+}
+
+.guide-prose > ul,
+.guide-prose > ol {
+  @apply mt-6 space-y-2.5 pl-5;
+}
+
+.guide-prose > ul {
+  @apply list-disc marker:text-gold-300/60;
+}
+
+.guide-prose > ol {
+  @apply list-decimal marker:text-gold-300/70 marker:font-semibold;
+}
+
+.guide-prose strong {
+  @apply font-semibold text-white/90;
+}
+
+.guide-prose a {
+  @apply text-gold-300 underline decoration-gold-300/40 underline-offset-4 transition-colors hover:text-gold-200;
+}
+
 /* Gradient text helper */
 .text-gradient {
   background: var(--gradient-text);

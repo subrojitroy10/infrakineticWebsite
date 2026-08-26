@@ -331,6 +331,12 @@ export default function MigrationClient() {
             <p className="mt-3 text-xs text-white/40">
               {activePair.disposition} fields ({pctDisposition.toFixed(1)}%) have no direct equivalent in {activePair.destination} and require an explicit disposition before migration. Nothing is silently discarded.
             </p>
+            <Link
+              href="/guides/salesforce-to-netsuite-sync-breaking"
+              className="mt-4 inline-block text-xs font-medium text-gold-300 hover:text-gold-200 transition-colors"
+            >
+              Guide: why CRM-to-ERP sync breaks (and why this pipeline doesn&apos;t rely on sync) →
+            </Link>
           </ParallaxCard>
         </Reveal>
       </Section>

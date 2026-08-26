@@ -56,6 +56,13 @@ export default function MigrationEngine() {
           </div>
           <p className="mt-4 text-sm text-white/50">{migrationEngine.connectorsNote}</p>
           <p className="mt-2 text-xs text-white/40">Live third-party certification has separate environment requirements and is tracked independently of the connector implementation.</p>
+          <Link
+            href="/guides/salesforce-to-netsuite-sync-breaking"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-gold-300 hover:text-gold-200 transition-colors"
+          >
+            Why Salesforce-to-NetSuite sync keeps breaking
+            <ArrowRight size={14} />
+          </Link>
         </div>
       </Reveal>
 

@@ -228,6 +228,7 @@ export const navGroups: NavGroup[] = [
       { label: 'Data Migration', href: '/migration' },
     ],
   },
+  { label: 'Guides', href: '/guides' },
 ]
 
 export interface FooterGroup {
@@ -269,6 +270,7 @@ export const footerGroups: FooterGroup[] = [
       { label: 'Request a briefing', href: '/briefing' },
       { label: 'Assess a migration', href: '/migration' },
       { label: 'Security', href: '/platform#tenant-isolation' },
+      { label: 'Guides', href: '/guides' },
     ],
   },
 ]

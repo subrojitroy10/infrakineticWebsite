@@ -68,6 +68,12 @@ reconciliation report afterward — not just an "import complete" message.
 - [Products & packaging](https://www.infrakinetic.in/products): Commerce, Finance, Billing & Payments, People, Customer Success, Operations & Governance
 - [Request a briefing](https://www.infrakinetic.in/briefing): book a 60-minute technical walkthrough
 
+## Guides
+
+Technical explainers on specific failure modes in CRM/ERP integration and migration, and how governed architecture avoids them.
+
+- [Why Salesforce-to-NetSuite Sync Keeps Breaking](https://www.infrakinetic.in/guides/salesforce-to-netsuite-sync-breaking): the four structural reasons two-way CRM-ERP sync fails (update wars, field-mapping drift, throttling/backlog, workaround duplicates), and why governed migration removes the need for sync rather than patching it
+
 ## Contact
 
 hello@infrakinetic.io

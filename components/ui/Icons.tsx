@@ -42,6 +42,13 @@ export const ArrowRight = make(
   </>,
 )
 
+export const ArrowLeft = make(
+  <>
+    <path d="M19 12H5" />
+    <path d="m12 19-7-7 7-7" />
+  </>,
+)
+
 export const Database = make(
   <>
     <ellipse cx="12" cy="5" rx="9" ry="3" />
