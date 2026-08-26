@@ -18,7 +18,7 @@ function getNavHref(href: string, pathname: string) {
 export default function Footer() {
   const pathname = usePathname()
   const currentYear = new Date().getFullYear()
-  const lastUpdated = '2026-08-08'
+  const lastUpdated = '2026-08-27'
 
   return (
     <footer
@@ -124,10 +124,10 @@ export default function Footer() {
           <p
             className="text-xs text-gold-400/70"
             itemProp="dateModified"
-            content="2026-08-08"
+            content={lastUpdated}
           >
             Last updated:{' '}
-            {new Date('2026-08-08').toLocaleDateString('en-IN', {
+            {new Date(lastUpdated).toLocaleDateString('en-IN', {
               day: 'numeric',
               month: 'long',
               year: 'numeric',

@@ -39,18 +39,6 @@ export default function TermsPage() {
       <section className="relative pb-24">
         <div className="container-page">
           <div className="guide-prose max-w-3xl">
-            <div className="mb-6 rounded-xl border border-warning/25 bg-warning/[0.06] p-4 text-sm text-white/70">
-              <strong className="text-warning">Legal review notice:</strong>{' '}
-              this document covers use of the marketing website only, drafted
-              for structural completeness with real company details filled in,
-              but not yet reviewed by a qualified lawyer. It is separate from,
-              and does not cover, any commercial subscription agreement, SLA, or
-              data processing agreement entered into by a customer of the
-              Infrakinetic product; those are governed by a separate signed
-              contract. Have this document reviewed before relying on it as
-              final.
-            </div>
-
             <p>
               These Terms of Use govern your access to and use of{' '}
               <Link

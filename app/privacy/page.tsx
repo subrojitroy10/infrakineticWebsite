@@ -39,17 +39,6 @@ export default function PrivacyPage() {
       <section className="relative pb-24">
         <div className="container-page">
           <div className="guide-prose max-w-3xl">
-            <div className="mb-6 rounded-xl border border-warning/25 bg-warning/[0.06] p-4 text-sm text-white/70">
-              <strong className="text-warning">Legal review notice:</strong>{' '}
-              this policy was drafted to be structurally complete under
-              India&apos;s Digital Personal Data Protection Act, 2023 (DPDPA),
-              with real company details filled in, but it has not yet been
-              reviewed by a qualified lawyer. Have it reviewed before relying on
-              it as final, particularly the DPDP Rules 2025 procedural
-              requirements (consent-manager registration, breach-notification
-              timelines) that sit outside the scope of this notice.
-            </div>
-
             <p>
               This Privacy Policy explains how Polynovea LLP
               (&quot;Polynovea,&quot; &quot;Infrakinetic,&quot; &quot;we,&quot;
