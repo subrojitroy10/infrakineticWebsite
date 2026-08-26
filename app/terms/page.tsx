@@ -163,10 +163,10 @@ export default function TermsPage() {
             <p>
               Questions about these Terms can be sent to{' '}
               <a
-                href="mailto:hello@infrakinetic.io"
+                href="mailto:admin@infrakinetic.in"
                 className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
               >
-                hello@infrakinetic.io
+                admin@infrakinetic.in
               </a>
               .
             </p>

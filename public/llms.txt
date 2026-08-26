@@ -86,4 +86,4 @@ Technical explainers on specific failure modes in CRM/ERP integration and migrat
 
 ## Contact
 
-hello@infrakinetic.io
+admin@infrakinetic.in

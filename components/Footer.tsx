@@ -70,11 +70,11 @@ export default function Footer() {
                 Contact
               </p>
               <a
-                href="mailto:hello@infrakinetic.io"
+                href="mailto:admin@infrakinetic.in"
                 className="mt-2 inline-flex items-center gap-1.5 text-sm text-white/55 transition-colors hover:text-white"
                 itemProp="email"
               >
-                hello@infrakinetic.io
+                admin@infrakinetic.in
               </a>
             </div>
           </div>

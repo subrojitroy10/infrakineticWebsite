@@ -72,10 +72,10 @@ export default function PrivacyPage() {
               Polynovea LLP, the company behind Infrakinetic, is registered in
               Vashi, Navi Mumbai, Maharashtra, India. You can reach us at{' '}
               <a
-                href="mailto:hello@infrakinetic.io"
+                href="mailto:admin@infrakinetic.in"
                 className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
               >
-                hello@infrakinetic.io
+                admin@infrakinetic.in
               </a>
               . Our designated Grievance Officer under the DPDPA is Raahul
               Thakur, reachable at{' '}
@@ -199,10 +199,10 @@ export default function PrivacyPage() {
               To exercise any of these rights, or to withdraw consent for us to
               process your data, email{' '}
               <a
-                href="mailto:hello@infrakinetic.io"
+                href="mailto:admin@infrakinetic.in"
                 className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
               >
-                hello@infrakinetic.io
+                admin@infrakinetic.in
               </a>{' '}
               with the subject line &quot;Data request.&quot; Withdrawing
               consent does not affect the lawfulness of processing carried out
