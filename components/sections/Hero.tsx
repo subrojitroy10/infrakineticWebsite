@@ -42,13 +42,13 @@ export default function Hero() {
               itemProp="name"
               className="mt-6 font-display text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-white sm:text-5xl md:text-6xl lg:text-[4.4rem] xl:text-[5rem]"
             >
-              Run the company.
+              Stop syncing CRM, ERP &amp; HR.
               <br />
-              <span className="text-gradient">Not the software stack.</span>
+              <span className="text-gradient">Run them on one system.</span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-              Infrakinetic is a business operating system that connects CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success on one shared operating foundation — eliminating the disconnected handoffs between separate tools.
+              Stop maintaining sync jobs and integration middleware between separate CRM, ERP, HR, and finance tools. Infrakinetic connects sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success on one shared data model — eliminating the disconnected handoffs between separate tools.
             </p>
 
             <motion.p
