@@ -40,15 +40,14 @@ export default function PrivacyPage() {
         <div className="container-page">
           <div className="guide-prose max-w-3xl">
             <div className="mb-6 rounded-xl border border-warning/25 bg-warning/[0.06] p-4 text-sm text-white/70">
-              <strong className="text-warning">
-                Draft placeholder notice:
-              </strong>{' '}
+              <strong className="text-warning">Legal review notice:</strong>{' '}
               this policy was drafted to be structurally complete under
               India&apos;s Digital Personal Data Protection Act, 2023 (DPDPA),
-              but has not been reviewed by counsel. Fields marked{' '}
-              <code className="text-warning">[bracketed]</code> need real
-              information filled in before this page is treated as final. Have
-              this reviewed by a qualified lawyer before relying on it.
+              with real company details filled in, but it has not yet been
+              reviewed by a qualified lawyer. Have it reviewed before relying on
+              it as final, particularly the DPDP Rules 2025 procedural
+              requirements (consent-manager registration, breach-notification
+              timelines) that sit outside the scope of this notice.
             </div>
 
             <p>
@@ -70,21 +69,30 @@ export default function PrivacyPage() {
 
             <h2>Who we are</h2>
             <p>
-              Polynovea LLP, the company behind Infrakinetic, is registered at{' '}
-              <span className="text-warning">
-                [registered business address]
-              </span>
-              . You can reach us at{' '}
+              Polynovea LLP, the company behind Infrakinetic, is registered in
+              Vashi, Navi Mumbai, Maharashtra, India. You can reach us at{' '}
               <a
                 href="mailto:hello@infrakinetic.io"
                 className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
               >
                 hello@infrakinetic.io
               </a>
-              . Our designated Grievance Officer under the DPDPA is{' '}
-              <span className="text-warning">[Grievance Officer name]</span>,
-              reachable at{' '}
-              <span className="text-warning">[Grievance Officer email]</span>.
+              . Our designated Grievance Officer under the DPDPA is Raahul
+              Thakur, reachable at{' '}
+              <a
+                href="mailto:raahul.thakur@polynovea.in"
+                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+              >
+                raahul.thakur@polynovea.in
+              </a>
+              . Unresolved grievances can be escalated to Subrojit Roy at{' '}
+              <a
+                href="mailto:subrojitroy@polynovea.in"
+                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+              >
+                subrojitroy@polynovea.in
+              </a>
+              .
             </p>
 
             <h2>What personal data we collect</h2>
@@ -105,9 +113,22 @@ export default function PrivacyPage() {
               We use Google Analytics to understand how visitors use this site.
               Google Analytics collects your approximate location (derived from
               IP address), device and browser type, pages visited, and time
-              spent on the site, using cookies and similar identifiers. We do
-              not control what Google Analytics collects beyond its standard
-              configuration; see{' '}
+              spent on the site, using cookies and similar identifiers. We have
+              Google signals enabled, which means that if you are signed into a
+              Google account and have consented to Google&apos;s ad
+              personalization, Google Analytics may associate your visit to this
+              site with that Google account for cross-device reporting; Google,
+              not Infrakinetic, controls that association and the consent behind
+              it. You can review or revoke that consent at any time through{' '}
+              <a
+                href="https://myaccount.google.com/activitycontrols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+              >
+                My Google Activity
+              </a>
+              . See{' '}
               <a
                 href="https://policies.google.com/privacy"
                 target="_blank"
@@ -123,21 +144,18 @@ export default function PrivacyPage() {
             <p>
               Form submissions are processed to respond to your briefing or
               contact request and to evaluate fit between your business and
-              Infrakinetic&apos;s product. We retain form submissions for{' '}
-              <span className="text-warning">
-                [retention period, e.g. 24 months from submission or until you
-                request deletion]
-              </span>
-              .
+              Infrakinetic&apos;s product. We retain form submissions for 12
+              months from the date of submission, after which they are deleted
+              unless you have become an active customer under a separate
+              agreement.
             </p>
             <p>
               Analytics data is processed to understand site usage and improve
-              page content and performance. Google Analytics retains this data
-              according to{' '}
-              <span className="text-warning">
-                [your configured GA retention setting]
-              </span>
-              .
+              page content and performance. Google Analytics retains event-level
+              data (individual page views and interactions) for 2 months and
+              user-level data for 14 months, resetting on each new visit;
+              aggregated, non-identifying reporting data is retained longer for
+              trend analysis.
             </p>
 
             <h2>Who we share it with</h2>
