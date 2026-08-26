@@ -372,6 +372,10 @@ export default function MigrationClient() {
           <Link href="/products" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
             product families
           </Link>
+          . Guide:{' '}
+          <Link href="/guides/crm-accounting-sync-errors" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+            fixing data sync errors between a CRM and accounting
+          </Link>
           .
         </p>
       </Section>

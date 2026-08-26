@@ -1,6 +1,7 @@
 'use client'
 
 import React, { Fragment } from 'react'
+import Link from 'next/link'
 import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
@@ -129,10 +130,20 @@ export default function Problem() {
           <p className="mt-4 text-lg leading-relaxed text-white/70">
             Most B2B companies use 7-12 different SaaS tools. When a deal closes in CRM, the contract details don&apos;t automatically flow to finance for invoicing. When a candidate is hired, their data doesn&apos;t flow to payroll. Each handoff requires manual re-entry — and every re-entry is a place context can be lost, delayed, or gotten wrong. 38% of revenue operations leaders name inaccurate, low-quality data as a top challenge (Source: Forrester Revenue Operations Survey, 2024) — the direct cost of exactly this kind of disconnected handoff. These breaks compound: delayed kickoffs, wrong billing, compliance gaps, and zero visibility for leadership.
           </p>
-          <div className="mt-6 p-4 rounded-xl border border-gold-400/20 bg-gold-400/[0.05]">
-            <p className="text-sm font-semibold text-gold-300">Key takeaway:</p>
+          <div className="mt-6 p-4 rounded-xl border border-brand-bronze/30 bg-brand-bronze/[0.06]">
+            <p className="text-sm font-semibold text-brand-bronze">Key takeaway:</p>
             <p className="mt-1 text-sm text-white/70">Context loss isn&apos;t a people problem — it&apos;s an architecture problem. Fix the data layer, not the handoffs.</p>
           </div>
+          <p className="mt-4 text-sm text-white/50">
+            Related guide:{' '}
+            <Link
+              href="/guides/preventing-crm-data-drift"
+              className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+            >
+              how to prevent CRM data drift without a cleanup job
+            </Link>
+            .
+          </p>
         </div>
       </Reveal>
 

@@ -73,6 +73,10 @@ reconciliation report afterward — not just an "import complete" message.
 Technical explainers on specific failure modes in CRM/ERP integration and migration, and how governed architecture avoids them.
 
 - [Why Salesforce-to-NetSuite Sync Keeps Breaking](https://www.infrakinetic.in/guides/salesforce-to-netsuite-sync-breaking): the four structural reasons two-way CRM-ERP sync fails (update wars, field-mapping drift, throttling/backlog, workaround duplicates), and why governed migration removes the need for sync rather than patching it
+- [How to Prevent CRM Data Drift](https://www.infrakinetic.in/guides/preventing-crm-data-drift): why scheduled audits and deduplication only manage drift after it happens, and how a governed event model with one shared record removes the condition that produces it
+- [How to Fix Data Sync Errors Between a CRM and Accounting](https://www.infrakinetic.in/guides/crm-accounting-sync-errors): the specific ways revenue data breaks (identity mismatches, field-ownership disputes, out-of-order events) and why reconciliation, not sync monitoring, is what actually catches them
+- [What a Unified Business Data Model Actually Means](https://www.infrakinetic.in/guides/unified-business-data-model): the architectural difference between unifying data for reporting (a warehouse), unifying it after reconciliation (MDM), and unifying it at the operating layer (no separate copies at all)
+- [Why "API-First" Isn't the Fix for CRM-ERP Integration](https://www.infrakinetic.in/guides/why-api-first-isnt-enough): a well-documented API solves the connection problem but not identity resolution, field ownership, or event ordering — a shared data model removes the need to connect at all
 
 ## Contact
 

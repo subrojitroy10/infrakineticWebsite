@@ -21,4 +21,33 @@ export const guides: GuideMeta[] = [
     dek: 'Two-way sync between a CRM and an ERP fails for a small, recurring set of structural reasons, not bad luck. Here is what actually breaks it, and why governed migration avoids the failure mode entirely.',
     category: 'Migration',
   },
+  {
+    slug: 'preventing-crm-data-drift',
+    eyebrow: 'Data Integrity',
+    title: 'How to Prevent CRM Data Drift (Without Adding a Cleanup Job)',
+    dek: 'Most advice for CRM data drift is a maintenance routine: scheduled audits, dedup passes, freshness checks. That treats decay as inevitable. Here is the architectural difference between cleaning up drift and not producing it.',
+    category: 'Data Integrity',
+  },
+  {
+    slug: 'crm-accounting-sync-errors',
+    eyebrow: 'Finance & Migration',
+    title: 'How to Fix Data Sync Errors Between Your CRM and Accounting System',
+    dek: 'A dropped sync between a CRM and a marketing tool is an inconvenience. A dropped sync between a CRM and accounting is a duplicated invoice or a mismatched write-off. Here is why financial data needs reconciliation, not just a sync fix.',
+    category: 'Data Integrity',
+  },
+  {
+    slug: 'unified-business-data-model',
+    eyebrow: 'Architecture',
+    title:
+      'What a Unified Business Data Model Actually Means (Not Just a Buzzword)',
+    dek: '"Unified data model" gets used to describe everything from a data warehouse to a CDP to an MDM tool. Here is the specific architectural difference between unifying data after the fact and never splitting it in the first place.',
+    category: 'Architecture',
+  },
+  {
+    slug: 'why-api-first-isnt-enough',
+    eyebrow: 'Architecture',
+    title: 'Why "API-First" Isn\'t the Fix for CRM-ERP Integration',
+    dek: 'An API-first CRM makes it easier to build an integration. It does not make the integration correct. Here is the difference between an API you can connect to and a data model that does not need connecting.',
+    category: 'Architecture',
+  },
 ]

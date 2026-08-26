@@ -155,7 +155,15 @@ export default function PlatformClient() {
           <Link href="/products" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
             product families
           </Link>
-          .
+          . Guides: what a{' '}
+          <Link href="/guides/unified-business-data-model" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+            unified business data model
+          </Link>{' '}
+          actually means, and{' '}
+          <Link href="/guides/why-api-first-isnt-enough" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+            why &quot;API-first&quot; isn&apos;t the fix
+          </Link>{' '}
+          for CRM-ERP integration.
         </p>
       </Section>
 
