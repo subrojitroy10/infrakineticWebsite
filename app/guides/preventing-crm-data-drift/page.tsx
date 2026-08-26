@@ -77,7 +77,7 @@ export default function Page() {
             stale independently, because nothing recalculates them when the
             underlying facts change. A support ticket gets closed and the health
             score does not move. A contract renews and the lifecycle stage still
-            reads "at risk." Each field was correct once and nobody owns keeping
+            reads &quot;at risk.&quot; Each field was correct once and nobody owns keeping
             it correct.
           </p>
 
