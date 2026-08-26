@@ -64,4 +64,25 @@ export const guides: GuideMeta[] = [
     dek: 'A shared business data model and a shared database schema are two different questions. Here is what ACID transactions actually guarantee, and how tenant isolation stays intact when engines share a data model.',
     category: 'Architecture',
   },
+  {
+    slug: 'hubspot-tally-sync-without-duplicates',
+    eyebrow: 'Migration & Integration',
+    title: 'How to Sync HubSpot Deals With Tally Invoices Without Duplicates',
+    dek: 'There is no native two-way sync between HubSpot and Tally, so most teams DIY it with a general-purpose automation tool. Here is why that setup tends to duplicate customers and invoices, and what a native connector pipeline does differently.',
+    category: 'Migration',
+  },
+  {
+    slug: 'hidden-cost-of-integration-middleware',
+    eyebrow: 'Architecture',
+    title: 'The Hidden Cost of CRM-ERP Integration Middleware',
+    dek: 'The seat cost is what gets budgeted. The Zapier subscription, the custom connector, and the admin hours spent maintaining both usually do not. Here is what that layer actually costs, and what removing it looks like instead.',
+    category: 'Architecture',
+  },
+  {
+    slug: 'what-replaces-quickbooks-and-hubspot',
+    eyebrow: 'Migration',
+    title: 'What Replaces QuickBooks and HubSpot When You Outgrow Both',
+    dek: 'Most advice answers "what to upgrade to after QuickBooks" and "what to upgrade to after HubSpot" as two separate questions, pointing to two separate tools. That just rebuilds the same silo problem at a bigger scale.',
+    category: 'Migration',
+  },
 ]

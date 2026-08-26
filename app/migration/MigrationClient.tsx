@@ -8,7 +8,12 @@ import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
 import FAQSection from '@/components/shared/FAQSection'
 import { ProofStrip } from '@/components/shared'
-import { migrationEngine, migrationFaqItems, migrationFailureReasons, migrationFileFormats } from '@/lib/content'
+import {
+  migrationEngine,
+  migrationFaqItems,
+  migrationFailureReasons,
+  migrationFileFormats,
+} from '@/lib/content'
 import {
   ArrowRight,
   Check,
@@ -25,11 +30,31 @@ import {
 } from '@/components/ui/Icons'
 
 const pipeline = [
-  { title: 'Discover', desc: 'Entities, fields, data types, identifiers, relationships, custom objects, and historical volume in the source system.', icon: Search },
-  { title: 'Model', desc: 'What the data actually means — lifecycle states, ownership, derived fields — not just what the column is named.', icon: Layers },
-  { title: 'Map', desc: 'Direct, renamed, transformed, normalized, relational, and semantic mappings, each labeled by confidence.', icon: GitBranch },
-  { title: 'Transform & execute', desc: 'Dependency-ordered writes in a staged airlock, separated from production until it clears readiness.', icon: Database },
-  { title: 'Validate & reconcile', desc: 'Record, relationship, semantic, and aggregate checks — source vs. destination, with every discrepancy explained.', icon: Shield },
+  {
+    title: 'Discover',
+    desc: 'Entities, fields, data types, identifiers, relationships, custom objects, and historical volume in the source system.',
+    icon: Search,
+  },
+  {
+    title: 'Model',
+    desc: 'What the data actually means — lifecycle states, ownership, derived fields — not just what the column is named.',
+    icon: Layers,
+  },
+  {
+    title: 'Map',
+    desc: 'Direct, renamed, transformed, normalized, relational, and semantic mappings, each labeled by confidence.',
+    icon: GitBranch,
+  },
+  {
+    title: 'Transform & execute',
+    desc: 'Dependency-ordered writes in a staged airlock, separated from production until it clears readiness.',
+    icon: Database,
+  },
+  {
+    title: 'Validate & reconcile',
+    desc: 'Record, relationship, semantic, and aggregate checks — source vs. destination, with every discrepancy explained.',
+    icon: Shield,
+  },
 ]
 
 type Pair = {
@@ -116,7 +141,8 @@ const categories = [
     key: 'crm',
     label: 'CRM Migration',
     icon: Users,
-    pairs: 'Salesforce → Infrakinetic · Zoho CRM → Infrakinetic · HubSpot CRM → Infrakinetic',
+    pairs:
+      'Salesforce → Infrakinetic · Zoho CRM → Infrakinetic · HubSpot CRM → Infrakinetic',
     body: "The hardest part of a CRM migration is rarely the contact record — it's the pipeline stage that doesn't map 1:1, the owner field that points to a user ID the destination has never seen, and five years of activity history sitting on the account it belongs to. Infrakinetic maps accounts, contacts, deals, and activities as connected entities onboarding into the platform, not four unrelated tables.",
   },
   {
@@ -164,13 +190,22 @@ export default function MigrationClient() {
             className="mx-auto max-w-4xl text-center"
           >
             <span className="eyebrow">Migration infrastructure</span>
-            <h1 className="heading-serif mt-5 text-4xl md:text-5xl lg:text-[4.4rem] leading-[1.04]">
-              Move business systems without losing what makes the data meaningful.
+            <h1 className="heading-serif mt-5 text-4xl leading-[1.04] md:text-5xl lg:text-[4.4rem]">
+              Move business systems without losing what makes the data
+              meaningful.
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
-              CRM migration, HRIS migration, and ERP migration are usually treated as a file-import problem: export, clean a CSV, map some columns, hope. Infrakinetic treats it as a systems problem — discover the source schema, map entities and relationships, transform and execute in a governed airlock, then validate and reconcile before anyone calls it done.
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60 md:text-xl">
+              CRM migration, HRIS migration, and ERP migration are usually
+              treated as a file-import problem: export, clean a CSV, map some
+              columns, hope. Infrakinetic treats it as a systems problem —
+              discover the source schema, map entities and relationships,
+              transform and execute in a governed airlock, then validate and
+              reconcile before anyone calls it done.
             </p>
-            <Reveal variant="fade" className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <Reveal
+              variant="fade"
+              className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+            >
               <a href="/briefing" className="btn-primary inline-flex w-fit">
                 Assess a migration
                 <ArrowRight size={15} />
@@ -197,7 +232,9 @@ export default function MigrationClient() {
                 <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-danger/15 text-danger/85">
                   <XMark size={10} />
                 </span>
-                <p className="text-sm leading-relaxed text-white/60">{reason}</p>
+                <p className="text-sm leading-relaxed text-white/60">
+                  {reason}
+                </p>
               </div>
             </Reveal>
           ))}
@@ -206,7 +243,10 @@ export default function MigrationClient() {
 
       {/* Proof strip, reused from the audited run */}
       <Section id="migration-proof" className="pt-0">
-        <ProofStrip stats={migrationEngine.proof} note={migrationEngine.proofNote} />
+        <ProofStrip
+          stats={migrationEngine.proof}
+          note={migrationEngine.proofNote}
+        />
       </Section>
 
       {/* The five-stage analysis pipeline */}
@@ -223,8 +263,12 @@ export default function MigrationClient() {
                 <div className="mb-4 grid h-9 w-9 place-items-center rounded-lg border border-gold-400/25 bg-gold-400/[0.08] text-gold-300">
                   <stage.icon size={16} />
                 </div>
-                <h3 className="heading-serif text-base text-white">{stage.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/55">{stage.desc}</p>
+                <h3 className="heading-serif text-base text-white">
+                  {stage.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/55">
+                  {stage.desc}
+                </p>
               </ParallaxCard>
             </Reveal>
           ))}
@@ -265,77 +309,157 @@ export default function MigrationClient() {
                     {activePair.category}
                   </span>
                   <h3 className="heading-serif text-lg text-white sm:text-xl">
-                    {activePair.source} <ArrowRight size={16} className="inline -translate-y-0.5 text-white/30" /> {activePair.destination}
+                    {activePair.source}{' '}
+                    <ArrowRight
+                      size={16}
+                      className="inline -translate-y-0.5 text-white/30"
+                    />{' '}
+                    {activePair.destination}
                   </h3>
                 </div>
-                <p className="mt-2 text-xs text-white/50">{activePair.contextNote}</p>
+                <p className="mt-2 text-xs text-white/50">
+                  {activePair.contextNote}
+                </p>
               </div>
               <div className="text-right">
-                <p className="text-2xl font-semibold text-gold-300 sm:text-3xl">{pctResolved.toFixed(1)}%</p>
-                <p className="text-[11px] uppercase tracking-wide text-white/50">Automatically resolved</p>
-                <p className="mt-1.5 text-[11px] text-white/40">Source complexity: {activePair.complexity}</p>
+                <p className="text-2xl font-semibold text-gold-300 sm:text-3xl">
+                  {pctResolved.toFixed(1)}%
+                </p>
+                <p className="text-[11px] uppercase tracking-wide text-white/50">
+                  Automatically resolved
+                </p>
+                <p className="mt-1.5 text-[11px] text-white/40">
+                  Source complexity: {activePair.complexity}
+                </p>
               </div>
             </div>
 
-            <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-white/45">Source discovery</p>
+            <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-white/45">
+              Source discovery
+            </p>
             <div className="mt-3 grid grid-cols-3 gap-3">
               <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-                <p className="text-xl font-semibold text-white">{activePair.objects}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Objects discovered</p>
+                <p className="text-xl font-semibold text-white">
+                  {activePair.objects}
+                </p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">
+                  Objects discovered
+                </p>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-                <p className="text-xl font-semibold text-white">{activePair.fields.toLocaleString()}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Fields discovered</p>
+                <p className="text-xl font-semibold text-white">
+                  {activePair.fields.toLocaleString()}
+                </p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">
+                  Fields discovered
+                </p>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-                <p className="text-xl font-semibold text-white">{activePair.relationships}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Relationships</p>
+                <p className="text-xl font-semibold text-white">
+                  {activePair.relationships}
+                </p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">
+                  Relationships
+                </p>
               </div>
             </div>
 
-            <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-white/45">Mapping outcome</p>
+            <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-white/45">
+              Mapping outcome
+            </p>
             <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
               <div className="rounded-xl border border-gold-300/20 bg-gold-300/[0.04] p-4">
-                <p className="text-xl font-semibold text-gold-300">{activePair.direct.toLocaleString()}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Direct mappings</p>
+                <p className="text-xl font-semibold text-gold-300">
+                  {activePair.direct.toLocaleString()}
+                </p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">
+                  Direct mappings
+                </p>
               </div>
               <div className="rounded-xl border border-violet-400/20 bg-violet-400/[0.04] p-4">
-                <p className="text-xl font-semibold text-violet-300">{activePair.transformed}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Governed transformations</p>
+                <p className="text-xl font-semibold text-violet-300">
+                  {activePair.transformed}
+                </p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">
+                  Governed transformations
+                </p>
               </div>
               <div className="rounded-xl border border-review/20 bg-review/[0.06] p-4">
-                <p className="text-xl font-semibold text-review">{activePair.humanConfirm}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">Human confirmations</p>
+                <p className="text-xl font-semibold text-review">
+                  {activePair.humanConfirm}
+                </p>
+                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">
+                  Human confirmations
+                </p>
               </div>
             </div>
             <p className="mt-3 text-xs text-white/50">
-              {activePair.humanConfirm} ambiguous mappings are deliberately held for human confirmation rather than guessed — when confidence is insufficient, Infrakinetic asks instead of inventing a decision.
+              {activePair.humanConfirm} ambiguous mappings are deliberately held
+              for human confirmation rather than guessed — when confidence is
+              insufficient, Infrakinetic asks instead of inventing a decision.
             </p>
 
-            <p className="mt-8 text-xs font-semibold uppercase tracking-wide text-white/45">Mapping coverage — 100% accounted for</p>
+            <p className="mt-8 text-xs font-semibold uppercase tracking-wide text-white/45">
+              Mapping coverage — 100% accounted for
+            </p>
             <div className="mt-3 flex h-3 w-full overflow-hidden rounded-full border border-white/10 bg-white/[0.02]">
-              <div className="h-full bg-gold-300" style={{ width: `${pctDirect}%` }} title={`Direct mapping — ${pctDirect.toFixed(1)}%`} />
-              <div className="h-full bg-violet-400" style={{ width: `${pctTransformed}%` }} title={`Governed transformation — ${pctTransformed.toFixed(1)}%`} />
-              <div className="h-full bg-review" style={{ width: `${pctHuman}%` }} title={`Human confirmation — ${pctHuman.toFixed(1)}%`} />
-              <div className="h-full bg-warning/70" style={{ width: `${pctDisposition}%` }} title={`Explicit disposition — ${pctDisposition.toFixed(1)}%`} />
+              <div
+                className="h-full bg-gold-300"
+                style={{ width: `${pctDirect}%` }}
+                title={`Direct mapping — ${pctDirect.toFixed(1)}%`}
+              />
+              <div
+                className="h-full bg-violet-400"
+                style={{ width: `${pctTransformed}%` }}
+                title={`Governed transformation — ${pctTransformed.toFixed(1)}%`}
+              />
+              <div
+                className="h-full bg-review"
+                style={{ width: `${pctHuman}%` }}
+                title={`Human confirmation — ${pctHuman.toFixed(1)}%`}
+              />
+              <div
+                className="h-full bg-warning/70"
+                style={{ width: `${pctDisposition}%` }}
+                title={`Explicit disposition — ${pctDisposition.toFixed(1)}%`}
+              />
             </div>
             <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[11px] text-white/50">
-              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-gold-300" />{pctDirect.toFixed(1)}% Direct mapping</span>
-              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-violet-400" />{pctTransformed.toFixed(1)}% Governed transformation</span>
-              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-review" />{pctHuman.toFixed(1)}% Human confirmation</span>
-              <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-warning/70" />{pctDisposition.toFixed(1)}% Explicit disposition</span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-gold-300" />
+                {pctDirect.toFixed(1)}% Direct mapping
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-violet-400" />
+                {pctTransformed.toFixed(1)}% Governed transformation
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-review" />
+                {pctHuman.toFixed(1)}% Human confirmation
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-warning/70" />
+                {pctDisposition.toFixed(1)}% Explicit disposition
+              </span>
             </div>
             <p className="mt-4 text-xs text-white/50">
-              {(activePair.direct + activePair.transformed).toLocaleString()} of {activePair.fields.toLocaleString()} fields can proceed through direct mapping or governed transformation. Remaining ambiguity is surfaced for explicit review before production data is touched.
+              {(activePair.direct + activePair.transformed).toLocaleString()} of{' '}
+              {activePair.fields.toLocaleString()} fields can proceed through
+              direct mapping or governed transformation. Remaining ambiguity is
+              surfaced for explicit review before production data is touched.
             </p>
             <p className="mt-3 text-xs text-white/40">
-              {activePair.disposition} fields ({pctDisposition.toFixed(1)}%) have no direct equivalent in {activePair.destination} and require an explicit disposition before migration. Nothing is silently discarded.
+              {activePair.disposition} fields ({pctDisposition.toFixed(1)}%)
+              have no direct equivalent in {activePair.destination} and require
+              an explicit disposition before migration. Nothing is silently
+              discarded.
             </p>
             <Link
               href="/guides/salesforce-to-netsuite-sync-breaking"
-              className="mt-4 inline-block text-xs font-medium text-gold-300 hover:text-gold-200 transition-colors"
+              className="mt-4 inline-block text-xs font-medium text-gold-300 transition-colors hover:text-gold-200"
             >
-              Guide: why CRM-to-ERP sync breaks (and why this pipeline doesn&apos;t rely on sync) →
+              Guide: why CRM-to-ERP sync breaks (and why this pipeline
+              doesn&apos;t rely on sync) →
             </Link>
           </ParallaxCard>
         </Reveal>
@@ -355,26 +479,49 @@ export default function MigrationClient() {
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-gold-400/20 bg-gold-400/[0.08] text-gold-300">
                     <cat.icon size={16} />
                   </span>
-                  <h3 className="heading-serif text-lg text-white">{cat.label}</h3>
+                  <h3 className="heading-serif text-lg text-white">
+                    {cat.label}
+                  </h3>
                 </div>
-                <p className="text-sm leading-relaxed text-white/55">{cat.body}</p>
-                <p className="mt-4 text-xs font-medium uppercase tracking-wide text-white/65">{cat.pairs}</p>
+                <p className="text-sm leading-relaxed text-white/55">
+                  {cat.body}
+                </p>
+                <p className="mt-4 text-xs font-medium uppercase tracking-wide text-white/65">
+                  {cat.pairs}
+                </p>
               </ParallaxCard>
             </Reveal>
           ))}
         </div>
         <p className="mt-6 text-sm text-white/50">
           The same governed data model receiving this data is documented in the{' '}
-          <Link href="/platform" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+          <Link
+            href="/platform"
+            className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+          >
             platform architecture
           </Link>
-          . See where migrated CRM, finance, and people data lives once it arrives in the{' '}
-          <Link href="/products" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+          . See where migrated CRM, finance, and people data lives once it
+          arrives in the{' '}
+          <Link
+            href="/products"
+            className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+          >
             product families
           </Link>
-          . Guide:{' '}
-          <Link href="/guides/crm-accounting-sync-errors" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
+          . Guides:{' '}
+          <Link
+            href="/guides/crm-accounting-sync-errors"
+            className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+          >
             fixing data sync errors between a CRM and accounting
+          </Link>{' '}
+          and{' '}
+          <Link
+            href="/guides/hubspot-tally-sync-without-duplicates"
+            className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+          >
+            syncing HubSpot deals with Tally invoices without duplicates
           </Link>
           .
         </p>
@@ -388,8 +535,13 @@ export default function MigrationClient() {
       >
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           <Reveal variant="left">
-            <ParallaxCard depth={14} className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
-              <h3 className="text-base font-semibold text-white/80">Implemented connector paths</h3>
+            <ParallaxCard
+              depth={14}
+              className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8"
+            >
+              <h3 className="text-base font-semibold text-white/80">
+                Implemented connector paths
+              </h3>
               <div className="mt-5 flex flex-wrap gap-3">
                 {migrationEngine.connectors.map((connector) => (
                   <span
@@ -401,13 +553,20 @@ export default function MigrationClient() {
                 ))}
               </div>
               <p className="mt-5 text-xs text-white/40">
-                Source-tested and deployable. Live third-party certification has separate environment requirements and is tracked independently of the connector implementation.
+                Source-tested and deployable. Live third-party certification has
+                separate environment requirements and is tracked independently
+                of the connector implementation.
               </p>
             </ParallaxCard>
           </Reveal>
           <Reveal variant="right" delay={0.1}>
-            <ParallaxCard depth={14} className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
-              <h3 className="text-base font-semibold text-white/80">File-based onboarding</h3>
+            <ParallaxCard
+              depth={14}
+              className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8"
+            >
+              <h3 className="text-base font-semibold text-white/80">
+                File-based onboarding
+              </h3>
               <div className="mt-5 flex flex-wrap gap-3">
                 {migrationFileFormats.map((format) => (
                   <span
@@ -419,14 +578,21 @@ export default function MigrationClient() {
                 ))}
               </div>
               <p className="mt-5 text-xs text-white/40">
-                Direct upload for anything not covered by an implemented connector — the same discovery, mapping, staging, and reconciliation pipeline applies.
+                Direct upload for anything not covered by an implemented
+                connector — the same discovery, mapping, staging, and
+                reconciliation pipeline applies.
               </p>
             </ParallaxCard>
           </Reveal>
         </div>
       </Section>
 
-      <FAQSection id="migration-faq" eyebrow="Migration questions" title="What people actually ask before migrating" items={migrationFaqItems} />
+      <FAQSection
+        id="migration-faq"
+        eyebrow="Migration questions"
+        title="What people actually ask before migrating"
+        items={migrationFaqItems}
+      />
 
       <Section id="migration-cta" className="pb-32">
         <Reveal variant="fade">
@@ -435,7 +601,8 @@ export default function MigrationClient() {
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-gold-400/15 text-gold-300">
                 <Check size={14} />
               </span>
-              Bring your own export. We&apos;ll show you the mapping before anything moves.
+              Bring your own export. We&apos;ll show you the mapping before
+              anything moves.
             </div>
             <a href="/briefing" className="btn-primary inline-flex shrink-0">
               Assess a migration

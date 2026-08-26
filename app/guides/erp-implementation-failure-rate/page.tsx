@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import GuideLayout from '@/components/guides/GuideLayout'
 import { KeyTakeaway, FAQSection } from '@/components/shared'
 import { guides } from '@/lib/guides'
@@ -81,6 +82,14 @@ export default function Page() {
             product fixes by itself. A team that has not resolved who owns the
             rollout, or why it matters, will struggle with any vendor.
           </p>
+          <p>
+            Data migration shows up specifically inside that pattern, not as a
+            separate cause but as one of the named leading factors: several
+            independent postmortems on failed Salesforce rollouts cite dirty,
+            duplicate, or poorly migrated data as a leading reason the
+            implementation derailed. That detail is what makes the narrower
+            claim below testable rather than just plausible.
+          </p>
 
           <KeyTakeaway>
             If the honest reading of the failure statistics is that they are
@@ -112,6 +121,17 @@ export default function Page() {
             before mapping, staging before execution, and a reconciliation
             report before anyone calls it done, so the first thing stakeholders
             see is a migration that visibly checked its own work.
+          </p>
+          <p>
+            A budget that already ran over on integration middleware makes this
+            failure mode more likely, not less. See{' '}
+            <Link
+              href="/guides/hidden-cost-of-integration-middleware"
+              className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+            >
+              the hidden cost of CRM-ERP integration middleware
+            </Link>{' '}
+            for where that overrun typically comes from.
           </p>
         </GuideLayout>
 
