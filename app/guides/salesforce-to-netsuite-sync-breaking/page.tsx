@@ -144,10 +144,12 @@ export default function Page() {
             gets written before the account it belongs to. Nothing is called
             complete until a reconciliation pass checks record counts,
             relationship integrity, and financial totals against the source. In
-            our audited run, that pipeline executed 10,000 of 10,000 staged
-            records with 0 failures and passed 12 of 12 reconciliation checks,
-            with one governed pipeline instead of two systems disagreeing with
-            each other.
+            our latest production benchmark, that pipeline executed all
+            107,114 eligible records — 900,000 source data points across a
+            30,000-row, 30-column dataset — with zero execution failures, with
+            one governed pipeline instead of two systems disagreeing with each
+            other. Reconciliation and final sign-off are the next gate for
+            that run.
           </p>
           <p>
             A broken sync is one specific technical failure inside a much larger

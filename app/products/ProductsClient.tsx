@@ -58,12 +58,12 @@ const engines = [
     icon: GitBranch,
     color: 'gold',
     subtitle: 'Governed Data Onboarding — Included for Every Tenant',
-    description: 'The governed front door for your existing data — Salesforce, Zoho, HubSpot, Tally, or files. Immutable snapshots, versioned mapping, a staged airlock, dependency-ordered execution, and an explicit human verification gate. Proven end-to-end against a real production run, not a demo.',
+    description: 'The governed front door for your existing data — Salesforce, Zoho, HubSpot, Tally, or files. Immutable snapshots, versioned mapping, a staged airlock, dependency-ordered execution, and an explicit human verification gate. Latest production benchmark: 900,000 source data points executed with zero failures — reconciliation and sign-off are the next gate.',
     kpis: [
-      { label: 'Records Migrated', value: '10,000/10,000', icon: Database, variant: 'positive' },
-      { label: 'Reconciliation', value: '12/12', icon: Shield, variant: 'positive' },
-      { label: 'Relationships', value: 'Passed', icon: GitBranch, variant: 'positive' },
-      { label: 'Events Leaked', value: '0', icon: FileCheck, variant: 'positive' },
+      { label: 'Source Data Points', value: '900,000', icon: Database, variant: 'positive' },
+      { label: 'Records Executed', value: '107,114', icon: Shield, variant: 'positive' },
+      { label: 'Staging Projections', value: '120,714', icon: GitBranch, variant: 'positive' },
+      { label: 'Execution Failures', value: '0', icon: FileCheck, variant: 'positive' },
     ] satisfies EngineKpi[],
     features: [
       'Multi-file and connector-based source analysis — Salesforce, Zoho CRM, HubSpot, Tally',
@@ -74,10 +74,10 @@ const engines = [
     ],
     detail: {
       healthComponents: [
-        { component: 'Correctness Canary', score: 100, weight: 100, detail: '10,000/10,000 records migrated, audited', color: 'gold' },
-        { component: 'Relationship Integrity', score: 100, weight: 100, detail: 'Relationship checks passed', color: 'gold' },
-        { component: 'Reconciliation', score: 100, weight: 100, detail: '12/12 hard checks passed', color: 'violet' },
-        { component: 'Automation Isolation', score: 100, weight: 100, detail: 'Zero historical events leaked to live automations', color: 'violet' },
+        { component: 'Source Data Mapped', score: 100, weight: 100, detail: '900,000 source data points → 120,714 governed staging projections', color: 'gold' },
+        { component: 'Execution Layer', score: 100, weight: 100, detail: '107,114/107,114 eligible records executed, zero failures', color: 'gold' },
+        { component: 'Relationship & Lineage Integrity', score: 100, weight: 100, detail: 'Preserved throughout execution', color: 'violet' },
+        { component: 'Reconciliation & Sign-off', score: 0, weight: 100, detail: 'Next evidence gate — not yet run for this benchmark', color: 'violet' },
       ],
       interventions: [],
       actions: [
@@ -616,7 +616,11 @@ export default function ProductsClient() {
         <Section id={engine.id} eyebrow={engine.subtitle} title={engine.label} lead={engine.description}>
           <Reveal variant="fade" className="mt-10">
             <KpiTileRow tiles={engine.kpis} gap="gap-3 sm:gap-4" />
-            <p className="mt-3 text-xs text-white/65">Real product interface · illustrative data, not a customer outcome.</p>
+            <p className="mt-3 text-xs text-white/65">
+              {engine.id === 'migration'
+                ? 'Real product interface · production benchmark figures, reconciliation and sign-off pending for this run.'
+                : 'Real product interface · illustrative data, not a customer outcome.'}
+            </p>
           </Reveal>
 
           <Reveal variant="fade" className="mt-14">
@@ -663,12 +667,12 @@ export default function ProductsClient() {
                       <div>
                         <h3 className="heading-serif text-xl">Health Score — Versioned</h3>
                         <p className="text-sm text-white/50 mt-1">
-                          {engine.label} · {engine.id === 'migration' ? 'Audited production run' : 'Heuristic v2'}
+                          {engine.label} · {engine.id === 'migration' ? 'Execution-layer production run' : 'Heuristic v2'}
                         </p>
                       </div>
                       {engine.id === 'migration' ? (
                         <span className="rounded-full border border-gold-300/30 bg-gold-300/10 px-2.5 py-1 text-[11px] font-medium text-gold-300">
-                          Audited
+                          Zero failures
                         </span>
                       ) : (
                         <StatusBadge value="heuristic" family="lifecycle" size="sm" />
@@ -676,7 +680,7 @@ export default function ProductsClient() {
                     </div>
                     <p className="text-xs text-white/65 mb-6">
                       {engine.id === 'migration'
-                        ? 'Measured from a real production run, not a projection — see the correctness proof above.'
+                        ? 'Measured from a real production run, not a projection — reconciliation and final sign-off are the next gate, not yet complete for this run.'
                         : `Illustrative example — shows what ${engine.label}'s scoring model computes, not a claim about your own data.`}
                     </p>
 

@@ -22,8 +22,12 @@ maps source structures to Infrakinetic's destination model with a confidence
 label, stages the result in a governed airlock separated from production,
 executes in dependency order, and validates and reconciles the outcome —
 record counts, relationship integrity, and financial totals — before a human
-signs off. A demonstrated execution run completed 10,000 of 10,000 staged
-records with 0 failures and 12/12 reconciliation hard checks passed.
+signs off. Its latest production benchmark (28 Aug 2026) mapped a
+30,000-row, 30-column cross-engine dataset — 900,000 source data points —
+into 120,714 governed staging projections and executed all 107,114 eligible
+records with zero execution failures, preserving relationship integrity,
+lineage, and audit evidence throughout. Reconciliation and final human
+verification are the next evidence gate for that run, not yet complete.
 
 ## Why isn't a CSV importer enough?
 

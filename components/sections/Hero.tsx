@@ -20,7 +20,7 @@ const heroStats = [
   { label: 'Shared operating foundation', value: '1', icon: Target },
   { label: 'Interconnected engines', value: '17', icon: Users },
   { label: 'Core platform capabilities', value: '5', icon: Wallet },
-  { label: 'Migration gates passed', value: '12/12', icon: TrendingUp },
+  { label: 'Migration data points executed', value: '900K', icon: TrendingUp },
 ]
 
 export default function Hero() {

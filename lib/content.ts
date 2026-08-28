@@ -426,7 +426,7 @@ export const migrationEngine: MigrationSection = {
   eyebrow: 'CRM, HRIS & ERP data migration',
   title: 'Move business systems without losing what makes the data meaningful.',
   lead:
-    "CRM migration, HRIS migration, and ERP migration usually mean export a CSV, map some columns, and hope the relationships survived. Infrakinetic's Migration Engine treats it as a systems problem instead: it discovers your source schema, maps entities and relationships (not just fields), stages everything in a governed airlock, executes in dependency order, and reconciles the result before a human signs off. It already ran end-to-end against production and passed.",
+    "CRM migration, HRIS migration, and ERP migration usually mean export a CSV, map some columns, and hope the relationships survived. Infrakinetic's Migration Engine treats it as a systems problem instead: it discovers your source schema, maps entities and relationships (not just fields), stages everything in a governed airlock, executes in dependency order, and reconciles the result before a human signs off. Its latest production benchmark mapped 900,000 source data points into 120,714 governed staging projections and executed all 107,114 eligible records with zero execution failures — reconciliation and final sign-off are the next evidence gate for that run.",
   steps: [
     { n: '01', title: 'Snapshot', desc: 'Every source record is captured as an immutable snapshot before anything touches production.' },
     { n: '02', title: 'Analyze & map', desc: 'Source fields are profiled and matched to governed destinations, with full evidence — nothing unsupported is silently discarded.' },
@@ -436,12 +436,12 @@ export const migrationEngine: MigrationSection = {
     { n: '06', title: 'Verify', desc: 'A permitted person signs off explicitly — the pipeline finishing its work is never enough on its own.' },
   ],
   proof: [
-    { label: 'Records migrated', value: '10,000/10,000' },
-    { label: 'Reconciliation checks passed', value: '12/12' },
-    { label: 'Relationship integrity', value: 'Passed' },
-    { label: 'Historical events leaked', value: '0' },
+    { label: 'Source data points mapped', value: '900,000' },
+    { label: 'Governed staging projections', value: '120,714' },
+    { label: 'Eligible records executed', value: '107,114' },
+    { label: 'Execution failures', value: '0' },
   ],
-  proofNote: 'Our audited correctness run — every record, relationship, and reconciliation check reviewed and signed off, not a demo environment.',
+  proofNote: 'Production benchmark, 28 Aug 2026 — a 30,000-row, 30-column cross-engine dataset executed with zero failures at the execution layer, with relationship integrity, lineage, and audit evidence preserved throughout. Reconciliation and final human verification are the next evidence gate for this run, not yet complete.',
   connectors: ['Salesforce CRM', 'Zoho CRM', 'HubSpot CRM', 'Tally'],
   connectorsNote: 'Plus direct file and document upload (CSV, Excel, PDF, Word) for anything else.',
   differentiators: [
