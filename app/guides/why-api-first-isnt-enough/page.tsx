@@ -21,16 +21,6 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'TechArticle',
-  headline: guide.title,
-  description: metadata.description,
-  url: 'https://www.infrakinetic.in/guides/why-api-first-isnt-enough',
-  author: { '@type': 'Organization', name: 'Infrakinetic' },
-  publisher: { '@type': 'Organization', name: 'Infrakinetic' },
-}
-
 const faqs = [
   {
     question: 'Is API-first architecture bad?',
@@ -53,10 +43,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      
       <main>
         <GuideLayout guide={guide}>
           <p>

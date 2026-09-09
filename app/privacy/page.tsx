@@ -161,25 +161,25 @@ export default function PrivacyPage() {
             <p>As a Data Principal, you have the right to:</p>
             <ul>
               <li>
-                <strong>Access</strong> — request a copy of the personal data we
+                <strong>Access</strong> - request a copy of the personal data we
                 hold about you.
               </li>
               <li>
-                <strong>Correction</strong> — request that inaccurate or
+                <strong>Correction</strong> - request that inaccurate or
                 outdated data be corrected.
               </li>
               <li>
-                <strong>Erasure</strong> — request that we delete your personal
+                <strong>Erasure</strong> - request that we delete your personal
                 data, subject to any legal retention obligations.
               </li>
               <li>
-                <strong>Grievance redressal</strong> — raise a complaint with
+                <strong>Grievance redressal</strong> - raise a complaint with
                 our Grievance Officer if you believe your data has been
                 mishandled, and escalate to the Data Protection Board of India
                 if unresolved.
               </li>
               <li>
-                <strong>Nomination</strong> — nominate another individual to
+                <strong>Nomination</strong> - nominate another individual to
                 exercise these rights on your behalf in the event of your death
                 or incapacity.
               </li>

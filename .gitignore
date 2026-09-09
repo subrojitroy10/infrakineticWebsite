@@ -11,7 +11,7 @@ yarn-debug.log*
 yarn-error.log*
 .vite
 
-# Internal docs — not part of the public website
+# Internal docs - not part of the public website
 DESIGN_STRATEGY.md
 MARKETING_STRATEGY.md
 SAAS_CRM_TECHNICAL_DOCUMENTATION.md
@@ -20,6 +20,7 @@ WebsiteRefactor/
 .claude/
 debug.log
 .next/
+.next-dev/
 tsconfig.tsbuildinfo
 SEO/report*/
 SEO/raw*/

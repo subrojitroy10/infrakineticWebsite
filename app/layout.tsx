@@ -13,15 +13,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.infrakinetic.in'),
   title: {
-    default: 'Infrakinetic — Stop Syncing CRM, ERP & HR. Run Them on One System.',
+    default: 'Business Software for CRM, Finance, HR & Workflow | Infrakinetic',
     template: '%s | Infrakinetic',
   },
   description:
-    'Stop syncing your CRM, ERP, HR, and finance tools together. Infrakinetic runs sales, finance, billing, payroll, workflow, governance, customer success, and business data migration on one shared data model instead — no middleware, no drift, no synced copies. A Polynovea product.',
+    'CRM, sales, finance, billing, HR, payroll, documents, workflow automation, governance, customer success, and business data migration in one connected business platform. A Polynovea product.',
   keywords: [
     'Business Operating System',
     'CRM',
-    'ERP alternative',
+    'ERP software',
+    'Business management software',
+    'Finance software',
+    'HR software',
+    'Document management software',
     'HRIS',
     'Payroll software',
     'Billing and invoicing',
@@ -42,9 +46,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.infrakinetic.in/',
   },
   openGraph: {
-    title: 'Stop Syncing CRM, ERP & HR — Run Them on One System',
+    title: 'CRM, Finance, HR & Workflow on One Business Platform',
     description:
-      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success — running on one shared data model instead of synced between separate tools.',
+      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success - running on one shared data model instead of synced between separate tools.',
     url: 'https://www.infrakinetic.in/',
     siteName: 'Infrakinetic',
     images: [
@@ -60,9 +64,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stop Syncing CRM, ERP & HR — Run Them on One System',
+    title: 'CRM, Finance, HR & Workflow on One Business Platform',
     description:
-      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success — running on one shared data model instead of synced between separate tools.',
+      'CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success - running on one shared data model instead of synced between separate tools.',
     images: ['https://www.infrakinetic.in/og-image.jpg'],
   },
   robots: {
@@ -88,35 +92,38 @@ export default function RootLayout({
     '@graph': [
       {
         '@type': 'Organization',
-        'name': 'Infrakinetic',
-        'url': 'https://www.infrakinetic.in/',
-        'logo': 'https://www.infrakinetic.in/logo.png',
-        'sameAs': [
-          'https://linkedin.com/company/infrakinetic',
-          'https://twitter.com/infrakinetic',
-          'https://www.google.com/maps/place/Infrakinetic',
-        ],
-        'description':
-          'Infrakinetic is a unified business operating system for CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration.',
+        '@id': 'https://www.polynovea.in/#organization',
+        name: 'Polynovea',
+        url: 'https://www.polynovea.in',
+        brand: { '@id': 'https://www.infrakinetic.in/#brand' },
+      },
+      {
+        '@type': 'Brand',
+        '@id': 'https://www.infrakinetic.in/#brand',
+        name: 'Infrakinetic',
+        url: 'https://www.infrakinetic.in/',
+        logo: 'https://www.infrakinetic.in/logo.png',
+        description:
+          'Infrakinetic is a Polynovea product for CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration.',
       },
       {
         '@type': 'WebSite',
-        'name': 'Infrakinetic',
-        'url': 'https://www.infrakinetic.in/',
-        'potentialAction': {
-          '@type': 'SearchAction',
-          'target': 'https://www.infrakinetic.in/?q={search_term_string}',
-          'query-input': 'required name=search_term_string',
-        },
+        '@id': 'https://www.infrakinetic.in/#website',
+        name: 'Infrakinetic',
+        url: 'https://www.infrakinetic.in/',
+        publisher: { '@id': 'https://www.polynovea.in/#organization' },
       },
       {
         '@type': 'SoftwareApplication',
-        'name': 'Infrakinetic',
-        'applicationCategory': 'BusinessApplication',
-        'operatingSystem': 'Web',
-        'url': 'https://www.infrakinetic.in/',
-        'description':
-          'A unified business operating system connecting CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration on one shared operating foundation.',
+        '@id': 'https://www.infrakinetic.in/#software',
+        name: 'Infrakinetic',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        url: 'https://www.infrakinetic.in/',
+        brand: { '@id': 'https://www.infrakinetic.in/#brand' },
+        provider: { '@id': 'https://www.polynovea.in/#organization' },
+        description:
+          'A connected business operating system for CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration.',
       },
     ],
   }

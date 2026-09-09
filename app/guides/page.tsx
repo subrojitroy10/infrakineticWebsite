@@ -5,7 +5,7 @@ import { ArrowRight } from '@/components/ui/Icons'
 import { guides } from '@/lib/guides'
 
 export const metadata: Metadata = {
-  title: 'Guides — CRM, ERP & Migration Architecture',
+  title: 'Guides - CRM, ERP & Migration Architecture',
   description:
     'Technical guides on why CRM-ERP sync breaks, how to prevent data drift, and how governed migration architecture avoids the failure modes ordinary integration tools patch around.',
   alternates: {

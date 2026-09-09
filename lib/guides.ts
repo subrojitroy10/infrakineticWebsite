@@ -1,24 +1,19 @@
-// Registry for the /guides content hub — symptom-led, long-tail pages that
-// intercept search queries the flagship pages (/, /platform, /migration)
-// don't target directly. Adding an entry here is what makes a guide show up
-// on the /guides index and in the sitemap; the page itself still lives at
-// app/guides/<slug>/page.tsx.
+import { longTailGuides } from '@/lib/longTailGuides'
 
 export interface GuideMeta {
   slug: string
   eyebrow: string
   title: string
   dek: string
-  category: 'Migration' | 'Architecture' | 'Data Integrity'
+  category: string
 }
 
-export const guides: GuideMeta[] = [
+const staticGuides: GuideMeta[] = [
   {
-    slug: 'salesforce-to-netsuite-sync-breaking',
+    slug: 'why-crm-erp-sync-breaks',
     eyebrow: 'Migration & Integration',
-    title:
-      'Why Salesforce-to-NetSuite Sync Keeps Breaking (And How to Actually Fix It)',
-    dek: 'Two-way sync between a CRM and an ERP fails for a small, recurring set of structural reasons, not bad luck. Here is what actually breaks it, and why governed migration avoids the failure mode entirely.',
+    title: 'Why CRM-to-ERP Sync Keeps Breaking (And What Actually Fixes It)',
+    dek: 'Two-way sync between CRM and ERP systems fails for recurring structural reasons: competing ownership, mapping drift, retries, and missing reconciliation. Here is how to design the handoff differently.',
     category: 'Migration',
   },
   {
@@ -32,57 +27,67 @@ export const guides: GuideMeta[] = [
     slug: 'crm-accounting-sync-errors',
     eyebrow: 'Finance & Migration',
     title: 'How to Fix Data Sync Errors Between Your CRM and Accounting System',
-    dek: 'A dropped sync between a CRM and a marketing tool is an inconvenience. A dropped sync between a CRM and accounting is a duplicated invoice or a mismatched write-off. Here is why financial data needs reconciliation, not just a sync fix.',
+    dek: 'A dropped sync between CRM and accounting can become a duplicated invoice or mismatched write-off. Here is why financial data needs reconciliation, not just a faster sync.',
+    category: 'Data Integrity',
+  },
+  {
+    slug: 'crm-finance-integration-without-duplicates',
+    eyebrow: 'Finance & Integration',
+    title: 'How to Connect CRM and Finance Without Duplicate Customers or Invoices',
+    dek: 'CRM and finance systems often identify the same customer differently. The result is duplicate accounts, invoices, and broken revenue history. Here is the identity and reconciliation model that prevents it.',
     category: 'Data Integrity',
   },
   {
     slug: 'unified-business-data-model',
     eyebrow: 'Architecture',
-    title:
-      'What a Unified Business Data Model Actually Means (Not Just a Buzzword)',
-    dek: '"Unified data model" gets used to describe everything from a data warehouse to a CDP to an MDM tool. Here is the specific architectural difference between unifying data after the fact and never splitting it in the first place.',
+    title: 'What a Unified Business Data Model Actually Means (Not Just a Buzzword)',
+    dek: '“Unified data model” gets used to describe everything from a data warehouse to master-data tooling. Here is the difference between unifying data after the fact and designing operating records to share context from the beginning.',
     category: 'Architecture',
   },
   {
     slug: 'why-api-first-isnt-enough',
     eyebrow: 'Architecture',
-    title: 'Why "API-First" Isn\'t the Fix for CRM-ERP Integration',
-    dek: 'An API-first CRM makes it easier to build an integration. It does not make the integration correct. Here is the difference between an API you can connect to and a data model that does not need connecting.',
+    title: 'Why “API-First” Is Not the Fix for CRM-ERP Integration',
+    dek: 'An API-first system makes an integration easier to build. It does not decide record ownership, preserve identity, reconcile financial totals, or stop drift. Those are architecture problems.',
     category: 'Architecture',
   },
   {
     slug: 'erp-implementation-failure-rate',
     eyebrow: 'Migration Risk',
     title: 'Why ERP Implementations Fail (And Where Migration Fits In)',
-    dek: 'Gartner puts ERP failure rates above 70%, and most postmortems blame leadership and planning, not software. Here is the narrower, honest claim: migration is where planning failure and technical failure compound each other.',
+    dek: 'ERP implementation failures rarely come from one technical defect. Migration is where planning problems, ownership ambiguity, data quality, and cutover risk compound each other.',
     category: 'Migration',
   },
   {
     slug: 'transactional-integrity-and-tenant-isolation',
     eyebrow: 'Architecture',
     title: 'Transactional Integrity and Tenant Isolation, Explained',
-    dek: 'A shared business data model and a shared database schema are two different questions. Here is what ACID transactions actually guarantee, and how tenant isolation stays intact when engines share a data model.',
+    dek: 'A shared business data model and a shared database schema are two different questions. Here is what ACID transactions guarantee, and how tenant isolation remains explicit when engines share an operating foundation.',
     category: 'Architecture',
-  },
-  {
-    slug: 'hubspot-tally-sync-without-duplicates',
-    eyebrow: 'Migration & Integration',
-    title: 'How to Sync HubSpot Deals With Tally Invoices Without Duplicates',
-    dek: 'There is no native two-way sync between HubSpot and Tally, so most teams DIY it with a general-purpose automation tool. Here is why that setup tends to duplicate customers and invoices, and what a native connector pipeline does differently.',
-    category: 'Migration',
   },
   {
     slug: 'hidden-cost-of-integration-middleware',
     eyebrow: 'Architecture',
     title: 'The Hidden Cost of CRM-ERP Integration Middleware',
-    dek: 'The seat cost is what gets budgeted. The Zapier subscription, the custom connector, and the admin hours spent maintaining both usually do not. Here is what that layer actually costs, and what removing it looks like instead.',
+    dek: 'The license cost is visible. Connector maintenance, duplicate data, exception handling, and admin time often are not. Here is how integration overhead compounds as the stack grows.',
     category: 'Architecture',
   },
   {
-    slug: 'what-replaces-quickbooks-and-hubspot',
-    eyebrow: 'Migration',
-    title: 'What Replaces QuickBooks and HubSpot When You Outgrow Both',
-    dek: 'Most advice answers "what to upgrade to after QuickBooks" and "what to upgrade to after HubSpot" as two separate questions, pointing to two separate tools. That just rebuilds the same silo problem at a bigger scale.',
-    category: 'Migration',
+    slug: 'outgrowing-disconnected-business-software',
+    eyebrow: 'Business Systems',
+    title: 'What to Do When Disconnected Business Software Stops Scaling',
+    dek: 'Growing companies often upgrade CRM, finance, HR, and workflow tools one silo at a time. That can preserve the same handoff problem at a larger scale. Here is a different way to evaluate the operating stack.',
+    category: 'Architecture',
   },
+]
+
+export const guides: GuideMeta[] = [
+  ...staticGuides,
+  ...longTailGuides.map((guide) => ({
+    slug: guide.slug,
+    eyebrow: guide.eyebrow,
+    title: guide.title,
+    dek: guide.dek,
+    category: guide.category,
+  })),
 ]

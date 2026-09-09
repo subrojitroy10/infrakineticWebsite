@@ -19,7 +19,7 @@ export default function MigrationEngine() {
       title={migrationEngine.title}
       lead={migrationEngine.lead}
     >
-      {/* Proof strip — the real, evidenced numbers */}
+      {/* Proof strip - the real, evidenced numbers */}
       <ProofStrip className="mt-10" stats={migrationEngine.proof} note={migrationEngine.proofNote} />
 
 
@@ -57,10 +57,10 @@ export default function MigrationEngine() {
           <p className="mt-4 text-sm text-white/50">{migrationEngine.connectorsNote}</p>
           <p className="mt-2 text-xs text-white/40">Live third-party certification has separate environment requirements and is tracked independently of the connector implementation.</p>
           <Link
-            href="/guides/salesforce-to-netsuite-sync-breaking"
+            href="/guides/why-crm-erp-sync-breaks"
             className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-gold-300 hover:text-gold-200 transition-colors"
           >
-            Why Salesforce-to-NetSuite sync keeps breaking
+            Why CRM-to-ERP sync keeps breaking
             <ArrowRight size={14} />
           </Link>
         </div>
@@ -100,10 +100,10 @@ export default function MigrationEngine() {
               Explore the Migration Engine
               <ArrowRight size={15} />
             </Link>
-            <a href="/briefing" className="btn-primary inline-flex">
+            <Link href="/briefing" className="btn-primary inline-flex">
               See your migration mapped
               <ArrowRight size={15} />
-            </a>
+            </Link>
           </div>
         </div>
       </Reveal>

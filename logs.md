@@ -2,7 +2,7 @@
 
 This file records significant project changes in chronological order. Times use India Standard Time (IST, UTC+05:30).
 
-## Log 1 — Landing-page scaffold and initial elements
+## Log 1 - Landing-page scaffold and initial elements
 
 **Timestamp:** 2026-07-13 00:13:13 IST
 
@@ -40,7 +40,7 @@ This file records significant project changes in chronological order. Times use 
 - Added `.vercelignore` rules for repository metadata, agent metadata, dependencies, generated output, logs, and environment files.
 - Recreated project documentation with this README and timestamped development log.
 
-## Log 2 — Professional product redesign
+## Log 2 - Professional product redesign
 
 **Timestamp:** 2026-07-13 22:41:00 IST
 
@@ -63,12 +63,12 @@ This file records significant project changes in chronological order. Times use 
 - Meet Noviq, Connected, Enterprise, Why Noviq, Contact: replaced placeholder glyphs and gradient squares with the SVG icon system.
 - Scale and brand marks: aligned numerals and the logo "N" with the new sans-serif treatment.
 
-## Log 3 — Rebrand: Noviq → Infrakinetic
+## Log 3 - Rebrand: Noviq → Infrakinetic
 
 **Timestamp:** 2026-07-28 22:00:00 IST
 
 - Renamed the product across the entire codebase from "Noviq" to "Infrakinetic": `brand.name` in `src/data/content.js`, page `<title>`/meta description/OG tags in `index.html`, npm package name in `package.json`, the logo monogram ("N" → "I") in `Navbar.jsx`, `Footer.jsx`, and `DashboardMock.jsx`, the footer email (`hello@infrakinetic.io`), the dashboard mock's app URL (`app.infrakinetic.io`), and all in-copy mentions across `Roadmap.jsx`, `Scale.jsx`, `Contact.jsx`, `ModuleMocks.jsx`.
 - Renamed `WhyNoviq.jsx` → `WhyInfrakinetic.jsx` and `MeetNoviq.jsx` → `MeetInfrakinetic.jsx` (component names and imports in `App.jsx` updated to match).
 - Renamed the `why.noviq` content key to `why.infrakinetic`.
-- This is the Workplace domain's product under Polynovea's HBIF — the same architectural role the Acquisition System plays for Hospitality.
+- This is the Workplace domain's product under Polynovea's HBIF - the same architectural role the Acquisition System plays for Hospitality.
 

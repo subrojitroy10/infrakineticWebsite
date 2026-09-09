@@ -57,8 +57,8 @@ const engines = [
     label: 'Migration Engine',
     icon: GitBranch,
     color: 'gold',
-    subtitle: 'Governed Data Onboarding — Included for Every Tenant',
-    description: 'The governed front door for your existing data — Salesforce, Zoho, HubSpot, Tally, or files. Immutable snapshots, versioned mapping, a staged airlock, dependency-ordered execution, and an explicit human verification gate. Latest production benchmark: 900,000 source data points executed with zero failures — reconciliation and sign-off are the next gate.',
+    subtitle: 'Governed Data Onboarding - Included for Every Tenant',
+    description: 'The governed front door for your existing CRM, HRIS, finance, legacy database, or file-based data. Immutable snapshots, versioned mapping, a staged airlock, dependency-ordered execution, and an explicit human verification gate. Latest production benchmark: 900,000 source data points executed with zero failures - reconciliation and sign-off are the next gate.',
     kpis: [
       { label: 'Source Data Points', value: '900,000', icon: Database, variant: 'positive' },
       { label: 'Records Executed', value: '107,114', icon: Shield, variant: 'positive' },
@@ -66,9 +66,9 @@ const engines = [
       { label: 'Execution Failures', value: '0', icon: FileCheck, variant: 'positive' },
     ] satisfies EngineKpi[],
     features: [
-      'Multi-file and connector-based source analysis — Salesforce, Zoho CRM, HubSpot, Tally',
+      'Multi-file and connector-based source analysis across CRM, HRIS, finance, accounting, and legacy systems',
       'Versioned mapping specification with governed custom-field support',
-      'Staged airlock — validated before anything touches production',
+      'Staged airlock - validated before anything touches production',
       'Dependency-ordered, checkpointed execution with pause, resume, and per-record fault containment',
       'Reconciliation plus explicit human verification before a migration is ever called complete',
     ],
@@ -77,7 +77,7 @@ const engines = [
         { component: 'Source Data Mapped', score: 100, weight: 100, detail: '900,000 source data points → 120,714 governed staging projections', color: 'gold' },
         { component: 'Execution Layer', score: 100, weight: 100, detail: '107,114/107,114 eligible records executed, zero failures', color: 'gold' },
         { component: 'Relationship & Lineage Integrity', score: 100, weight: 100, detail: 'Preserved throughout execution', color: 'violet' },
-        { component: 'Reconciliation & Sign-off', score: 0, weight: 100, detail: 'Next evidence gate — not yet run for this benchmark', color: 'violet' },
+        { component: 'Reconciliation & Sign-off', score: 0, weight: 100, detail: 'Next evidence gate - not yet run for this benchmark', color: 'violet' },
       ],
       interventions: [],
       actions: [
@@ -94,8 +94,8 @@ const engines = [
     label: 'Commerce',
     icon: Target,
     color: 'gold',
-    subtitle: 'Commercial + Sales — Atomic Pack',
-    description: 'One pipeline from lead to renewal. The Commercial Engine holds every organization and person you do business with; the Sales Engine runs pipeline, quotes, and deal conversion — renewal and expansion opportunities are created automatically, with no manual handoff.',
+    subtitle: 'Commercial + Sales - Atomic Pack',
+    description: 'One pipeline from lead to renewal. The Commercial Engine holds every organization and person you do business with; the Sales Engine runs pipeline, quotes, and deal conversion - renewal and expansion opportunities are created automatically, with no manual handoff.',
     kpis: [
       { label: 'Pipeline Value', value: '$2.4M', icon: Wallet, variant: 'positive', delta: '+12.4%' },
       { label: 'Active Deals', value: '148', icon: Target, variant: 'neutral', delta: '+8' },
@@ -107,7 +107,7 @@ const engines = [
       'Agreements & contracts with signature-gated activation',
       'Pipeline: Prospect → Proposal → Negotiation → Closed Won/Lost',
       'Automatic renewal opportunities (90-day window) and expansion detection',
-      'Campaign attribution — see which campaign sourced which revenue',
+      'Campaign attribution - see which campaign sourced which revenue',
     ],
     detail: {
       healthComponents: [
@@ -134,8 +134,8 @@ const engines = [
     label: 'People',
     icon: Users,
     color: 'violet',
-    subtitle: 'HR & Payroll — Atomic Pack',
-    description: 'Hiring, compensation, leave, and payroll as one governed flow. Offer accepted becomes an employment record, a wired compensation package, and a payroll-ready profile — automatically, with statutory compliance built in.',
+    subtitle: 'HR & Payroll - Atomic Pack',
+    description: 'Hiring, compensation, leave, and payroll as one governed flow. Offer accepted becomes an employment record, a wired compensation package, and a payroll-ready profile - automatically, with statutory compliance built in.',
     kpis: [
       { label: 'Headcount', value: '342', icon: Users, variant: 'neutral', delta: '+12' },
       { label: 'Time to Fill', value: '38 days', icon: ChartBar, variant: 'positive', delta: '-5 days' },
@@ -175,7 +175,7 @@ const engines = [
     icon: Wallet,
     color: 'gold',
     subtitle: 'Standalone Product',
-    description: 'An append-only, cryptographically hash-chained ledger — tampering is mathematically detectable, and every correction is an explicit offsetting entry. Budgets enforce hard spending limits in real time, and payroll and campaign spend post directly to the ledger.',
+    description: 'An append-only, cryptographically hash-chained ledger - tampering is mathematically detectable, and every correction is an explicit offsetting entry. Budgets enforce hard spending limits in real time, and payroll and campaign spend post directly to the ledger.',
     kpis: [
       { label: 'ARR', value: '$1.18M', icon: Wallet, variant: 'positive', delta: '+18%' },
       { label: 'DSO', value: '28 days', icon: ChartBar, variant: 'positive', delta: '-4 days' },
@@ -183,9 +183,9 @@ const engines = [
       { label: 'Cash Flow', value: '+$240K', icon: ChartBar, variant: 'positive', delta: '+45%' },
     ] satisfies EngineKpi[],
     features: [
-      'Cryptographic ledger — hash-chained, auditor-verifiable',
+      'Cryptographic ledger - hash-chained, auditor-verifiable',
       'Budget planning with hard spend limits, not soft warnings',
-      'Customer invoicing runs in the independent Billing & Invoicing engine — see below',
+      'Customer invoicing runs in the independent Billing & Invoicing engine - see below',
       'Multi-currency, multi-account, automatic reconciliation',
       'Native postings from payroll lock, campaign spend, and optional Billing & Payments activity',
     ],
@@ -214,8 +214,8 @@ const engines = [
     label: 'Billing & Payments',
     icon: FileText,
     color: 'violet',
-    subtitle: 'Standalone Product — Independent of Finance',
-    description: 'Billing runs whether or not Finance is even switched on. A deterministic rating engine turns commercial facts into governed invoices; documents, delivery, and reminders run on policy; and certified payment connections handle payment requests, collection, and settlement reconciliation. When Finance is enabled, billing activity posts straight into the ledger — when it isn\'t, nothing breaks.',
+    subtitle: 'Standalone Product - Independent of Finance',
+    description: 'Billing runs whether or not Finance is even switched on. A deterministic rating engine turns commercial facts into governed invoices; documents, delivery, and reminders run on policy; and certified payment connections handle payment requests, collection, and settlement reconciliation. When Finance is enabled, billing activity posts straight into the ledger - when it isn\'t, nothing breaks.',
     kpis: [
       { label: 'Invoices / Month', value: '412', icon: FileText, variant: 'neutral', delta: '+9%' },
       { label: 'Outstanding', value: '$186K', icon: Wallet, variant: 'warning' },
@@ -223,9 +223,9 @@ const engines = [
       { label: 'Reminders Sent', value: '99.6%', icon: Bell, variant: 'positive' },
     ] satisfies EngineKpi[],
     features: [
-      'Independent entitlement — runs with or without Finance enabled',
-      'Deterministic rating engine — fixed, tiered, usage, milestone, and prorated billing rules',
-      'Governed, versioned billing configuration — nothing changes underneath a live rate card',
+      'Independent entitlement - runs with or without Finance enabled',
+      'Deterministic rating engine - fixed, tiered, usage, milestone, and prorated billing rules',
+      'Governed, versioned billing configuration - nothing changes underneath a live rate card',
       'Automated invoice documents, delivery, and policy-driven reminders',
       'Certified payment connections with settlement ingestion and reconciliation',
     ],
@@ -252,7 +252,7 @@ const engines = [
     icon: ChartBar,
     color: 'violet',
     subtitle: 'Standalone Product',
-    description: 'Campaigns, SEO auditing, and email marketing connected directly to revenue. Every deal carries its sourcing campaign automatically, so marketing spend and pipeline live in the same system — not a spreadsheet reconciliation.',
+    description: 'Campaigns, SEO auditing, and email marketing connected directly to revenue. Every deal carries its sourcing campaign automatically, so marketing spend and pipeline live in the same system - not a spreadsheet reconciliation.',
     kpis: [
       { label: 'MQLs/Month', value: '340', icon: Target, variant: 'positive', delta: '+22%' },
       { label: 'CAC', value: '$1,240', icon: Wallet, variant: 'positive', delta: '-15%' },
@@ -291,8 +291,8 @@ const engines = [
     label: 'Operations',
     icon: Briefcase,
     color: 'gold',
-    subtitle: 'Included with Commerce — Automatic Provisioning',
-    description: 'Deal close is not the end of the sales process — it\'s the start of delivery. The moment a deal is won, Infrakinetic creates the project and order record, notifies the owner, and flags Finance for invoicing, in a single transaction. Delivery never waits on a manual handoff.',
+    subtitle: 'Included with Commerce - Automatic Provisioning',
+    description: 'Deal close is not the end of the sales process - it\'s the start of delivery. The moment a deal is won, Infrakinetic creates the project and order record, notifies the owner, and flags Finance for invoicing, in a single transaction. Delivery never waits on a manual handoff.',
     kpis: [
       { label: 'Projects Auto-Created', value: '47', icon: Briefcase, variant: 'neutral', delta: '+3' },
       { label: 'Handoff Time', value: '< 1 min', icon: Zap, variant: 'positive' },
@@ -325,7 +325,7 @@ const engines = [
     label: 'Customer 360',
     icon: Target,
     color: 'gold',
-    subtitle: 'Add-on — Requires Commerce',
+    subtitle: 'Add-on - Requires Commerce',
     description: 'Portfolio Radar, health scoring, measured interventions, action rail, calibrated churn risk. The customer record that connects Commercial, Finance, Support, and Success.',
     kpis: [
       { label: 'Total ARR', value: '$1.18M', icon: Wallet, variant: 'positive' },
@@ -373,7 +373,7 @@ const engines = [
     label: 'Marketing Agency',
     icon: Building,
     color: 'violet',
-    subtitle: 'Add-on — Requires Commerce',
+    subtitle: 'Add-on - Requires Commerce',
     description: 'The same Marketing Engine, isolated per client. An executed agreement gates campaign creation, and every dollar of spend is tracked and billed to the right client, with zero cross-client leakage.',
     kpis: [
       { label: 'Active Clients', value: '23', icon: Users, variant: 'neutral', delta: '+3' },
@@ -412,8 +412,8 @@ const engines = [
     label: 'Equity',
     icon: ChartBar,
     color: 'violet',
-    subtitle: 'Included with People — Grants & Vesting',
-    description: 'Equity grants route through the same approval engine as every other decision, and vesting schedules — cliff or graded — are tracked directly against the employee compensation record they belong to. No separate system, no separate audit trail.',
+    subtitle: 'Included with People - Grants & Vesting',
+    description: 'Equity grants route through the same approval engine as every other decision, and vesting schedules - cliff or graded - are tracked directly against the employee compensation record they belong to. No separate system, no separate audit trail.',
     kpis: [
       { label: 'Grants Tracked', value: '86', icon: Wallet, variant: 'neutral', delta: '+6' },
       { label: 'Active Vesting Schedules', value: '64', icon: ChartBar, variant: 'neutral' },
@@ -445,8 +445,8 @@ const engines = [
     label: 'Operations & Governance',
     icon: Sliders,
     color: 'gold',
-    subtitle: 'Free for Every Tenant — Always',
-    description: 'Approval management, workflow automation, ticket management, governance, and document workflow — the five capabilities every engine is built on. Not a tier you unlock. Not a feature flag. Included from day one, for every tenant.',
+    subtitle: 'Free for Every Tenant - Always',
+    description: 'Approval management, workflow automation, ticket management, governance, and document workflow - the five capabilities every engine is built on. Not a tier you unlock. Not a feature flag. Included from day one, for every tenant.',
     kpis: [
       { label: 'Engines Active', value: '11', icon: Sliders, variant: 'neutral' },
       { label: 'Uptime', value: '99.97%', icon: Shield, variant: 'positive' },
@@ -454,11 +454,11 @@ const engines = [
       { label: 'Tenants', value: '47', icon: Building, variant: 'neutral', delta: '+3' },
     ] satisfies EngineKpi[],
     features: [
-      'Approvals — one engine, routing by org structure, real-time SLA escalation',
-      'Workflow — event-driven automation, no-code trigger rules',
-      'Tickets — standalone work items with full activity history',
-      'Governance — org structure, RBAC, board & committee model',
-      'Documents — template generation, encrypted storage, version history',
+      'Approvals - one engine, routing by org structure, real-time SLA escalation',
+      'Workflow - event-driven automation, no-code trigger rules',
+      'Tickets - standalone work items with full activity history',
+      'Governance - org structure, RBAC, board & committee model',
+      'Documents - template generation, encrypted storage, version history',
     ],
     detail: {
       healthComponents: [
@@ -496,7 +496,7 @@ const engineOrder = [
 const productsFaqItems = [
   {
     question: 'What is included in the Commerce atomic pack?',
-    answer: 'Commerce bundles the Commercial Engine (organizations, contacts, agreements) and the Sales Engine (pipeline, quotes, deal conversion) as one connected pack — not two products stitched together. Renewal and expansion opportunities are created automatically.',
+    answer: 'Commerce bundles the Commercial Engine (organizations, contacts, agreements) and the Sales Engine (pipeline, quotes, deal conversion) as one connected pack - not two products stitched together. Renewal and expansion opportunities are created automatically.',
   },
   {
     question: 'What is included in the People atomic pack?',
@@ -504,7 +504,7 @@ const productsFaqItems = [
   },
   {
     question: 'Are Approvals, Workflow, and Governance separate add-ons?',
-    answer: 'No. Approvals, Workflow, Tickets, Governance, and Documents are included free with every tenant on every plan — they are the substrate every engine runs on, not a tier you unlock later.',
+    answer: 'No. Approvals, Workflow, Tickets, Governance, and Documents are included free with every tenant on every plan - they are the substrate every engine runs on, not a tier you unlock later.',
   },
   {
     question: 'Do I need Commerce to use the Customer 360 add-on?',
@@ -516,7 +516,7 @@ const productsFaqItems = [
   },
   {
     question: 'Is the Migration Engine an extra product I have to buy?',
-    answer: 'No. Governed data onboarding is included for every tenant — it is how you get your existing Salesforce, Zoho, HubSpot, Tally, or file-based data onto the platform in the first place, not a separate line item.',
+    answer: 'No. Governed data onboarding is included for every tenant - it is how you get your existing CRM, HRIS, finance, accounting, legacy-database, or file-based data onto the platform in the first place, not a separate line item.',
   },
   {
     question: 'Do I need Finance to use Billing & Invoicing, or vice versa?',
@@ -557,7 +557,7 @@ export default function ProductsClient() {
               and governed data onboarding included for every tenant. One business data model. Governed events. Atomic where it matters.
             </p>
             <p className="mt-4 text-sm md:text-base text-white/65 max-w-2xl mx-auto">
-              Infrakinetic is priced as Commerce and People atomic packs, standalone Finance, Billing & Invoicing, and Marketing engines, and Customer 360 and Marketing Agency add-ons — with Approvals, Workflow, Tickets, Governance, Documents, and the Migration Engine included free for every tenant, on every plan.
+              Infrakinetic is priced as Commerce and People atomic packs, standalone Finance, Billing & Invoicing, and Marketing engines, and Customer 360 and Marketing Agency add-ons - with Approvals, Workflow, Tickets, Governance, Documents, and the Migration Engine included free for every tenant, on every plan.
             </p>
             <p className="mt-4 text-sm text-white/50 max-w-2xl mx-auto">
               See the{' '}
@@ -665,7 +665,7 @@ export default function ProductsClient() {
                   <ParallaxCard depth={18} className="h-full p-6 md:p-8">
                     <div className="flex items-center justify-between mb-3">
                       <div>
-                        <h3 className="heading-serif text-xl">Health Score — Versioned</h3>
+                        <h3 className="heading-serif text-xl">Health Score - Versioned</h3>
                         <p className="text-sm text-white/50 mt-1">
                           {engine.label} · {engine.id === 'migration' ? 'Execution-layer production run' : 'Heuristic v2'}
                         </p>
@@ -680,8 +680,8 @@ export default function ProductsClient() {
                     </div>
                     <p className="text-xs text-white/65 mb-6">
                       {engine.id === 'migration'
-                        ? 'Measured from a real production run, not a projection — reconciliation and final sign-off are the next gate, not yet complete for this run.'
-                        : `Illustrative example — shows what ${engine.label}'s scoring model computes, not a claim about your own data.`}
+                        ? 'Measured from a real production run, not a projection - reconciliation and final sign-off are the next gate, not yet complete for this run.'
+                        : `Illustrative example - shows what ${engine.label}'s scoring model computes, not a claim about your own data.`}
                     </p>
 
                     <div className="space-y-3">
@@ -872,10 +872,10 @@ export default function ProductsClient() {
               <h3 className="heading-serif text-2xl md:text-3xl mb-6">
                 Request a platform briefing to see how {engine.label.toLowerCase()} works in your context.
               </h3>
-              <a href="/briefing" className="btn-primary inline-flex">
+              <Link href="/briefing" className="btn-primary inline-flex">
                 Request briefing
                 <ArrowRight size={15} />
-              </a>
+              </Link>
             </ParallaxCard>
           </Reveal>
         </Section>

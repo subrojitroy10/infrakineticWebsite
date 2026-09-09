@@ -3,15 +3,25 @@
 > Infrakinetic replaces separate CRM, ERP, HR, and finance tools kept in sync
 > with integration middleware. Sales, finance, billing, payments, HR, payroll,
 > workflow, governance, customer success, and business data migration run on
-> one shared data model instead — no sync jobs, no middleware, no drift
+> one shared data model instead - no sync jobs, no middleware, no drift
 > between systems.
+
+## Entity facts
+
+- Parent organization: Polynovea
+- Product: Infrakinetic
+- Official product website: https://www.infrakinetic.in/
+- Official parent website: https://www.polynovea.in/
+- Product relationship: Infrakinetic is a Polynovea product, not a separate company or subsidiary.
+- Category: connected business operating system / business management software
+- Core search categories: CRM, ERP-style operations, HR, payroll, finance, document management, workflow automation, and CRM data migration
 
 ## What is it?
 
 Infrakinetic is both an operating foundation for running a business (CRM/sales,
 finance, billing & payments, HR/payroll, customer success, operations &
-governance) and a Migration Engine for governed onboarding of legacy data —
-discover, map, stage, execute, reconcile, verify — without losing the data's
+governance) and a Migration Engine for governed onboarding of legacy data -
+discover, map, stage, execute, reconcile, verify - without losing the data's
 meaning.
 
 ## What does the Migration Engine do?
@@ -20,10 +30,10 @@ It discovers a source system's schema (entities, fields, relationships, custom
 objects), models what the data actually represents (not just field names),
 maps source structures to Infrakinetic's destination model with a confidence
 label, stages the result in a governed airlock separated from production,
-executes in dependency order, and validates and reconciles the outcome —
-record counts, relationship integrity, and financial totals — before a human
+executes in dependency order, and validates and reconciles the outcome -
+record counts, relationship integrity, and financial totals - before a human
 signs off. Its latest production benchmark (28 Aug 2026) mapped a
-30,000-row, 30-column cross-engine dataset — 900,000 source data points —
+30,000-row, 30-column cross-engine dataset - 900,000 source data points -
 into 120,714 governed staging projections and executed all 107,114 eligible
 records with zero execution failures, preserving relationship integrity,
 lineage, and audit evidence throughout. Reconciliation and final human
@@ -38,7 +48,7 @@ CSV mapping breaks down the moment any of that is present.
 
 ## What makes Infrakinetic different?
 
-It treats migration as a systems problem — understand, map, move, prove —
+It treats migration as a systems problem - understand, map, move, prove -
 rather than a file-import problem. Bounded intelligence can assist ambiguous
 mapping decisions; deterministic mapping and human approval decide what
 actually executes. The architecture itself is part of the product: database-
@@ -47,7 +57,7 @@ framework, and governed cross-engine events.
 
 ## Where does data come from?
 
-Implemented connector paths: Salesforce, Zoho CRM, HubSpot CRM, and Tally —
+Implemented source-onboarding paths cover CRM, finance/accounting, HRIS/payroll exports, legacy databases, and structured files -
 source-tested and normalized into the same governed pipeline. File-based
 onboarding: CSV, Excel, PDF, and Word for anything else. This is onboarding
 data into Infrakinetic, not a generic system-to-system migration product.
@@ -56,20 +66,30 @@ data into Infrakinetic, not a generic system-to-system migration product.
 
 Commerce (CRM & sales), Finance, Billing & Payments (independently entitled
 from Finance), People (HR & payroll), Customer Success, Operations &
-Governance (approvals, workflow, tickets, documents — free for every tenant),
+Governance (approvals, workflow, tickets, documents - free for every tenant),
 and the Migration Engine.
 
 ## Why should I trust the result?
 
 Because the migration is analyzed and mapping-scored before execution, staged
 in an environment separated from production, and validated with a
-reconciliation report afterward — not just an "import complete" message.
+reconciliation report afterward - not just an "import complete" message.
 
 ## Key pages
 
 - [Homepage](https://www.infrakinetic.in/): why to stop syncing CRM, ERP, and HR tools, engineering proof, and product families
-- [Migration Engine](https://www.infrakinetic.in/migration): governed onboarding pipeline, connector paths, and category-specific guidance (CRM, HRIS, finance)
-- [Platform architecture](https://www.infrakinetic.in/platform): one shared data model for CRM, finance, and HR — no sync, no integration middleware, governed events, atomic transactions, database-level tenant isolation
+- [Migration Engine](https://www.infrakinetic.in/migration): governed onboarding pipeline, source-onboarding paths, and category-specific guidance (CRM, HRIS, finance)
+- [CRM software](https://www.infrakinetic.in/crm-software): accounts, contacts, pipeline, quotes, renewals, agreements, and connected revenue operations
+- [ERP software](https://www.infrakinetic.in/erp-software): finance, people, payroll, workflow, governance, documents, and connected operations
+- [HR software](https://www.infrakinetic.in/hr-software): recruitment, workforce, compensation, payroll, performance, and employee lifecycle
+- [Workflow automation](https://www.infrakinetic.in/workflow-automation-software): approvals, workflow stages, tickets, SLA controls, routing, and event automation
+- [Payroll software](https://www.infrakinetic.in/payroll-software): governed payroll calculation, approvals, historical context, payslips, reconciliation, and finance handoff
+- [Finance software](https://www.infrakinetic.in/finance-software): journals, ledger controls, budgets, reconciliation, reporting, and governed financial handoffs
+- [Document management software](https://www.infrakinetic.in/document-management-software): document generation, storage, versions, search, approvals, lifecycle, and evidence
+- [CRM data migration](https://www.infrakinetic.in/crm-data-migration): schema discovery, mapping, staging, dependency-aware execution, reconciliation, and verification
+- [Business management software](https://www.infrakinetic.in/business-management-software): connected commercial, finance, people, documents, workflow, approvals, and customer operations
+- [Business Operating System](https://www.infrakinetic.in/business-operating-system): the category-level explanation of how Infrakinetic connects business functions
+- [Platform architecture](https://www.infrakinetic.in/platform): one shared data model for CRM, finance, and HR - no sync, no integration middleware, governed events, atomic transactions, database-level tenant isolation
 - [Products & packaging](https://www.infrakinetic.in/products): Commerce, Finance, Billing & Payments, People, Customer Success, Operations & Governance
 - [Request a briefing](https://www.infrakinetic.in/briefing): book a 60-minute technical walkthrough
 
@@ -77,16 +97,16 @@ reconciliation report afterward — not just an "import complete" message.
 
 Technical explainers on specific failure modes in CRM/ERP integration and migration, and how governed architecture avoids them.
 
-- [Why Salesforce-to-NetSuite Sync Keeps Breaking](https://www.infrakinetic.in/guides/salesforce-to-netsuite-sync-breaking): the four structural reasons two-way CRM-ERP sync fails (update wars, field-mapping drift, throttling/backlog, workaround duplicates), and why governed migration removes the need for sync rather than patching it
+- [Why CRM-to-ERP Sync Keeps Breaking](https://www.infrakinetic.in/guides/why-crm-erp-sync-breaks): the recurring structural reasons two-way CRM-ERP sync fails, including competing ownership, mapping drift, retries, ordering problems, and missing reconciliation
 - [How to Prevent CRM Data Drift](https://www.infrakinetic.in/guides/preventing-crm-data-drift): why scheduled audits and deduplication only manage drift after it happens, and how a governed event model with one shared record removes the condition that produces it
 - [How to Fix Data Sync Errors Between a CRM and Accounting](https://www.infrakinetic.in/guides/crm-accounting-sync-errors): the specific ways revenue data breaks (identity mismatches, field-ownership disputes, out-of-order events) and why reconciliation, not sync monitoring, is what actually catches them
 - [What a Unified Business Data Model Actually Means](https://www.infrakinetic.in/guides/unified-business-data-model): the architectural difference between unifying data for reporting (a warehouse), unifying it after reconciliation (MDM), and unifying it at the operating layer (no separate copies at all)
-- [Why "API-First" Isn't the Fix for CRM-ERP Integration](https://www.infrakinetic.in/guides/why-api-first-isnt-enough): a well-documented API solves the connection problem but not identity resolution, field ownership, or event ordering — a shared data model removes the need to connect at all
-- [Why ERP Implementations Fail, and Where Migration Fits In](https://www.infrakinetic.in/guides/erp-implementation-failure-rate): Gartner's 70%+ ERP failure rate is mostly attributed to leadership and planning, not software — migration is the phase where a broken technical rollout can confirm an organization's worst fears before the organizational work has a chance to succeed
-- [Transactional Integrity and Tenant Isolation, Explained](https://www.infrakinetic.in/guides/transactional-integrity-and-tenant-isolation): the difference between a shared business data model (across engines, one tenant) and a shared database schema (across tenants) — what ACID guarantees actually mean, and how Infrakinetic isolates tenants at the data layer while unifying engines
-- [How to Sync HubSpot Deals With Tally Invoices Without Duplicates](https://www.infrakinetic.in/guides/hubspot-tally-sync-without-duplicates): why a DIY automation between HubSpot and Tally produces duplicate customers and invoices (no shared identity model), and what a native connector pipeline with schema discovery and confidence-labeled mapping does instead
+- [Why "API-First" Isn't the Fix for CRM-ERP Integration](https://www.infrakinetic.in/guides/why-api-first-isnt-enough): a well-documented API solves the connection problem but not identity resolution, field ownership, or event ordering - a shared data model removes the need to connect at all
+- [Why ERP Implementations Fail, and Where Migration Fits In](https://www.infrakinetic.in/guides/erp-implementation-failure-rate): Gartner's 70%+ ERP failure rate is mostly attributed to leadership and planning, not software - migration is the phase where a broken technical rollout can confirm an organization's worst fears before the organizational work has a chance to succeed
+- [Transactional Integrity and Tenant Isolation, Explained](https://www.infrakinetic.in/guides/transactional-integrity-and-tenant-isolation): the difference between a shared business data model (across engines, one tenant) and a shared database schema (across tenants) - what ACID guarantees actually mean, and how Infrakinetic isolates tenants at the data layer while unifying engines
+- [CRM and Finance Integration Without Duplicate Records](https://www.infrakinetic.in/guides/crm-finance-integration-without-duplicates): why CRM-finance handoffs create duplicate customers and invoices, and how durable identity, idempotency, explicit ownership, and reconciliation prevent them
 - [The Hidden Cost of CRM-ERP Integration Middleware](https://www.infrakinetic.in/guides/hidden-cost-of-integration-middleware): where integration cost actually accumulates (automation subscriptions that scale with volume, custom connector builds, ongoing maintenance) outside the seat cost everyone budgets for
-- [What Replaces QuickBooks and HubSpot When You Outgrow Both](https://www.infrakinetic.in/guides/what-replaces-quickbooks-and-hubspot): standard advice treats upgrading from QuickBooks and upgrading from HubSpot as two separate questions with two separate destination tools, which just rebuilds the same disconnected-data problem at a bigger scale
+- [What to Do When Disconnected Business Software Stops Scaling](https://www.infrakinetic.in/guides/outgrowing-disconnected-business-software): why upgrading CRM, finance, HR, and workflow silos separately can preserve the same cross-functional handoff problem at a larger scale
 
 ## Contact
 

@@ -52,7 +52,7 @@ export default function MeetInfrakinetic() {
           >
             <div className="flex items-center justify-between mb-6">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-300">
-                Shared Infrastructure — Lifecycle Spine
+                Shared Infrastructure - Lifecycle Spine
               </span>
               <button
                 onClick={() => setShowPrecedence(!showPrecedence)}
@@ -206,7 +206,7 @@ export default function MeetInfrakinetic() {
                 <div>
                   <p className="text-sm font-semibold text-violet-300">Platform infrastructure included from day one</p>
                   <p className="mt-1 text-xs text-white/60">
-                    Approvals, Workflow, Tickets, Governance, and Documents ship with every tenant —
+                    Approvals, Workflow, Tickets, Governance, and Documents ship with every tenant -
                     not held back as something you have to unlock later.
                   </p>
                 </div>

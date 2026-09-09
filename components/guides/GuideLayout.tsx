@@ -10,16 +10,77 @@ interface GuideLayoutProps {
 }
 
 /**
- * Shared shell for /guides/* articles — hero, prose body, closing CTA, and a
- * related-guides footer so new guides never launch as orphaned pages. Kept
- * mostly server-rendered (no ParallaxCard/3D) since these are content pages
- * where load speed matters more than motion.
+ * Shared shell for /guides/* articles: hero, prose body, closing CTA, topical
+ * related guides, and consistent Article/WebPage/Breadcrumb structured data.
+ * FAQ structured data is emitted by the shared FAQSection component so each
+ * schema type has one source of truth.
  */
 export default function GuideLayout({ guide, children }: GuideLayoutProps) {
-  const related = guides.filter((g) => g.slug !== guide.slug).slice(0, 3)
+  const related = [
+    ...guides.filter((g) => g.slug !== guide.slug && g.category === guide.category),
+    ...guides.filter((g) => g.slug !== guide.slug && g.category !== guide.category),
+  ].slice(0, 3)
+
+  const pageUrl = `https://www.infrakinetic.in/guides/${guide.slug}`
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'TechArticle',
+        '@id': `${pageUrl}#article`,
+        headline: guide.title,
+        description: guide.dek,
+        url: pageUrl,
+        isPartOf: { '@id': 'https://www.infrakinetic.in/#website' },
+        about: { '@id': 'https://www.infrakinetic.in/#software' },
+        author: { '@id': 'https://www.polynovea.in/#organization' },
+        publisher: { '@id': 'https://www.polynovea.in/#organization' },
+        mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: guide.title,
+        description: guide.dek,
+        isPartOf: { '@id': 'https://www.infrakinetic.in/#website' },
+        about: { '@id': 'https://www.infrakinetic.in/#software' },
+        publisher: { '@id': 'https://www.polynovea.in/#organization' },
+        mainEntity: { '@id': `${pageUrl}#article` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Infrakinetic',
+            item: 'https://www.infrakinetic.in/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Guides',
+            item: 'https://www.infrakinetic.in/guides',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: guide.title,
+            item: pageUrl,
+          },
+        ],
+      },
+    ],
+  }
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+
       <section className="relative pb-16 pt-32 md:pt-40">
         <div className="container-page">
           <Reveal variant="fade">
@@ -43,10 +104,21 @@ export default function GuideLayout({ guide, children }: GuideLayoutProps) {
           </Reveal>
 
           <Reveal variant="up" delay={0.15}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60">
-              {guide.dek}
-            </p>
+            <div className="mt-6 max-w-2xl">
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">
+                Quick answer
+              </span>
+              <p className="mt-3 text-lg leading-relaxed text-white/60">{guide.dek}</p>
+            </div>
           </Reveal>
+
+          <p className="mt-4 text-sm text-white/40">
+            Published by{' '}
+            <Link href="https://www.polynovea.in" className="text-white/60 hover:text-white">
+              Polynovea
+            </Link>
+            {' '}for Infrakinetic, a Polynovea product.
+          </p>
         </div>
       </section>
 

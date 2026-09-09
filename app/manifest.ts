@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Infrakinetic — Business Operating System',
+    name: 'Infrakinetic - Business Operating System',
     short_name: 'Infrakinetic',
     description: 'A unified business operating system for CRM, sales, finance, billing, HR, payroll, workflow, governance, customer success, and data migration.',
     start_url: '/',

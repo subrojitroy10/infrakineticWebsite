@@ -33,15 +33,6 @@ export default function Footer() {
         itemProp="description"
         content="Infrakinetic provides a unified business operating system connecting commercial, workforce, finance, governance, and reporting on one shared database."
       />
-      <link
-        itemProp="sameAs"
-        href="https://linkedin.com/company/infrakinetic"
-      />
-      <link itemProp="sameAs" href="https://twitter.com/infrakinetic" />
-      <link
-        itemProp="sameAs"
-        href="https://www.google.com/maps/place/Infrakinetic"
-      />
 
       <div className="container-page py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
@@ -61,9 +52,14 @@ export default function Footer() {
               Operating infrastructure for connected workflows, governed
               records, and enterprise visibility.
             </p>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-400/80">
+            <a
+              href="https://www.polynovea.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-gold-400/80 transition-colors hover:text-gold-300"
+            >
               {brand.parent}
-            </p>
+            </a>
 
             <div className="mt-6 border-t border-white/10 pt-6">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400/80">
@@ -103,7 +99,15 @@ export default function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <div className="flex items-center gap-4">
             <p className="text-xs text-white/60">
-              &copy; {new Date().getFullYear()} Infrakinetic — A Polynovea
+              &copy; {new Date().getFullYear()} Infrakinetic - A{' '}
+              <a
+                href="https://www.polynovea.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-white/30 underline-offset-2 transition-colors hover:text-white"
+              >
+                Polynovea
+              </a>{' '}
               Product. All rights reserved.
             </p>
             <span className="text-xs text-white/20">·</span>

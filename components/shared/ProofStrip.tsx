@@ -18,7 +18,7 @@ interface ProofStripProps {
 
 /**
  * Evidence-metric strip reused wherever the audited migration run (or similar
- * measured proof) needs to appear — homepage and the dedicated deep-dive page.
+ * measured proof) needs to appear - homepage and the dedicated deep-dive page.
  */
 export default function ProofStrip({ stats, note, className = '' }: ProofStripProps) {
   return (

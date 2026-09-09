@@ -14,22 +14,22 @@ export default function WhatIsInfrakinetic() {
         <p className="text-lg leading-relaxed text-white/70">
           Infrakinetic is a unified business operating system that replaces
           separate CRM, HR, payroll, finance, and workflow tools with one shared
-          database, one event bus, and one approval engine — so commercial,
+          database, one event bus, and one approval engine - so commercial,
           workforce, and finance work never lose context moving between
           departments.
         </p>
         <KeyTakeaway>
           Infrakinetic is not a CRM, an ERP, or an integration platform layered
-          over existing tools — it is the single operating foundation those
+          over existing tools - it is the single operating foundation those
           tools would otherwise be bolted onto.
         </KeyTakeaway>
         <p className="mt-4 text-sm text-white/50">
           Growing past a starter stack? Guide:{' '}
           <Link
-            href="/guides/what-replaces-quickbooks-and-hubspot"
+            href="/guides/outgrowing-disconnected-business-software"
             className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
           >
-            what replaces QuickBooks and HubSpot when you outgrow both
+            what to do when disconnected business software stops scaling
           </Link>
           .
         </p>

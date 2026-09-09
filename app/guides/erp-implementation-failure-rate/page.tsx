@@ -22,16 +22,6 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'TechArticle',
-  headline: guide.title,
-  description: metadata.description,
-  url: 'https://www.infrakinetic.in/guides/erp-implementation-failure-rate',
-  author: { '@type': 'Organization', name: 'Infrakinetic' },
-  publisher: { '@type': 'Organization', name: 'Infrakinetic' },
-}
-
 const faqs = [
   {
     question: 'What percentage of ERP implementations actually fail?',
@@ -54,10 +44,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      
       <main>
         <GuideLayout guide={guide}>
           <p>
@@ -85,7 +72,7 @@ export default function Page() {
           <p>
             Data migration shows up specifically inside that pattern, not as a
             separate cause but as one of the named leading factors: several
-            independent postmortems on failed Salesforce rollouts cite dirty,
+            independent postmortems on failed enterprise CRM rollouts cite dirty,
             duplicate, or poorly migrated data as a leading reason the
             implementation derailed. That detail is what makes the narrower
             claim below testable rather than just plausible.

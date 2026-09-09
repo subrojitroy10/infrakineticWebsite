@@ -82,7 +82,7 @@ function OrbitRings() {
   )
 }
 
-/* The glowing distorted central core — the "operating system". */
+/* The glowing distorted central core - the "operating system". */
 function Core() {
   const ref = useRef<THREE.Group>(null!)
   useFrame((state) => {

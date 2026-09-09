@@ -23,16 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'TechArticle',
-  headline: guide.title,
-  description: metadata.description,
-  url: 'https://www.infrakinetic.in/guides/hidden-cost-of-integration-middleware',
-  author: { '@type': 'Organization', name: 'Infrakinetic' },
-  publisher: { '@type': 'Organization', name: 'Infrakinetic' },
-}
-
 const faqs = [
   {
     question: 'Why does middleware cost get left out of the original budget?',
@@ -55,10 +45,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      
       <main>
         <GuideLayout guide={guide}>
           <p>

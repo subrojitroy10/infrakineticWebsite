@@ -220,12 +220,14 @@ export const navGroups: NavGroup[] = [
   {
     label: 'Solutions',
     children: [
-      { label: 'CRM', href: '/products#commerce' },
-      { label: 'HR & Payroll', href: '/products#people' },
-      { label: 'Finance', href: '/products#finance' },
-      { label: 'Workflow', href: '/products#platform-infra' },
-      { label: 'Customer Success', href: '/products#customer360' },
-      { label: 'Data Migration', href: '/migration' },
+      { label: 'CRM Software', href: '/crm-software' },
+      { label: 'ERP Software', href: '/erp-software' },
+      { label: 'HR Software', href: '/hr-software' },
+      { label: 'Payroll Software', href: '/payroll-software' },
+      { label: 'Finance Software', href: '/finance-software' },
+      { label: 'Document Management', href: '/document-management-software' },
+      { label: 'Workflow Automation', href: '/workflow-automation-software' },
+      { label: 'CRM Data Migration', href: '/crm-data-migration' },
     ],
   },
   { label: 'Guides', href: '/guides' },
@@ -259,9 +261,16 @@ export const footerGroups: FooterGroup[] = [
   {
     label: 'Solutions',
     items: [
-      { label: 'CRM', href: '/products#commerce' },
-      { label: 'HR & Payroll', href: '/products#people' },
-      { label: 'Data Migration', href: '/migration' },
+      { label: 'CRM Software', href: '/crm-software' },
+      { label: 'ERP Software', href: '/erp-software' },
+      { label: 'HR Software', href: '/hr-software' },
+      { label: 'Payroll Software', href: '/payroll-software' },
+      { label: 'Finance Software', href: '/finance-software' },
+      { label: 'Document Management', href: '/document-management-software' },
+      { label: 'Workflow Automation', href: '/workflow-automation-software' },
+      { label: 'CRM Data Migration', href: '/crm-data-migration' },
+      { label: 'Business Management', href: '/business-management-software' },
+      { label: 'Business Operating System', href: '/business-operating-system' },
     ],
   },
   {
@@ -279,15 +288,15 @@ export const problem: ProblemSection = {
   eyebrow: 'The operating reality',
   title: "Companies don't lack software. The work between systems still breaks.",
   lead:
-    'Your CRM, HRIS, and finance tools each work fine in isolation. But the handoffs between them — lead to contract, hire to payroll, project to invoice — run on spreadsheets, Slack, and hope. This is the status quo.',
+    'Your CRM, HRIS, and finance tools each work fine in isolation. But the handoffs between them - lead to contract, hire to payroll, project to invoice - run on spreadsheets, team chat, and hope. This is the status quo.',
   pains: [
     {
       title: 'Renewals fall through the cracks',
-      desc: 'With disconnected tools, a renewal is just a date on a contract — not an opportunity that re-enters Sales with full context. The loop never closes.',
+      desc: 'With disconnected tools, a renewal is just a date on a contract - not an opportunity that re-enters Sales with full context. The loop never closes.',
     },
     {
       title: 'Health scores are guesswork',
-      desc: 'Four different scorers (lead quality, opportunity priority, intelligence confidence, customer health) — all browser-only, never persisted, never versioned. Every weight is asserted, not measured.',
+      desc: 'Four different scorers (lead quality, opportunity priority, intelligence confidence, customer health) - all browser-only, never persisted, never versioned. Every weight is asserted, not measured.',
     },
     {
       title: 'Finance is invisible to the rest of the org',
@@ -295,15 +304,15 @@ export const problem: ProblemSection = {
     },
     {
       title: 'Nobody knows why customers leave',
-      desc: 'No loss_reason, churn_reason, or win_reason fields exist. Without labeled outcomes, no model can learn why customers churn — only that they did.',
+      desc: 'No loss_reason, churn_reason, or win_reason fields exist. Without labeled outcomes, no model can learn why customers churn - only that they did.',
     },
     {
       title: "Deals don't hand off cleanly",
-      desc: 'Sales closes in the CRM, delivery starts in a different tool with no shared record — lost context, a delayed kickoff, and no trail showing what changed hands or when.',
+      desc: 'Sales closes in the CRM, delivery starts in a different tool with no shared record - lost context, a delayed kickoff, and no trail showing what changed hands or when.',
     },
     {
       title: 'Approvals work differently everywhere',
-      desc: 'Leave goes through one tool, budgets through email, contracts through a shared drive. Six approval processes means six sets of rules — and nobody owns the audit trail.',
+      desc: 'Leave goes through one tool, budgets through email, contracts through a shared drive. Six approval processes means six sets of rules - and nobody owns the audit trail.',
     },
     {
       title: 'Org charts live in slide decks',
@@ -314,13 +323,13 @@ export const problem: ProblemSection = {
 
 export const notThis: NotThisSection = {
   eyebrow: 'How the categories fit together',
-  title: "Each category you already know is part of Infrakinetic — none of them is the whole product.",
+  title: "Each category you already know is part of Infrakinetic - none of them is the whole product.",
   items: [
-    { label: 'CRM is part of the system, not the whole system.', reason: 'It shares the same operating foundation as finance, HR, governance, operations, and customer success — not a bolt-on module.' },
+    { label: 'CRM is part of the system, not the whole system.', reason: 'It shares the same operating foundation as finance, HR, governance, operations, and customer success - not a bolt-on module.' },
     { label: 'ERP-like financial control without the rigid boundary.', reason: 'Built around event-driven automation instead of forcing the rest of the company into batch-processing constraints.' },
     { label: 'HR and payroll share the same workforce context.', reason: 'Hiring, compensation, and payroll are one continuous flow, posting straight to an immutable ledger.' },
-    { label: 'Workflow and approvals are platform primitives.', reason: 'Not a separate automation product bolted on — every engine routes through the same approval and governance layer.' },
-    { label: "Integrations connect Infrakinetic to the outside — they aren't what keeps its own engines in sync.", reason: 'One data model and one source of truth internally, not synced copies drifting apart.' },
+    { label: 'Workflow and approvals are platform primitives.', reason: 'Not a separate automation product bolted on - every engine routes through the same approval and governance layer.' },
+    { label: "Integrations connect Infrakinetic to the outside - they aren't what keeps its own engines in sync.", reason: 'One data model and one source of truth internally, not synced copies drifting apart.' },
   ],
 }
 
@@ -329,13 +338,13 @@ export const consolidates: ConsolidatesSection = {
   title: 'What Infrakinetic consolidates.',
   lead: 'The categories below are usually bought, configured, and integrated separately. Infrakinetic runs them on one shared operating foundation instead.',
   categories: ['CRM', 'HRIS', 'Payroll', 'Billing', 'Finance', 'Workflow', 'Customer Success', 'Governance'],
-  note: "Not every customer removes every external application. Infrakinetic is the shared foundation those categories run on — not a mandate to rip everything else out.",
+  note: "Not every customer removes every external application. Infrakinetic is the shared foundation those categories run on - not a mandate to rip everything else out.",
 }
 
 export const engineeringProof: EngineeringProofSection = {
   eyebrow: 'Built differently',
   title: 'The architecture is part of the product.',
-  lead: 'Six properties that hold across the platform — not marketing language layered on top of it.',
+  lead: 'Six properties that hold across the platform - not marketing language layered on top of it.',
   items: [
     {
       title: 'Database-level tenant isolation',
@@ -412,12 +421,12 @@ export const connectedWorkflows: ConnectedWorkflowDef[] = [
 ]
 
 export const migrationFailureReasons: string[] = [
-  "Flat CSV mapping destroys relationships — a contact loses which account it belongs to.",
-  'Mutable names are unreliable identifiers — a renamed field or record breaks the link silently.',
-  'Finance cannot tolerate silent discrepancies — a rounding difference or duplicated invoice has to be caught, not discovered later.',
-  "Historical imports should not trigger present-day automations — a five-year-old deal shouldn't fire today's renewal emails.",
-  'Retries should not create duplicates — a failed run and a re-run need to produce the same result, not two records.',
-  'Completion should require reconciliation — the pipeline finishing is not the same as the destination being correct.',
+  "Flat CSV mapping destroys relationships - a contact loses which account it belongs to.",
+  'Mutable names are unreliable identifiers - a renamed field or record breaks the link silently.',
+  'Finance cannot tolerate silent discrepancies - a rounding difference or duplicated invoice has to be caught, not discovered later.',
+  "Historical imports should not trigger present-day automations - a five-year-old deal shouldn't fire today's renewal emails.",
+  'Retries should not create duplicates - a failed run and a re-run need to produce the same result, not two records.',
+  'Completion should require reconciliation - the pipeline finishing is not the same as the destination being correct.',
 ]
 
 export const migrationFileFormats: string[] = ['CSV', 'Excel', 'PDF', 'Word']
@@ -426,14 +435,14 @@ export const migrationEngine: MigrationSection = {
   eyebrow: 'CRM, HRIS & ERP data migration',
   title: 'Move business systems without losing what makes the data meaningful.',
   lead:
-    "CRM migration, HRIS migration, and ERP migration usually mean export a CSV, map some columns, and hope the relationships survived. Infrakinetic's Migration Engine treats it as a systems problem instead: it discovers your source schema, maps entities and relationships (not just fields), stages everything in a governed airlock, executes in dependency order, and reconciles the result before a human signs off. Its latest production benchmark mapped 900,000 source data points into 120,714 governed staging projections and executed all 107,114 eligible records with zero execution failures — reconciliation and final sign-off are the next evidence gate for that run.",
+    "CRM migration, HRIS migration, and ERP migration usually mean export a CSV, map some columns, and hope the relationships survived. Infrakinetic's Migration Engine treats it as a systems problem instead: it discovers your source schema, maps entities and relationships (not just fields), stages everything in a governed airlock, executes in dependency order, and reconciles the result before a human signs off. Its latest production benchmark mapped 900,000 source data points into 120,714 governed staging projections and executed all 107,114 eligible records with zero execution failures - reconciliation and final sign-off are the next evidence gate for that run.",
   steps: [
     { n: '01', title: 'Snapshot', desc: 'Every source record is captured as an immutable snapshot before anything touches production.' },
-    { n: '02', title: 'Analyze & map', desc: 'Source fields are profiled and matched to governed destinations, with full evidence — nothing unsupported is silently discarded.' },
+    { n: '02', title: 'Analyze & map', desc: 'Source fields are profiled and matched to governed destinations, with full evidence - nothing unsupported is silently discarded.' },
     { n: '03', title: 'Stage', desc: 'Validated data sits in a governed airlock, fully separated from production, until it clears readiness.' },
     { n: '04', title: 'Execute', desc: 'Dependency-ordered, checkpointed writes with pause, resume, and per-record fault containment.' },
     { n: '05', title: 'Reconcile', desc: 'Automated checks confirm record counts, relationships, and financial totals before anyone signs off.' },
-    { n: '06', title: 'Verify', desc: 'A permitted person signs off explicitly — the pipeline finishing its work is never enough on its own.' },
+    { n: '06', title: 'Verify', desc: 'A permitted person signs off explicitly - the pipeline finishing its work is never enough on its own.' },
   ],
   proof: [
     { label: 'Source data points mapped', value: '900,000' },
@@ -441,13 +450,13 @@ export const migrationEngine: MigrationSection = {
     { label: 'Eligible records executed', value: '107,114' },
     { label: 'Execution failures', value: '0' },
   ],
-  proofNote: 'Production benchmark, 28 Aug 2026 — a 30,000-row, 30-column cross-engine dataset executed with zero failures at the execution layer, with relationship integrity, lineage, and audit evidence preserved throughout. Reconciliation and final human verification are the next evidence gate for this run, not yet complete.',
-  connectors: ['Salesforce CRM', 'Zoho CRM', 'HubSpot CRM', 'Tally'],
-  connectorsNote: 'Plus direct file and document upload (CSV, Excel, PDF, Word) for anything else.',
+  proofNote: 'Production benchmark, 28 Aug 2026 - a 30,000-row, 30-column cross-engine dataset executed with zero failures at the execution layer, with relationship integrity, lineage, and audit evidence preserved throughout. Reconciliation and final human verification are the next evidence gate for this run, not yet complete.',
+  connectors: ['CRM systems', 'HRIS & payroll exports', 'Finance & accounting systems', 'Legacy databases'],
+  connectorsNote: 'Plus direct file and document upload (CSV, Excel, PDF, Word).',
   differentiators: [
     { title: 'Staged, not live', desc: 'Data is validated in a governed airlock, completely separated from production, until it is explicitly approved.' },
-    { title: 'Durable identity', desc: 'Records are matched by durable source identity, not mutable names — retries and re-imports are safe by construction.' },
-    { title: 'Dependency-ordered', desc: 'Related records — organizations, contacts, deals, employment history, invoices — write in the order their relationships require.' },
+    { title: 'Durable identity', desc: 'Records are matched by durable source identity, not mutable names - retries and re-imports are safe by construction.' },
+    { title: 'Dependency-ordered', desc: 'Related records - organizations, contacts, deals, employment history, invoices - write in the order their relationships require.' },
     { title: 'Reconciled and verified', desc: 'Automated hard checks plus an explicit human sign-off gate. A worker finishing its job is never treated as "done."' },
     { title: 'Reversible, not destructive', desc: 'Financial and historical records use governed reversal plans instead of silent deletes.' },
     { title: "Doesn't wake up your automations", desc: 'Historical writes are structurally prevented from firing the live business events your team already relies on.' },
@@ -537,7 +546,7 @@ export const journeys: Journey[] = [
     name: 'Customer lifecycle intelligence',
     tag: 'CX360',
     summary:
-      'Portfolio Radar, health scoring, measured interventions, action rail, document management, and calibrated churn risk — the customer record that connects commercial, finance, support, and success. Built and deployed end-to-end.',
+      'Portfolio Radar, health scoring, measured interventions, action rail, document management, and calibrated churn risk - the customer record that connects commercial, finance, support, and success. Built and deployed end-to-end.',
     steps: ['Lifecycle state', 'Health score', 'Interventions', 'Action rail', 'Churn risk'],
     evidence: [
       'Unified customer view across commercial, finance, support',
@@ -586,12 +595,12 @@ export const differentiators: DifferentiatorsSection = {
     {
       title: 'Calibrated churn intelligence',
       desc:
-        'Three-tier model (heuristic → statistical → learned) with isotonic calibration, conformal prediction intervals, and SHAP explanations — per tenant, never pooled.',
+        'Three-tier model (heuristic → statistical → learned) with isotonic calibration, conformal prediction intervals, and SHAP explanations - per tenant, never pooled.',
     },
     {
       title: 'Platform infrastructure included from day one',
       desc:
-        'Approvals, Workflow, Tickets, Governance, and Documents ship with every tenant — not held back as something you have to unlock later.',
+        'Approvals, Workflow, Tickets, Governance, and Documents ship with every tenant - not held back as something you have to unlock later.',
     },
     {
       title: 'Engines that come as complete systems',
@@ -665,11 +674,11 @@ export const enterprise: EnterpriseSection = {
 
 export const enables: EnablesSection = {
   eyebrow: 'What the architecture enables',
-  title: "The controls aren't bolted on — they're why the platform works.",
+  title: "The controls aren't bolted on - they're why the platform works.",
   items: [
     { capability: 'Real-time budget vs. actual', foundation: 'One shared ledger that every spend event writes to immediately, not overnight' },
     { capability: 'Deal to onboarding in seconds', foundation: 'Deal close fires an event that routes through approvals and org structure automatically' },
-    { capability: 'Audit-ready at any moment', foundation: 'An append-only, cryptographically verified trail — not a reconstruction exercise' },
+    { capability: 'Audit-ready at any moment', foundation: 'An append-only, cryptographically verified trail - not a reconstruction exercise' },
     { capability: 'Governance-aware routing', foundation: 'Org structure and governance model decide who approves what, automatically' },
     { capability: 'Per-country payroll compliance', foundation: 'Each legal entity carries its own statutory rules, not a single global template' },
     { capability: 'Customer health from real signals', foundation: 'One versioned scoring system tied to outcomes, not four disconnected formulas' },
@@ -718,15 +727,15 @@ export interface FAQItem {
 export const homeFaqItems: FAQItem[] = [
   {
     question: 'What is Infrakinetic?',
-    answer: 'Infrakinetic is a unified business operating system that runs commercial, workforce, finance, governance, and reporting on one shared database — replacing the CRM, HRIS, payroll, and workflow tools most companies stitch together with integrations.',
+    answer: 'Infrakinetic is a unified business operating system that runs commercial, workforce, finance, governance, and reporting on one shared database - replacing the CRM, HRIS, payroll, and workflow tools most companies stitch together with integrations.',
   },
   {
     question: 'Is Infrakinetic a CRM or an ERP?',
     answer: 'Neither, on its own. It includes CRM-style pipeline and account management and ERP-style finance and operations, but is built around event-driven automation and a single shared data model rather than either category alone.',
   },
   {
-    question: 'How is Infrakinetic different from using Salesforce, SAP, and a payroll tool together?',
-    answer: 'Those are three separate systems synced by APIs, each with its own login, approval logic, and audit trail. Infrakinetic runs every function on one database and one approval engine, so a deal closing and an employee being hired both flow through the same event bus without a sync job in between.',
+    question: 'How is Infrakinetic different from using separate CRM, ERP, HR, and payroll tools?',
+    answer: 'Separate systems usually rely on APIs, exports, and duplicate records to stay aligned. Infrakinetic runs these operating functions on one connected platform with shared identity, governance, approvals, events, and business context, reducing the handoffs that create drift.',
   },
   {
     question: 'Does Infrakinetic support multi-country payroll?',
@@ -738,18 +747,18 @@ export const homeFaqItems: FAQItem[] = [
   },
   {
     question: 'Who is Infrakinetic built for?',
-    answer: 'Organizations that have outgrown a spreadsheet-and-Slack operating model and need commercial, workforce, and finance work to share one governed system instead of six disconnected tools with manual handoffs between them.',
+    answer: 'Organizations that have outgrown a spreadsheet-and-team chat operating model and need commercial, workforce, and finance work to share one governed system instead of six disconnected tools with manual handoffs between them.',
   },
 ]
 
 export const migrationFaqItems: FAQItem[] = [
   {
     question: 'What is CRM migration?',
-    answer: 'CRM migration is moving customer, contact, deal, and activity data from an existing CRM into Infrakinetic — for example from Salesforce, Zoho CRM, or HubSpot — while preserving the relationships between records, not just the records themselves. A naive export/import moves rows; a governed migration preserves who owns what, which contact belongs to which account, and what happened when.',
+    answer: 'CRM migration is moving customer, contact, deal, and activity data from an existing CRM into Infrakinetic while preserving the relationships between records, not just the records themselves. A naive export/import moves rows; a governed migration preserves who owns what, which contact belongs to which account, and what happened when.',
   },
   {
     question: 'What is the difference between CRM migration and general data migration?',
-    answer: 'CRM migration is one category of the broader problem. The same discover-map-transform-execute-validate-reconcile pipeline applies whether you are onboarding a CRM (Salesforce, Zoho CRM, HubSpot), People and payroll data (via CSV/Excel export), or a finance platform (Tally, or CSV/Excel export) into Infrakinetic — the entities and relationships differ, but the risk (broken references, lost history, silent corruption) is the same.',
+    answer: 'CRM migration is one category of the broader problem. The same discover-map-transform-execute-validate-reconcile pipeline applies whether you are onboarding a CRM, people and payroll data, a finance platform, a legacy database, or structured files into Infrakinetic - the entities and relationships differ, but the risk of broken references, lost history, and silent corruption is the same.',
   },
   {
     question: 'Why is a CSV export/import not enough for a CRM or ERP migration?',
@@ -757,15 +766,15 @@ export const migrationFaqItems: FAQItem[] = [
   },
   {
     question: 'How do I know a migration actually succeeded, not just that the import finished?',
-    answer: '"Import completed" only proves the pipeline ran — not that the destination is consistent with the source. Infrakinetic reconciles record counts, relationship integrity, and financial totals between source and destination, and produces an auditable report: what matched exactly, what was transformed, what is unresolved, and what has no equivalent in the destination.',
+    answer: '"Import completed" only proves the pipeline ran - not that the destination is consistent with the source. Infrakinetic reconciles record counts, relationship integrity, and financial totals between source and destination, and produces an auditable report: what matched exactly, what was transformed, what is unresolved, and what has no equivalent in the destination.',
   },
   {
-    question: 'Which systems can Infrakinetic migrate between?',
-    answer: 'Live connectors today: Salesforce CRM, Zoho CRM, HubSpot CRM, and Tally, plus direct upload for CSV, Excel, PDF, and Word. The same governed pipeline — discover, map, transform, execute, validate, reconcile — applies to CRM, HRIS, ERP, and finance-platform migrations as more connectors ship.',
+    question: 'What types of systems can Infrakinetic migrate from?',
+    answer: 'Infrakinetic supports governed onboarding from CRM, HRIS, ERP, finance and accounting sources, legacy databases, and direct CSV, Excel, PDF, and Word uploads. The same discover, map, transform, execute, validate, and reconcile pipeline applies across source types.',
   },
   {
     question: 'Is migrated data live in production immediately?',
-    answer: 'No. Data lands in a staged, governed airlock — fully separated from production — until it clears reconciliation and a permitted person signs off explicitly. Historical writes are also structurally prevented from firing your live automations, so a migration never wakes up workflows meant for real-time activity.',
+    answer: 'No. Data lands in a staged, governed airlock - fully separated from production - until it clears reconciliation and a permitted person signs off explicitly. Historical writes are also structurally prevented from firing your live automations, so a migration never wakes up workflows meant for real-time activity.',
   },
 ]
 

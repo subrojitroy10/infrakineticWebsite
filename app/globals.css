@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /*
- * Theme tokens — Infrakinetic "Imperial Night / Imperial Ivory" color system.
+ * Theme tokens - Infrakinetic "Imperial Night / Imperial Ivory" color system.
  * Dark values are Imperial Night, light values are Imperial Ivory (see
  * Infrakinetic_Color_System_v1_Imperial_Night_Ivory.md for the full spec).
  * Stored as space-separated RGB channels so Tailwind's `rgb(var(--x) / <alpha-value>)`
@@ -12,7 +12,7 @@
 :root {
   color-scheme: dark;
 
-  /* Permanent brand constants — do not swap between themes (spec §4, §34) */
+  /* Permanent brand constants - do not swap between themes (spec §4, §34) */
   --brand-obsidian: 11 9 16;      /* #0B0910 */
   --brand-ivory: 245 241 232;     /* #F5F1E8 */
   --brand-aubergine: 36 22 46;    /* #24162E */
@@ -22,17 +22,17 @@
   --brand-brass: 184 148 82;      /* #B89452 */
   --brand-bronze: 197 143 120;    /* #C58F78 */
 
-  --color-bg-primary: 11 9 16;         /* #0B0910 Obsidian — canvas */
+  --color-bg-primary: 11 9 16;         /* #0B0910 Obsidian - canvas */
   --color-bg-secondary: 18 16 23;      /* #121017 Surface 1 */
   --color-bg-card: 24 20 29;           /* #18141D Surface 2 */
   --color-bg-border: 33 27 39;         /* #211B27 Surface 3 */
 
-  --color-fg: 245 241 232;             /* #F5F1E8 Warm Ivory — the "white" token */
+  --color-fg: 245 241 232;             /* #F5F1E8 Warm Ivory - the "white" token */
   --color-fg-secondary: 199 191 203;   /* #C7BFCB */
   --color-fg-muted: 147 138 152;       /* #938A98 */
 
   --color-gold-200: 240 228 200;       /* #F0E4C8 bright champagne (hover/selected) */
-  --color-gold-300: 216 181 106;       /* #D8B56A Champagne Gold — primary action */
+  --color-gold-300: 216 181 106;       /* #D8B56A Champagne Gold - primary action */
   --color-gold-400: 227 200 132;       /* #E3C884 hover */
   --color-gold-500: 196 156 78;        /* #C49C4E pressed */
 
@@ -40,7 +40,7 @@
   --color-violet-400: 140 111 153;     /* #8C6F99 Regent Violet */
   --color-violet-500: 104 75 118;      /* #684B76 deeper (review border) */
 
-  /* Theme-swapping primary action — gold in dark, plum in light (spec §8.5/§49) */
+  /* Theme-swapping primary action - gold in dark, plum in light (spec §8.5/§49) */
   --action-primary: 216 181 106;       /* #D8B56A */
   --action-primary-hover: 227 200 132; /* #E3C884 */
   --action-primary-pressed: 196 156 78;/* #C49C4E */
@@ -88,7 +88,7 @@
   --color-fg-muted: 113 104 118;       /* #716876 */
 
   --color-gold-200: 140 104 48;        /* #8C6830 deepened (hover/selected emphasis) */
-  --color-gold-300: 162 126 60;        /* #A27E3C prestige accent — NOT primary CTA */
+  --color-gold-300: 162 126 60;        /* #A27E3C prestige accent - NOT primary CTA */
   --color-gold-400: 184 147 90;        /* #B8935A hover */
   --color-gold-500: 140 104 48;        /* #8C6830 pressed */
 
@@ -96,7 +96,7 @@
   --color-violet-400: 120 97 127;      /* #78617F brand-secondary */
   --color-violet-500: 91 54 106;       /* #5B366A */
 
-  /* Theme-swapping primary action — Deep Plum in light mode (spec §8.5/§49) */
+  /* Theme-swapping primary action - Deep Plum in light mode (spec §8.5/§49) */
   --action-primary: 74 43 88;          /* #4A2B58 */
   --action-primary-hover: 60 35 72;    /* #3C2348 */
   --action-primary-pressed: 48 27 57;  /* #301B39 */
@@ -264,7 +264,7 @@ body::after {
   }
 }
 
-/* Long-form article typography for /guides — no typography plugin in this project */
+/* Long-form article typography for /guides - no typography plugin in this project */
 .guide-prose {
   @apply text-[17px] leading-[1.75] text-white/70;
 }

@@ -46,7 +46,7 @@ const columns = [
 
 export function PipelineMock() {
   return (
-    <Window title="Infrakinetic CRM — Pipeline">
+    <Window title="Infrakinetic CRM - Pipeline">
       <div className="grid grid-cols-3 gap-2.5">
         {columns.map((col) => (
           <div key={col.stage} className="min-w-0">
@@ -93,7 +93,7 @@ const people = [
 
 export function PayrollMock() {
   return (
-    <Window title="Infrakinetic HR — Payroll run · July">
+    <Window title="Infrakinetic HR - Payroll run · July">
       <div className="mb-3 flex items-center justify-between rounded-lg border border-gold-400/20 bg-gold-400/[0.06] px-3 py-2.5">
         <div>
           <p className="text-[11px] font-semibold text-white">July payroll</p>

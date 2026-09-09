@@ -1,4 +1,4 @@
-// FormSubmit.co — posts a form straight to an email address, no API key,
+// FormSubmit.co - posts a form straight to an email address, no API key,
 // no backend. The destination inbox must click the one-time confirmation
 // link FormSubmit sends on its first-ever submission before mail actually
 // starts flowing through.
@@ -25,7 +25,7 @@ export async function submitLead(lead: LeadSubmission): Promise<void> {
       company: lead.company,
       areas: lead.areas.join(', ') || 'Not specified',
       source: sourceLabel,
-      _subject: `Platform briefing request — ${lead.company}`,
+      _subject: `Platform briefing request - ${lead.company}`,
       _cc: NOTIFY_CC,
       _template: 'table',
       _captcha: 'false',

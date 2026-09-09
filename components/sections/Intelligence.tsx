@@ -23,7 +23,7 @@ const tierData = [
     badge: 'Insufficient history',
     color: 'neutral',
     description: 'Asserted weights (subscription 35 / financial 25 / engagement 20 / NPS 12 / onboarding 8 / support 15). No training data required.',
-    example: 'Health score = 72/100 — "Heuristic — insufficient history"',
+    example: 'Health score = 72/100 - "Heuristic - insufficient history"',
     sparklineData: [65, 67, 66, 68, 70, 69, 71, 72],
   },
   {
@@ -33,8 +33,8 @@ const tierData = [
     method: 'Cox proportional hazards / Kaplan-Meier',
     badge: 'Censored handled correctly',
     color: 'violet',
-    description: "Survival analysis handles censored observations — customers who haven't churned yet are information, not missing data.",
-    example: 'Churn risk: 34% — "Statistical — n=87"',
+    description: "Survival analysis handles censored observations - customers who haven't churned yet are information, not missing data.",
+    example: 'Churn risk: 34% - "Statistical - n=87"',
     sparklineData: [42, 38, 35, 33, 34, 36, 34, 34],
   },
   {
@@ -71,7 +71,7 @@ const intelligenceDifferentiators = [
   },
   {
     title: 'Honest intervals',
-    desc: 'Conformal prediction intervals — distribution-free, valid at small n. You get a real confidence range (69–77%), not a point estimate dressed as certainty.',
+    desc: 'Conformal prediction intervals - distribution-free, valid at small n. You get a real confidence range (69–77%), not a point estimate dressed as certainty.',
   },
   {
     title: 'Explanations in business language',
@@ -79,7 +79,7 @@ const intelligenceDifferentiators = [
   },
   {
     title: 'Per-tenant isolation by architecture',
-    desc: "Scoring pipeline can never bypass tenant isolation — by design, not convention. Standing test: tenant A's model produces identical output whether tenant B's rows exist or not. Built to align with DPDP 2023 by architecture, not policy.",
+    desc: "Scoring pipeline can never bypass tenant isolation - by design, not convention. Standing test: tenant A's model produces identical output whether tenant B's rows exist or not. Built to align with DPDP 2023 by architecture, not policy.",
   },
   {
     title: 'Calibration monitoring built-in',
@@ -97,7 +97,7 @@ export default function Intelligence() {
       id="intelligence"
       eyebrow="Intelligence"
       title="Intelligence that's honest about uncertainty."
-      lead="Every prediction shows its provenance: mode, confidence interval, sample size. Three-tier model degrades truthfully — small tenants get an honest 'insufficient history' label, not a borrowed prediction."
+      lead="Every prediction shows its provenance: mode, confidence interval, sample size. Three-tier model degrades truthfully - small tenants get an honest 'insufficient history' label, not a borrowed prediction."
     >
       <Reveal variant="fade" className="mt-14">
         <ParallaxCard depth={20} className="p-6 md:p-8">
@@ -147,7 +147,7 @@ export default function Intelligence() {
 
       <Reveal variant="fade" className="mt-10">
         <ParallaxCard depth={18} className="p-6 md:p-8 border-gold-300/30 bg-gold-500/[0.04]">
-          <h3 className="heading-serif text-2xl mb-6">SHAP Explanation — The Product, Not the Probability</h3>
+          <h3 className="heading-serif text-2xl mb-6">SHAP Explanation - The Product, Not the Probability</h3>
           <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 mb-4">

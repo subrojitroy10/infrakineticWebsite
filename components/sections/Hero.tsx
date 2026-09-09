@@ -34,9 +34,11 @@ export default function Hero() {
         <div className="grid items-start gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
           <div>
             {/* Eyebrow, H1, and lead paragraph render immediately (no entrance
-                animation) — this text is the LCP candidate, and animating it
+                animation) - this text is the LCP candidate, and animating it
                 in was adding ~2.8s of element render delay to LCP. */}
-            <span className="eyebrow">{brand.parent}</span>
+            <a href="https://www.polynovea.in" className="eyebrow" target="_blank" rel="noopener noreferrer">
+              {brand.parent}
+            </a>
 
             <h1
               itemProp="name"
@@ -48,7 +50,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-              Stop maintaining sync jobs and integration middleware between separate CRM, ERP, HR, and finance tools. Infrakinetic connects sales, finance, billing, payments, HR, payroll, workflow, governance, and customer success on one shared data model — eliminating the disconnected handoffs between separate tools.
+              Infrakinetic is a Polynovea product and connected business operating system for CRM, sales, finance, billing, payments, HR, payroll, workflow, governance, customer success, and business data migration. Instead of maintaining sync jobs between separate tools, these functions share one operating foundation with explicit ownership and governed handoffs.
             </p>
 
             <motion.p
@@ -81,7 +83,7 @@ export default function Hero() {
             </motion.div>
 
             <div className="sr-only" itemProp="description">
-              Infrakinetic replaces fragmented software stacks with one connected operating foundation — so work flows across departments without losing context, approvals, or audit history.
+              Infrakinetic replaces fragmented software stacks with one connected operating foundation - so work flows across departments without losing context, approvals, or audit history.
             </div>
 
             <motion.div

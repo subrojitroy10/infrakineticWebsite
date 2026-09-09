@@ -118,7 +118,7 @@ export default function Problem() {
           </div>
           <div className="mt-8 border-t border-white/[0.06] pt-5 text-center">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/30">
-              The break happens between departments — not inside them
+              The break happens between departments - not inside them
             </p>
           </div>
         </div>
@@ -128,11 +128,11 @@ export default function Problem() {
         <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
           <h2 className="heading-serif text-2xl md:text-3xl">Why does context break between departments?</h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            Most B2B companies use 7-12 different SaaS tools. When a deal closes in CRM, the contract details don&apos;t automatically flow to finance for invoicing. When a candidate is hired, their data doesn&apos;t flow to payroll. Each handoff requires manual re-entry — and every re-entry is a place context can be lost, delayed, or gotten wrong. 38% of revenue operations leaders name inaccurate, low-quality data as a top challenge (Source: Forrester Revenue Operations Survey, 2024) — the direct cost of exactly this kind of disconnected handoff. These breaks compound: delayed kickoffs, wrong billing, compliance gaps, and zero visibility for leadership.
+            Most B2B companies use 7-12 different SaaS tools. When a deal closes in CRM, the contract details don&apos;t automatically flow to finance for invoicing. When a candidate is hired, their data doesn&apos;t flow to payroll. Each handoff requires manual re-entry - and every re-entry is a place context can be lost, delayed, or gotten wrong. 38% of revenue operations leaders name inaccurate, low-quality data as a top challenge (Source: Forrester Revenue Operations Survey, 2024) - the direct cost of exactly this kind of disconnected handoff. These breaks compound: delayed kickoffs, wrong billing, compliance gaps, and zero visibility for leadership.
           </p>
           <div className="mt-6 p-4 rounded-xl border border-brand-bronze/30 bg-brand-bronze/[0.06]">
             <p className="text-sm font-semibold text-brand-bronze">Key takeaway:</p>
-            <p className="mt-1 text-sm text-white/70">Context loss isn&apos;t a people problem — it&apos;s an architecture problem. Fix the data layer, not the handoffs.</p>
+            <p className="mt-1 text-sm text-white/70">Context loss isn&apos;t a people problem - it&apos;s an architecture problem. Fix the data layer, not the handoffs.</p>
           </div>
           <p className="mt-4 text-sm text-white/50">
             Related guide:{' '}

@@ -1,6 +1,6 @@
 /**
  * Imperial Night / Imperial Ivory palette constants for contexts that can't
- * consume Tailwind classes or CSS variables — inline SVG, Three.js materials,
+ * consume Tailwind classes or CSS variables - inline SVG, Three.js materials,
  * hash-based avatar colors. Mirrors the values in app/globals.css; if you
  * change a hex there, change it here too.
  */
@@ -23,7 +23,7 @@ export const theme = {
     canvas: '#0B0910',
     surface1: '#121017',
     surface2: '#18141D',
-    accent: '#D8B56A', // Champagne — primary decorative/brand accent
+    accent: '#D8B56A', // Champagne - primary decorative/brand accent
     accentSecondary: '#8C6F99', // Regent Violet
   },
   light: {
@@ -110,7 +110,7 @@ export const diverging: Record<ThemeName, string[]> = {
   light: ['#A23843', '#D7898F', '#E9E2D9', '#8FC39E', '#216B4A'],
 }
 
-/** Deterministic hash-based avatar palette — reuses the categorical scale, extended for variety. */
+/** Deterministic hash-based avatar palette - reuses the categorical scale, extended for variety. */
 export const avatarPalette: Record<ThemeName, string[]> = {
   dark: [...categorical.dark, '#79D3A7', '#F0C36A', '#8BB9E7', '#F28C94', '#E3C884', '#C58F78'],
   light: [...categorical.light, '#216B4A', '#8A5B12', '#315F8F', '#A23843', '#B8935A', '#8C5A45'],

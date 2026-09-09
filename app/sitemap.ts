@@ -1,9 +1,17 @@
 import { MetadataRoute } from 'next'
 import { guides } from '@/lib/guides'
+import { searchIntents } from '@/lib/searchIntents'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.infrakinetic.in'
   const currentDate = new Date().toISOString()
+
+  const intentPages: MetadataRoute.Sitemap = searchIntents.map((intent) => ({
+    url: `${baseUrl}/${intent.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: intent.slug === 'business-operating-system' ? 0.95 : 0.9,
+  }))
 
   const guidePages: MetadataRoute.Sitemap = [
     {
@@ -27,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
+    ...intentPages,
     {
       url: `${baseUrl}/platform`,
       lastModified: currentDate,
@@ -49,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/briefing`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.95,
+      priority: 0.8,
     },
     ...guidePages,
     {

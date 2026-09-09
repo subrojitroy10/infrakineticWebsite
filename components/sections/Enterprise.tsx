@@ -13,12 +13,12 @@ const securityCompliance = [
   {
     icon: Lock,
     title: 'Isolation enforced by the database, not just the app',
-    desc: 'Every tenant\'s data is walled off at the database layer. Even if there were a bug in application code, the database itself would still block cross-tenant access — isolation doesn\'t depend on every screen getting the filter right.',
+    desc: 'Every tenant\'s data is walled off at the database layer. Even if there were a bug in application code, the database itself would still block cross-tenant access - isolation doesn\'t depend on every screen getting the filter right.',
   },
   {
     icon: BadgeCheck,
     title: 'Built for DPDP 2023, not retrofitted',
-    desc: 'No tenant\'s data is ever pooled with another\'s — including for AI and machine learning. Consent and retention rules are enforced by the data model itself, not left to a policy document nobody checks against.',
+    desc: 'No tenant\'s data is ever pooled with another\'s - including for AI and machine learning. Consent and retention rules are enforced by the data model itself, not left to a policy document nobody checks against.',
   },
   {
     icon: FileCheck,
@@ -28,7 +28,7 @@ const securityCompliance = [
   {
     icon: Users,
     title: 'Payroll history that doesn\'t get rewritten',
-    desc: 'When compensation changes, the old rate, rule, and package stay intact. A payslip from last year still shows exactly what was paid and why — not a reconstruction based on today\'s settings.',
+    desc: 'When compensation changes, the old rate, rule, and package stay intact. A payslip from last year still shows exactly what was paid and why - not a reconstruction based on today\'s settings.',
   },
   {
     icon: Shield,
@@ -38,7 +38,7 @@ const securityCompliance = [
   {
     icon: Grid,
     title: 'Designed to stay fast as portfolios grow',
-    desc: 'Account rankings and dashboards are built on indexed, denormalized lookups rather than expensive joins computed on every page load — so performance doesn\'t degrade as your customer count climbs.',
+    desc: 'Account rankings and dashboards are built on indexed, denormalized lookups rather than expensive joins computed on every page load - so performance doesn\'t degrade as your customer count climbs.',
   },
 ]
 

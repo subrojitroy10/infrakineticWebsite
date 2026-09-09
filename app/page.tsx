@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
 import WhatIsInfrakinetic from '@/components/sections/WhatIsInfrakinetic'
+import SearchIntentLinks from '@/components/sections/SearchIntentLinks'
 import Problem from '@/components/sections/Problem'
 import Consolidates from '@/components/sections/Consolidates'
 import Connected from '@/components/sections/Connected'
@@ -17,9 +18,9 @@ import { FAQSection } from '@/components/shared'
 import { homeFaqItems } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: 'Infrakinetic — Stop Syncing CRM, ERP & HR. Run Them on One System.',
+  title: 'Business Software for CRM, Finance, HR & Workflow',
   description:
-    'Stop syncing your CRM, ERP, HR, and finance tools together. Infrakinetic runs sales, finance, billing, payroll, workflow, governance, customer success, and business data migration on one shared data model instead — no middleware, no drift, no synced copies. A Polynovea product.',
+    'Run CRM, sales, finance, billing, HR, payroll, documents, workflow automation, governance, customer success, and data migration on one connected business platform.',
 }
 
 export default function HomePage() {
@@ -27,6 +28,7 @@ export default function HomePage() {
     <main>
       <Hero />
       <WhatIsInfrakinetic />
+      <SearchIntentLinks />
       <Problem />
       <Consolidates />
       <Connected />

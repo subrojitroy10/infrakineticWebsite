@@ -125,7 +125,7 @@ export default function Connected() {
                     <p className="mt-1 text-sm text-white/50">{n.desc}</p>
 
                     <div className="sr-only" itemProp="description">
-                      {n.label} is natively connected — not integrated.
+                      {n.label} is natively connected - not integrated.
                     </div>
                   </ParallaxCard>
                 </Reveal>

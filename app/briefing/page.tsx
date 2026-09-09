@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import BriefingClient from './BriefingClient'
 
 export const metadata: Metadata = {
-  title: 'Platform Briefing — Book a Technical Session',
+  title: 'Platform Briefing - Book a Technical Session',
   description:
-    'Book a 60-minute technical walkthrough of Infrakinetic — how one shared operating foundation unifies CRM, finance, HR, payroll, workflow, governance, and customer success.',
+    'Book a 60-minute technical walkthrough of Infrakinetic - how one shared operating foundation unifies CRM, finance, HR, payroll, workflow, governance, and customer success.',
   alternates: {
     canonical: 'https://www.infrakinetic.in/briefing',
   },

@@ -64,7 +64,7 @@ export default function Contact() {
       setSubmitted(true)
     } catch {
       setError(
-        'Something went wrong — email us directly at admin@infrakinetic.in'
+        'Something went wrong - email us directly at admin@infrakinetic.in'
       )
     } finally {
       setSubmitting(false)
@@ -78,7 +78,7 @@ export default function Contact() {
     },
     {
       q: 'How long does a platform briefing take?',
-      a: 'Standard briefings are 60 minutes — 30 minutes for architecture walkthrough, 20 minutes for your use case mapping, 10 minutes for next steps.',
+      a: 'Standard briefings are 60 minutes - 30 minutes for architecture walkthrough, 20 minutes for your use case mapping, 10 minutes for next steps.',
     },
     {
       q: 'Is there a cost for the briefing?',
@@ -90,11 +90,11 @@ export default function Contact() {
     },
     {
       q: 'Can multiple stakeholders attend?',
-      a: 'Yes — we encourage bringing your CFO, CTO, Head of People, and RevOps lead. The briefing covers architecture that spans all functions.',
+      a: 'Yes - we encourage bringing your CFO, CTO, Head of People, and RevOps lead. The briefing covers architecture that spans all functions.',
     },
     {
       q: 'What happens after the briefing?',
-      a: 'You receive a customized architecture mapping document, a recommended module rollout sequence, and a clear pricing framework. No pressure — just clarity.',
+      a: 'You receive a customized architecture mapping document, a recommended module rollout sequence, and a clear pricing framework. No pressure - just clarity.',
     },
   ]
 
@@ -115,7 +115,7 @@ export default function Contact() {
               how the architecture solves your specific operational friction
             </strong>
             . We map your current context breaks (revenue, workforce, finance,
-            governance) to Infrakinetic&apos;s connected journeys — so you see
+            governance) to Infrakinetic&apos;s connected journeys - so you see
             exactly where the platform eliminates manual handoffs,
             reconciliation, and audit gaps.
           </p>
@@ -178,7 +178,7 @@ export default function Contact() {
                     {
                       icon: Calendar,
                       title: 'Architecture walkthrough',
-                      desc: 'One business data model, governed events, atomic where it matters — live',
+                      desc: 'One business data model, governed events, atomic where it matters - live',
                     },
                     {
                       icon: UsersIcon,
@@ -312,7 +312,7 @@ export default function Contact() {
               Frequently asked questions
             </h3>
             <p className="mt-2 text-center text-white/50">
-              Questions we hear in every briefing — answered upfront.
+              Questions we hear in every briefing - answered upfront.
             </p>
             <div className="mt-8 space-y-3">
               {faqs.map((faq, i) => (

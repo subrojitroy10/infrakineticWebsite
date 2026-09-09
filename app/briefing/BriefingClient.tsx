@@ -12,7 +12,7 @@ const briefingFaqItems = [
   {
     question: 'Who runs the platform briefing?',
     answer:
-      'A platform engineer, not a sales rep. The session is a technical walkthrough of the architecture, governance model, and lifecycle spine — you can bring implementation questions and expect a direct, specific answer.',
+      'A platform engineer, not a sales rep. The session is a technical walkthrough of the architecture, governance model, and lifecycle spine - you can bring implementation questions and expect a direct, specific answer.',
   },
   {
     question: 'How long does the briefing take?',
@@ -22,12 +22,12 @@ const briefingFaqItems = [
   {
     question: 'Do I need to prepare anything before the call?',
     answer:
-      'No preparation is required. If you already know which engines matter most to your organization — Commerce, People, Finance, Marketing, Operations, or Customer 360 — flagging that when you request the briefing helps us focus the walkthrough.',
+      'No preparation is required. If you already know which engines matter most to your organization - Commerce, People, Finance, Marketing, Operations, or Customer 360 - flagging that when you request the briefing helps us focus the walkthrough.',
   },
   {
     question: 'Is this a sales pitch or a technical review?',
     answer:
-      'A technical review. The briefing covers architecture, data model, and governance in enough depth for an engineering or platform evaluation — not a features-and-pricing deck.',
+      'A technical review. The briefing covers architecture, data model, and governance in enough depth for an engineering or platform evaluation - not a features-and-pricing deck.',
   },
   {
     question: 'What happens after I submit the request?',
@@ -97,7 +97,7 @@ export default function BriefingClient() {
       setSubmitted(true)
     } catch {
       setError(
-        'Something went wrong — email us directly at admin@infrakinetic.in'
+        'Something went wrong - email us directly at admin@infrakinetic.in'
       )
     } finally {
       setSubmitting(false)
@@ -124,7 +124,7 @@ export default function BriefingClient() {
                 <p className="mt-3 text-sm text-white/50">
                   A platform engineer walks you through the shared-database
                   architecture, governance and security model, and lifecycle
-                  spine in a single 60-minute session — no sales deck, no SDR.
+                  spine in a single 60-minute session - no sales deck, no SDR.
                 </p>
 
                 <div className="mt-10 space-y-4">
@@ -133,11 +133,11 @@ export default function BriefingClient() {
                   </h3>
                   <div className="space-y-3">
                     {[
-                      'Architecture walkthrough — one schema, one event bus, one TX boundary',
-                      'Governance & security — RLS, tenant isolation, DPDP 2023 alignment by architecture',
-                      'Lifecycle spine & signal framework — how the loop closes',
-                      'Calibrated ML intelligence — three tiers, conformal intervals, SHAP',
-                      'Pilot scope & timeline — 4-6 weeks, your data, your pace',
+                      'Architecture walkthrough - one schema, one event bus, one TX boundary',
+                      'Governance & security - RLS, tenant isolation, DPDP 2023 alignment by architecture',
+                      'Lifecycle spine & signal framework - how the loop closes',
+                      'Calibrated ML intelligence - three tiers, conformal intervals, SHAP',
+                      'Pilot scope & timeline - 4-6 weeks, your data, your pace',
                     ].map((item) => (
                       <div key={item} className="flex items-start gap-3">
                         <span className="mt-0.5 grid h-5 w-5 place-items-center rounded-full bg-gold-300/20 text-gold-300">
@@ -316,7 +316,7 @@ export default function BriefingClient() {
         </div>
         <KeyTakeaway>
           The briefing is a 60-minute architecture review led by a platform
-          engineer — bring your hardest integration or governance question, not
+          engineer - bring your hardest integration or governance question, not
           just a features checklist.
         </KeyTakeaway>
         <p className="mt-6 max-w-2xl text-sm text-white/65">

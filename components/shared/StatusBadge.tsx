@@ -5,7 +5,7 @@ const badge = (color: string, weight = 400) =>
   `bg-${color}-${weight}/15 text-${color}-300 border-${color}-${weight}/30 light:text-${color}-700`
 const goldBadge = 'bg-gold-300/15 text-gold-300 border-gold-300/30'
 // Semantic states (success/warning/danger/review) always route through the
-// design-system tokens, never raw Tailwind hues — see color spec §13.
+// design-system tokens, never raw Tailwind hues - see color spec §13.
 const successBadge = 'bg-success/15 text-success border-success/30'
 const warningBadge = 'bg-warning/15 text-warning border-warning/30'
 const dangerBadge = 'bg-danger/15 text-danger border-danger/30'

@@ -37,7 +37,7 @@ const pipeline = [
   },
   {
     title: 'Model',
-    desc: 'What the data actually means — lifecycle states, ownership, derived fields — not just what the column is named.',
+    desc: 'What the data actually means - lifecycle states, ownership, derived fields - not just what the column is named.',
     icon: Layers,
   },
   {
@@ -52,7 +52,7 @@ const pipeline = [
   },
   {
     title: 'Validate & reconcile',
-    desc: 'Record, relationship, semantic, and aggregate checks — source vs. destination, with every discrepancy explained.',
+    desc: 'Record, relationship, semantic, and aggregate checks - source vs. destination, with every discrepancy explained.',
     icon: Shield,
   },
 ]
@@ -75,11 +75,11 @@ type Pair = {
 
 const pairs: Pair[] = [
   {
-    key: 'sf-ik',
+    key: 'enterprise-crm-ik',
     category: 'CRM',
-    source: 'Salesforce',
+    source: 'Enterprise CRM',
     destination: 'Infrakinetic',
-    contextNote: 'Representative complex Salesforce environment',
+    contextNote: 'Representative complex CRM environment',
     objects: 31,
     fields: 1842,
     relationships: 427,
@@ -90,11 +90,11 @@ const pairs: Pair[] = [
     complexity: 'Advanced',
   },
   {
-    key: 'zoho-ik',
+    key: 'crm-export-ik',
     category: 'CRM',
-    source: 'Zoho CRM',
+    source: 'CRM export',
     destination: 'Infrakinetic',
-    contextNote: 'Representative Zoho CRM environment',
+    contextNote: 'Representative CRM export',
     objects: 18,
     fields: 690,
     relationships: 204,
@@ -120,11 +120,11 @@ const pairs: Pair[] = [
     complexity: 'Moderate',
   },
   {
-    key: 'tally-ik',
+    key: 'finance-export-ik',
     category: 'Finance',
-    source: 'Tally',
+    source: 'Accounting system export',
     destination: 'Infrakinetic',
-    contextNote: 'Representative Tally environment',
+    contextNote: 'Representative accounting-system export',
     objects: 14,
     fields: 512,
     relationships: 96,
@@ -142,29 +142,29 @@ const categories = [
     label: 'CRM Migration',
     icon: Users,
     pairs:
-      'Salesforce → Infrakinetic · Zoho CRM → Infrakinetic · HubSpot CRM → Infrakinetic',
-    body: "The hardest part of a CRM migration is rarely the contact record — it's the pipeline stage that doesn't map 1:1, the owner field that points to a user ID the destination has never seen, and five years of activity history sitting on the account it belongs to. Infrakinetic maps accounts, contacts, deals, and activities as connected entities onboarding into the platform, not four unrelated tables.",
+      'Existing CRM → Infrakinetic · CRM export → Infrakinetic · CRM database → Infrakinetic',
+    body: "The hardest part of a CRM migration is rarely the contact record - it's the pipeline stage that doesn't map 1:1, the owner field that points to a user ID the destination has never seen, and five years of activity history sitting on the account it belongs to. Infrakinetic maps accounts, contacts, deals, and activities as connected entities onboarding into the platform, not four unrelated tables.",
   },
   {
     key: 'hris',
     label: 'HRIS & Payroll Onboarding',
     icon: Briefcase,
     pairs: 'CSV / Excel export → Infrakinetic',
-    body: 'Employee records carry compensation history, statutory identifiers, and reporting-line relationships that most HRIS exports flatten into a single snapshot. The Migration Engine preserves history as history — superseded, not overwritten — and keeps org-chart relationships intact when bringing that data into Infrakinetic.',
+    body: 'Employee records carry compensation history, statutory identifiers, and reporting-line relationships that most HRIS exports flatten into a single snapshot. The Migration Engine preserves history as history - superseded, not overwritten - and keeps org-chart relationships intact when bringing that data into Infrakinetic.',
   },
   {
     key: 'erp',
     label: 'Legacy System Onboarding',
     icon: Building,
     pairs: 'Custom database export → Infrakinetic · CSV / Excel → Infrakinetic',
-    body: 'Legacy and custom-built systems are usually the most idiosyncratic in the stack — years of custom objects and fields nobody fully documented. Discovery surfaces every custom structure before mapping starts, so nothing gets silently dropped because it looked unfamiliar.',
+    body: 'Legacy and custom-built systems are usually the most idiosyncratic in the stack - years of custom objects and fields nobody fully documented. Discovery surfaces every custom structure before mapping starts, so nothing gets silently dropped because it looked unfamiliar.',
   },
   {
     key: 'finance',
     label: 'Finance & Accounting Onboarding',
     icon: Wallet,
-    pairs: 'Tally → Infrakinetic',
-    body: 'Financial migrations fail quietly — a rounding difference, a duplicated invoice, a write-off that lands in the wrong period. Reconciliation checks totals and record counts between source and destination before anyone calls it done, the same discipline Infrakinetic runs on its own ledger.',
+    pairs: 'Accounting system → Infrakinetic',
+    body: 'Financial migrations fail quietly - a rounding difference, a duplicated invoice, a write-off that lands in the wrong period. Reconciliation checks totals and record counts between source and destination before anyone calls it done, the same discipline Infrakinetic runs on its own ledger.',
   },
 ]
 
@@ -197,7 +197,7 @@ export default function MigrationClient() {
             <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60 md:text-xl">
               CRM migration, HRIS migration, and ERP migration are usually
               treated as a file-import problem: export, clean a CSV, map some
-              columns, hope. Infrakinetic treats it as a systems problem —
+              columns, hope. Infrakinetic treats it as a systems problem -
               discover the source schema, map entities and relationships,
               transform and execute in a governed airlock, then validate and
               reconcile before anyone calls it done.
@@ -206,10 +206,10 @@ export default function MigrationClient() {
               variant="fade"
               className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
             >
-              <a href="/briefing" className="btn-primary inline-flex w-fit">
+              <Link href="/briefing" className="btn-primary inline-flex w-fit">
                 Assess a migration
                 <ArrowRight size={15} />
-              </a>
+              </Link>
               <Link href="/#migration" className="btn-ghost inline-flex w-fit">
                 See the governed pipeline
               </Link>
@@ -280,7 +280,7 @@ export default function MigrationClient() {
         id="migration-assessment"
         eyebrow="Illustrative example"
         title="See what Infrakinetic understands before anything moves."
-        lead="In a complex Salesforce environment like this representative example, Infrakinetic discovers the objects, fields, and relationships first. It then separates direct mappings from transformations and genuinely ambiguous decisions — so uncertainty is surfaced before production data is touched. The numbers below are a representative example, not a live scan of your data."
+        lead="In a complex CRM environment like this representative example, Infrakinetic discovers the objects, fields, and relationships first. It then separates direct mappings from transformations and genuinely ambiguous decisions - so uncertainty is surfaced before production data is touched. The numbers below are a representative example, not a live scan of your data."
       >
         <Reveal variant="fade" className="mt-10">
           <div className="flex flex-wrap gap-2">
@@ -395,33 +395,33 @@ export default function MigrationClient() {
             </div>
             <p className="mt-3 text-xs text-white/50">
               {activePair.humanConfirm} ambiguous mappings are deliberately held
-              for human confirmation rather than guessed — when confidence is
+              for human confirmation rather than guessed - when confidence is
               insufficient, Infrakinetic asks instead of inventing a decision.
             </p>
 
             <p className="mt-8 text-xs font-semibold uppercase tracking-wide text-white/45">
-              Mapping coverage — 100% accounted for
+              Mapping coverage - 100% accounted for
             </p>
             <div className="mt-3 flex h-3 w-full overflow-hidden rounded-full border border-white/10 bg-white/[0.02]">
               <div
                 className="h-full bg-gold-300"
                 style={{ width: `${pctDirect}%` }}
-                title={`Direct mapping — ${pctDirect.toFixed(1)}%`}
+                title={`Direct mapping - ${pctDirect.toFixed(1)}%`}
               />
               <div
                 className="h-full bg-violet-400"
                 style={{ width: `${pctTransformed}%` }}
-                title={`Governed transformation — ${pctTransformed.toFixed(1)}%`}
+                title={`Governed transformation - ${pctTransformed.toFixed(1)}%`}
               />
               <div
                 className="h-full bg-review"
                 style={{ width: `${pctHuman}%` }}
-                title={`Human confirmation — ${pctHuman.toFixed(1)}%`}
+                title={`Human confirmation - ${pctHuman.toFixed(1)}%`}
               />
               <div
                 className="h-full bg-warning/70"
                 style={{ width: `${pctDisposition}%` }}
-                title={`Explicit disposition — ${pctDisposition.toFixed(1)}%`}
+                title={`Explicit disposition - ${pctDisposition.toFixed(1)}%`}
               />
             </div>
             <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[11px] text-white/50">
@@ -455,7 +455,7 @@ export default function MigrationClient() {
               discarded.
             </p>
             <Link
-              href="/guides/salesforce-to-netsuite-sync-breaking"
+              href="/guides/why-crm-erp-sync-breaks"
               className="mt-4 inline-block text-xs font-medium text-gold-300 transition-colors hover:text-gold-200"
             >
               Guide: why CRM-to-ERP sync breaks (and why this pipeline
@@ -518,10 +518,10 @@ export default function MigrationClient() {
           </Link>{' '}
           and{' '}
           <Link
-            href="/guides/hubspot-tally-sync-without-duplicates"
+            href="/guides/crm-finance-integration-without-duplicates"
             className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
           >
-            syncing HubSpot deals with Tally invoices without duplicates
+            preventing duplicate records across CRM and finance handoffs
           </Link>
           .
         </p>
@@ -579,7 +579,7 @@ export default function MigrationClient() {
               </div>
               <p className="mt-5 text-xs text-white/40">
                 Direct upload for anything not covered by an implemented
-                connector — the same discovery, mapping, staging, and
+                connector - the same discovery, mapping, staging, and
                 reconciliation pipeline applies.
               </p>
             </ParallaxCard>
@@ -604,10 +604,10 @@ export default function MigrationClient() {
               Bring your own export. We&apos;ll show you the mapping before
               anything moves.
             </div>
-            <a href="/briefing" className="btn-primary inline-flex shrink-0">
+            <Link href="/briefing" className="btn-primary inline-flex shrink-0">
               Assess a migration
               <ArrowRight size={15} />
-            </a>
+            </Link>
           </div>
         </Reveal>
       </Section>

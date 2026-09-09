@@ -44,11 +44,11 @@ export default function Modules() {
         <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
           <h2 className="heading-serif text-2xl md:text-3xl">How do connected journeys work?</h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            Infrakinetic organizes work into <strong>three operational journeys</strong> — Revenue Execution, Workforce Execution, and Customer Lifecycle Intelligence (CX360) — each spanning the full lifecycle from initial contact to recurring revenue. Unlike traditional siloed modules, every step in a journey shares the same customer record, approval chain, and audit trail.
+            Infrakinetic organizes work into <strong>three operational journeys</strong> - Revenue Execution, Workforce Execution, and Customer Lifecycle Intelligence (CX360) - each spanning the full lifecycle from initial contact to recurring revenue. Unlike traditional siloed modules, every step in a journey shares the same customer record, approval chain, and audit trail.
           </p>
           <div className="mt-6 p-4 rounded-xl border border-gold-400/20 bg-gold-400/[0.05]">
             <p className="text-sm font-semibold text-gold-300">Key takeaway:</p>
-            <p className="mt-1 text-sm text-white/70">Journeys keep context intact across department boundaries — no more manual re-entry at handoffs.</p>
+            <p className="mt-1 text-sm text-white/70">Journeys keep context intact across department boundaries - no more manual re-entry at handoffs.</p>
           </div>
         </div>
       </Reveal>

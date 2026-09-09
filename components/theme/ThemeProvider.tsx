@@ -10,7 +10,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | null>(null)
 
 // The site always starts in dark mode on a fresh load (per brand doc: dark is
-// the primary identity). The toggle only affects the current session — it is
+// the primary identity). The toggle only affects the current session - it is
 // deliberately not persisted, so a reload always returns to dark.
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')

@@ -63,7 +63,7 @@ export default function Scale() {
             Detailed roadmap coming soon
           </h3>
           <p className="text-white/60 max-w-2xl mx-auto mb-6">
-            We&apos;re finalizing the next phase of platform extensions — Workforce Intelligence, Communication Hub, Automation &amp; Service Control, and Finance/Compliance/Documents.
+            We&apos;re finalizing the next phase of platform extensions - Workforce Intelligence, Communication Hub, Automation &amp; Service Control, and Finance/Compliance/Documents.
           </p>
           <a
             href="#contact"
