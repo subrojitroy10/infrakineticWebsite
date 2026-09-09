@@ -1,19 +1,31 @@
 import Script from 'next/script'
 
-/** Renders nothing until NEXT_PUBLIC_GA_ID is set in the deploy environment. */
+/** GA4 renders nothing until NEXT_PUBLIC_GA_ID is set in the deploy environment. Clarity always loads. */
 export default function Analytics() {
   const gaId = process.env.NEXT_PUBLIC_GA_ID
-  if (!gaId) return null
 
   return (
     <>
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
-      <Script id="ga4-init" strategy="afterInteractive">
+      {gaId && (
+        <>
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
+          <Script id="ga4-init" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaId}');
+            `}
+          </Script>
+        </>
+      )}
+      <Script id="clarity-init" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${gaId}');
+          (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "yfm20rjq09");
         `}
       </Script>
     </>
