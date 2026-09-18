@@ -199,7 +199,7 @@ export const navGroups: NavGroup[] = [
     label: 'Product',
     href: '/products',
     children: [
-      { label: 'CRM & Sales', href: '/products#commerce' },
+      { label: 'CRM & Sales', href: '/products#crm-sales' },
       { label: 'Billing & Invoicing', href: '/products#billing' },
       { label: 'Payments', href: '/products#payments' },
       { label: 'Finance & Accounting', href: '/products#finance' },
@@ -248,7 +248,7 @@ export const footerGroups: FooterGroup[] = [
   {
     label: 'Product',
     items: [
-      { label: 'CRM & Sales', href: '/products#commerce' },
+      { label: 'CRM & Sales', href: '/products#crm-sales' },
       { label: 'Billing & Invoicing', href: '/products#billing' },
       { label: 'Payments', href: '/products#payments' },
       { label: 'Finance & Accounting', href: '/products#finance' },

@@ -90,7 +90,7 @@ const engines = [
     },
   },
   {
-    id: 'commerce',
+    id: 'crm-sales',
     label: 'CRM & Sales',
     icon: Target,
     color: 'gold',
@@ -588,7 +588,7 @@ const engines = [
 ]
 
 const engineOrder = [
-  'commerce',
+  'crm-sales',
   'billing',
   'payments',
   'finance',
@@ -631,24 +631,79 @@ const productsFaqItems = [
   },
 ]
 
+const engineHashAliases: Record<string, string> = {
+  commerce: 'crm-sales',
+}
+
 export default function ProductsClient() {
-  const [activeEngine, setActiveEngine] = useState('commerce')
+  const [activeEngine, setActiveEngine] = useState('crm-sales')
   const engine = engines.find(e => e.id === activeEngine)!
 
   useEffect(() => {
-    const syncEngineFromHash = () => {
-      const hash = window.location.hash.replace('#', '')
-      if (!hash || !engines.some((e) => e.id === hash)) return
+    let scrollFrame: number | null = null
 
-      setActiveEngine(hash)
-      window.setTimeout(() => {
-        document.getElementById(hash)?.scrollIntoView({ block: 'start' })
-      }, 0)
+    const readEngineFromLocation = () => {
+      const rawHash = window.location.hash.replace('#', '')
+      const normalizedHash = engineHashAliases[rawHash] ?? rawHash
+      return engines.some((e) => e.id === normalizedHash) ? normalizedHash : 'crm-sales'
     }
 
-    syncEngineFromHash()
-    window.addEventListener('hashchange', syncEngineFromHash)
-    return () => window.removeEventListener('hashchange', syncEngineFromHash)
+    const scrollToEngine = (engineId: string) => {
+      if (scrollFrame !== null) window.cancelAnimationFrame(scrollFrame)
+      scrollFrame = window.requestAnimationFrame(() => {
+        scrollFrame = window.requestAnimationFrame(() => {
+          document.getElementById(engineId)?.scrollIntoView({ block: 'start' })
+          scrollFrame = null
+        })
+      })
+    }
+
+    const syncEngineFromLocation = (shouldScroll = true) => {
+      const rawHash = window.location.hash.replace('#', '')
+      const nextEngine = readEngineFromLocation()
+
+      if (rawHash && rawHash !== nextEngine && engineHashAliases[rawHash] === nextEngine) {
+        const canonicalUrl = `${window.location.pathname}${window.location.search}#${nextEngine}`
+        originalReplaceState.call(window.history, window.history.state, '', canonicalUrl)
+      }
+
+      setActiveEngine((current) => (current === nextEngine ? current : nextEngine))
+      if (shouldScroll && window.location.hash) scrollToEngine(nextEngine)
+    }
+
+    const onHashChange = () => syncEngineFromLocation(true)
+    const onPopState = () => syncEngineFromLocation(true)
+    const onHistoryChange = () => syncEngineFromLocation(true)
+
+    const originalPushState = window.history.pushState
+    const originalReplaceState = window.history.replaceState
+
+    const wrappedPushState: History['pushState'] = function (...args) {
+      originalPushState.apply(window.history, args)
+      window.dispatchEvent(new Event('infrakinetic:locationchange'))
+    }
+
+    const wrappedReplaceState: History['replaceState'] = function (...args) {
+      originalReplaceState.apply(window.history, args)
+      window.dispatchEvent(new Event('infrakinetic:locationchange'))
+    }
+
+    window.history.pushState = wrappedPushState
+    window.history.replaceState = wrappedReplaceState
+
+    syncEngineFromLocation(Boolean(window.location.hash))
+    window.addEventListener('hashchange', onHashChange)
+    window.addEventListener('popstate', onPopState)
+    window.addEventListener('infrakinetic:locationchange', onHistoryChange)
+
+    return () => {
+      window.removeEventListener('hashchange', onHashChange)
+      window.removeEventListener('popstate', onPopState)
+      window.removeEventListener('infrakinetic:locationchange', onHistoryChange)
+      if (window.history.pushState === wrappedPushState) window.history.pushState = originalPushState
+      if (window.history.replaceState === wrappedReplaceState) window.history.replaceState = originalReplaceState
+      if (scrollFrame !== null) window.cancelAnimationFrame(scrollFrame)
+    }
   }, [])
 
   return (
@@ -697,8 +752,7 @@ export default function ProductsClient() {
                 <button
                   key={engineId}
                   onClick={() => {
-                    setActiveEngine(engineId)
-                    window.history.replaceState(null, '', `#${engineId}`)
+                    window.location.hash = engineId
                   }}
                   className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                     isActive
