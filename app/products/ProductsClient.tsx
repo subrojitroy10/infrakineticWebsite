@@ -91,11 +91,11 @@ const engines = [
   },
   {
     id: 'commerce',
-    label: 'Commerce',
+    label: 'CRM & Sales',
     icon: Target,
     color: 'gold',
-    subtitle: 'Commercial + Sales - Atomic Pack',
-    description: 'One pipeline from lead to renewal. The Commercial Engine holds every organization and person you do business with; the Sales Engine runs pipeline, quotes, and deal conversion - renewal and expansion opportunities are created automatically, with no manual handoff.',
+    subtitle: 'Commercial + Sales - Modular Revenue Engines',
+    description: 'A familiar CRM and sales starting point without ending at the pipeline. Commercial owns organizations and contacts; Sales owns opportunities and deal progression. Shared platform infrastructure carries documents, approvals, workflow and governed handoffs into the other engines you enable.',
     kpis: [
       { label: 'Pipeline Value', value: '$2.4M', icon: Wallet, variant: 'positive', delta: '+12.4%' },
       { label: 'Active Deals', value: '148', icon: Target, variant: 'neutral', delta: '+8' },
@@ -131,11 +131,11 @@ const engines = [
   },
   {
     id: 'people',
-    label: 'People',
+    label: 'HR & Payroll',
     icon: Users,
     color: 'violet',
-    subtitle: 'HR & Payroll - Atomic Pack',
-    description: 'Hiring, compensation, leave, and payroll as one governed flow. Offer accepted becomes an employment record, a wired compensation package, and a payroll-ready profile - automatically, with statutory compliance built in.',
+    subtitle: 'Connected People Engines - Recruitment Overhaul In Development',
+    description: 'HR, workforce, compensation, leave and payroll share governed employee context without becoming one undifferentiated module. The current recruitment workflow remains connected to the people domain; the next-generation Recruitment overhaul is explicitly in development.',
     kpis: [
       { label: 'Headcount', value: '342', icon: Users, variant: 'neutral', delta: '+12' },
       { label: 'Time to Fill', value: '38 days', icon: ChartBar, variant: 'positive', delta: '-5 days' },
@@ -143,7 +143,7 @@ const engines = [
       { label: 'eNPS', value: '67', icon: HeartPulse, variant: 'positive', delta: '+8' },
     ] satisfies EngineKpi[],
     features: [
-      'Recruitment: requisitions, applications, scorecards, auto-populated offer letters',
+      'Recruitment workflow today; next-generation job understanding and evidence-backed matching overhaul in development',
       'Compensation versioning with retroactive-adjustment detection',
       'Leave management with policy-based approval routing',
       'Payroll: dependency-ordered calculation, dual approval, immutable lock',
@@ -174,8 +174,8 @@ const engines = [
     label: 'Finance',
     icon: Wallet,
     color: 'gold',
-    subtitle: 'Standalone Product',
-    description: 'An append-only, cryptographically hash-chained ledger - tampering is mathematically detectable, and every correction is an explicit offsetting entry. Budgets enforce hard spending limits in real time, and payroll and campaign spend post directly to the ledger.',
+    subtitle: 'Standalone Engine - Core Available, Experience Expansion In Development',
+    description: 'Finance owns accounting truth: journals, ledger and posting, budgets, fiscal controls and reconciliation. Core ownership and controls are available today; the broader Finance workspace and planned overhaul experience are still being expanded and are not represented as complete.',
     kpis: [
       { label: 'ARR', value: '$1.18M', icon: Wallet, variant: 'positive', delta: '+18%' },
       { label: 'DSO', value: '28 days', icon: ChartBar, variant: 'positive', delta: '-4 days' },
@@ -211,11 +211,11 @@ const engines = [
   },
   {
     id: 'billing',
-    label: 'Billing & Payments',
+    label: 'Billing & Invoicing',
     icon: FileText,
     color: 'violet',
-    subtitle: 'Standalone Product - Independent of Finance',
-    description: 'Billing runs whether or not Finance is even switched on. A deterministic rating engine turns commercial facts into governed invoices; documents, delivery, and reminders run on policy; and certified payment connections handle payment requests, collection, and settlement reconciliation. When Finance is enabled, billing activity posts straight into the ledger - when it isn\'t, nothing breaks.',
+    subtitle: 'Standalone Engine - Independent of Finance · Payments Optional',
+    description: 'Billing runs whether or not Finance is enabled. It owns billing rules, invoice generation, delivery, reminders and collection lifecycle. Payments is a separate, independently entitled capability that can join the flow when needed; Finance can also be added later without taking over Billing ownership.',
     kpis: [
       { label: 'Invoices / Month', value: '412', icon: FileText, variant: 'neutral', delta: '+9%' },
       { label: 'Outstanding', value: '$186K', icon: Wallet, variant: 'warning' },
@@ -227,7 +227,7 @@ const engines = [
       'Deterministic rating engine - fixed, tiered, usage, milestone, and prorated billing rules',
       'Governed, versioned billing configuration - nothing changes underneath a live rate card',
       'Automated invoice documents, delivery, and policy-driven reminders',
-      'Certified payment connections with settlement ingestion and reconciliation',
+      'Optional Payments engine for payment requests, provider activity, settlement ingestion and reconciliation',
     ],
     detail: {
       healthComponents: [
@@ -442,11 +442,11 @@ const engines = [
   },
   {
     id: 'platform-infra',
-    label: 'Operations & Governance',
+    label: 'Platform Infrastructure',
     icon: Sliders,
     color: 'gold',
-    subtitle: 'Free for Every Tenant - Always',
-    description: 'Approval management, workflow automation, ticket management, governance, and document workflow - the five capabilities every engine is built on. Not a tier you unlock. Not a feature flag. Included from day one, for every tenant.',
+    subtitle: 'Included Platform Infrastructure',
+    description: 'Documents, Approvals, Workflow, Automation, Governance, and shared work capabilities operate underneath the business engines. They are platform infrastructure, not another departmental bundle a customer has to assemble separately.',
     kpis: [
       { label: 'Engines Active', value: '11', icon: Sliders, variant: 'neutral' },
       { label: 'Uptime', value: '99.97%', icon: Shield, variant: 'positive' },
@@ -480,52 +480,48 @@ const engines = [
 ]
 
 const engineOrder = [
-  'migration',
   'commerce',
-  'people',
-  'finance',
   'billing',
+  'finance',
+  'people',
+  'customer360',
   'marketing',
   'operations',
-  'customer360',
   'agency',
   'equity',
+  'migration',
   'platform-infra',
 ]
 
 const productsFaqItems = [
   {
-    question: 'What is included in the Commerce atomic pack?',
-    answer: 'Commerce bundles the Commercial Engine (organizations, contacts, agreements) and the Sales Engine (pipeline, quotes, deal conversion) as one connected pack - not two products stitched together. Renewal and expansion opportunities are created automatically.',
+    question: 'Do I have to buy every Infrakinetic engine?',
+    answer: 'No. Business engines are enabled according to the operating problem you want to solve. You can start with a focused stack and add more engines later while keeping the same platform infrastructure.',
   },
   {
-    question: 'What is included in the People atomic pack?',
-    answer: 'People covers HR and Payroll as one governed flow: recruitment, compensation, leave, and payroll all share the same employee record, with statutory compliance reminders and multi-country support built in.',
+    question: 'Are CRM & Sales one giant module?',
+    answer: 'No. Commercial and Sales keep distinct canonical ownership while presenting a connected revenue experience. Commercial owns organizations and contacts; Sales owns opportunities and pipeline state.',
   },
   {
-    question: 'Are Approvals, Workflow, and Governance separate add-ons?',
-    answer: 'No. Approvals, Workflow, Tickets, Governance, and Documents are included free with every tenant on every plan - they are the substrate every engine runs on, not a tier you unlock later.',
+    question: 'Are Approvals, Workflow, Documents, Automation and Governance separate add-ons?',
+    answer: 'No. They operate as shared platform infrastructure underneath the enabled business engines rather than as another set of departmental applications to assemble.',
   },
   {
-    question: 'Do I need Commerce to use the Customer 360 add-on?',
-    answer: 'Yes. Customer 360 (CX360) requires Commerce because it anchors its lifecycle spine, health scoring, and churn-risk model on Commercial organization records.',
+    question: 'Can Billing run without Finance?',
+    answer: 'Yes. Billing is independently enabled and can run invoice, delivery, reminder and collection lifecycle without Finance. Payments and Finance can join later when required.',
   },
   {
-    question: 'Can I buy Finance or Marketing without the atomic packs?',
-    answer: 'Yes. Finance and Marketing are standalone products and can run independently of the Commerce or People atomic packs.',
+    question: 'What is still in development?',
+    answer: 'The next-generation Recruitment overhaul and parts of the broader Finance experience are still in development. Current product capability and complete-state direction are intentionally labelled separately.',
   },
   {
-    question: 'Is the Migration Engine an extra product I have to buy?',
-    answer: 'No. Governed data onboarding is included for every tenant - it is how you get your existing CRM, HRIS, finance, accounting, legacy-database, or file-based data onto the platform in the first place, not a separate line item.',
-  },
-  {
-    question: 'Do I need Finance to use Billing & Invoicing, or vice versa?',
-    answer: 'No. Billing & Invoicing and Payments are independent, separately entitled engines. Billing runs whether or not Finance is enabled for your tenant; when Finance is also enabled, billing activity posts into the same ledger automatically.',
+    question: 'Is the Migration Engine a separate line item?',
+    answer: 'Governed migration is part of the onboarding experience. It is designed to move existing CRM, HRIS, finance/accounting, legacy-database or file-based data into the platform with staging, reconciliation and verification controls.',
   },
 ]
 
 export default function ProductsClient() {
-  const [activeEngine, setActiveEngine] = useState('migration')
+  const [activeEngine, setActiveEngine] = useState('commerce')
   const engine = engines.find(e => e.id === activeEngine)!
 
   useEffect(() => {
@@ -543,21 +539,20 @@ export default function ProductsClient() {
       <section className="relative overflow-hidden py-24 md:py-32">
         <div className="container-page">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mx-auto max-w-4xl text-center"
           >
-            <span className="eyebrow">Products & Packaging</span>
+            <span className="eyebrow">Modular business engines</span>
             <h1 className="heading-serif mt-5 text-4xl md:text-5xl lg:text-[4.4rem] leading-[1.04]">
-              Every Engine. One Platform. Zero Drift.
+              Start focused. Add engines when the business is ready.
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
-              Two atomic packs, three standalone products, two add-ons, five platform capabilities,
-              and governed data onboarding included for every tenant. One business data model. Governed events. Atomic where it matters.
+              Infrakinetic is built for land and expand. Choose the business engines you need now, then add others later without rebuilding identity, documents, approvals, workflow, automation or governance around them.
             </p>
             <p className="mt-4 text-sm md:text-base text-white/65 max-w-2xl mx-auto">
-              Infrakinetic is priced as Commerce and People atomic packs, standalone Finance, Billing & Invoicing, and Marketing engines, and Customer 360 and Marketing Agency add-ons - with Approvals, Workflow, Tickets, Governance, Documents, and the Migration Engine included free for every tenant, on every plan.
+              CRM &amp; Sales, Billing &amp; Invoicing, Payments, Finance, HR &amp; Payroll, Customer Success, Marketing and Migration keep clear ownership. Shared platform infrastructure connects the experience without turning the product into one mandatory monolith.
             </p>
             <p className="mt-4 text-sm text-white/50 max-w-2xl mx-auto">
               See the{' '}
@@ -608,7 +603,7 @@ export default function ProductsClient() {
       {/* Active Engine Detail - CX360-level depth */}
       <motion.div
         key={activeEngine}
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
@@ -628,7 +623,7 @@ export default function ProductsClient() {
               {engine.features.map((feature, i) => (
                 <motion.div
                   key={feature}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.08 }}
                 >
@@ -658,7 +653,7 @@ export default function ProductsClient() {
             <Reveal variant="fade" className="mt-14">
               <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
                 <motion.div
-                  initial={{ opacity: 0, x: -24 }}
+                  initial={false}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
@@ -688,7 +683,7 @@ export default function ProductsClient() {
                       {engine.detail.healthComponents.map((comp) => (
                         <motion.div
                           key={comp.component}
-                          initial={{ opacity: 0, width: 0 }}
+                          initial={false}
                           animate={{ opacity: 1, width: '100%' }}
                           transition={{ duration: 0.6, delay: 0.05 }}
                           className="relative"
@@ -723,7 +718,7 @@ export default function ProductsClient() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, x: 24 }}
+                  initial={false}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
@@ -734,7 +729,7 @@ export default function ProductsClient() {
                         engine.detail.interventions.map((intervention) => (
                           <motion.div
                             key={intervention.date}
-                            initial={{ opacity: 0, y: 16 }}
+                            initial={false}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4 }}
                             className="p-4 rounded-xl border border-white/10 bg-white/[0.02]"
@@ -804,7 +799,7 @@ export default function ProductsClient() {
             <Reveal variant="fade" className="mt-14">
               <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
                 <motion.div
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                 >
@@ -819,7 +814,7 @@ export default function ProductsClient() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, x: 24 }}
+                  initial={false}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
@@ -835,7 +830,7 @@ export default function ProductsClient() {
                       ].map((factor, i) => (
                         <motion.div
                           key={factor.label}
-                          initial={{ opacity: 0, x: -20 }}
+                          initial={false}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.4, delay: i * 0.08 }}
                           className="relative"

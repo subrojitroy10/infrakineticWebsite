@@ -28,7 +28,7 @@ export default function ProofStrip({ stats, note, className = '' }: ProofStripPr
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 16 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 0.5, delay: i * 0.06 }}

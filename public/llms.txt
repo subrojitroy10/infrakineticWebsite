@@ -1,10 +1,14 @@
 # Infrakinetic
 
-> Infrakinetic replaces separate CRM, ERP, HR, and finance tools kept in sync
-> with integration middleware. Sales, finance, billing, payments, HR, payroll,
-> workflow, governance, customer success, and business data migration run on
-> one shared data model instead - no sync jobs, no middleware, no drift
-> between systems.
+> Infrakinetic is a modular business software platform from Polynovea.
+> Companies can start with the business engines they need now - such as CRM & Sales,
+> Billing & Invoicing, Finance, HR & Payroll, Customer Success, or Marketing - and add
+> other engines later without rebuilding the surrounding operating model.
+>
+> Documents, Approvals, Workflow, Automation, Governance, and shared work infrastructure
+> operate underneath enabled engines so those engines can share identity, authority,
+> business context, events, documents, and governed handoffs without becoming one
+> boundaryless application.
 
 ## Entity facts
 
@@ -13,100 +17,186 @@
 - Official product website: https://www.infrakinetic.in/
 - Official parent website: https://www.polynovea.in/
 - Product relationship: Infrakinetic is a Polynovea product, not a separate company or subsidiary.
-- Category: connected business operating system / business management software
-- Core search categories: CRM, ERP-style operations, HR, payroll, finance, document management, workflow automation, and CRM data migration
+- Product model: modular engines on shared platform infrastructure
+- Adoption model: land and expand; customers do not need to buy every engine
+- Brand/category language: connected business platform / business operating environment
+- Core search categories: CRM software, sales software, billing software, invoicing software, finance software, accounting operations, HR software, payroll software, customer success software, document management software, workflow automation, approval workflow software, and CRM / ERP / HRIS data migration
 
-## What is it?
+## What is Infrakinetic?
 
-Infrakinetic is both an operating foundation for running a business (CRM/sales,
-finance, billing & payments, HR/payroll, customer success, operations &
-governance) and a Migration Engine for governed onboarding of legacy data -
-discover, map, stage, execute, reconcile, verify - without losing the data's
-meaning.
+Infrakinetic is a connected business software platform made of independently owned and
+independently enabled business engines. A customer can begin with a focused starting
+stack and expand over time. The platform experience stays connected because engines share
+common identity, tenant context, governance, work, approvals, documents, business events,
+and navigation while preserving clear ownership boundaries between business domains.
+
+"Unified" does not mean every engine freely reads and writes every other engine's private
+state. Canonical engines own their business records and expose governed contracts for
+cross-engine work.
+
+## How buying and expansion work
+
+A customer does not have to adopt the whole platform.
+
+Examples:
+
+- CRM & Sales can be adopted as the commercial starting point.
+- Billing & Invoicing can run without Finance enabled.
+- Payments is independently entitled even though its product experience is closely connected to Billing.
+- Finance can be added when the business needs general-ledger accounting, fiscal controls, reconciliation, and reporting.
+- HR & Payroll can be adopted as a people-operations starting point.
+- Customer Success can extend the commercial lifecycle when the relevant commercial foundation is present.
+- New engines can be added later while continuing to use the same platform infrastructure.
+
+## Platform infrastructure included with enabled engines
+
+These are platform capabilities rather than another set of departmental applications the
+customer has to assemble separately:
+
+- Documents
+- Approvals
+- Workflow
+- Automation
+- Governance and access control
+- Work / Tickets
+- Shared identity and tenant context
+- Notifications and operational evidence
+
+Governed Migration is also part of the onboarding experience rather than an afterthought.
+
+## Current product families
+
+### CRM & Sales
+
+Organizations, contacts, opportunities, proposals, commercial agreements, deal progression,
+renewals, expansion and commercial handoffs.
+
+### Billing & Invoicing
+
+Billing rules and schedules, invoice generation, invoice documents, delivery, reminders,
+collection state and manual payment recording. Billing is independently enabled and can run
+without Finance.
+
+### Payments
+
+Provider connections, payment requests, payment observations, settlements, refunds,
+disputes, chargebacks and reconciliation support. Payment-provider observations are not
+silently treated as accounting truth.
+
+### Finance
+
+Accounting policy, journals, ledger/posting, budgets, fiscal controls, treasury/cash context,
+reconciliation and financial reporting foundations. Finance owns accounting truth and remains
+distinct from Billing and Payments.
+
+### HR & Payroll
+
+Employee records, workforce context, compensation, leave, payroll, payslips and governed
+people operations.
+
+### Customer Success
+
+Customer lifecycle state, health signals, interventions, relationship context, renewal and
+ongoing account continuity.
+
+### Marketing
+
+Campaigns, attribution, SEO intelligence, content operations and connected commercial context.
+
+### Migration Engine
+
+Governed onboarding for existing CRM, HRIS, finance/accounting, legacy database and file-based
+data. It discovers and maps source structure, stages data away from production, executes in
+dependency order, reconciles results, and requires explicit verification.
+
+## In development / WIP
+
+The website distinguishes complete-state direction from currently finished capability.
+
+### Recruitment overhaul - In Development
+
+The next-generation Recruitment experience is being rebuilt around job-description
+understanding, requirement integrity, evidence-backed candidate matching, talent-pool
+rediscovery, structured interviews and governed offers. Human recruiters and hiring managers
+remain responsible for progression and hiring decisions.
+
+### Finance experience expansion - In Development
+
+Finance already has canonical ownership for accounting truth, ledger, budgets and
+reconciliation. Broader Finance workspace and overhaul work is still being expanded and is
+not represented as complete today.
 
 ## What does the Migration Engine do?
 
-It discovers a source system's schema (entities, fields, relationships, custom
-objects), models what the data actually represents (not just field names),
-maps source structures to Infrakinetic's destination model with a confidence
-label, stages the result in a governed airlock separated from production,
-executes in dependency order, and validates and reconciles the outcome -
-record counts, relationship integrity, and financial totals - before a human
-signs off. Its latest production benchmark (28 Aug 2026) mapped a
-30,000-row, 30-column cross-engine dataset - 900,000 source data points -
-into 120,714 governed staging projections and executed all 107,114 eligible
-records with zero execution failures, preserving relationship integrity,
-lineage, and audit evidence throughout. Reconciliation and final human
-verification are the next evidence gate for that run, not yet complete.
+It discovers a source system's schema - entities, fields, relationships and custom structures -
+models what the data represents, maps source structures to governed destinations, stages the
+result in a separated airlock, executes in dependency order, and reconciles the outcome before
+a human signs off.
 
-## Why isn't a CSV importer enough?
+Latest published execution benchmark, 28 Aug 2026:
 
-Because real business systems contain relationships (a deal belongs to an
-account, a contact has compensation history), custom fields and objects,
-duplicate entities, and incompatible lifecycle states. A column-to-column
-CSV mapping breaks down the moment any of that is present.
+- 30,000 rows x 30 columns
+- 900,000 source data points
+- 120,714 governed staging projections
+- 107,114 eligible records executed
+- 0 execution failures
 
-## What makes Infrakinetic different?
+Reconciliation and final human verification are separate evidence gates and were not represented
+as complete for that benchmark.
 
-It treats migration as a systems problem - understand, map, move, prove -
-rather than a file-import problem. Bounded intelligence can assist ambiguous
-mapping decisions; deterministic mapping and human approval decide what
-actually executes. The architecture itself is part of the product: database-
-level tenant isolation, an append-only financial ledger, one shared approval
-framework, and governed cross-engine events.
+## Why is this different from a CSV importer?
 
-## Where does data come from?
+Real business systems contain relationships, custom fields and objects, duplicate entities,
+historical state and lifecycle semantics. A field-to-field CSV import can move rows while still
+breaking the meaning of the system. Infrakinetic treats migration as a governed systems problem:
+discover, map, stage, execute, reconcile and verify.
 
-Implemented source-onboarding paths cover CRM, finance/accounting, HRIS/payroll exports, legacy databases, and structured files -
-source-tested and normalized into the same governed pipeline. File-based
-onboarding: CSV, Excel, PDF, and Word for anything else. This is onboarding
-data into Infrakinetic, not a generic system-to-system migration product.
+## Architecture principles
 
-## Product families
-
-Commerce (CRM & sales), Finance, Billing & Payments (independently entitled
-from Finance), People (HR & payroll), Customer Success, Operations &
-Governance (approvals, workflow, tickets, documents - free for every tenant),
-and the Migration Engine.
-
-## Why should I trust the result?
-
-Because the migration is analyzed and mapping-scored before execution, staged
-in an environment separated from production, and validated with a
-reconciliation report afterward - not just an "import complete" message.
+- Canonical engine ownership: one engine owns each writable business aggregate and its invariants.
+- Explicit cross-engine contracts: connected does not mean private cross-engine persistence access.
+- Database-enforced tenant isolation for tenant-facing persistence.
+- Shared Approval, Workflow, Documents, Automation and Governance infrastructure.
+- Billing, Payments and Finance remain distinct business engines.
+- AI output is bounded and must not bypass deterministic business controls.
+- Important actions preserve evidence, attribution and governed state transitions.
 
 ## Key pages
 
-- [Homepage](https://www.infrakinetic.in/): why to stop syncing CRM, ERP, and HR tools, engineering proof, and product families
-- [Migration Engine](https://www.infrakinetic.in/migration): governed onboarding pipeline, source-onboarding paths, and category-specific guidance (CRM, HRIS, finance)
-- [CRM software](https://www.infrakinetic.in/crm-software): accounts, contacts, pipeline, quotes, renewals, agreements, and connected revenue operations
-- [ERP software](https://www.infrakinetic.in/erp-software): finance, people, payroll, workflow, governance, documents, and connected operations
-- [HR software](https://www.infrakinetic.in/hr-software): recruitment, workforce, compensation, payroll, performance, and employee lifecycle
-- [Workflow automation](https://www.infrakinetic.in/workflow-automation-software): approvals, workflow stages, tickets, SLA controls, routing, and event automation
-- [Payroll software](https://www.infrakinetic.in/payroll-software): governed payroll calculation, approvals, historical context, payslips, reconciliation, and finance handoff
-- [Finance software](https://www.infrakinetic.in/finance-software): journals, ledger controls, budgets, reconciliation, reporting, and governed financial handoffs
-- [Document management software](https://www.infrakinetic.in/document-management-software): document generation, storage, versions, search, approvals, lifecycle, and evidence
-- [CRM data migration](https://www.infrakinetic.in/crm-data-migration): schema discovery, mapping, staging, dependency-aware execution, reconciliation, and verification
-- [Business management software](https://www.infrakinetic.in/business-management-software): connected commercial, finance, people, documents, workflow, approvals, and customer operations
-- [Business Operating System](https://www.infrakinetic.in/business-operating-system): the category-level explanation of how Infrakinetic connects business functions
-- [Platform architecture](https://www.infrakinetic.in/platform): one shared data model for CRM, finance, and HR - no sync, no integration middleware, governed events, atomic transactions, database-level tenant isolation
-- [Products & packaging](https://www.infrakinetic.in/products): Commerce, Finance, Billing & Payments, People, Customer Success, Operations & Governance
-- [Request a briefing](https://www.infrakinetic.in/briefing): book a 60-minute technical walkthrough
+- [Homepage](https://www.infrakinetic.in/): modular product model, shared platform infrastructure, connected journeys, engineering proof and current development frontier
+- [Products](https://www.infrakinetic.in/products): current engine families, capabilities, product packaging and platform infrastructure
+- [Platform architecture](https://www.infrakinetic.in/platform): canonical engine ownership, governed events, tenant isolation and platform architecture
+- [Migration Engine](https://www.infrakinetic.in/migration): governed data onboarding and migration pipeline
+- [CRM software](https://www.infrakinetic.in/crm-software): accounts, contacts, pipeline, quotes, agreements, renewals and connected revenue operations
+- [Billing & invoicing software](https://www.infrakinetic.in/billing-software): billing rules, invoice generation, delivery, reminders, collections and optional Payments / Finance expansion
+- [Finance software](https://www.infrakinetic.in/finance-software): journals, ledger controls, budgets, reconciliation, reporting and accounting ownership
+- [HR software](https://www.infrakinetic.in/hr-software): employee lifecycle, workforce, compensation, payroll context and people operations
+- [Payroll software](https://www.infrakinetic.in/payroll-software): governed payroll calculation, approvals, historical context, payslips and reconciliation
+- [Document management software](https://www.infrakinetic.in/document-management-software): document generation, storage, versioning, governance, approvals and evidence
+- [Workflow automation](https://www.infrakinetic.in/workflow-automation-software): approvals, workflow stages, tickets, SLA controls, routing and business-event automation
+- [CRM data migration](https://www.infrakinetic.in/crm-data-migration): schema discovery, mapping, staging, dependency-aware execution, reconciliation and verification
+- [ERP software](https://www.infrakinetic.in/erp-software): familiar ERP-style finance, people, payroll, workflow and operating needs explained through Infrakinetic's modular architecture
+- [Business management software](https://www.infrakinetic.in/business-management-software): connected business software across multiple operating domains
+- [Business Operating System](https://www.infrakinetic.in/business-operating-system): category / positioning explanation, not the only search entry point
+- [Talk through your stack](https://www.infrakinetic.in/briefing): identify the smallest sensible starting stack for a real operational problem
 
 ## Guides
 
-Technical explainers on specific failure modes in CRM/ERP integration and migration, and how governed architecture avoids them.
+Infrakinetic publishes technical and buyer-oriented guides on CRM, finance, workflow,
+migration, integration failure modes, governance and cross-functional operations.
 
-- [Why CRM-to-ERP Sync Keeps Breaking](https://www.infrakinetic.in/guides/why-crm-erp-sync-breaks): the recurring structural reasons two-way CRM-ERP sync fails, including competing ownership, mapping drift, retries, ordering problems, and missing reconciliation
-- [How to Prevent CRM Data Drift](https://www.infrakinetic.in/guides/preventing-crm-data-drift): why scheduled audits and deduplication only manage drift after it happens, and how a governed event model with one shared record removes the condition that produces it
-- [How to Fix Data Sync Errors Between a CRM and Accounting](https://www.infrakinetic.in/guides/crm-accounting-sync-errors): the specific ways revenue data breaks (identity mismatches, field-ownership disputes, out-of-order events) and why reconciliation, not sync monitoring, is what actually catches them
-- [What a Unified Business Data Model Actually Means](https://www.infrakinetic.in/guides/unified-business-data-model): the architectural difference between unifying data for reporting (a warehouse), unifying it after reconciliation (MDM), and unifying it at the operating layer (no separate copies at all)
-- [Why "API-First" Isn't the Fix for CRM-ERP Integration](https://www.infrakinetic.in/guides/why-api-first-isnt-enough): a well-documented API solves the connection problem but not identity resolution, field ownership, or event ordering - a shared data model removes the need to connect at all
-- [Why ERP Implementations Fail, and Where Migration Fits In](https://www.infrakinetic.in/guides/erp-implementation-failure-rate): Gartner's 70%+ ERP failure rate is mostly attributed to leadership and planning, not software - migration is the phase where a broken technical rollout can confirm an organization's worst fears before the organizational work has a chance to succeed
-- [Transactional Integrity and Tenant Isolation, Explained](https://www.infrakinetic.in/guides/transactional-integrity-and-tenant-isolation): the difference between a shared business data model (across engines, one tenant) and a shared database schema (across tenants) - what ACID guarantees actually mean, and how Infrakinetic isolates tenants at the data layer while unifying engines
-- [CRM and Finance Integration Without Duplicate Records](https://www.infrakinetic.in/guides/crm-finance-integration-without-duplicates): why CRM-finance handoffs create duplicate customers and invoices, and how durable identity, idempotency, explicit ownership, and reconciliation prevent them
-- [The Hidden Cost of CRM-ERP Integration Middleware](https://www.infrakinetic.in/guides/hidden-cost-of-integration-middleware): where integration cost actually accumulates (automation subscriptions that scale with volume, custom connector builds, ongoing maintenance) outside the seat cost everyone budgets for
-- [What to Do When Disconnected Business Software Stops Scaling](https://www.infrakinetic.in/guides/outgrowing-disconnected-business-software): why upgrading CRM, finance, HR, and workflow silos separately can preserve the same cross-functional handoff problem at a larger scale
+Selected guides:
+
+- [Why CRM-to-ERP Sync Keeps Breaking](https://www.infrakinetic.in/guides/why-crm-erp-sync-breaks)
+- [How to Prevent CRM Data Drift](https://www.infrakinetic.in/guides/preventing-crm-data-drift)
+- [How to Fix Data Sync Errors Between a CRM and Accounting](https://www.infrakinetic.in/guides/crm-accounting-sync-errors)
+- [What a Unified Business Data Model Actually Means](https://www.infrakinetic.in/guides/unified-business-data-model)
+- [Why "API-First" Isn't the Fix for CRM-ERP Integration](https://www.infrakinetic.in/guides/why-api-first-isnt-enough)
+- [Why ERP Implementations Fail, and Where Migration Fits In](https://www.infrakinetic.in/guides/erp-implementation-failure-rate)
+- [Transactional Integrity and Tenant Isolation, Explained](https://www.infrakinetic.in/guides/transactional-integrity-and-tenant-isolation)
+- [CRM and Finance Integration Without Duplicate Records](https://www.infrakinetic.in/guides/crm-finance-integration-without-duplicates)
+- [The Hidden Cost of CRM-ERP Integration Middleware](https://www.infrakinetic.in/guides/hidden-cost-of-integration-middleware)
+- [What to Do When Disconnected Business Software Stops Scaling](https://www.infrakinetic.in/guides/outgrowing-disconnected-business-software)
 
 ## Contact
 

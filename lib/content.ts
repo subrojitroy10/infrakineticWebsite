@@ -199,12 +199,14 @@ export const navGroups: NavGroup[] = [
     label: 'Product',
     href: '/products',
     children: [
-      { label: 'Commerce', href: '/products#commerce' },
-      { label: 'Finance', href: '/products#finance' },
-      { label: 'Billing & Payments', href: '/products#billing' },
-      { label: 'People', href: '/products#people' },
+      { label: 'CRM & Sales', href: '/products#commerce' },
+      { label: 'Billing & Invoicing', href: '/products#billing' },
+      { label: 'Payments', href: '/products#billing' },
+      { label: 'Finance & Accounting', href: '/products#finance' },
+      { label: 'HR & Payroll', href: '/products#people' },
+      { label: 'Recruitment — In Development', href: '/products#people' },
       { label: 'Customer Success', href: '/products#customer360' },
-      { label: 'Operations & Governance', href: '/products#platform-infra' },
+      { label: 'Marketing', href: '/products#marketing' },
       { label: 'Migration', href: '/migration' },
     ],
   },
@@ -212,19 +214,22 @@ export const navGroups: NavGroup[] = [
     label: 'Platform',
     href: '/platform',
     children: [
+      { label: 'Platform Infrastructure', href: '/products#platform-infra' },
+      { label: 'Documents', href: '/document-management-software' },
+      { label: 'Approvals & Workflow', href: '/workflow-automation-software' },
+      { label: 'Governance & Security', href: '/platform#tenant-isolation' },
       { label: 'Architecture', href: '/platform#architecture' },
-      { label: 'Security & Isolation', href: '/platform#tenant-isolation' },
-      { label: 'Customer Intelligence', href: '/platform#signal-framework' },
     ],
   },
   {
     label: 'Solutions',
     children: [
       { label: 'CRM Software', href: '/crm-software' },
+      { label: 'Billing & Invoicing', href: '/billing-software' },
+      { label: 'Finance Software', href: '/finance-software' },
       { label: 'ERP Software', href: '/erp-software' },
       { label: 'HR Software', href: '/hr-software' },
       { label: 'Payroll Software', href: '/payroll-software' },
-      { label: 'Finance Software', href: '/finance-software' },
       { label: 'Document Management', href: '/document-management-software' },
       { label: 'Workflow Automation', href: '/workflow-automation-software' },
       { label: 'CRM Data Migration', href: '/crm-data-migration' },
@@ -242,30 +247,34 @@ export const footerGroups: FooterGroup[] = [
   {
     label: 'Product',
     items: [
-      { label: 'Commerce', href: '/products#commerce' },
-      { label: 'Finance', href: '/products#finance' },
-      { label: 'Billing & Payments', href: '/products#billing' },
-      { label: 'People', href: '/products#people' },
+      { label: 'CRM & Sales', href: '/products#commerce' },
+      { label: 'Billing & Invoicing', href: '/products#billing' },
+      { label: 'Payments', href: '/products#billing' },
+      { label: 'Finance & Accounting', href: '/products#finance' },
+      { label: 'HR & Payroll', href: '/products#people' },
       { label: 'Customer Success', href: '/products#customer360' },
-      { label: 'Operations & Governance', href: '/products#platform-infra' },
+      { label: 'Migration', href: '/migration' },
     ],
   },
   {
     label: 'Platform',
     items: [
+      { label: 'Platform Infrastructure', href: '/products#platform-infra' },
+      { label: 'Documents', href: '/document-management-software' },
+      { label: 'Approvals & Workflow', href: '/workflow-automation-software' },
+      { label: 'Governance & Security', href: '/platform#tenant-isolation' },
       { label: 'Architecture', href: '/platform#architecture' },
-      { label: 'Security & Isolation', href: '/platform#tenant-isolation' },
-      { label: 'Customer Intelligence', href: '/platform#signal-framework' },
     ],
   },
   {
     label: 'Solutions',
     items: [
       { label: 'CRM Software', href: '/crm-software' },
+      { label: 'Billing & Invoicing', href: '/billing-software' },
+      { label: 'Finance Software', href: '/finance-software' },
       { label: 'ERP Software', href: '/erp-software' },
       { label: 'HR Software', href: '/hr-software' },
       { label: 'Payroll Software', href: '/payroll-software' },
-      { label: 'Finance Software', href: '/finance-software' },
       { label: 'Document Management', href: '/document-management-software' },
       { label: 'Workflow Automation', href: '/workflow-automation-software' },
       { label: 'CRM Data Migration', href: '/crm-data-migration' },
@@ -727,27 +736,27 @@ export interface FAQItem {
 export const homeFaqItems: FAQItem[] = [
   {
     question: 'What is Infrakinetic?',
-    answer: 'Infrakinetic is a unified business operating system that runs commercial, workforce, finance, governance, and reporting on one shared database - replacing the CRM, HRIS, payroll, and workflow tools most companies stitch together with integrations.',
+    answer: 'Infrakinetic is a modular business software platform. Companies can start with the engines they need - such as CRM and Sales, Billing, Finance, HR and Payroll, or Customer Success - while shared Documents, Approvals, Workflow, Automation, and Governance infrastructure keeps enabled engines connected.',
   },
   {
-    question: 'Is Infrakinetic a CRM or an ERP?',
-    answer: 'Neither, on its own. It includes CRM-style pipeline and account management and ERP-style finance and operations, but is built around event-driven automation and a single shared data model rather than either category alone.',
+    question: 'Do we have to buy the entire Infrakinetic platform?',
+    answer: 'No. Infrakinetic is designed for land and expand. Business engines are independently enabled, so a company can begin with the specific operational problem it needs to solve and add other engines later without rebuilding the surrounding platform infrastructure.',
   },
   {
-    question: 'How is Infrakinetic different from using separate CRM, ERP, HR, and payroll tools?',
-    answer: 'Separate systems usually rely on APIs, exports, and duplicate records to stay aligned. Infrakinetic runs these operating functions on one connected platform with shared identity, governance, approvals, events, and business context, reducing the handoffs that create drift.',
+    question: 'What is included underneath every enabled engine?',
+    answer: 'Documents, Approvals, Workflow, Automation, Governance, and shared work infrastructure operate as platform capabilities rather than separate departmental applications. Governed migration is also part of the onboarding experience.',
   },
   {
-    question: 'Does Infrakinetic support multi-country payroll?',
-    answer: 'Yes. Each legal entity carries its own statutory rules, so payroll compliance is handled per country rather than forced through a single global template.',
+    question: 'Can Billing run without Finance?',
+    answer: 'Yes. Billing and Finance are distinct engines. Billing can manage invoices, delivery, reminders, collections, and related payment workflows without Finance being enabled. If Finance is added later, the accounting consequences can join the connected flow.',
   },
   {
-    question: 'Is Infrakinetic single-tenant or multi-tenant?',
-    answer: 'Multi-tenant with database-enforced row-level isolation per tenant. Cross-tenant data access and cross-tenant ML pooling are architecturally blocked, not just restricted by application logic.',
+    question: 'What is still in development?',
+    answer: 'The next-generation Recruitment overhaul and parts of the broader Finance experience are still in development. The website labels those areas explicitly instead of presenting complete-state product direction as if every capability were already finished.',
   },
   {
     question: 'Who is Infrakinetic built for?',
-    answer: 'Organizations that have outgrown a spreadsheet-and-team chat operating model and need commercial, workforce, and finance work to share one governed system instead of six disconnected tools with manual handoffs between them.',
+    answer: 'Organizations that have outgrown disconnected CRM, billing, HR, finance, workflow, and spreadsheet-based handoffs and want to improve one area now without creating another integration problem when they expand later.',
   },
 ]
 
@@ -779,8 +788,8 @@ export const migrationFaqItems: FAQItem[] = [
 ]
 
 export const cta: CTASection = {
-  eyebrow: 'Platform briefing',
-  title: 'Evaluate Infrakinetic as operating infrastructure.',
+  eyebrow: 'Find the right starting point',
+  title: 'Tell us what you need to fix first.',
   lead:
-    'Review how the platform connects commercial, workforce, finance, governance, and reporting workflows on one operational foundation.',
+    'You do not need to evaluate every Infrakinetic engine at once. Start with the workflow, system, or handoff that is creating the most friction and we will map the smallest sensible starting stack.',
 }

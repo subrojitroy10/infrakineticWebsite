@@ -209,6 +209,54 @@ export const searchIntents: SearchIntentPage[] = [
     ],
   },
   {
+    slug: 'billing-software',
+    eyebrow: 'Billing & Invoicing Software',
+    metaTitle: 'Billing & Invoicing Software for B2B Teams',
+    metaDescription:
+      'Create invoices, run billing schedules, send reminders, track collections and connect payments without requiring a full finance or accounting rollout.',
+    heroTitle: 'Billing software that does not force you to buy an accounting suite.',
+    lead:
+      'Infrakinetic Billing is independently enabled. It turns approved commercial facts into governed invoices, manages delivery and collection activity, and can connect to Payments and Finance only when your business needs those engines.',
+    capabilities: [
+      { title: 'Billing rules and schedules', description: 'Define governed billing profiles, charges, rates, schedules, milestones and recurring billing logic without burying them inside accounting configuration.' },
+      { title: 'Invoice generation', description: 'Create customer invoices from commercial facts, preview the document, issue a numbered version, deliver it and preserve the issued history.' },
+      { title: 'Reminders and collections', description: 'Run policy-driven reminders and collection follow-up while respecting disputes, holds and expected-payment context.' },
+      { title: 'Optional payment and finance connections', description: 'Add hosted payment requests, settlement context or accounting posting when Payments or Finance are enabled; Billing still works when they are not.' },
+    ],
+    useCases: [
+      { title: 'Standalone invoicing', description: 'Run B2B invoicing and collection operations without implementing a full general-ledger product first.' },
+      { title: 'Recurring and usage billing', description: 'Turn subscriptions, schedules, milestones or usage facts into deterministic invoice outcomes using governed rate configuration.' },
+      { title: 'Sales-to-billing handoff', description: 'Carry approved products, services, customer context and commercial terms into Billing without rebuilding the deal in another system.' },
+      { title: 'Billing-to-finance expansion', description: 'Start with invoicing today and add Finance later so accounting consequences join the same controlled operating flow.' },
+    ],
+    connections: ['CRM and Sales commercial facts', 'Documents and invoice generation', 'Payments when enabled', 'Finance when enabled', 'Approvals, workflow and automation'],
+    evaluation: [
+      'Can Billing operate independently from general-ledger accounting?',
+      'Can invoice rules and issued versions remain governed and traceable?',
+      'Can reminders and collections react to disputes, holds and payment expectations?',
+      'Can payment settlement connect without turning a provider notification into accounting truth?',
+      'Can Finance be added later without replacing the billing lifecycle?',
+    ],
+    evidence: [
+      { title: 'Independent entitlement', description: 'Billing is a distinct canonical engine and can run with Finance disabled rather than failing on a missing accounting dependency.' },
+      { title: 'Clear ownership', description: 'Billing owns customer billing and invoice lifecycle, Payments owns provider/payment lifecycle, and Finance owns accounting truth.' },
+      { title: 'Shared platform infrastructure', description: 'Documents, approvals, workflow, automation and governance support billing operations without becoming separate departmental tools.' },
+    ],
+    relatedGuides: [
+      { label: 'Invoice approval workflow', href: '/guides/invoice-approval-workflow' },
+      { label: 'Sales to finance handoff', href: '/guides/sales-to-finance-handoff' },
+      { label: 'CRM and finance integration without duplicates', href: '/guides/crm-finance-integration-without-duplicates' },
+    ],
+    relatedIntents: ['crm-software', 'finance-software', 'workflow-automation-software', 'business-management-software'],
+    faq: [
+      { question: 'Can I use Infrakinetic Billing without Finance?', answer: 'Yes. Billing is independently enabled and can manage invoice lifecycle, delivery, reminders and collection operations while Finance remains disabled.' },
+      { question: 'Does Billing include invoice generation?', answer: 'Yes. Billing can turn governed commercial inputs into invoice records and invoice documents, preserve issued versions, deliver invoices and track collection state.' },
+      { question: 'Can Billing connect to payment providers?', answer: 'Yes, when the Payments capability is enabled. Payment requests, provider observations, settlements, refunds and disputes remain a separate payment lifecycle rather than being treated as accounting truth.' },
+      { question: 'What happens if we add Finance later?', answer: 'Billing continues to own the customer billing lifecycle. Finance can then receive the appropriate accounting consequences through the connected platform without taking over invoice ownership.' },
+      { question: 'Does Billing use Infrakinetic approvals and workflow?', answer: 'Yes. Invoice approvals, exceptions, reminders, collection actions and related work can use the shared Approval, Workflow, Automation, Documents and Governance infrastructure.' },
+    ],
+  },
+  {
     slug: 'finance-software',
     eyebrow: 'Finance Software',
     metaTitle: 'Finance Software for Ledger & Reconciliation',

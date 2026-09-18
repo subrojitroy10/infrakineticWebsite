@@ -80,7 +80,7 @@ export default function Modules() {
                       <motion.div
                         key={step}
                         className="relative flex items-start gap-3 pb-4 last:pb-0"
-                        initial={{ opacity: 0, x: -10 }}
+                        initial={false}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, amount: 0.6 }}
                         transition={{ duration: 0.4, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}

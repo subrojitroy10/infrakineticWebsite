@@ -196,6 +196,43 @@ body::after {
   opacity: 0.5;
 }
 
+/* Progressive enhancement for reveal animations.
+ * Server-rendered HTML stays visible/readable. Only JS-capable browsers get
+ * the pre-animation hidden state after the head script adds html.js. */
+html.js [data-reveal='up'] {
+  opacity: 0;
+  transform: translateY(72px);
+  filter: blur(10px);
+}
+
+html.js [data-reveal='fade'] {
+  opacity: 0;
+  filter: blur(8px);
+}
+
+html.js [data-reveal='left'] {
+  opacity: 0;
+  transform: translateX(-72px) rotateY(-8deg);
+  filter: blur(10px);
+}
+
+html.js [data-reveal='right'] {
+  opacity: 0;
+  transform: translateX(72px) rotateY(8deg);
+  filter: blur(10px);
+}
+
+html.js [data-reveal='scale'] {
+  opacity: 0;
+  transform: scale(0.9);
+  filter: blur(12px);
+}
+
+html.js [data-reveal='soft-up'] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
 /* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -207,6 +244,12 @@ body::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
 

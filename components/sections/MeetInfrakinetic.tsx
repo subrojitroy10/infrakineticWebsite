@@ -80,7 +80,7 @@ export default function MeetInfrakinetic() {
                         ? 'bg-white/[0.05] border border-gold-300/30'
                         : 'bg-white/[0.02] border border-white/5 hover:border-gold-300/20 hover:bg-white/[0.04]'
                     }`}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={false}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: i * 0.04 }}
                   >

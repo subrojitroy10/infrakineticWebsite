@@ -26,19 +26,21 @@ const fields = [
 ]
 
 const areas = [
-  'Commercial',
-  'Workforce',
-  'Payroll',
-  'Finance',
-  'Governance',
-  'Reporting',
+  'CRM & Sales',
+  'Billing & Invoicing',
+  'Payments',
+  'Finance & Accounting',
+  'HR & Payroll',
+  'Recruitment',
+  'Customer Success',
+  'Migration',
 ]
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [picked, setPicked] = useState(['Commercial'])
+  const [picked, setPicked] = useState(['CRM & Sales'])
 
   const toggle = (area: string) =>
     setPicked((current) =>
@@ -107,25 +109,20 @@ export default function Contact() {
           className="mx-auto mb-16 max-w-3xl text-center"
         >
           <h2 className="heading-serif text-3xl md:text-4xl">
-            Why request a briefing instead of a demo?
+            Start with the problem, not the whole suite.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            A demo shows features. A briefing shows{' '}
-            <strong>
-              how the architecture solves your specific operational friction
-            </strong>
-            . We map your current context breaks (revenue, workforce, finance,
-            governance) to Infrakinetic&apos;s connected journeys - so you see
-            exactly where the platform eliminates manual handoffs,
-            reconciliation, and audit gaps.
+            Tell us which system, workflow, or handoff is creating the most friction.
+            We will show you the smallest sensible Infrakinetic starting point,
+            what platform infrastructure comes with it, and what you can add later.
           </p>
           <div className="mt-6 rounded-xl border border-brand-bronze/30 bg-brand-bronze/[0.06] p-4">
             <p className="text-sm font-semibold text-brand-bronze">
               Key takeaway:
             </p>
             <p className="mt-1 text-sm text-white/70">
-              Briefings are architecture consultations, not sales demos. You
-              leave with a migration map, not a pitch deck.
+              You do not need to buy every engine to get value from Infrakinetic.
+              The platform is designed to land with a focused stack and expand over time.
             </p>
           </div>
         </Reveal>
@@ -150,9 +147,9 @@ export default function Contact() {
               <Reveal variant="up" delay={0.15}>
                 <div className="mt-8 space-y-3 text-sm text-white/50">
                   {[
-                    'Operating model review',
-                    'Architecture and governance walkthrough',
-                    'Enterprise fit discussion',
+                    'Your first engine or engine combination',
+                    'What is included as platform infrastructure',
+                    'A realistic expansion and migration path',
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3">
                       <span className="grid h-5 w-5 place-items-center rounded-full bg-gold-400/20 text-gold-300">
@@ -172,23 +169,23 @@ export default function Contact() {
                   {[
                     {
                       icon: MessageSquare,
-                      title: 'Friction mapping',
-                      desc: 'We map your top 3 context breaks across revenue, workforce, finance',
+                      title: 'Problem mapping',
+                      desc: 'We start with the system or handoff you actually want to replace or improve',
                     },
                     {
                       icon: Calendar,
-                      title: 'Architecture walkthrough',
-                      desc: 'One business data model, governed events, atomic where it matters - live',
+                      title: 'Right-sized product walkthrough',
+                      desc: 'Only the relevant engines, plus the platform infrastructure underneath them',
                     },
                     {
                       icon: UsersIcon,
-                      title: 'Rollout sequence',
-                      desc: 'Recommended module activation order based on your org structure',
+                      title: 'Land-and-expand sequence',
+                      desc: 'A practical starting stack and the cleanest order for adding more engines later',
                     },
                     {
                       icon: Check,
                       title: 'Pricing framework',
-                      desc: 'Transparent per-module pricing with platform infra included',
+                      desc: 'Pricing framed around the engines you actually need, with platform infrastructure included',
                     },
                   ].map((step) => (
                     <div key={step.title} className="flex items-start gap-3">
@@ -289,7 +286,7 @@ export default function Contact() {
                       disabled={submitting}
                       className="btn-primary w-full disabled:opacity-60"
                     >
-                      {submitting ? 'Sending…' : 'Request a platform briefing'}
+                      {submitting ? 'Sending…' : 'Show me the right starting point'}
                       {!submitting && <ArrowRight size={15} />}
                     </button>
                     {error ? (

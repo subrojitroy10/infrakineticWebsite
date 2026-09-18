@@ -52,7 +52,8 @@ export default function Reveal({
   return (
     <MotionTag
       className={className}
-      initial="hidden"
+      data-reveal={variant}
+      initial={false}
       whileInView="show"
       viewport={{ once: false, amount }}
       transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}

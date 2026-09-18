@@ -108,7 +108,7 @@ export default function Intelligence() {
               return (
                 <motion.div
                   key={tier.id}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   className={`relative overflow-hidden rounded-2xl border ${accent.border} bg-white/[0.02] p-6 transition-colors ${accent.ring}`}
@@ -165,7 +165,7 @@ export default function Intelligence() {
               {shapExample.factors.map((factor, i) => (
                 <motion.div
                   key={factor.label}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={false}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                   className="relative"

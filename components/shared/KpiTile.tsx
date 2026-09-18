@@ -44,7 +44,7 @@ export default function KpiTile({
     <motion.div
       className={`rounded-xl border p-4 transition-all ${variantStyles[variant]} ${className}`}
       style={style}
-      initial={{ opacity: 0, y: 16 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

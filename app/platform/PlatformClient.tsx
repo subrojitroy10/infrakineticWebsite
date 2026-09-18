@@ -89,7 +89,7 @@ export default function PlatformClient() {
       <section className="relative overflow-hidden py-24 md:py-32">
         <div className="container-page">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mx-auto max-w-4xl text-center"
@@ -128,7 +128,7 @@ export default function PlatformClient() {
             {architecturePillars.map((pillar, i) => (
               <motion.div
                 key={pillar.title}
-                initial={{ opacity: 0, y: 24 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
               >
@@ -181,7 +181,7 @@ export default function PlatformClient() {
                   <motion.div
                     key={state.id}
                     layout
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={false}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: 0.04 }}
                     className={`flex items-center gap-2 px-3 py-2 rounded-xl border bg-white/[0.02] ${state.sticky ? 'border-gold-300/30' : 'border-white/10'}`}

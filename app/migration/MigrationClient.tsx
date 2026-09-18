@@ -184,7 +184,7 @@ export default function MigrationClient() {
       <section id="migration-top" className="relative py-24 md:py-32">
         <div className="container-page">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mx-auto max-w-4xl text-center"
