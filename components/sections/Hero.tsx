@@ -8,14 +8,16 @@ const buyerCategories = [
   { label: 'CRM & Sales', href: '/crm-software' },
   { label: 'Billing & Invoicing', href: '/billing-software' },
   { label: 'Finance & Accounting', href: '/finance-software' },
-  { label: 'HR & Payroll', href: '/hr-software' },
+  { label: 'HR', href: '/hr-software' },
+  { label: 'Payroll', href: '/payroll-software' },
 ]
 
 const starterEngines = [
   { label: 'CRM & Sales', state: 'Start here', icon: Target },
   { label: 'Billing & Invoicing', state: 'Start here', icon: FileText },
   { label: 'Finance', state: 'Add when needed', icon: Wallet },
-  { label: 'HR & Payroll', state: 'Add when needed', icon: Users },
+  { label: 'HR', state: 'Add when needed', icon: Users },
+  { label: 'Payroll', state: 'Add when needed', icon: Wallet },
 ]
 
 const foundation = ['Documents', 'Approvals', 'Workflow', 'Automation', 'Governance']
@@ -96,7 +98,7 @@ export default function Hero() {
                 </span>
               </div>
 
-              <div className="grid gap-3 p-4 sm:grid-cols-2 md:p-5">
+              <div className="grid gap-3 p-4 sm:grid-cols-2 md:p-5 [&>*:last-child]:sm:col-span-2">
                 {starterEngines.map((engine, index) => (
                   <motion.div
                     key={engine.label}

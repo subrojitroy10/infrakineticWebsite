@@ -2,7 +2,7 @@
 
 > Infrakinetic is a modular business software platform from Polynovea.
 > Companies can start with the business engines they need now - such as CRM & Sales,
-> Billing & Invoicing, Finance, HR & Payroll, Customer Success, or Marketing - and add
+> Billing & Invoicing, Finance, HR, Payroll, Customer Success, or Marketing - and add
 > other engines later without rebuilding the surrounding operating model.
 >
 > Documents, Approvals, Workflow, Automation, Governance, and shared work infrastructure
@@ -44,7 +44,8 @@ Examples:
 - Billing & Invoicing can run without Finance enabled.
 - Payments is independently entitled even though its product experience is closely connected to Billing.
 - Finance can be added when the business needs general-ledger accounting, fiscal controls, reconciliation, and reporting.
-- HR & Payroll can be adopted as a people-operations starting point.
+- HR and Payroll are separate engines and can be adopted independently according to the operating need.
+- Recruitment is a separate engine again; its next-generation overhaul is explicitly in development.
 - Customer Success can extend the commercial lifecycle when the relevant commercial foundation is present.
 - New engines can be added later while continuing to use the same platform infrastructure.
 
@@ -89,10 +90,21 @@ Accounting policy, journals, ledger/posting, budgets, fiscal controls, treasury/
 reconciliation and financial reporting foundations. Finance owns accounting truth and remains
 distinct from Billing and Payments.
 
-### HR & Payroll
+### HR
 
-Employee records, workforce context, compensation, leave, payroll, payslips and governed
-people operations.
+Employee records, employment context, organizational placement, leave, compensation context,
+onboarding and governed people lifecycle changes. HR does not own Payroll or Recruitment.
+
+### Payroll
+
+Payroll computation, run lifecycle, approvals, lock state, payslips, arrears, off-cycle processing,
+full-and-final settlement and payroll evidence. Payroll consumes governed employee and compensation
+context from HR while remaining independently owned.
+
+### Recruitment
+
+Recruitment is separately owned from HR and Payroll. The current hiring workflow remains available;
+the next-generation Recruitment overhaul is in development.
 
 ### Customer Success
 

@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ProductsClient from './ProductsClient'
 
 export const metadata: Metadata = {
-  title: 'Modular CRM, Billing, Finance, HR & Payroll Software',
+  title: 'Modular CRM, Billing, Finance, HR & Payroll Engines',
   description:
-    'Explore Infrakinetic business engines for CRM & Sales, Billing & Invoicing, Payments, Finance, HR & Payroll, Customer Success and more. Start focused, then add engines without rebuilding the shared platform infrastructure.',
+    'Explore Infrakinetic business engines for CRM & Sales, Billing & Invoicing, Payments, Finance, HR, Payroll, Recruitment, Customer Success and more. Start focused, then add engines without rebuilding shared platform infrastructure.',
   alternates: {
     canonical: 'https://www.infrakinetic.in/products',
   },

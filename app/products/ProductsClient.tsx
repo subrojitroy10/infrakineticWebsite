@@ -130,42 +130,113 @@ const engines = [
     },
   },
   {
-    id: 'people',
-    label: 'HR & Payroll',
+    id: 'hr',
+    label: 'HR',
     icon: Users,
     color: 'violet',
-    subtitle: 'Connected People Engines - Recruitment Overhaul In Development',
-    description: 'HR, workforce, compensation, leave and payroll share governed employee context without becoming one undifferentiated module. The current recruitment workflow remains connected to the people domain; the next-generation Recruitment overhaul is explicitly in development.',
+    subtitle: 'Standalone People Engine',
+    description: 'HR owns the employee record and core people operations: employment context, organizational placement, leave, compensation context, onboarding and governed employee lifecycle changes. Payroll and Recruitment connect to HR, but remain separate engines with their own responsibilities.',
     kpis: [
       { label: 'Headcount', value: '342', icon: Users, variant: 'neutral', delta: '+12' },
-      { label: 'Time to Fill', value: '38 days', icon: ChartBar, variant: 'positive', delta: '-5 days' },
-      { label: 'Payroll Accuracy', value: '99.9%', icon: Shield, variant: 'positive', delta: '+0.1%' },
-      { label: 'eNPS', value: '67', icon: HeartPulse, variant: 'positive', delta: '+8' },
+      { label: 'Active Employees', value: '329', icon: Users, variant: 'positive' },
+      { label: 'Leave Requests', value: '18', icon: Activity, variant: 'neutral' },
+      { label: 'Onboarding', value: '11', icon: Briefcase, variant: 'neutral' },
     ] satisfies EngineKpi[],
     features: [
-      'Recruitment workflow today; next-generation job understanding and evidence-backed matching overhaul in development',
-      'Compensation versioning with retroactive-adjustment detection',
-      'Leave management with policy-based approval routing',
-      'Payroll: dependency-ordered calculation, dual approval, immutable lock',
-      'Statutory compliance reminders (PF, ESI, TDS) across multiple countries',
+      'Employee records, employment context and organization placement',
+      'Leave and people-policy workflows with approval routing',
+      'Compensation context and effective-dated employee changes',
+      'Onboarding, offboarding and governed lifecycle transitions',
+      'Native connections to separate Recruitment, Payroll, Performance and Equity engines',
     ],
     detail: {
       healthComponents: [
-        { component: 'Retention', score: 88, weight: 100, detail: '92% 12-month retention', color: 'gold' },
-        { component: 'Onboarding Completion', score: 94, weight: 100, detail: '6/6 milestones avg', color: 'gold' },
-        { component: 'Payroll Timeliness', score: 99, weight: 100, detail: 'Zero late payments', color: 'gold' },
-        { component: 'Compliance Score', score: 96, weight: 100, detail: 'Zero audit findings', color: 'violet' },
+        { component: 'Employee Record Completeness', score: 94, weight: 100, detail: 'Core people records complete and governed', color: 'gold' },
+        { component: 'Onboarding Progress', score: 88, weight: 100, detail: 'Active onboarding workflows', color: 'gold' },
+        { component: 'Leave Workflow', score: 96, weight: 100, detail: 'Policy and approval routing active', color: 'violet' },
+        { component: 'People Data Governance', score: 97, weight: 100, detail: 'Role and team-scoped access', color: 'violet' },
       ],
-      interventions: [
-        { date: '2026-07-10', type: 'retention_program', description: 'High-performer retention plan', outcome: 'recovered', health_before: 72, health_after: 89 },
-        { date: '2026-05-15', type: 'comp_adjustment', description: 'Market adjustment for engineers', outcome: 'recovered', health_before: 65, health_after: 84 },
-      ],
+      interventions: [],
       actions: [
-        { action: 'initiate_offboarding', icon: RefreshCw, label: 'Initiate Offboarding', desc: 'Checklist + knowledge transfer', color: 'gold', variant: 'primary' },
-        { action: 'run_payroll', icon: Zap, label: 'Run Payroll', desc: 'Validated against governed records', color: 'gold', variant: 'primary' },
-        { action: 'send_compliance_alert', icon: Bell, label: 'Send Compliance Alert', desc: 'EPF/ESI deadline reminders', color: 'violet', variant: 'secondary' },
-        { action: 'generate_offer_letter', icon: FileText, label: 'Generate Offer Letter', desc: 'From approved template', color: 'violet', variant: 'secondary' },
-        { action: 'log_performance_review', icon: Activity, label: 'Log Performance Review', desc: 'Structured + calibrated', color: 'violet', variant: 'secondary' },
+        { action: 'create_employee', icon: Users, label: 'Create Employee', desc: 'Start a governed employee record', color: 'gold', variant: 'primary' },
+        { action: 'start_onboarding', icon: Briefcase, label: 'Start Onboarding', desc: 'Launch role-aware onboarding work', color: 'gold', variant: 'primary' },
+        { action: 'request_leave', icon: Activity, label: 'Request Leave', desc: 'Policy-driven approval flow', color: 'violet', variant: 'secondary' },
+        { action: 'update_compensation', icon: Wallet, label: 'Update Compensation', desc: 'Versioned and approval-aware', color: 'violet', variant: 'secondary' },
+        { action: 'initiate_offboarding', icon: RefreshCw, label: 'Initiate Offboarding', desc: 'Governed transition and checklist', color: 'red', variant: 'danger' },
+      ],
+    },
+  },
+  {
+    id: 'payroll',
+    label: 'Payroll',
+    icon: Wallet,
+    color: 'gold',
+    subtitle: 'Standalone Payroll Engine',
+    description: 'Payroll is a separate engine from HR. It owns payroll computation, run lifecycle, approval and lock state, payslips, arrears, off-cycle processing and payroll evidence. It consumes governed employee and compensation context from HR without turning HR into the payroll system.',
+    kpis: [
+      { label: 'Employees in Run', value: '329', icon: Users, variant: 'neutral' },
+      { label: 'Gross Payroll', value: '$428K', icon: Wallet, variant: 'neutral' },
+      { label: 'Exceptions', value: '3', icon: AlertTriangle, variant: 'warning' },
+      { label: 'Run Status', value: 'Reviewed', icon: Shield, variant: 'positive' },
+    ] satisfies EngineKpi[],
+    features: [
+      'Dependency-ordered payroll calculation with pre-run validation',
+      'Review, approval and immutable run locking',
+      'Effective-dated compensation context for historical accuracy',
+      'Payslips, arrears, off-cycle runs and full-and-final settlement',
+      'Governed posting handoff to Finance without surrendering payroll ownership',
+    ],
+    detail: {
+      healthComponents: [
+        { component: 'Input Readiness', score: 97, weight: 100, detail: 'Employee and compensation inputs validated', color: 'gold' },
+        { component: 'Calculation Integrity', score: 99, weight: 100, detail: 'Dependency-ordered computation', color: 'gold' },
+        { component: 'Approval Coverage', score: 100, weight: 100, detail: 'Run review and approval gates', color: 'violet' },
+        { component: 'Finance Reconciliation', score: 95, weight: 100, detail: 'Posting handoff remains reconcilable', color: 'violet' },
+      ],
+      interventions: [],
+      actions: [
+        { action: 'prepare_payroll', icon: RefreshCw, label: 'Prepare Payroll', desc: 'Validate run inputs', color: 'gold', variant: 'primary' },
+        { action: 'run_payroll', icon: Zap, label: 'Run Payroll', desc: 'Compute governed payroll', color: 'gold', variant: 'primary' },
+        { action: 'approve_payroll', icon: Shield, label: 'Approve & Lock', desc: 'Freeze reviewed results', color: 'violet', variant: 'secondary' },
+        { action: 'generate_payslips', icon: FileText, label: 'Generate Payslips', desc: 'Document-engine governed output', color: 'violet', variant: 'secondary' },
+        { action: 'reconcile_payroll', icon: Activity, label: 'Reconcile', desc: 'Check downstream posting totals', color: 'violet', variant: 'secondary' },
+      ],
+    },
+  },
+  {
+    id: 'recruitment',
+    label: 'Recruitment',
+    icon: Briefcase,
+    color: 'violet',
+    subtitle: 'Standalone Recruitment Engine · Next-Generation Overhaul In Development',
+    description: 'Recruitment is a separate engine from HR and Payroll. The current hiring workflow remains part of the product today; the next-generation overhaul for job understanding, requirement-integrity review, evidence-backed candidate matching and deeper talent intelligence is explicitly in development.',
+    kpis: [
+      { label: 'Open Requisitions', value: '12', icon: Briefcase, variant: 'neutral' },
+      { label: 'Applications', value: '186', icon: Users, variant: 'neutral' },
+      { label: 'In Interview', value: '21', icon: Target, variant: 'neutral' },
+      { label: 'Product State', value: 'In Development', icon: Activity, variant: 'warning' },
+    ] satisfies EngineKpi[],
+    features: [
+      'Current requisition, application, interview and offer workflow',
+      'In development: full job-description and work-requirement understanding',
+      'In development: requirement-integrity checks before weak filters reject candidates',
+      'In development: evidence-backed and transferable-skill candidate matching',
+      'In development: governed talent knowledge base and candidate rediscovery',
+    ],
+    detail: {
+      healthComponents: [
+        { component: 'Current Hiring Workflow', score: 100, weight: 100, detail: 'Requisition through offer remains available', color: 'gold' },
+        { component: 'JD Understanding Overhaul', score: 0, weight: 100, detail: 'In development', color: 'violet' },
+        { component: 'Evidence Matching', score: 0, weight: 100, detail: 'In development', color: 'violet' },
+        { component: 'Talent Knowledge Base', score: 0, weight: 100, detail: 'In development', color: 'violet' },
+      ],
+      interventions: [],
+      actions: [
+        { action: 'create_requisition', icon: Briefcase, label: 'Create Requisition', desc: 'Start a governed hiring request', color: 'gold', variant: 'primary' },
+        { action: 'review_applications', icon: Users, label: 'Review Applications', desc: 'Current candidate workflow', color: 'gold', variant: 'primary' },
+        { action: 'schedule_interview', icon: Target, label: 'Schedule Interview', desc: 'Structured hiring workflow', color: 'violet', variant: 'secondary' },
+        { action: 'generate_offer', icon: FileText, label: 'Generate Offer', desc: 'Governed document output', color: 'violet', variant: 'secondary' },
+        { action: 'convert_to_hire', icon: Check, label: 'Convert to Hire', desc: 'Hand off to HR after acceptance', color: 'violet', variant: 'secondary' },
       ],
     },
   },
@@ -214,8 +285,8 @@ const engines = [
     label: 'Billing & Invoicing',
     icon: FileText,
     color: 'violet',
-    subtitle: 'Standalone Engine - Independent of Finance · Payments Optional',
-    description: 'Billing runs whether or not Finance is enabled. It owns billing rules, invoice generation, delivery, reminders and collection lifecycle. Payments is a separate, independently entitled capability that can join the flow when needed; Finance can also be added later without taking over Billing ownership.',
+    subtitle: 'Standalone Billing Engine - Independent of Finance',
+    description: 'Billing is a standalone engine. It owns billing configuration, deterministic rating, invoice generation, delivery, reminders and collection-oriented lifecycle. It can run without Finance or Payments; either engine can be enabled later without taking over Billing ownership.',
     kpis: [
       { label: 'Invoices / Month', value: '412', icon: FileText, variant: 'neutral', delta: '+9%' },
       { label: 'Outstanding', value: '$186K', icon: Wallet, variant: 'warning' },
@@ -227,22 +298,59 @@ const engines = [
       'Deterministic rating engine - fixed, tiered, usage, milestone, and prorated billing rules',
       'Governed, versioned billing configuration - nothing changes underneath a live rate card',
       'Automated invoice documents, delivery, and policy-driven reminders',
-      'Optional Payments engine for payment requests, provider activity, settlement ingestion and reconciliation',
+      'Independent lifecycle that can run whether or not Payments or Finance is enabled',
     ],
     detail: {
       healthComponents: [
         { component: 'Invoice Integrity', score: 98, weight: 100, detail: 'Immutable, hashed issued snapshots', color: 'gold' },
         { component: 'Rating Accuracy', score: 99, weight: 100, detail: 'Deterministic fixed-point rating engine', color: 'gold' },
         { component: 'Reminder Delivery', score: 96, weight: 100, detail: 'Policy-driven, pauses on dispute/hold', color: 'violet' },
-        { component: 'Payment Reconciliation', score: 92, weight: 100, detail: 'Automated settlement matching', color: 'violet' },
+        { component: 'Collection Lifecycle', score: 92, weight: 100, detail: 'Reminder and collection state remains Billing-owned', color: 'violet' },
       ],
       interventions: [],
       actions: [
         { action: 'generate_invoice', icon: FileText, label: 'Generate Invoice', desc: 'From a governed billing run', color: 'gold', variant: 'primary' },
         { action: 'send_reminder', icon: Bell, label: 'Send Reminder', desc: 'Policy-driven, pausable', color: 'gold', variant: 'primary' },
-        { action: 'record_payment', icon: Zap, label: 'Record Payment', desc: 'Via certified payment connection', color: 'violet', variant: 'secondary' },
-        { action: 'reconcile_settlement', icon: Shield, label: 'Reconcile Settlement', desc: 'Batch match + exceptions', color: 'violet', variant: 'secondary' },
+        { action: 'pause_collection', icon: Shield, label: 'Pause Collection', desc: 'Dispute or expected-payment hold', color: 'violet', variant: 'secondary' },
+        { action: 'review_collections', icon: Activity, label: 'Review Collections', desc: 'Outstanding and reminder state', color: 'violet', variant: 'secondary' },
         { action: 'view_invoice_history', icon: Activity, label: 'View Invoice History', desc: 'Full issued-version trail', color: 'violet', variant: 'secondary' },
+      ],
+    },
+  },
+  {
+    id: 'payments',
+    label: 'Payments',
+    icon: Wallet,
+    color: 'violet',
+    subtitle: 'Standalone Payments Engine · Independently Entitled',
+    description: 'Payments is separate from both Billing and Finance. It owns payment-provider connections, payment requests and observations, settlement evidence, refunds, disputes and chargebacks. Billing can use payment evidence without owning provider state, and Finance decides separately how trusted payment facts enter accounting.',
+    kpis: [
+      { label: 'Payment Requests', value: '286', icon: Wallet, variant: 'neutral' },
+      { label: 'Settlements', value: '42', icon: Check, variant: 'positive' },
+      { label: 'Exceptions', value: '4', icon: AlertTriangle, variant: 'warning' },
+      { label: 'Provider Links', value: '3', icon: Shield, variant: 'neutral' },
+    ] satisfies EngineKpi[],
+    features: [
+      'Independent payment-provider connections and encrypted credentials',
+      'Hosted payment requests and verified payment observations',
+      'Settlement ingestion and reconciliation support',
+      'Approval-gated refunds, disputes and chargeback adjustments',
+      'Governed handoff to Billing and Finance without collapsing ownership boundaries',
+    ],
+    detail: {
+      healthComponents: [
+        { component: 'Provider Verification', score: 98, weight: 100, detail: 'Verified observations before critical state is trusted', color: 'gold' },
+        { component: 'Settlement Coverage', score: 94, weight: 100, detail: 'Settlement evidence available for reconciliation', color: 'gold' },
+        { component: 'Adjustment Governance', score: 100, weight: 100, detail: 'Refunds and disputes route through approval', color: 'violet' },
+        { component: 'Owner Boundary', score: 100, weight: 100, detail: 'Billing and Finance transitions delegated to owning engines', color: 'violet' },
+      ],
+      interventions: [],
+      actions: [
+        { action: 'create_payment_request', icon: Wallet, label: 'Create Payment Request', desc: 'Provider-backed collection request', color: 'gold', variant: 'primary' },
+        { action: 'verify_payment', icon: Shield, label: 'Verify Payment', desc: 'Confirm provider-side observation', color: 'gold', variant: 'primary' },
+        { action: 'reconcile_settlement', icon: Activity, label: 'Reconcile Settlement', desc: 'Match settlement evidence', color: 'violet', variant: 'secondary' },
+        { action: 'request_refund', icon: RefreshCw, label: 'Request Refund', desc: 'Approval-gated adjustment', color: 'violet', variant: 'secondary' },
+        { action: 'review_dispute', icon: AlertTriangle, label: 'Review Dispute', desc: 'Track dispute evidence', color: 'red', variant: 'danger' },
       ],
     },
   },
@@ -482,8 +590,11 @@ const engines = [
 const engineOrder = [
   'commerce',
   'billing',
+  'payments',
   'finance',
-  'people',
+  'hr',
+  'payroll',
+  'recruitment',
   'customer360',
   'marketing',
   'operations',
@@ -512,7 +623,7 @@ const productsFaqItems = [
   },
   {
     question: 'What is still in development?',
-    answer: 'The next-generation Recruitment overhaul and parts of the broader Finance experience are still in development. Current product capability and complete-state direction are intentionally labelled separately.',
+    answer: 'Recruitment is a separate engine from HR and Payroll. Its current hiring workflow is available, while the next-generation Recruitment overhaul and parts of the broader Finance experience are still in development. Current product capability and complete-state direction are intentionally labelled separately.',
   },
   {
     question: 'Is the Migration Engine a separate line item?',
@@ -525,18 +636,24 @@ export default function ProductsClient() {
   const engine = engines.find(e => e.id === activeEngine)!
 
   useEffect(() => {
-    const hash = window.location.hash.replace('#', '')
-    if (hash && engines.some((e) => e.id === hash)) {
+    const syncEngineFromHash = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (!hash || !engines.some((e) => e.id === hash)) return
+
       setActiveEngine(hash)
-      requestAnimationFrame(() => {
+      window.setTimeout(() => {
         document.getElementById(hash)?.scrollIntoView({ block: 'start' })
-      })
+      }, 0)
     }
+
+    syncEngineFromHash()
+    window.addEventListener('hashchange', syncEngineFromHash)
+    return () => window.removeEventListener('hashchange', syncEngineFromHash)
   }, [])
 
   return (
     <div className="relative pt-16">
-      <section className="relative overflow-hidden py-24 md:py-32">
+      <section className="relative overflow-hidden pb-10 pt-12 md:pb-12 md:pt-16">
         <div className="container-page">
           <motion.div
             initial={false}
@@ -552,7 +669,7 @@ export default function ProductsClient() {
               Infrakinetic is built for land and expand. Choose the business engines you need now, then add others later without rebuilding identity, documents, approvals, workflow, automation or governance around them.
             </p>
             <p className="mt-4 text-sm md:text-base text-white/65 max-w-2xl mx-auto">
-              CRM &amp; Sales, Billing &amp; Invoicing, Payments, Finance, HR &amp; Payroll, Customer Success, Marketing and Migration keep clear ownership. Shared platform infrastructure connects the experience without turning the product into one mandatory monolith.
+              CRM &amp; Sales, Billing &amp; Invoicing, Payments, Finance, HR, Payroll, Recruitment, Customer Success, Marketing and Migration keep clear ownership. Shared platform infrastructure connects the experience without turning the product into one mandatory monolith.
             </p>
             <p className="mt-4 text-sm text-white/50 max-w-2xl mx-auto">
               See the{' '}
@@ -570,9 +687,9 @@ export default function ProductsClient() {
       </section>
 
       {/* Engine Selector Tabs */}
-      <Section id="engine-selector" className="py-12">
-        <Reveal variant="fade" className="mt-8">
-          <div className="flex flex-wrap items-center justify-center gap-3">
+      <Section id="engine-selector" className="py-4 md:py-5">
+        <Reveal variant="fade" className="mt-0">
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
             {engineOrder.map((engineId) => {
               const eng = engines.find(e => e.id === engineId)!
               const isActive = activeEngine === engineId
@@ -583,7 +700,7 @@ export default function ProductsClient() {
                     setActiveEngine(engineId)
                     window.history.replaceState(null, '', `#${engineId}`)
                   }}
-                  className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                     isActive
                       ? `bg-gold-300/20 border-gold-300/40 text-gold-300 shadow-[0_0_20px_rgba(230,211,163,0.2)]`
                       : 'border-white/10 bg-white/[0.02] text-white/60 hover:border-gold-300/30 hover:bg-gold-300/[0.04] hover:text-white'
@@ -608,7 +725,7 @@ export default function ProductsClient() {
         transition={{ duration: 0.4 }}
       >
         {/* Hero / KPIs */}
-        <Section id={engine.id} eyebrow={engine.subtitle} title={engine.label} lead={engine.description}>
+        <Section id={engine.id} eyebrow={engine.subtitle} title={engine.label} lead={engine.description} className="pb-20 pt-8 md:pb-24 md:pt-10 scroll-mt-24">
           <Reveal variant="fade" className="mt-10">
             <KpiTileRow tiles={engine.kpis} gap="gap-3 sm:gap-4" />
             <p className="mt-3 text-xs text-white/65">

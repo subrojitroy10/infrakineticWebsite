@@ -25,7 +25,7 @@ const engines = [
   {
     title: 'Payments',
     searchLabel: 'Payment operations',
-    href: '/billing-software',
+    href: '/products#payments',
     description: 'Payment requests, provider observations, settlements, refunds, disputes and reconciliation support.',
     status: 'Available',
     statusTone: 'available',
@@ -41,13 +41,22 @@ const engines = [
     icon: Wallet,
   },
   {
-    title: 'HR & Payroll',
-    searchLabel: 'HR & payroll software',
+    title: 'HR',
+    searchLabel: 'HR software',
     href: '/hr-software',
-    description: 'Employee records, workforce context, compensation, leave and governed payroll operations.',
+    description: 'Employee records, employment context, organizational structure, leave, compensation context and people operations.',
     status: 'Available',
     statusTone: 'available',
     icon: Users,
+  },
+  {
+    title: 'Payroll',
+    searchLabel: 'Payroll software',
+    href: '/payroll-software',
+    description: 'Payroll calculation, run approval, lock state, payslips, arrears, off-cycle processing and reconciliation.',
+    status: 'Available',
+    statusTone: 'available',
+    icon: Wallet,
   },
   {
     title: 'Customer Success',
@@ -61,7 +70,7 @@ const engines = [
   {
     title: 'Recruitment',
     searchLabel: 'Recruitment / ATS software',
-    href: '/products#people',
+    href: '/products#recruitment',
     description: 'The next-generation Recruitment overhaul adds job understanding, requirement integrity and evidence-backed matching.',
     status: 'Overhaul in development',
     statusTone: 'development',

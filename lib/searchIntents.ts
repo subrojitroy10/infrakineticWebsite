@@ -115,14 +115,14 @@ export const searchIntents: SearchIntentPage[] = [
   {
     slug: 'hr-software',
     eyebrow: 'HR Software',
-    metaTitle: 'HR Software for Hiring, Workforce & Payroll',
+    metaTitle: 'HR Software for Employee & Workforce Operations',
     metaDescription:
-      'Run recruitment, onboarding, employee records, compensation, leave, performance, payroll, and governed people operations in one connected platform.',
-    heroTitle: 'HR software that keeps the employee lifecycle connected from hiring onward.',
+      'Manage employee records, employment context, onboarding, compensation, leave, organizational structure and governed people operations, with separate Recruitment and Payroll engines connected when enabled.',
+    heroTitle: 'HR software for the employee record and governed people operations.',
     lead:
-      'Infrakinetic connects Recruitment, HR, Workforce, Payroll, Performance, and Equity as separately owned people engines that share governed employee context instead of passing the same person through disconnected systems.',
+      'Infrakinetic HR owns core employee and people-operation context. Recruitment, Payroll, Workforce, Performance and Equity remain separately owned engines that can share governed employee context without becoming one HR mega-module.',
     capabilities: [
-      { title: 'Recruitment and hiring', description: 'Manage requisitions, applications, interviews, offers, approval gates, and hire conversion into employment records.' },
+      { title: 'Employee records and employment', description: 'Maintain governed employee, employment, role, reporting-line and organizational context across the employee lifecycle.' },
       { title: 'Employee lifecycle', description: 'Maintain positions, reporting lines, onboarding context, leave, workforce records, and governed changes over time.' },
       { title: 'Compensation', description: 'Use versioned salary structures, formulas, pay bands, revision approvals, retroactive adjustments, and total rewards context.' },
       { title: 'Performance and equity', description: 'Keep performance and equity context connected to the wider people record and governance model.' },
@@ -153,7 +153,7 @@ export const searchIntents: SearchIntentPage[] = [
     ],
     relatedIntents: ['payroll-software', 'workflow-automation-software', 'document-management-software', 'business-management-software'],
     faq: [
-      { question: 'What HR functions does Infrakinetic cover?', answer: 'Infrakinetic covers recruitment, HR, workforce management, compensation, leave, payroll, performance, equity, onboarding, reporting-line context, and governed people changes.' },
+      { question: 'What does the HR engine cover?', answer: 'The HR engine covers employee records, employment context, onboarding, organizational placement, leave, compensation context, reporting lines and governed people changes. Recruitment and Payroll are separate engines that connect to HR when enabled.' },
       { question: 'Does HR connect directly to payroll?', answer: 'Yes. The people engines share governed employee context so hiring, compensation, employment changes, and payroll can operate without rebuilding the employee record through manual handoffs.' },
       { question: 'Can salary changes require approval?', answer: 'Yes. Compensation revisions can be approval-gated, with version history and point-in-time context preserved for historical payroll accuracy.' },
       { question: 'Does Infrakinetic support recruitment and onboarding?', answer: 'Yes. Requisitions, applications, interviews, offers, hire conversion, employment setup, compensation context, and onboarding workflow can remain connected.' },
