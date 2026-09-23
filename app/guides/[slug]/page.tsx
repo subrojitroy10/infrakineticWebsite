@@ -71,16 +71,10 @@ export default async function LongTailGuidePage({ params }: Props) {
     category: guide.category,
   }
 
-  const relatedGuides = longTailGuides
-    .filter(
-      (candidate) =>
-        candidate.slug !== guide.slug && candidate.relatedIntent === guide.relatedIntent,
-    )
-    .slice(0, 3)
-
 
   return (
-    <>
+    <>
+
       <main>
         <GuideLayout guide={guideMeta}>
           <p>{guide.intro}</p>
@@ -106,26 +100,9 @@ export default async function LongTailGuidePage({ params }: Props) {
             ))}
           </ul>
 
-          {relatedGuides.length > 0 && (
-            <div className="not-prose mt-10">
-              <h2 className="text-xl font-semibold text-white">Related guides</h2>
-              <div className="mt-4 grid gap-3 md:grid-cols-3">
-                {relatedGuides.map((related) => (
-                  <Link
-                    key={related.slug}
-                    href={`/guides/${related.slug}`}
-                    className="rounded-xl border border-white/10 bg-white/[0.02] p-4 text-sm text-white/65 transition-colors hover:border-gold-300/30 hover:text-white"
-                  >
-                    {related.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <div className="not-prose mt-10 rounded-2xl border border-gold-300/20 bg-gold-300/[0.05] p-6">
+          <div className="not-prose mt-10 border-l-2 border-gold-300/30 pl-5">
             <div className="flex items-start gap-3">
-              <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-gold-300/25 bg-gold-300/[0.08] text-gold-200">
+              <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center text-gold-300">
                 <Check size={14} />
               </span>
               <div>

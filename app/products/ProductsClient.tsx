@@ -664,7 +664,7 @@ export default function ProductsClient() {
 
       if (rawHash && rawHash !== nextEngine && engineHashAliases[rawHash] === nextEngine) {
         const canonicalUrl = `${window.location.pathname}${window.location.search}#${nextEngine}`
-        originalReplaceState.call(window.history, window.history.state, '', canonicalUrl)
+        window.history.replaceState(window.history.state, '', canonicalUrl)
       }
 
       setActiveEngine((current) => (current === nextEngine ? current : nextEngine))
@@ -673,35 +673,17 @@ export default function ProductsClient() {
 
     const onHashChange = () => syncEngineFromLocation(true)
     const onPopState = () => syncEngineFromLocation(true)
-    const onHistoryChange = () => syncEngineFromLocation(true)
 
-    const originalPushState = window.history.pushState
-    const originalReplaceState = window.history.replaceState
-
-    const wrappedPushState: History['pushState'] = function (...args) {
-      originalPushState.apply(window.history, args)
-      window.dispatchEvent(new Event('infrakinetic:locationchange'))
-    }
-
-    const wrappedReplaceState: History['replaceState'] = function (...args) {
-      originalReplaceState.apply(window.history, args)
-      window.dispatchEvent(new Event('infrakinetic:locationchange'))
-    }
-
-    window.history.pushState = wrappedPushState
-    window.history.replaceState = wrappedReplaceState
-
+    // Hash changes are sufficient for the engine selector. Avoid patching History
+    // methods: Next.js also observes them internally, and dispatching synchronous
+    // state updates from those hooks can run during React's insertion phase.
     syncEngineFromLocation(Boolean(window.location.hash))
     window.addEventListener('hashchange', onHashChange)
     window.addEventListener('popstate', onPopState)
-    window.addEventListener('infrakinetic:locationchange', onHistoryChange)
 
     return () => {
       window.removeEventListener('hashchange', onHashChange)
       window.removeEventListener('popstate', onPopState)
-      window.removeEventListener('infrakinetic:locationchange', onHistoryChange)
-      if (window.history.pushState === wrappedPushState) window.history.pushState = originalPushState
-      if (window.history.replaceState === wrappedReplaceState) window.history.replaceState = originalReplaceState
       if (scrollFrame !== null) window.cancelAnimationFrame(scrollFrame)
     }
   }, [])
@@ -714,29 +696,29 @@ export default function ProductsClient() {
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mx-auto max-w-4xl text-center"
+            className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end"
           >
-            <span className="eyebrow">Modular business engines</span>
-            <h1 className="heading-serif mt-5 text-4xl md:text-5xl lg:text-[4.4rem] leading-[1.04]">
-              Start focused. Add engines when the business is ready.
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
-              Infrakinetic is built for land and expand. Choose the business engines you need now, then add others later without rebuilding identity, documents, approvals, workflow, automation or governance around them.
-            </p>
-            <p className="mt-4 text-sm md:text-base text-white/65 max-w-2xl mx-auto">
-              CRM &amp; Sales, Billing &amp; Invoicing, Payments, Finance, HR, Payroll, Recruitment, Customer Success, Marketing and Migration keep clear ownership. Shared platform infrastructure connects the experience without turning the product into one mandatory monolith.
-            </p>
-            <p className="mt-4 text-sm text-white/50 max-w-2xl mx-auto">
-              See the{' '}
-              <Link href="/platform" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
-                architecture
-              </Link>{' '}
-              these engines share, or{' '}
-              <Link href="/migration" className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200">
-                bring your existing data in
-              </Link>
-              .
-            </p>
+            <div>
+              <span className="eyebrow">Modular business engines</span>
+              <h1 className="heading-serif mt-5 max-w-4xl text-4xl leading-[1.02] md:text-5xl lg:text-[4.4rem]">
+                Start focused. Add engines when the business is ready.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg text-white/60 md:text-xl">
+                Choose the business engines you need now, then add others later without rebuilding identity, documents, approvals, workflow, automation or governance around them.
+              </p>
+              <p className="mt-5 max-w-2xl text-sm text-white/50">
+                See the <Link href="/platform" className="hairline-link text-gold-300">architecture</Link> they share, or{' '}
+                <Link href="/migration" className="hairline-link text-gold-300">bring your existing data in</Link>.
+              </p>
+            </div>
+            <aside className="border-l border-white/10 pl-5">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">Deployment logic</p>
+              <div className="mt-5 space-y-5">
+                <div><strong className="block text-2xl text-white">17</strong><span className="text-xs text-white/42">business engines across current and complete-state scope</span></div>
+                <div><strong className="block text-base text-white">One shared foundation</strong><span className="text-xs leading-5 text-white/42">Identity, documents, approvals, workflow, automation and governance remain common.</span></div>
+                <div><strong className="block text-base text-white">No forced full-suite buy</strong><span className="text-xs leading-5 text-white/42">Enable the operating areas that make sense first.</span></div>
+              </div>
+            </aside>
           </motion.div>
         </div>
       </section>
@@ -754,10 +736,10 @@ export default function ProductsClient() {
                   onClick={() => {
                     window.location.hash = engineId
                   }}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                  className={`border-b px-3 py-2.5 text-sm font-medium transition-colors ${
                     isActive
-                      ? `bg-gold-300/20 border-gold-300/40 text-gold-300 shadow-[0_0_20px_rgba(230,211,163,0.2)]`
-                      : 'border-white/10 bg-white/[0.02] text-white/60 hover:border-gold-300/30 hover:bg-gold-300/[0.04] hover:text-white'
+                      ? `border-gold-300 text-gold-300`
+                      : 'border-white/10 text-white/60 hover:border-gold-300/40 hover:text-white'
                   }`}
                 >
                   <span className="flex items-center gap-2">
@@ -790,7 +772,7 @@ export default function ProductsClient() {
           </Reveal>
 
           <Reveal variant="fade" className="mt-14">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="soft-panel grid gap-0 p-3 md:grid-cols-2 lg:grid-cols-3">
               {engine.features.map((feature, i) => (
                 <motion.div
                   key={feature}
@@ -798,7 +780,7 @@ export default function ProductsClient() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.08 }}
                 >
-                  <ParallaxCard depth={14 + i * 2} className="h-full p-6 md:p-8 flex flex-col">
+                  <div className="flex h-full flex-col rounded-lg px-5 py-6 md:px-6 md:py-7">
                     <div className={`mb-4 grid h-12 w-12 place-items-center rounded-xl border ${engine.color === 'gold' ? 'border-gold-300/30 bg-gold-300/[0.08] text-gold-300' : 'border-violet-400/30 bg-violet-400/[0.08] text-violet-300'}`}>
                       <engine.icon size={20} />
                     </div>
@@ -806,7 +788,7 @@ export default function ProductsClient() {
                       <Check size={12} className="shrink-0 mt-0.5" />
                       {feature}
                     </p>
-                  </ParallaxCard>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -828,7 +810,7 @@ export default function ProductsClient() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <ParallaxCard depth={18} className="h-full p-6 md:p-8">
+                  <ParallaxCard depth={18} className="feature-frame h-full p-6 md:p-8">
                     <div className="flex items-center justify-between mb-3">
                       <div>
                         <h3 className="heading-serif text-xl">Health Score - Versioned</h3>
@@ -893,7 +875,7 @@ export default function ProductsClient() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                  <ParallaxCard depth={22} className="h-full p-6 md:p-8 flex flex-col">
+                  <ParallaxCard depth={22} className="feature-frame h-full p-6 md:p-8 flex flex-col">
                     <h3 className="heading-serif text-xl mb-4">Interventions (+30d Outcome)</h3>
                     <div className="flex-1 overflow-y-auto space-y-3">
                       {engine.detail.interventions.length > 0 ? (
@@ -974,7 +956,7 @@ export default function ProductsClient() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <ParallaxCard depth={20} className="p-6 md:p-8 border-gold-300/30 bg-gold-300/[0.04]">
+                  <ParallaxCard depth={20} className="feature-frame p-6 md:p-8 border-gold-300/25">
                     <div className="inline-flex items-center gap-2 mb-4">
                       <StatusBadge value="learned" family="lifecycle" size="md" dot />
                     </div>
@@ -989,7 +971,7 @@ export default function ProductsClient() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                  <ParallaxCard depth={18} className="p-6 md:p-8">
+                  <ParallaxCard depth={18} className="feature-frame p-6 md:p-8">
                     <h3 className="heading-serif text-xl mb-6">Top Risk Drivers (SHAP)</h3>
                     <div className="space-y-3">
                       {[
@@ -1031,7 +1013,7 @@ export default function ProductsClient() {
         {/* CTA */}
         <Section id="cta" align="center">
           <Reveal variant="fade" className="mt-14">
-            <ParallaxCard depth={12} className="rounded-2xl border border-gold-300/30 bg-gold-300/[0.06] p-6 md:p-10 text-center">
+            <div className="border-y border-gold-300/25 py-8 text-center md:py-10">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-300 block mb-4">
                 See {engine.label} Live
               </span>
@@ -1042,7 +1024,7 @@ export default function ProductsClient() {
                 Request briefing
                 <ArrowRight size={15} />
               </Link>
-            </ParallaxCard>
+            </div>
           </Reveal>
         </Section>
       </motion.div>

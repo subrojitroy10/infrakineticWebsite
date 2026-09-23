@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
-import ParallaxCard from '@/components/ui/ParallaxCard'
 import { FAQSection, KeyTakeaway, UnderTheHood } from '@/components/shared'
 import { Database, GitBranch, Zap, Shield, Lock, ArrowRight, HeartPulse, TrendingUp, RefreshCw } from '@/components/ui/Icons'
 
@@ -92,15 +91,29 @@ export default function PlatformClient() {
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mx-auto max-w-4xl text-center"
+            className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_290px] lg:items-end"
           >
-            <span className="eyebrow">Platform Architecture</span>
-            <h1 className="heading-serif mt-5 text-4xl md:text-5xl lg:text-[4.4rem] leading-[1.04]">
-              One Business Data Model. Governed Events. Atomic Where It Matters.
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
-              Infrakinetic runs every business engine - Commercial, Finance, HR, Documents, Workflow - on one shared foundation, so the 17 engines it ships with cannot drift apart the way separate, synced tools do.
-            </p>
+            <div>
+              <span className="eyebrow">Platform Architecture</span>
+              <h1 className="heading-serif mt-5 max-w-4xl text-4xl leading-[1.02] md:text-5xl lg:text-[4.4rem]">
+                One business data model. Governed events. Atomic where it matters.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg text-white/60 md:text-xl">
+                Infrakinetic runs commercial, finance, workforce, documents and workflow on one shared operating foundation instead of synchronising separate copies after the fact.
+              </p>
+            </div>
+            <aside className="feature-frame p-5">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">Architecture at a glance</p>
+              <div className="mt-5 space-y-4 text-sm">
+                <div className="flex items-baseline justify-between gap-4"><span className="text-white/46">Business data</span><strong className="text-white">Shared model</strong></div>
+                <div className="h-px bg-white/[0.07]" />
+                <div className="flex items-baseline justify-between gap-4"><span className="text-white/46">Cross-engine work</span><strong className="text-white">Events</strong></div>
+                <div className="h-px bg-white/[0.07]" />
+                <div className="flex items-baseline justify-between gap-4"><span className="text-white/46">Critical changes</span><strong className="text-white">Transactions</strong></div>
+                <div className="h-px bg-white/[0.07]" />
+                <div className="flex items-baseline justify-between gap-4"><span className="text-white/46">Tenant boundary</span><strong className="text-white">Database-enforced</strong></div>
+              </div>
+            </aside>
           </motion.div>
         </div>
       </section>
@@ -124,7 +137,7 @@ export default function PlatformClient() {
         lead="Every differentiator - the lifecycle spine, customer intelligence, atomic packs, free platform infra - derives from these three architectural decisions."
       >
         <Reveal variant="fade" className="mt-14">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="feature-frame grid gap-2 p-3 md:grid-cols-2 lg:grid-cols-3">
             {architecturePillars.map((pillar, i) => (
               <motion.div
                 key={pillar.title}
@@ -132,13 +145,13 @@ export default function PlatformClient() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
               >
-                <ParallaxCard depth={14 + i * 2} className="h-full p-6 md:p-8">
+                <div className="h-full rounded-xl px-5 py-6 md:px-6 md:py-7">
                   <div className={`mb-4 grid h-12 w-12 place-items-center rounded-xl border ${pillar.color === 'gold' ? 'border-gold-300/30 bg-gold-300/[0.08]' : 'border-violet-400/30 bg-violet-400/[0.08]'} ${pillar.color === 'gold' ? 'text-gold-300' : 'text-violet-300'}`}>
                     <pillar.icon size={20} />
                   </div>
                   <h3 className="heading-serif text-xl mb-3">{pillar.title}</h3>
                   <p className="text-white/60 leading-relaxed">{pillar.desc}</p>
-                </ParallaxCard>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -174,7 +187,7 @@ export default function PlatformClient() {
         lead="One connected view of every account's journey, spanning Commercial, Sales, and Customer Success. No handoff gap at 'won'. Renewals and expansion are detected automatically, not tracked by hand."
       >
         <Reveal variant="fade" className="mt-14">
-          <ParallaxCard depth={18} className="p-6 md:p-8 overflow-x-auto">
+          <div className="feature-frame overflow-x-auto px-6 py-7 md:px-8">
             <div className="min-w-[800px]">
               <div className="flex items-center justify-center gap-2 flex-wrap">
                 {lifecycleStates.map((state) => (
@@ -184,7 +197,7 @@ export default function PlatformClient() {
                     initial={false}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: 0.04 }}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-xl border bg-white/[0.02] ${state.sticky ? 'border-gold-300/30' : 'border-white/10'}`}
+                    className={`flex items-center gap-2 rounded-md border px-3 py-2 ${state.sticky ? 'border-gold-300/30 bg-gold-300/[0.04]' : 'border-white/10 bg-transparent'}`}
                   >
                     <span className="text-[10px] font-medium uppercase tracking-wider text-white/40">{state.label}</span>
                   </motion.div>
@@ -194,7 +207,7 @@ export default function PlatformClient() {
                 Every account moves through this journey automatically as real business events happen - no one has to manually update a status.
               </p>
             </div>
-          </ParallaxCard>
+          </div>
         </Reveal>
         <KeyTakeaway>
           A won deal never sits in a spreadsheet waiting for someone to remember the renewal date - the lifecycle spine creates the renewal opportunity automatically, 90 days out, with full deal context carried forward.
@@ -208,21 +221,21 @@ export default function PlatformClient() {
         lead="Lead quality, deal priority, customer health, churn risk - one connected scoring system instead of four disconnected spreadsheets, so you see the trend, not just a number."
       >
         <Reveal variant="fade" className="mt-14">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-x-12 gap-y-0 md:grid-cols-2">
             {signalTypes.map((signal) => (
-              <ParallaxCard key={signal.label} depth={14} className="p-5">
+              <div key={signal.label} className="border-t border-white/10 py-5 pr-5">
                 <div className="mb-3 grid h-9 w-9 place-items-center rounded-lg border border-gold-300/30 bg-gold-300/[0.08] text-gold-300">
                   <signal.icon size={16} />
                 </div>
                 <h4 className="text-base font-semibold text-white mb-1">{signal.label}</h4>
                 <p className="text-sm text-white/50">{signal.desc}</p>
-              </ParallaxCard>
+              </div>
             ))}
           </div>
         </Reveal>
 
         <Reveal variant="fade" className="mt-10">
-          <ParallaxCard depth={14} className="p-6 md:p-8 border-gold-300/30 bg-gold-300/[0.04]">
+          <div className="border-l-2 border-gold-300/35 py-2 pl-6">
             <h3 className="heading-serif text-xl mb-4">Why This Matters for Your Business</h3>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="space-y-2">
@@ -238,7 +251,7 @@ export default function PlatformClient() {
                 <p className="text-sm text-white/60">Every score can be compared against what actually happened - the precondition for intelligence that actually improves decisions, not just looks impressive.</p>
               </div>
             </div>
-          </ParallaxCard>
+          </div>
         </Reveal>
       </Section>
 
@@ -249,15 +262,15 @@ export default function PlatformClient() {
         lead="Your data is never mixed with another customer's - not just as a policy, but as a structural guarantee enforced by database-level controls below the application layer."
       >
         <Reveal variant="fade" className="mt-14">
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="feature-frame grid gap-2 p-3 md:grid-cols-3">
             {tenantIsolationItems.map((item) => (
-              <ParallaxCard key={item.title} depth={14} className="p-6">
+              <div key={item.title} className="rounded-xl px-5 py-6 md:px-6">
                 <div className="mb-3 grid h-10 w-10 place-items-center rounded-lg border border-violet-400/30 bg-violet-400/[0.08] text-violet-300">
                   <item.icon size={18} />
                 </div>
                 <h4 className="text-base font-semibold text-white mb-1">{item.title}</h4>
                 <p className="text-sm text-white/50">{item.desc}</p>
-              </ParallaxCard>
+              </div>
             ))}
           </div>
         </Reveal>
@@ -282,7 +295,7 @@ export default function PlatformClient() {
 
       <Section id="cta" align="center">
         <Reveal variant="fade" className="mt-14">
-          <ParallaxCard depth={12} className="rounded-2xl border border-gold-300/30 bg-gold-300/[0.06] p-6 md:p-10 text-center">
+          <div className="border-y border-gold-300/25 py-8 text-center md:py-10">
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-300 block mb-4">
               See the Architecture Live
             </span>
@@ -293,7 +306,7 @@ export default function PlatformClient() {
               Request briefing
               <ArrowRight size={15} />
             </Link>
-          </ParallaxCard>
+          </div>
         </Reveal>
       </Section>
     </div>

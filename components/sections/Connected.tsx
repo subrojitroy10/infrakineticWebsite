@@ -18,7 +18,7 @@ const DatabaseScene = dynamic(() => import('@/components/three/DatabaseScene'), 
 function SceneFallback() {
   return (
     <div className="grid h-full w-full place-items-center">
-      <div className="h-24 w-24 animate-pulse-glow rounded-full bg-gold-400/30 blur-xl" />
+      <div className="h-px w-24 bg-gold-300/45" />
     </div>
   )
 }
@@ -51,7 +51,7 @@ export default function Connected() {
         </div>
 
         <Reveal variant="up" delay={0.15} className="mt-14">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 text-center">
+          <div className="rounded-lg border border-white/10 bg-white/[0.02] p-6 md:p-8 text-center">
             <h3 className="heading-serif text-2xl md:text-3xl">What does a shared business data layer actually do?</h3>
             <p className="mt-4 text-lg leading-relaxed text-white/70 max-w-3xl mx-auto">
               Instead of syncing data between tools, Infrakinetic uses <strong>one PostgreSQL database</strong> where Commercial, Workforce, Finance, Documents, Workflow, and Reporting all read and write to the same tables. Zero ETL, zero sync lag, zero drift. Engines react to the same catalogued business events, approval framework, and audit trail.
@@ -64,7 +64,7 @@ export default function Connected() {
         </Reveal>
 
         <Reveal variant="fade" delay={0.1} className="mt-10">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+          <div className="rounded-lg border border-white/10 bg-white/[0.02] p-6 md:p-8">
             <p className="text-sm text-white/60">Two real journeys that move through the platform without a manual handoff:</p>
             <div className="mt-6 space-y-8">
               {connectedWorkflows.map((workflow) => (
@@ -87,8 +87,8 @@ export default function Connected() {
             <Reveal variant="scale" className="order-2 lg:order-1">
               <div className="relative h-[20rem] w-full flex items-center justify-center">
                 <div className="relative z-10">
-                  <div className="rounded-3xl bg-gradient-to-br from-gold-500/10 to-violet-500/10 border border-gold-400/20 p-8 md:p-12 text-center">
-                    <div className="inline-flex items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-gold-400 to-violet-400 mb-6">
+                  <div className="rounded-lg bg-ink-800/35 border border-gold-400/20 p-8 md:p-12 text-center">
+                    <div className="inline-flex items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-full border border-gold-300/35 bg-ink-800 text-gold-300 mb-6">
                       <Database size={32} className="text-ink-900" />
                     </div>
                     <p className="text-white/70 text-lg md:text-xl">
@@ -99,7 +99,7 @@ export default function Connected() {
                     {[1, 2, 3].map((r) => (
                       <div
                         key={r}
-                        className="absolute inset-0 rounded-full border border-gold-400/10 animate-pulse"
+                        className="absolute inset-0 border border-gold-400/15"
                         style={{ animationDelay: `${r * 0.5}s`, animationDuration: '4s' }}
                       />
                     ))}

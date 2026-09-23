@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-gold-400 to-violet-400 text-lg font-bold tracking-tight text-ink-900">
+              <span className="grid h-9 w-9 place-items-center border border-gold-300/50 bg-ink-800 text-lg font-bold tracking-tight text-gold-300">
                 I
               </span>
               <span

@@ -42,10 +42,10 @@ export default function DevelopmentFrontier() {
       <div className="mt-12 grid gap-5 lg:grid-cols-2">
         {workstreams.map((item, index) => (
           <Reveal key={item.title} variant={index === 0 ? 'left' : 'right'}>
-            <div className="h-full overflow-hidden rounded-[1.75rem] border border-review-border/35 bg-review-bg/20">
+            <div className="h-full border-t border-review-border/40 bg-transparent">
               <div className="flex items-center justify-between gap-4 border-b border-review-border/25 px-6 py-5">
                 <div className="flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-review-border/35 bg-review-bg/40 text-review">
+                  <span className="grid h-10 w-10 place-items-center border border-review-border/35 text-review">
                     <item.icon size={18} />
                   </span>
                   <div>
@@ -53,14 +53,14 @@ export default function DevelopmentFrontier() {
                     <h3 className="mt-1 font-display text-xl font-semibold text-white">{item.title}</h3>
                   </div>
                 </div>
-                <span className="rounded-full border border-review-border/40 bg-review-bg/40 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-review">WIP</span>
+                <span className="border border-review-border/40 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-review">WIP</span>
               </div>
 
               <div className="p-6">
                 <p className="text-sm leading-relaxed text-white/62">{item.body}</p>
                 <div className="mt-6 grid gap-2 sm:grid-cols-2">
                   {item.points.map((point) => (
-                    <div key={point} className="flex items-start gap-2 rounded-xl border border-white/[0.065] bg-white/[0.018] p-3">
+                    <div key={point} className="flex items-start gap-2 border-t border-white/[0.07] py-3">
                       <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-review" />
                       <span className="text-xs leading-relaxed text-white/48">{point}</span>
                     </div>
@@ -72,9 +72,9 @@ export default function DevelopmentFrontier() {
         ))}
       </div>
 
-      <div className="mt-7 flex flex-col gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.015] p-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-7 flex flex-col gap-4 border-y border-white/[0.08] py-5 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-start gap-3">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gold-300/[0.07] text-gold-300">
+          <span className="grid h-9 w-9 shrink-0 place-items-center border border-gold-300/20 text-gold-300">
             <Shield size={16} />
           </span>
           <div>

@@ -36,7 +36,7 @@ export default function WhyInfrakinetic() {
         <Reveal variant="left">
           <ParallaxCard
             depth={16}
-            className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-8"
+            className="h-full rounded-lg border border-white/10 bg-white/[0.02] p-8"
           >
             <h3 className="text-lg font-semibold text-white/70">Traditional approach</h3>
             <ul className="mt-6 space-y-3.5">
@@ -55,7 +55,7 @@ export default function WhyInfrakinetic() {
         <Reveal variant="right" delay={0.1}>
           <ParallaxCard
             depth={22}
-            className="relative h-full overflow-hidden rounded-2xl border border-gold-400/30 bg-gradient-to-br from-gold-500/[0.12] to-violet-500/[0.03] p-8"
+            className="relative h-full overflow-hidden rounded-lg border border-gold-400/30 bg-gold-300/[0.045] p-8"
           >
             <h3 className="relative text-lg font-semibold text-gold-300">With Infrakinetic</h3>
             <ul className="relative mt-6 space-y-3.5">
@@ -75,7 +75,7 @@ export default function WhyInfrakinetic() {
       <Reveal variant="fade" className="mt-6">
         <ParallaxCard
           depth={12}
-          className="rounded-2xl border border-gold-400/20 bg-gold-500/[0.06] p-6 md:p-8"
+          className="rounded-lg border border-gold-400/20 bg-gold-500/[0.06] p-6 md:p-8"
         >
           <p className="text-center text-base leading-relaxed text-white/75 md:text-lg">
             <span className="font-semibold text-white">The bottom line: </span>

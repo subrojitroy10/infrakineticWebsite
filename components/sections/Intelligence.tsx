@@ -111,9 +111,8 @@ export default function Intelligence() {
                   initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className={`relative overflow-hidden rounded-2xl border ${accent.border} bg-white/[0.02] p-6 transition-colors ${accent.ring}`}
+                  className={`relative overflow-hidden rounded-lg border ${accent.border} bg-white/[0.02] p-6 transition-colors ${accent.ring}`}
                 >
-                  <div className={`pointer-events-none absolute -right-8 -top-8 -z-10 h-32 w-32 rounded-full ${accent.glow} blur-3xl`} aria-hidden />
 
                   <StatusBadge
                     value={tier.badge}
@@ -203,7 +202,7 @@ export default function Intelligence() {
             <ParallaxCard
               key={point.title}
               depth={14 + index}
-              className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-gold-400/30"
+              className="h-full rounded-lg border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-gold-400/30"
             >
               <div className="mb-4 grid h-9 w-9 place-items-center rounded-lg border border-gold-400/20 bg-gold-400/[0.08] text-gold-300">
                 <Check size={15} />

@@ -20,10 +20,10 @@ export default function Scale() {
           <Reveal key={layer.n} variant="up" delay={i * 0.08}>
             <ParallaxCard
               depth={14 + i * 3}
-              className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:border-gold-400/30 hover:bg-white/[0.04] md:p-8"
+              className="group relative h-full overflow-hidden rounded-lg border border-white/10 bg-white/[0.02] p-6 transition-all hover:border-gold-400/30 hover:bg-white/[0.04] md:p-8"
             >
               <div
-                className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold-400/60 to-violet-400/60"
+                className="absolute inset-x-0 top-0 h-1 bg-gold-300/55"
                 aria-hidden
               />
               <div className="flex items-start gap-5">
@@ -54,7 +54,7 @@ export default function Scale() {
       <Reveal variant="fade" className="mt-20">
         <ParallaxCard
           depth={12}
-          className="rounded-2xl border border-gold-400/20 bg-gold-500/[0.06] p-6 md:p-8 text-center"
+          className="rounded-lg border border-gold-400/20 bg-gold-500/[0.06] p-6 md:p-8 text-center"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-400 block mb-4">
             Roadmap

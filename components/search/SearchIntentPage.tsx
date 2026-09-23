@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Reveal from '@/components/ui/Reveal'
 import Section from '@/components/ui/Section'
-import ParallaxCard from '@/components/ui/ParallaxCard'
 import { FAQSection } from '@/components/shared'
 import { ArrowRight, Check } from '@/components/ui/Icons'
 import { searchIntentBySlug, type SearchIntentPage as SearchIntentPageData } from '@/lib/searchIntents'
@@ -85,41 +84,32 @@ export default function SearchIntentPage({ intent }: Props) {
 
       <section className="relative overflow-hidden pb-20 pt-32 md:pt-40 lg:pb-28">
         <div className="pointer-events-none absolute inset-0 bg-ink-900" />
-        <div className="pointer-events-none absolute -right-48 -top-48 h-[42rem] w-[42rem] rounded-full bg-gold-500/[0.07] blur-[120px]" />
         <div className="container-page relative z-10">
-          <div className="max-w-4xl">
-            <span className="eyebrow">{intent.eyebrow}</span>
-            <p className="mt-4 text-sm text-white/45">
-              Infrakinetic is a{' '}
-              <Link href="https://www.polynovea.in" className="text-white/65 hover:text-white">
-                Polynovea product
-              </Link>
-              .
-            </p>
-            <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl">
-              {intent.heroTitle}
-            </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/65 md:text-xl">
-              {intent.lead}
-            </p>
-            <div className="mt-7 max-w-3xl rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:p-6">
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">
-                Quick answer
-              </span>
-              <p className="mt-3 text-sm leading-relaxed text-white/70 md:text-base">
-                {answerSummary}
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
+            <div>
+              <span className="eyebrow">{intent.eyebrow}</span>
+              <h1 className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-[1.03] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl">
+                {intent.heroTitle}
+              </h1>
+              <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/65 md:text-xl">
+                {intent.lead}
               </p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <Link href="/briefing" className="btn-primary">
+                  Request a briefing <ArrowRight size={15} />
+                </Link>
+                <Link href="/products" className="btn-ghost">
+                  Explore product families <ArrowRight size={15} />
+                </Link>
+              </div>
             </div>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/briefing" className="btn-primary">
-                Request a briefing
-                <ArrowRight size={15} />
-              </Link>
-              <Link href="/products" className="btn-ghost">
-                Explore product families
-                <ArrowRight size={15} />
-              </Link>
-            </div>
+            <aside className="border-l border-white/10 pl-5">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">Quick answer</span>
+              <p className="mt-3 text-sm leading-6 text-white/62">{answerSummary}</p>
+              <p className="mt-5 text-xs text-white/34">
+                Infrakinetic is a <Link href="https://www.polynovea.in" className="hairline-link text-white/56">Polynovea product</Link>.
+              </p>
+            </aside>
           </div>
         </div>
       </section>
@@ -129,15 +119,15 @@ export default function SearchIntentPage({ intent }: Props) {
         title={`What Infrakinetic covers for ${intent.eyebrow.toLowerCase()}`}
         lead="The immediate software need comes first. Each capability then connects to the surrounding business process through explicit engine ownership and governed handoffs."
       >
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="feature-frame mt-10 grid gap-2 p-3 md:grid-cols-2">
           {intent.capabilities.map((capability, index) => (
             <Reveal key={capability.title} variant="up" delay={index * 0.05}>
-              <ParallaxCard depth={12 + index} className="h-full p-6 md:p-7">
+              <div className="h-full rounded-xl px-5 py-6 md:px-6 md:py-7">
                 <h2 className="text-lg font-semibold text-white">{capability.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-white/55">
                   {capability.description}
                 </p>
-              </ParallaxCard>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -151,9 +141,12 @@ export default function SearchIntentPage({ intent }: Props) {
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {intent.useCases.map((useCase, index) => (
             <Reveal key={useCase.title} variant="up" delay={index * 0.04}>
-              <div className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-7">
-                <h2 className="text-lg font-semibold text-white">{useCase.title}</h2>
+              <div className="grid h-full grid-cols-[34px_minmax(0,1fr)] gap-4 border-t border-white/10 py-6 pr-5 md:py-7">
+                <span className="font-mono text-[10px] text-gold-300/55">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <h2 className="text-lg font-semibold text-white">{useCase.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-white/55">{useCase.description}</p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -165,13 +158,13 @@ export default function SearchIntentPage({ intent }: Props) {
         title="The search intent is one function. The operating context goes further."
         lead="Infrakinetic answers the immediate software need first, then keeps the surrounding business context connected instead of forcing another handoff."
       >
-        <div className="mt-10 grid gap-3 md:grid-cols-2">
+        <div className="feature-frame mt-10 grid gap-2 p-3 md:grid-cols-2">
           {intent.connections.map((connection) => (
             <div
               key={connection}
-              className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-5"
+              className="flex items-start gap-3 rounded-lg px-4 py-4"
             >
-              <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-gold-300/25 bg-gold-300/[0.08] text-gold-200">
+              <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center text-gold-300">
                 <Check size={13} />
               </span>
               <span className="text-sm leading-relaxed text-white/65">{connection}</span>
@@ -185,12 +178,10 @@ export default function SearchIntentPage({ intent }: Props) {
         title={`Questions to ask when evaluating ${intent.eyebrow.toLowerCase()}`}
         lead="A category page should help a buyer evaluate the problem, not only describe a product. These questions expose the operating requirements behind the search."
       >
-        <div className="mt-10 space-y-3">
-          {intent.evaluation.map((item) => (
-            <div key={item} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-5">
-              <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-violet-300/25 bg-violet-300/[0.08] text-violet-200">
-                <Check size={13} />
-              </span>
+        <div className="mt-10 grid gap-x-12 md:grid-cols-2">
+          {intent.evaluation.map((item, index) => (
+            <div key={item} className="grid grid-cols-[32px_minmax(0,1fr)] gap-3 border-t border-white/10 py-5">
+              <span className="font-mono text-[10px] text-violet-300/65">{String(index + 1).padStart(2, '0')}</span>
               <p className="text-sm leading-relaxed text-white/65">{item}</p>
             </div>
           ))}
@@ -202,13 +193,13 @@ export default function SearchIntentPage({ intent }: Props) {
         title="What this positioning is grounded in"
         lead="These pages are based on Infrakinetic product architecture and implemented capability descriptions, not generic SEO feature lists."
       >
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <div className="soft-panel mt-10 grid gap-0 p-3 md:grid-cols-3">
           {intent.evidence.map((item, index) => (
             <Reveal key={item.title} variant="up" delay={index * 0.05}>
-              <ParallaxCard depth={10 + index} className="h-full p-6">
+              <div className="h-full rounded-lg px-5 py-6">
                 <h2 className="text-base font-semibold text-white">{item.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-white/55">{item.description}</p>
-              </ParallaxCard>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -224,7 +215,7 @@ export default function SearchIntentPage({ intent }: Props) {
             <Link
               key={guide.href}
               href={guide.href}
-              className="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-gold-300/30"
+              className="group border-t border-white/10 py-6 pr-5 transition-colors hover:border-gold-300/35"
             >
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">Guide</span>
               <h2 className="mt-3 text-base font-semibold text-white transition-colors group-hover:text-gold-200">
@@ -248,14 +239,14 @@ export default function SearchIntentPage({ intent }: Props) {
             <Link
               key={item.slug}
               href={`/${item.slug}`}
-              className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/65 transition-colors hover:border-gold-300/30 hover:text-gold-200"
+              className="border-b border-white/15 pb-1 text-sm text-white/65 transition-colors hover:border-gold-300/50 hover:text-gold-200"
             >
               {item.eyebrow}
             </Link>
           ))}
           <Link
             href="/products"
-            className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/65 transition-colors hover:border-gold-300/30 hover:text-gold-200"
+            className="border-b border-white/15 pb-1 text-sm text-white/65 transition-colors hover:border-gold-300/50 hover:text-gold-200"
           >
             All product families
           </Link>
@@ -270,7 +261,7 @@ export default function SearchIntentPage({ intent }: Props) {
 
       <section id="contact" className="pb-28 pt-6">
         <div className="container-page">
-          <div className="rounded-3xl border border-gold-300/20 bg-gold-300/[0.05] p-8 md:p-12">
+          <div className="feature-frame border-gold-300/20 p-7 md:p-10">
             <span className="eyebrow">Platform briefing</span>
             <h2 className="mt-5 max-w-2xl font-display text-3xl font-semibold tracking-tight text-white md:text-4xl">
               See how this function connects to the rest of your operation.

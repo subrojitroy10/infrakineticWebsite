@@ -19,37 +19,28 @@ export default function SearchIntentLinks() {
   return (
     <Section
       id="business-needs"
-      eyebrow="Explore by the category you already know"
-      title="Search for the problem in your language. Discover the platform behind it."
-      lead="Infrakinetic should not require a buyer to learn a new software category before finding the right page. These entry points use the terms teams already search for, then explain how each engine can expand into the rest of the platform."
-      className="border-b border-white/[0.06]"
+      eyebrow="Explore in the language buyers already use"
+      title="Start with the category you know. Follow it into the operating model."
+      lead="These routes answer familiar software searches first, then show how that function connects to the rest of Infrakinetic."
     >
-      <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 columns-1 gap-x-14 md:columns-2 xl:gap-x-20">
         {intents.map(([title, description, href], index) => (
-          <Reveal key={href} variant="up" delay={index * 0.035}>
-            <Link
-              href={href}
-              className="group flex h-full min-h-[185px] flex-col rounded-2xl border border-white/[0.08] bg-white/[0.018] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold-300/28 hover:bg-white/[0.03]"
-            >
-              <h3 className="text-base font-semibold text-white">{title}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-white/50">{description}</p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold-300 group-hover:text-gold-200">
-                Explore
-                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-              </span>
+          <Reveal key={href} variant="fade" delay={index * 0.025} className="break-inside-avoid">
+            <Link href={href} className="group grid grid-cols-[30px_1fr_auto] gap-4 border-t border-white/[0.09] py-5">
+              <span className="font-display text-xs text-white/24">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 className="text-sm font-semibold text-white transition-colors group-hover:text-gold-200">{title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-white/42">{description}</p>
+              </div>
+              <ArrowRight size={13} className="mt-1 text-white/20 transition-colors group-hover:text-gold-300" />
             </Link>
           </Reveal>
         ))}
       </div>
-      <div className="mt-8 flex flex-wrap gap-3">
-        <Link href="/business-management-software" className="btn-ghost">
-          Business management software
-          <ArrowRight size={14} />
-        </Link>
-        <Link href="/business-operating-system" className="btn-ghost">
-          Our broader platform thesis
-          <ArrowRight size={14} />
-        </Link>
+
+      <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm">
+        <Link href="/business-management-software" className="hairline-link text-white/58">Business management software</Link>
+        <Link href="/business-operating-system" className="hairline-link text-white/58">Our broader platform thesis</Link>
       </div>
     </Section>
   )

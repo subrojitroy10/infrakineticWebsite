@@ -1,8 +1,3 @@
-'use client'
-
-import React from 'react'
-import { motion } from 'framer-motion'
-import ParallaxCard from '@/components/ui/ParallaxCard'
 import Reveal from '@/components/ui/Reveal'
 
 interface ProofStat {
@@ -16,33 +11,23 @@ interface ProofStripProps {
   className?: string
 }
 
-/**
- * Evidence-metric strip reused wherever the audited migration run (or similar
- * measured proof) needs to appear - homepage and the dedicated deep-dive page.
- */
+/** Measured evidence presented as an editorial data strip, not a card carousel. */
 export default function ProofStrip({ stats, note, className = '' }: ProofStripProps) {
   return (
     <Reveal variant="fade" className={className}>
-      <ParallaxCard depth={20} className="border-gold-300/30 bg-gold-300/[0.05] p-6 md:p-8">
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="rounded-xl border border-white/10 bg-white/[0.02] p-4"
-            >
+      <div className="border-y border-gold-300/25 py-6 md:py-7">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="border-l border-white/10 pl-4 first:border-l-0 first:pl-0 sm:first:border-l sm:first:pl-4">
               <p className="text-2xl font-semibold tracking-tight text-gold-300 sm:text-3xl">{stat.value}</p>
-              <p className="mt-1.5 text-[11px] font-medium uppercase leading-snug tracking-wide text-white/65">
+              <p className="mt-1.5 text-[10px] font-semibold uppercase leading-snug tracking-[0.12em] text-white/55">
                 {stat.label}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
-        {note && <p className="mt-5 text-xs text-white/65">{note}</p>}
-      </ParallaxCard>
+        {note && <p className="mt-5 max-w-3xl text-xs leading-relaxed text-white/48">{note}</p>}
+      </div>
     </Reveal>
   )
 }

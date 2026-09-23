@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
-import ParallaxCard from '@/components/ui/ParallaxCard'
 import FAQSection from '@/components/shared/FAQSection'
 import { ProofStrip } from '@/components/shared'
 import {
@@ -187,33 +186,41 @@ export default function MigrationClient() {
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mx-auto max-w-4xl text-center"
+            className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_330px] lg:items-end"
           >
-            <span className="eyebrow">Migration infrastructure</span>
-            <h1 className="heading-serif mt-5 text-4xl leading-[1.04] md:text-5xl lg:text-[4.4rem]">
-              Move business systems without losing what makes the data
-              meaningful.
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60 md:text-xl">
-              CRM migration, HRIS migration, and ERP migration are usually
-              treated as a file-import problem: export, clean a CSV, map some
-              columns, hope. Infrakinetic treats it as a systems problem -
-              discover the source schema, map entities and relationships,
-              transform and execute in a governed airlock, then validate and
-              reconcile before anyone calls it done.
-            </p>
-            <Reveal
-              variant="fade"
-              className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
-            >
-              <Link href="/briefing" className="btn-primary inline-flex w-fit">
-                Assess a migration
-                <ArrowRight size={15} />
-              </Link>
-              <Link href="/#migration" className="btn-ghost inline-flex w-fit">
-                See the governed pipeline
-              </Link>
-            </Reveal>
+            <div>
+              <span className="eyebrow">Migration infrastructure</span>
+              <h1 className="heading-serif mt-5 max-w-4xl text-4xl leading-[1.02] md:text-5xl lg:text-[4.4rem]">
+                Move business systems without losing what makes the data meaningful.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60 md:text-xl">
+                Infrakinetic treats migration as a systems problem: discover the source model, preserve relationships and semantics, execute through a governed airlock, then reconcile before anyone calls it done.
+              </p>
+              <Reveal variant="fade" className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href="/briefing" className="btn-primary inline-flex w-fit">
+                  Assess a migration <ArrowRight size={15} />
+                </Link>
+                <Link href="#migration-pipeline" className="btn-ghost inline-flex w-fit">
+                  See the governed pipeline
+                </Link>
+              </Reveal>
+            </div>
+            <aside className="feature-frame p-5">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">Migration contract</p>
+              <div className="mt-5 space-y-4">
+                {[
+                  ['01', 'Discover before mapping'],
+                  ['02', 'Stage before writing'],
+                  ['03', 'Surface ambiguity'],
+                  ['04', 'Reconcile before sign-off'],
+                ].map(([number, label]) => (
+                  <div key={label} className="grid grid-cols-[30px_minmax(0,1fr)] gap-3 border-t border-white/[0.07] pt-4 first:border-t-0 first:pt-0">
+                    <span className="font-mono text-[10px] text-gold-300/60">{number}</span>
+                    <span className="text-sm font-medium text-white/72">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </aside>
           </motion.div>
         </div>
       </section>
@@ -228,8 +235,8 @@ export default function MigrationClient() {
         <div className="mt-10 grid gap-3 sm:grid-cols-2">
           {migrationFailureReasons.map((reason, i) => (
             <Reveal key={reason} variant="up" delay={i * 0.05}>
-              <div className="flex h-full items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4">
-                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-danger/15 text-danger/85">
+              <div className="flex h-full items-start gap-3 border-t border-white/10 py-4">
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center text-danger/85">
                   <XMark size={10} />
                 </span>
                 <p className="text-sm leading-relaxed text-white/60">
@@ -256,12 +263,15 @@ export default function MigrationClient() {
         title="Don't migrate records. Migrate systems of meaning."
         lead="A naive migration maps source_field → destination_field. A serious one maps entity → relationship → semantics → transformation → validation. That distinction runs through every stage."
       >
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        <div className="feature-frame mt-12 grid gap-2 p-3 md:grid-cols-2 lg:grid-cols-5">
           {pipeline.map((stage, i) => (
             <Reveal key={stage.title} variant="up" delay={i * 0.06}>
-              <ParallaxCard depth={12 + i * 2} className="h-full p-6">
-                <div className="mb-4 grid h-9 w-9 place-items-center rounded-lg border border-gold-400/25 bg-gold-400/[0.08] text-gold-300">
-                  <stage.icon size={16} />
+              <div className="h-full rounded-xl px-5 py-6">
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <span className="grid h-9 w-9 place-items-center rounded-md border border-gold-400/22 bg-gold-400/[0.05] text-gold-300">
+                    <stage.icon size={16} />
+                  </span>
+                  <span className="font-mono text-[10px] text-white/28">{String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <h3 className="heading-serif text-base text-white">
                   {stage.title}
@@ -269,7 +279,7 @@ export default function MigrationClient() {
                 <p className="mt-2 text-sm leading-relaxed text-white/55">
                   {stage.desc}
                 </p>
-              </ParallaxCard>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -288,7 +298,7 @@ export default function MigrationClient() {
               <button
                 key={pair.key}
                 onClick={() => setActivePair(pair)}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
+                className={`rounded-md border px-4 py-2 text-sm font-medium transition-colors ${
                   activePair.key === pair.key
                     ? 'border-gold-300/50 bg-gold-300/10 text-gold-300'
                     : 'border-white/10 bg-white/[0.02] text-white/60 hover:border-white/20 hover:text-white'
@@ -301,11 +311,11 @@ export default function MigrationClient() {
         </Reveal>
 
         <Reveal variant="fade" className="mt-6" key={activePair.key}>
-          <ParallaxCard depth={18} className="p-6 md:p-8">
+          <div className="feature-frame px-6 py-7 md:px-8 md:py-8">
             <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-6">
               <div>
                 <div className="flex items-center gap-3">
-                  <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
+                  <span className="rounded-sm border border-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
                     {activePair.category}
                   </span>
                   <h3 className="heading-serif text-lg text-white sm:text-xl">
@@ -338,7 +348,7 @@ export default function MigrationClient() {
               Source discovery
             </p>
             <div className="mt-3 grid grid-cols-3 gap-3">
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+              <div className="border-t border-white/10 py-4">
                 <p className="text-xl font-semibold text-white">
                   {activePair.objects}
                 </p>
@@ -346,7 +356,7 @@ export default function MigrationClient() {
                   Objects discovered
                 </p>
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+              <div className="border-t border-white/10 py-4">
                 <p className="text-xl font-semibold text-white">
                   {activePair.fields.toLocaleString()}
                 </p>
@@ -354,7 +364,7 @@ export default function MigrationClient() {
                   Fields discovered
                 </p>
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+              <div className="border-t border-white/10 py-4">
                 <p className="text-xl font-semibold text-white">
                   {activePair.relationships}
                 </p>
@@ -368,7 +378,7 @@ export default function MigrationClient() {
               Mapping outcome
             </p>
             <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <div className="rounded-xl border border-gold-300/20 bg-gold-300/[0.04] p-4">
+              <div className="border-t border-gold-300/30 py-4">
                 <p className="text-xl font-semibold text-gold-300">
                   {activePair.direct.toLocaleString()}
                 </p>
@@ -376,7 +386,7 @@ export default function MigrationClient() {
                   Direct mappings
                 </p>
               </div>
-              <div className="rounded-xl border border-violet-400/20 bg-violet-400/[0.04] p-4">
+              <div className="border-t border-violet-400/30 py-4">
                 <p className="text-xl font-semibold text-violet-300">
                   {activePair.transformed}
                 </p>
@@ -384,7 +394,7 @@ export default function MigrationClient() {
                   Governed transformations
                 </p>
               </div>
-              <div className="rounded-xl border border-review/20 bg-review/[0.06] p-4">
+              <div className="border-t border-review/30 py-4">
                 <p className="text-xl font-semibold text-review">
                   {activePair.humanConfirm}
                 </p>
@@ -461,7 +471,7 @@ export default function MigrationClient() {
               Guide: why CRM-to-ERP sync breaks (and why this pipeline
               doesn&apos;t rely on sync) →
             </Link>
-          </ParallaxCard>
+          </div>
         </Reveal>
       </Section>
 
@@ -474,7 +484,7 @@ export default function MigrationClient() {
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {categories.map((cat, i) => (
             <Reveal key={cat.key} variant="up" delay={i * 0.05}>
-              <ParallaxCard depth={12 + i} className="h-full p-6 md:p-7">
+              <div className="h-full border-t border-white/10 py-6 pr-5 md:py-7">
                 <div className="mb-4 flex items-center gap-3">
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-gold-400/20 bg-gold-400/[0.08] text-gold-300">
                     <cat.icon size={16} />
@@ -489,7 +499,7 @@ export default function MigrationClient() {
                 <p className="mt-4 text-xs font-medium uppercase tracking-wide text-white/65">
                   {cat.pairs}
                 </p>
-              </ParallaxCard>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -535,10 +545,7 @@ export default function MigrationClient() {
       >
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           <Reveal variant="left">
-            <ParallaxCard
-              depth={14}
-              className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8"
-            >
+            <div className="soft-panel h-full p-6 md:p-8">
               <h3 className="text-base font-semibold text-white/80">
                 Implemented connector paths
               </h3>
@@ -546,7 +553,7 @@ export default function MigrationClient() {
                 {migrationEngine.connectors.map((connector) => (
                   <span
                     key={connector}
-                    className="rounded-full border border-violet-400/25 bg-violet-400/[0.08] px-4 py-2 text-sm font-medium text-violet-300"
+                    className="rounded-sm border border-violet-400/25 px-3 py-1.5 text-sm font-medium text-violet-300"
                   >
                     {connector}
                   </span>
@@ -557,13 +564,10 @@ export default function MigrationClient() {
                 separate environment requirements and is tracked independently
                 of the connector implementation.
               </p>
-            </ParallaxCard>
+            </div>
           </Reveal>
           <Reveal variant="right" delay={0.1}>
-            <ParallaxCard
-              depth={14}
-              className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8"
-            >
+            <div className="soft-panel h-full p-6 md:p-8">
               <h3 className="text-base font-semibold text-white/80">
                 File-based onboarding
               </h3>
@@ -571,7 +575,7 @@ export default function MigrationClient() {
                 {migrationFileFormats.map((format) => (
                   <span
                     key={format}
-                    className="rounded-full border border-gold-300/25 bg-gold-300/[0.08] px-4 py-2 text-sm font-medium text-gold-200"
+                    className="rounded-sm border border-gold-300/25 px-3 py-1.5 text-sm font-medium text-gold-200"
                   >
                     {format}
                   </span>
@@ -582,7 +586,7 @@ export default function MigrationClient() {
                 connector - the same discovery, mapping, staging, and
                 reconciliation pipeline applies.
               </p>
-            </ParallaxCard>
+            </div>
           </Reveal>
         </div>
       </Section>
@@ -596,9 +600,9 @@ export default function MigrationClient() {
 
       <Section id="migration-cta" className="pb-32">
         <Reveal variant="fade">
-          <div className="flex flex-col items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:flex-row sm:items-center sm:justify-between md:p-8">
+          <div className="soft-panel flex flex-col items-start gap-4 px-6 py-6 sm:flex-row sm:items-center sm:justify-between md:px-8 md:py-7">
             <div className="flex items-center gap-3 text-sm text-white/60">
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-gold-400/15 text-gold-300">
+              <span className="grid h-8 w-8 shrink-0 place-items-center border border-gold-300/25 text-gold-300">
                 <Check size={14} />
               </span>
               Bring your own export. We&apos;ll show you the mapping before

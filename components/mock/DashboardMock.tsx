@@ -68,7 +68,6 @@ function AreaChart() {
 export default function DashboardMock() {
   return (
     <div className="relative [perspective:1600px]">
-      <div className="absolute -inset-8 rounded-[2rem] bg-gold-500/10 blur-3xl" aria-hidden />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -77,7 +76,7 @@ export default function DashboardMock() {
         className="relative max-w-full lg:[transform:rotateX(6deg)_rotateY(-8deg)_rotateZ(1deg)]"
         style={{ transformStyle: 'preserve-3d' }}
       >
-        <div className="overflow-hidden rounded-xl border border-white/10 bg-ink-800/90 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+        <div className="overflow-hidden rounded-xl border border-white/10 bg-ink-800/90">
           <div className="flex items-center gap-3 border-b border-white/[0.06] bg-white/[0.02] px-4 py-2.5">
             <div className="flex gap-1.5">
               <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
@@ -91,7 +90,7 @@ export default function DashboardMock() {
             <div className="flex items-center gap-3 text-white/30">
               <Search size={13} />
               <Bell size={13} />
-              <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-to-br from-gold-400 to-violet-400 text-[9px] font-bold text-ink-900">
+              <span className="grid h-5 w-5 place-items-center rounded-full border border-gold-300/35 bg-ink-800 text-gold-300 text-[9px] font-bold text-ink-900">
                 Z
               </span>
             </div>
@@ -100,7 +99,7 @@ export default function DashboardMock() {
           <div className="flex">
             <div className="hidden w-40 shrink-0 border-r border-white/[0.06] p-3 sm:block">
               <div className="mb-4 flex items-center gap-2 px-2">
-                <span className="grid h-6 w-6 place-items-center rounded-lg bg-gradient-to-br from-gold-400 to-violet-400 text-[11px] font-bold text-ink-900">
+                <span className="grid h-6 w-6 place-items-center rounded-lg border border-gold-300/35 bg-ink-800 text-gold-300 text-[11px] font-bold text-ink-900">
                   I
                 </span>
                 <span className="text-xs font-semibold text-white">Infrakinetic</span>
@@ -125,7 +124,7 @@ export default function DashboardMock() {
                   <p className="text-[9px] font-semibold uppercase tracking-wider text-white/30">Modules</p>
                   <p className="mt-1 text-[10px] text-white/50">3 active · 6 available</p>
                   <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full w-1/3 rounded-full bg-gradient-to-r from-gold-400 to-violet-400" />
+                    <div className="h-full w-1/3 rounded-full bg-gold-300" />
                   </div>
                 </div>
               </div>
@@ -208,7 +207,7 @@ export default function DashboardMock() {
           className="absolute -right-4 -top-5 hidden md:block"
           style={{ transform: 'translateZ(60px)' }}
         >
-          <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800/95 px-3.5 py-2.5 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.6)] backdrop-blur">
+          <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800/95 px-3.5 py-2.5">
             <span className="grid h-7 w-7 place-items-center rounded-full bg-gold-400/15 text-gold-300">
               <Check size={13} />
             </span>
@@ -225,7 +224,7 @@ export default function DashboardMock() {
           className="absolute -bottom-6 -left-5 hidden md:block"
           style={{ transform: 'translateZ(50px)' }}
         >
-          <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800/95 px-3.5 py-2.5 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.6)] backdrop-blur">
+          <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800/95 px-3.5 py-2.5">
             <span className="grid h-7 w-7 place-items-center rounded-full bg-violet-400/15 text-violet-300">
               <Target size={13} />
             </span>

@@ -105,25 +105,6 @@ const config: Config = {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
         display: ['var(--font-clash)', 'Clash Display', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-12px)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
-        },
-        'pulse-glow': {
-          '0%, 100%': { opacity: '0.4' },
-          '50%': { opacity: '1' },
-        },
-      },
-      animation: {
-        float: 'float 6s ease-in-out infinite',
-        shimmer: 'shimmer 8s linear infinite',
-        'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
-      },
     },
   },
   plugins: [

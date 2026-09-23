@@ -3,7 +3,7 @@ import { Check, Clock } from '@/components/ui/Icons'
 
 function Window({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-white/10 bg-ink-800/80 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+    <div className="overflow-hidden rounded-xl border border-white/10 bg-ink-800/80">
       <div className="flex items-center gap-3 border-b border-white/[0.06] bg-white/[0.02] px-4 py-2.5">
         <div className="flex gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
@@ -66,7 +66,7 @@ export function PipelineMock() {
                   <div className="mt-2 flex items-center gap-2">
                     <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/[0.08]">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-gold-400 to-violet-400"
+                        className="h-full rounded-full bg-gold-300"
                         style={{ width: `${c.pct}%` }}
                       />
                     </div>

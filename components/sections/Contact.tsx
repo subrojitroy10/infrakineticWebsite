@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal from '@/components/ui/Reveal'
-import ParallaxCard from '@/components/ui/ParallaxCard'
 import { cta } from '@/lib/content'
 import { submitLead } from '@/lib/leadsubmit'
 import {
@@ -117,7 +116,7 @@ export default function Contact() {
             We will show you the smallest sensible Infrakinetic starting point,
             what platform infrastructure comes with it, and what you can add later.
           </p>
-          <div className="mt-6 rounded-xl border border-brand-bronze/30 bg-brand-bronze/[0.06] p-4">
+          <div className="mt-6 border-l-2 border-brand-bronze/45 pl-4">
             <p className="text-sm font-semibold text-brand-bronze">
               Key takeaway:
             </p>
@@ -128,10 +127,7 @@ export default function Contact() {
           </div>
         </Reveal>
 
-        <ParallaxCard
-          depth={20}
-          className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-brand-violet/20 bg-gradient-to-br from-brand-aubergine to-brand-obsidian backdrop-blur-xl"
-        >
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-md border border-white/10 bg-ink-800/25">
           <div className="grid lg:grid-cols-2">
             <div className="relative border-b border-white/10 p-8 md:p-12 lg:border-b-0 lg:border-r">
               <Reveal variant="fade">
@@ -153,7 +149,7 @@ export default function Contact() {
                     'A realistic expansion and migration path',
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3">
-                      <span className="grid h-5 w-5 place-items-center rounded-full bg-gold-400/20 text-gold-300">
+                      <span className="grid h-5 w-5 place-items-center text-gold-300">
                         <Check size={10} />
                       </span>
                       {item}
@@ -212,7 +208,7 @@ export default function Contact() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="flex h-full flex-col items-center justify-center py-10 text-center"
                   >
-                    <div className="grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-gold-400 to-violet-400 text-ink-900">
+                    <div className="grid h-14 w-14 place-items-center border border-gold-300/40 text-gold-300">
                       <Check size={26} />
                     </div>
                     <h3 className="heading-serif mt-6 text-2xl">
@@ -252,7 +248,7 @@ export default function Contact() {
                           type={field.type}
                           required
                           placeholder={field.placeholder}
-                          className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-colors focus:border-gold-400/60 focus:bg-white/[0.05]"
+                          className="w-full rounded-md border border-white/12 bg-ink-900/30 px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-colors focus:border-gold-400/60"
                         />
                       </div>
                     ))}
@@ -269,7 +265,7 @@ export default function Contact() {
                               type="button"
                               key={area}
                               onClick={() => toggle(area)}
-                              className={`min-w-[80px] rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all ${
+                              className={`min-w-[80px] rounded-md border px-3.5 py-1.5 text-xs font-medium transition-colors ${
                                 active
                                   ? 'border-gold-400/60 bg-gold-400/15 text-gold-200'
                                   : 'border-white/10 bg-white/[0.02] text-white/50 hover:border-white/25'
@@ -302,7 +298,7 @@ export default function Contact() {
               </AnimatePresence>
             </div>
           </div>
-        </ParallaxCard>
+        </div>
 
         <Reveal variant="up" delay={0.3} className="mt-20">
           <div className="mx-auto max-w-3xl">

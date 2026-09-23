@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
-import EarlyAccessRail from '@/components/sections/EarlyAccessRail'
 import ModularPlatform from '@/components/sections/ModularPlatform'
 import ConnectedJourney from '@/components/sections/ConnectedJourney'
 import EngineeringProof from '@/components/sections/EngineeringProof'
@@ -23,8 +22,7 @@ export default async function HomePage() {
 
   return (
     <main>
-      <Hero />
-      <EarlyAccessRail count={earlyAccessCount} />
+      <Hero earlyAccessCount={earlyAccessCount} />
       <ModularPlatform />
       <ConnectedJourney />
       <EngineeringProof />

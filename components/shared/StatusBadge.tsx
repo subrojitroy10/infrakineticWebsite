@@ -107,7 +107,7 @@ export default function StatusBadge({
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border font-medium ${style} ${sizeStyles[size]} ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-sm border font-medium ${style} ${sizeStyles[size]} ${className}`}
     >
       {dot && <span className={`${dotSizes[size]} rounded-full bg-current`} aria-hidden />}
       {humanize(value)}
@@ -126,45 +126,7 @@ export function StatusFilterRow({ family = 'lifecycle', counts = {}, active, onC
   const styles = familyStyles[family] || familyStyles.lifecycle
   const keys = Object.keys(styles)
 
-  const activeShadows: Record<string, string> = {
-    prospect: 'shadow-[0_0_0_1px_rgba(245,241,232,0.3)]',
-    qualified: 'shadow-[0_0_0_1px_rgba(140,111,153,0.5)]',
-    in_pipeline: 'shadow-[0_0_0_1px_rgba(139,185,231,0.5)]',
-    committed: 'shadow-[0_0_0_1px_rgba(6,182,212,0.5)]',
-    onboarding: 'shadow-[0_0_0_1px_rgba(99,102,241,0.5)]',
-    active: 'shadow-[0_0_0_1px_rgba(216,181,106,0.5)]',
-    at_risk: 'shadow-[0_0_0_1px_rgba(240,195,106,0.5)]',
-    renewing: 'shadow-[0_0_0_1px_rgba(140,111,153,0.5)]',
-    expanding: 'shadow-[0_0_0_1px_rgba(121,211,167,0.5)]',
-    churned: 'shadow-[0_0_0_1px_rgba(242,140,148,0.5)]',
-    won_back: 'shadow-[0_0_0_1px_rgba(132,204,22,0.5)]',
-    lost: 'shadow-[0_0_0_1px_rgba(113,113,122,0.5)]',
-    low: 'shadow-[0_0_0_1px_rgba(121,211,167,0.5)]',
-    medium: 'shadow-[0_0_0_1px_rgba(216,181,106,0.5)]',
-    high: 'shadow-[0_0_0_1px_rgba(240,195,106,0.5)]',
-    critical: 'shadow-[0_0_0_1px_rgba(242,140,148,0.5)]',
-    recovered: 'shadow-[0_0_0_1px_rgba(121,211,167,0.5)]',
-    unchanged: 'shadow-[0_0_0_1px_rgba(216,181,106,0.5)]',
-    deteriorated: 'shadow-[0_0_0_1px_rgba(240,195,106,0.5)]',
-    pending: 'shadow-[0_0_0_1px_rgba(245,241,232,0.3)]',
-    blocked: 'shadow-[0_0_0_1px_rgba(242,140,148,0.5)]',
-    open: 'shadow-[0_0_0_1px_rgba(139,185,231,0.5)]',
-    in_progress: 'shadow-[0_0_0_1px_rgba(140,111,153,0.5)]',
-    on_hold: 'shadow-[0_0_0_1px_rgba(216,181,106,0.5)]',
-    waiting_on_customer: 'shadow-[0_0_0_1px_rgba(240,195,106,0.5)]',
-    done: 'shadow-[0_0_0_1px_rgba(121,211,167,0.5)]',
-    cancelled: 'shadow-[0_0_0_1px_rgba(113,113,122,0.5)]',
-    draft: 'shadow-[0_0_0_1px_rgba(245,241,232,0.3)]',
-    sent: 'shadow-[0_0_0_1px_rgba(139,185,231,0.5)]',
-    overdue: 'shadow-[0_0_0_1px_rgba(242,140,148,0.5)]',
-    paid: 'shadow-[0_0_0_1px_rgba(121,211,167,0.5)]',
-    written_off: 'shadow-[0_0_0_1px_rgba(113,113,122,0.5)]',
-    in_review: 'shadow-[0_0_0_1px_rgba(140,111,153,0.5)]',
-    approved: 'shadow-[0_0_0_1px_rgba(216,181,106,0.5)]',
-    partially_paid: 'shadow-[0_0_0_1px_rgba(240,195,106,0.5)]',
-    signed: 'shadow-[0_0_0_1px_rgba(121,211,167,0.5)]',
-    archived: 'shadow-[0_0_0_1px_rgba(113,113,122,0.5)]',
-  }
+  const activeShadows: Record<string, string> = {}
 
   return (
     <div className="flex flex-wrap gap-2" role="group" aria-label={`${family} filters`}>
@@ -177,7 +139,7 @@ export function StatusFilterRow({ family = 'lifecycle', counts = {}, active, onC
             key={key}
             type="button"
             onClick={() => onChange?.(key)}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-all ${
+            className={`flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm font-medium transition-colors ${
               isActive
                 ? `${styles[key]} ${activeShadow}`
                 : 'bg-white/5 text-white/50 border-white/10 hover:border-white/20 hover:bg-white/10'

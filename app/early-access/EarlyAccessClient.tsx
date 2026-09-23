@@ -104,7 +104,7 @@ export default function EarlyAccessClient({ initialCount }: Props) {
     <main className="pt-28 md:pt-36">
       <section className="pb-20 md:pb-28">
         <div className="container-page">
-          <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16 xl:gap-24">
             <div>
               <p className="eyebrow">Controlled Early Access</p>
               <h1 className="heading-serif mt-5 text-4xl leading-tight md:text-6xl">
@@ -114,7 +114,7 @@ export default function EarlyAccessClient({ initialCount }: Props) {
                 Early Access is for organisations that want to be considered for deployment. We are onboarding deliberately rather than opening unrestricted signup.
               </p>
 
-              <div className="mt-10 border-y border-white/10 py-7" aria-live="polite">
+              <div className="mt-10 border-l-2 border-gold-300/45 bg-gold-300/[0.025] px-5 py-5" aria-live="polite">
                 <div className="flex items-end gap-4">
                   <strong className="heading-serif text-5xl text-gold-300 md:text-6xl">{count ?? '—'}</strong>
                   <div className="pb-1">
@@ -124,7 +124,7 @@ export default function EarlyAccessClient({ initialCount }: Props) {
                 </div>
               </div>
 
-              <div className="mt-10 space-y-5 border-t border-white/10 pt-7">
+              <div className="mt-9 max-w-md space-y-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold-300">Need to understand the platform first?</p>
                   <p className="mt-2 text-sm leading-relaxed text-white/55">
@@ -137,15 +137,15 @@ export default function EarlyAccessClient({ initialCount }: Props) {
               </div>
             </div>
 
-            <div className="border-t border-white/15 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+            <div className="feature-frame p-6 md:p-8 lg:p-9">
               {submitted ? (
-                <div className="py-16">
+                <div className="py-10 md:py-14">
                   <p className="eyebrow">Early Access</p>
                   <h2 className="heading-serif mt-4 text-3xl md:text-4xl">You&apos;re on the list.</h2>
                   <p className="mt-4 max-w-lg leading-relaxed text-white/60">
                     We&apos;ll review your operating requirements when forming upcoming cohorts. Joining the list does not lock you into a deployment.
                   </p>
-                  <div className="mt-8 border-y border-white/10 py-5">
+                  <div className="mt-8 soft-panel px-5 py-4">
                     <strong className="text-3xl text-gold-300">{count ?? '—'}</strong>
                     <span className="ml-3 text-sm text-white/55">organisations have joined</span>
                   </div>
@@ -163,25 +163,25 @@ export default function EarlyAccessClient({ initialCount }: Props) {
 
                   <div className="grid gap-5 sm:grid-cols-2">
                     <label className="block text-sm text-white/70">Full name
-                      <input className="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none focus:border-gold-300/50" name="name" required autoComplete="name" />
+                      <input className="mt-2 w-full rounded-md border border-white/12 bg-ink-900/35 px-4 py-3 text-white outline-none transition-colors focus:border-gold-300/55" name="name" required autoComplete="name" />
                     </label>
                     <label className="block text-sm text-white/70">Work email
-                      <input className="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none focus:border-gold-300/50" name="email" type="email" required autoComplete="email" />
+                      <input className="mt-2 w-full rounded-md border border-white/12 bg-ink-900/35 px-4 py-3 text-white outline-none transition-colors focus:border-gold-300/55" name="email" type="email" required autoComplete="email" />
                     </label>
                     <label className="block text-sm text-white/70">Company
-                      <input className="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none focus:border-gold-300/50" name="company" required autoComplete="organization" />
+                      <input className="mt-2 w-full rounded-md border border-white/12 bg-ink-900/35 px-4 py-3 text-white outline-none transition-colors focus:border-gold-300/55" name="company" required autoComplete="organization" />
                     </label>
                     <label className="block text-sm text-white/70">Your role
-                      <input className="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none focus:border-gold-300/50" name="role" autoComplete="organization-title" />
+                      <input className="mt-2 w-full rounded-md border border-white/12 bg-ink-900/35 px-4 py-3 text-white outline-none transition-colors focus:border-gold-300/55" name="role" autoComplete="organization-title" />
                     </label>
                     <label className="block text-sm text-white/70">Company size
-                      <select className="mt-2 w-full rounded-lg border border-white/10 bg-ink-900 px-4 py-3 text-white outline-none focus:border-gold-300/50" name="companySize" defaultValue="" required>
+                      <select className="mt-2 w-full rounded-md border border-white/12 bg-ink-900 px-4 py-3 text-white outline-none transition-colors focus:border-gold-300/55" name="companySize" defaultValue="" required>
                         <option value="" disabled>Select employee count</option>
                         {COMPANY_SIZES.map((size) => <option key={size} value={size}>{size}</option>)}
                       </select>
                     </label>
                     <label className="block text-sm text-white/70">Expected timeline
-                      <select className="mt-2 w-full rounded-lg border border-white/10 bg-ink-900 px-4 py-3 text-white outline-none focus:border-gold-300/50" name="timeline" defaultValue="" required>
+                      <select className="mt-2 w-full rounded-md border border-white/12 bg-ink-900 px-4 py-3 text-white outline-none transition-colors focus:border-gold-300/55" name="timeline" defaultValue="" required>
                         <option value="" disabled>Select a timeline</option>
                         {TIMELINES.map((timeline) => <option key={timeline} value={timeline}>{timeline}</option>)}
                       </select>
@@ -200,7 +200,7 @@ export default function EarlyAccessClient({ initialCount }: Props) {
                             type="button"
                             aria-pressed={active}
                             onClick={() => toggle(engine)}
-                            className={`rounded-md border px-3 py-2 text-xs transition-colors ${active ? 'border-gold-300/55 bg-gold-300/10 text-gold-200' : 'border-white/10 text-white/55 hover:border-white/25 hover:text-white/80'}`}
+                            className={`border-b px-1 py-2 text-xs transition-colors ${active ? 'border-gold-300 text-gold-200' : 'border-white/12 text-white/52 hover:border-white/35 hover:text-white/80'}`}
                           >
                             {engine}
                           </button>
@@ -210,11 +210,11 @@ export default function EarlyAccessClient({ initialCount }: Props) {
                   </fieldset>
 
                   <label className="block text-sm text-white/70">What are you using today?
-                    <textarea className="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none focus:border-gold-300/50" name="currentStack" rows={3} placeholder="CRM, HRMS, accounting software, spreadsheets, custom systems…" />
+                    <textarea className="mt-2 w-full rounded-md border border-white/12 bg-ink-900/35 px-4 py-3 text-white outline-none transition-colors focus:border-gold-300/55" name="currentStack" rows={3} placeholder="CRM, HRMS, accounting software, spreadsheets, custom systems…" />
                   </label>
 
                   <label className="block text-sm text-white/70">What problem are you trying to solve?
-                    <textarea className="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none focus:border-gold-300/50" name="problemStatement" rows={5} required placeholder="Describe the fragmentation, workflow, handoff or replacement problem you want us to understand." />
+                    <textarea className="mt-2 w-full rounded-md border border-white/12 bg-ink-900/35 px-4 py-3 text-white outline-none transition-colors focus:border-gold-300/55" name="problemStatement" rows={5} required placeholder="Describe the fragmentation, workflow, handoff or replacement problem you want us to understand." />
                   </label>
 
                   {error ? <p className="text-sm text-red-300">{error}</p> : null}

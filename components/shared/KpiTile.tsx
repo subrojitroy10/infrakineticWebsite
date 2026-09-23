@@ -1,22 +1,19 @@
-'use client'
-
 import React from 'react'
-import { motion } from 'framer-motion'
 
 export type KpiVariant = 'neutral' | 'positive' | 'warning' | 'danger'
 
 const variantStyles: Record<KpiVariant, string> = {
-  neutral: 'border-white/10 bg-white/[0.02]',
-  positive: 'border-success/20 bg-success/[0.04]',
-  warning: 'border-warning/20 bg-warning/[0.04]',
-  danger: 'border-danger/20 bg-danger/[0.04]',
+  neutral: 'border-white/10',
+  positive: 'border-success/30',
+  warning: 'border-warning/30',
+  danger: 'border-danger/30',
 }
 
-const iconBgStyles: Record<KpiVariant, string> = {
-  neutral: 'bg-white/[0.06] text-white/60',
-  positive: 'bg-success/15 text-success',
-  warning: 'bg-warning/15 text-warning',
-  danger: 'bg-danger/15 text-danger',
+const iconStyles: Record<KpiVariant, string> = {
+  neutral: 'text-white/55',
+  positive: 'text-success',
+  warning: 'text-warning',
+  danger: 'text-danger',
 }
 
 export interface KpiTileProps {
@@ -41,33 +38,26 @@ export default function KpiTile({
   style,
 }: KpiTileProps) {
   return (
-    <motion.div
-      className={`rounded-xl border p-4 transition-all ${variantStyles[variant]} ${className}`}
-      style={style}
-      initial={false}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div className={`border-t p-4 ${variantStyles[variant]} ${className}`} style={style}>
       <div className="flex items-start gap-3">
         {Icon && (
-          <div className={`shrink-0 grid h-9 w-9 place-items-center rounded-lg ${iconBgStyles[variant]}`}>
+          <div className={`shrink-0 pt-0.5 ${iconStyles[variant]}`}>
             <Icon size={18} />
           </div>
         )}
         <div className="min-w-0 flex-1">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-white/40 leading-snug">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/38 leading-snug">
             {label}
           </p>
           <p className="mt-1 break-words text-xl font-semibold tracking-tight text-white">{value}</p>
           {subLine && (
-            <p className="mt-2 flex items-center gap-1.5 text-sm font-medium text-white/60">
+            <p className="mt-2 flex items-center gap-1.5 text-sm font-medium text-white/55">
               {SubIcon && <SubIcon size={12} />}
               {subLine}
             </p>
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }

@@ -11,24 +11,24 @@ import { Check } from '@/components/ui/Icons'
 const journeyAccent: Record<string, { badge: string; line: string; tag: string; check: string; glow: string }> = {
   revenue: {
     badge: 'border-gold-400/25 bg-gold-400/[0.1] text-gold-300',
-    line: 'bg-gradient-to-b from-gold-400/40 to-transparent',
+    line: 'bg-gold-300/30',
     tag: 'text-gold-400',
     check: 'bg-gold-400/15 text-gold-300',
     glow: 'bg-gold-400/10',
   },
   workforce: {
     badge: 'border-violet-400/25 bg-violet-400/[0.1] text-violet-300',
-    line: 'bg-gradient-to-b from-violet-400/40 to-transparent',
+    line: 'bg-violet-300/30',
     tag: 'text-violet-300',
     check: 'bg-violet-400/15 text-violet-300',
     glow: 'bg-violet-400/10',
   },
   cx360: {
-    badge: 'border-white/20 bg-gradient-to-br from-gold-400/20 to-violet-400/20 text-white/85',
-    line: 'bg-gradient-to-b from-white/25 to-transparent',
+    badge: 'border-white/20 bg-white/[0.04] text-white/85',
+    line: 'bg-white/20',
     tag: 'text-white/70',
     check: 'bg-white/10 text-white/80',
-    glow: 'bg-gradient-to-br from-gold-400/10 to-violet-400/10',
+    glow: 'bg-transparent',
   },
 }
 
@@ -41,7 +41,7 @@ export default function Modules() {
       lead="The platform is best understood through operational journeys, not isolated modules. Each journey keeps business context, approvals, workflow, finance, and reporting connected as work crosses departments."
     >
       <Reveal variant="up" delay={0.05} className="mt-6">
-        <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+        <div className="rounded-lg border border-white/10 bg-white/[0.02] p-6 md:p-8">
           <h2 className="heading-serif text-2xl md:text-3xl">How do connected journeys work?</h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
             Infrakinetic organizes work into <strong>three operational journeys</strong> - Revenue Execution, Workforce Execution, and Customer Lifecycle Intelligence (CX360) - each spanning the full lifecycle from initial contact to recurring revenue. Unlike traditional siloed modules, every step in a journey shares the same customer record, approval chain, and audit trail.
@@ -62,7 +62,6 @@ export default function Modules() {
                 depth={18 + index * 4}
                 className="glass-card relative flex h-full flex-col overflow-hidden p-6 md:p-8"
               >
-                <div className={`pointer-events-none absolute -right-10 -top-10 -z-10 h-40 w-40 rounded-full ${accent.glow} blur-3xl`} aria-hidden />
 
                 <span className={`text-xs font-semibold uppercase tracking-[0.18em] ${accent.tag}`}>
                   {journey.tag}
@@ -73,7 +72,7 @@ export default function Modules() {
                   {journey.summary}
                 </p>
 
-                <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+                <div className="mt-6 rounded-lg border border-white/10 bg-white/[0.02] p-5">
                   {journey.steps.map((step, i) => {
                     const isLast = i === journey.steps.length - 1
                     return (
@@ -135,7 +134,7 @@ export default function Modules() {
             <Reveal key={point.title} variant="up" delay={index * 0.05}>
               <ParallaxCard
                 depth={12 + index}
-                className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-gold-400/30"
+                className="h-full rounded-lg border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-gold-400/30"
               >
                 <div className="mb-4 grid h-9 w-9 place-items-center rounded-lg border border-gold-400/20 bg-gold-400/[0.08] text-gold-300">
                   <Check size={15} />

@@ -48,7 +48,7 @@ export default function MeetInfrakinetic() {
         <Reveal variant="left">
           <ParallaxCard
             depth={18}
-            className="relative h-full overflow-hidden rounded-2xl border border-brand-plum bg-gradient-to-br from-brand-plum to-brand-obsidian p-6 md:p-8"
+            className="relative h-full overflow-hidden rounded-lg border border-brand-plum bg-ink-800/55 p-6 md:p-8"
           >
             <div className="flex items-center justify-between mb-6">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-300">
@@ -143,7 +143,7 @@ export default function MeetInfrakinetic() {
         <Reveal variant="right" delay={0.1}>
           <ParallaxCard
             depth={22}
-            className="h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 flex flex-col"
+            className="h-full overflow-hidden rounded-lg border border-white/10 bg-white/[0.02] p-6 md:p-8 flex flex-col"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/40 mb-4">
               Shared Infrastructure

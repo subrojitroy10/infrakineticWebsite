@@ -125,7 +125,7 @@ export default function DataTable({
 
   if (!data.length) {
     return (
-      <div className={`rounded-2xl border border-white/10 bg-white/[0.02] p-12 text-center ${className}`}>
+      <div className={`rounded-lg border border-white/10 bg-white/[0.02] p-12 text-center ${className}`}>
         <div className="mx-auto w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 text-white/40">
           {emptyState?.icon}
         </div>
@@ -141,10 +141,10 @@ export default function DataTable({
   }
 
   return (
-    <div className={`overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] ${className}`}>
+    <div className={`overflow-hidden rounded-lg border border-white/10 bg-white/[0.02] ${className}`}>
       <div className="overflow-x-auto">
         <table className="w-full text-sm" role="grid">
-          <thead className="sticky top-0 z-10 bg-ink-900/80 backdrop-blur">
+          <thead className="sticky top-0 z-10 bg-ink-900/80">
             <tr className="border-b border-white/10">
               {selectable && (
                 <th className="w-12 px-4 py-3 text-left">

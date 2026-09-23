@@ -223,29 +223,27 @@ export default function PricingCalculatorClient() {
   return (
     <main className="relative overflow-hidden pb-24 pt-28 md:pt-36">
       <div className="container-page">
-        <header className="mx-auto max-w-4xl text-center">
-          <p className="eyebrow justify-center">Selective pricing workspace</p>
-          <h1 className="heading-serif mt-6 text-4xl leading-tight md:text-6xl">
-            Configure an Infrakinetic deployment.
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-neutral-300 md:text-lg">
-            Estimate recurring software and onboarding separately, using the current
-            balanced draft model. Broader adoption improves platform economics; normal
-            platform usage is included.
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs text-neutral-400">
-            <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5">
-              {pricingConfig.displayName}
-            </span>
-            <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5">
-              Draft · selective use
-            </span>
+        <header className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end">
+          <div>
+            <p className="eyebrow">Selective pricing workspace</p>
+            <h1 className="heading-serif mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">
+              Configure an Infrakinetic deployment.
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-300 md:text-lg">
+              Estimate recurring software and onboarding separately. Broader adoption improves platform economics; normal platform usage is included.
+            </p>
+          </div>
+          <div className="border-l border-white/10 pl-5 text-xs leading-5 text-neutral-400">
+            <p className="font-semibold uppercase tracking-[0.16em] text-gold-300">Pricing model</p>
+            <p className="mt-3 text-sm font-medium text-white/78">{pricingConfig.displayName}</p>
+            <p className="mt-1">Draft · selective use</p>
+            <p className="mt-4">The calculator separates recurring software from one-time migration and onboarding.</p>
           </div>
         </header>
 
         <div className="mt-12 grid gap-8 xl:grid-cols-[minmax(0,1.35fr)_minmax(340px,0.65fr)]">
-          <div className="space-y-8">
-            <section className="glass-card p-6 md:p-8" aria-labelledby="organisation-size">
+          <div className="feature-frame divide-y divide-white/[0.08] overflow-hidden">
+            <section className="px-6 py-8 md:px-8 md:py-10" aria-labelledby="organisation-size">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">
@@ -258,7 +256,7 @@ export default function PricingCalculatorClient() {
                     Employee count is used to determine organisational scale. Infrakinetic is not licensed per seat.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-gold-300/25 bg-gold-300/[0.06] px-5 py-3 text-right">
+                <div className="border-l border-gold-300/30 pl-5 text-right">
                   <div className="text-xs uppercase tracking-[0.14em] text-neutral-400">Headcount</div>
                   <div className="mt-1 text-2xl font-semibold text-white">{employeeCount}</div>
                 </div>
@@ -283,7 +281,7 @@ export default function PricingCalculatorClient() {
                         Math.max(minimumEmployees, Number.isNaN(next) ? minimumEmployees : next),
                       )
                     }}
-                    className="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white outline-none transition focus:border-gold-300/60 focus:ring-2 focus:ring-gold-300/20"
+                    className="w-full rounded-md border border-white/12 bg-ink-900/35 px-4 py-3 text-white outline-none transition-colors focus:border-gold-300/60"
                   />
                   <input
                     aria-label="Employee count slider"
@@ -313,7 +311,7 @@ export default function PricingCalculatorClient() {
               )}
             </section>
 
-            <section className="glass-card p-6 md:p-8" aria-labelledby="choose-needs">
+            <section className="px-6 py-8 md:px-8 md:py-10" aria-labelledby="choose-needs">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">Step 2</p>
               <h2 id="choose-needs" className="mt-2 text-2xl font-semibold text-white">
                 Choose what you need
@@ -331,9 +329,9 @@ export default function PricingCalculatorClient() {
                       type="button"
                       aria-pressed={active}
                       onClick={() => selectSuite(id)}
-                      className={`rounded-2xl border p-4 text-left transition ${
+                      className={`rounded-md border p-4 text-left transition-colors ${
                         active
-                          ? 'border-gold-300/60 bg-gold-300/[0.08] shadow-[0_0_0_1px_rgba(216,181,106,0.12)]'
+                          ? 'border-gold-300/60 bg-gold-300/[0.08]'
                           : 'border-white/10 bg-white/[0.02] hover:border-violet-400/45 hover:bg-white/[0.04]'
                       }`}
                     >
@@ -346,7 +344,7 @@ export default function PricingCalculatorClient() {
                   type="button"
                   aria-pressed={activeSuiteId === null}
                   onClick={() => setSelectedEngineIds([])}
-                  className={`rounded-2xl border p-4 text-left transition ${
+                  className={`rounded-md border p-4 text-left transition-colors ${
                     activeSuiteId === null
                       ? 'border-violet-400/60 bg-violet-400/[0.08]'
                       : 'border-white/10 bg-white/[0.02] hover:border-violet-400/45 hover:bg-white/[0.04]'
@@ -368,7 +366,7 @@ export default function PricingCalculatorClient() {
                     return (
                       <label
                         key={engineId}
-                        className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition ${
+                        className={`flex cursor-pointer items-center gap-3 rounded-md border px-4 py-3 transition-colors ${
                           selected
                             ? 'border-gold-300/45 bg-gold-300/[0.06]'
                             : 'border-white/10 bg-ink-800/50 hover:border-white/20'
@@ -394,7 +392,7 @@ export default function PricingCalculatorClient() {
               )}
             </section>
 
-            <section className="glass-card p-6 md:p-8" aria-labelledby="billing-term">
+            <section className="px-6 py-8 md:px-8 md:py-10" aria-labelledby="billing-term">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">Step 3</p>
               <h2 id="billing-term" className="mt-2 text-2xl font-semibold text-white">
                 Commitment structure
@@ -403,12 +401,12 @@ export default function PricingCalculatorClient() {
                 Annual prepayment receives the current {annualDiscountPercent}% adjustment. List MRR remains visible in either view.
               </p>
 
-              <div className="mt-6 inline-flex rounded-full border border-white/10 bg-ink-800 p-1">
+              <div className="mt-6 inline-flex rounded-md border border-white/10 bg-ink-800 p-1">
                 <button
                   type="button"
                   aria-pressed={billingTerm === 'monthly'}
                   onClick={() => setBillingTerm('monthly')}
-                  className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
+                  className={`rounded-sm px-5 py-2.5 text-sm font-semibold transition-colors ${
                     billingTerm === 'monthly'
                       ? 'bg-white text-ink-900'
                       : 'text-neutral-300 hover:text-white'
@@ -420,7 +418,7 @@ export default function PricingCalculatorClient() {
                   type="button"
                   aria-pressed={billingTerm === 'annual'}
                   onClick={() => setBillingTerm('annual')}
-                  className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
+                  className={`rounded-sm px-5 py-2.5 text-sm font-semibold transition-colors ${
                     billingTerm === 'annual'
                       ? 'bg-action text-action-text'
                       : 'text-neutral-300 hover:text-white'
@@ -431,7 +429,7 @@ export default function PricingCalculatorClient() {
               </div>
             </section>
 
-            <section className="glass-card p-6 md:p-8" aria-labelledby="onboarding">
+            <section className="px-6 py-8 md:px-8 md:py-10" aria-labelledby="onboarding">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">Step 4</p>
               <h2 id="onboarding" className="mt-2 text-2xl font-semibold text-white">
                 Migration & data onboarding
@@ -445,7 +443,7 @@ export default function PricingCalculatorClient() {
                   type="button"
                   aria-pressed={migrationPackageId === null}
                   onClick={() => chooseMigration(null)}
-                  className={`rounded-xl border px-4 py-3 text-left transition ${
+                  className={`rounded-md border px-4 py-3 text-left transition-colors ${
                     migrationPackageId === null
                       ? 'border-gold-300/50 bg-gold-300/[0.07]'
                       : 'border-white/10 bg-white/[0.02] hover:border-white/20'
@@ -460,7 +458,7 @@ export default function PricingCalculatorClient() {
                     type="button"
                     aria-pressed={migrationPackageId === id}
                     onClick={() => chooseMigration(id)}
-                    className={`rounded-xl border px-4 py-3 text-left transition ${
+                    className={`rounded-md border px-4 py-3 text-left transition-colors ${
                       migrationPackageId === id
                         ? 'border-gold-300/50 bg-gold-300/[0.07]'
                         : 'border-white/10 bg-white/[0.02] hover:border-white/20'
@@ -477,7 +475,7 @@ export default function PricingCalculatorClient() {
               </div>
 
               <label
-                className={`mt-5 flex items-start gap-3 rounded-xl border px-4 py-4 ${
+                className={`mt-5 flex items-start gap-3 rounded-md border px-4 py-4 ${
                   migrationPackageId && migrationPackageId !== 'enterprise'
                     ? 'cursor-pointer border-white/10 bg-white/[0.02]'
                     : 'cursor-not-allowed border-white/5 bg-white/[0.01] opacity-55'
@@ -499,7 +497,7 @@ export default function PricingCalculatorClient() {
               </label>
             </section>
 
-            <section className="glass-card p-6 md:p-8" aria-labelledby="foundation">
+            <section className="px-6 py-8 md:px-8 md:py-10" aria-labelledby="foundation">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-violet-300">Included foundation</p>
               <h2 id="foundation" className="mt-2 text-2xl font-semibold text-white">
                 Infrakinetic platform foundation included with every deployment.
@@ -511,7 +509,7 @@ export default function PricingCalculatorClient() {
           </div>
 
           <aside className="space-y-6 xl:sticky xl:top-28 xl:self-start">
-            <section className="rounded-3xl border border-gold-300/25 bg-ink-800/90 p-6 shadow-[0_32px_90px_-50px_rgba(216,181,106,0.55)] backdrop-blur-xl md:p-7">
+            <section className="feature-frame border-gold-300/20 p-6 md:p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">Estimated Infrakinetic subscription</p>
 
               {standardCalculation ? (
@@ -551,7 +549,7 @@ export default function PricingCalculatorClient() {
                     )}
                   </div>
 
-                  <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.025] p-4">
+                  <div className="mt-6 rounded-lg border border-white/10 bg-white/[0.025] p-4">
                     <div className="flex items-center justify-between gap-4">
                       <span className="text-xs uppercase tracking-[0.12em] text-neutral-400">Selected paid engines</span>
                       <span className="text-xs font-semibold text-white">{standardCalculation.engineCount}</span>
@@ -560,7 +558,7 @@ export default function PricingCalculatorClient() {
                       {standardCalculation.selectedEngineIds.map((id) => (
                         <span
                           key={id}
-                          className="rounded-full border border-white/10 bg-ink-900 px-2.5 py-1 text-[11px] text-neutral-300"
+                          className="rounded-sm border border-white/10 bg-ink-900 px-2.5 py-1 text-[11px] text-neutral-300"
                         >
                           {pricingConfig.engines[id].label}
                         </span>
@@ -606,7 +604,7 @@ export default function PricingCalculatorClient() {
                   </div>
                 </>
               ) : customPricingRequired ? (
-                <div className="mt-6 rounded-2xl border border-violet-400/35 bg-violet-400/[0.07] p-5">
+                <div className="mt-6 rounded-lg border border-violet-400/35 bg-violet-400/[0.07] p-5">
                   <div className="text-xl font-semibold text-white">Custom / Enterprise Pricing</div>
                   <p className="mt-2 text-sm leading-6 text-neutral-300">
                     The approved progressive organisation-scale curve currently ends at {maximumSelfServiceEmployees} employees. For {employeeCount.toLocaleString('en-IN')} employees, the calculator deliberately does not extrapolate a price.
@@ -616,7 +614,7 @@ export default function PricingCalculatorClient() {
                   </p>
                 </div>
               ) : (
-                <div className="mt-6 rounded-2xl border border-warning-border bg-warning-bg p-5 text-sm leading-6 text-warning">
+                <div className="mt-6 rounded-lg border border-warning-border bg-warning-bg p-5 text-sm leading-6 text-warning">
                   Select at least one paid engine to calculate a subscription estimate.
                 </div>
               )}
@@ -632,7 +630,7 @@ export default function PricingCalculatorClient() {
             </button>
 
             {standardCalculation && (
-              <details className="glass-card group p-5">
+              <details className="soft-panel group p-5">
                 <summary className="cursor-pointer list-none text-sm font-semibold text-white marker:hidden">
                   <span className="flex items-center justify-between gap-4">
                     Pricing Breakdown
@@ -692,7 +690,7 @@ export default function PricingCalculatorClient() {
               </details>
             )}
 
-            <section className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-5 text-neutral-400">
+            <section className="border-l border-white/12 pl-4 text-xs leading-5 text-neutral-400">
               <div className="font-semibold text-neutral-300">Estimate identity</div>
               <div className="mt-3 space-y-1.5">
                 <p>Model: {pricingConfig.version}</p>

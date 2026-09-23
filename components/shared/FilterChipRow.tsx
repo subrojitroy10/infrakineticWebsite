@@ -40,7 +40,7 @@ export default function FilterChipRow({
             key={filter.key}
             type="button"
             onClick={() => onChange?.(filter.key)}
-            className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium transition-all ${
+            className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
               variant === 'status' && dotColor
                 ? `border-${dotColor}/30 bg-${dotColor}/10 text-${dotColor} hover:bg-${dotColor}/20`
                 : isActive

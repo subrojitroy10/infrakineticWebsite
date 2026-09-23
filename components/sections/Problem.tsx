@@ -48,7 +48,7 @@ export default function Problem() {
   return (
     <Section id="problem" eyebrow={problem.eyebrow} title={problem.title} lead={problem.lead}>
       <Reveal variant="fade" className="mt-16">
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.035] to-white/[0.01] p-5 md:p-8">
+        <div className="relative overflow-hidden rounded-lg border border-white/10 bg-ink-800/30 p-5 md:p-8">
           <div className="grid gap-6 md:grid-cols-2 md:gap-8">
             {[
               { label: 'Revenue work', flow: 'revenue' as const, brokenAt: 1 },
@@ -57,7 +57,6 @@ export default function Problem() {
               const accent = flowAccent[flow.flow]
               return (
                 <div key={flow.label} className="relative">
-                  <div className={`pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] ${accent.glow} blur-3xl`} aria-hidden />
                   <div className="mb-5 flex items-center gap-2">
                     <span className={`h-1.5 w-1.5 rounded-full ${accent.dot}`} aria-hidden />
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">{flow.label}</p>
@@ -66,7 +65,7 @@ export default function Problem() {
                     {flowIcons[flow.flow].map((Icon, i) => (
                       <Fragment key={i}>
                         <div
-                          className="group flex items-center gap-3 rounded-xl border border-white/10 bg-ink-800/60 py-2.5 pl-2.5 pr-4 shadow-[0_1px_0_rgba(255,255,255,0.03)_inset] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-ink-800"
+                          className="group flex items-center gap-3 rounded-xl border border-white/10 bg-ink-800/60 py-2.5 pl-2.5 pr-4 transition-all duration-300 hover:border-white/20 hover:bg-ink-800"
                         >
                           <div className={`grid h-7 w-7 shrink-0 place-items-center rounded-lg border ${accent.iconBg}`}>
                             <Icon size={13} />
@@ -79,7 +78,6 @@ export default function Problem() {
                               <span className="w-3 border-t border-dashed border-white/15 md:w-5" />
                               {i === flow.brokenAt && (
                                 <span className="relative mx-1 grid h-6 w-6 place-items-center rounded-full border border-danger/40 bg-danger/10 text-danger">
-                                  <span className="absolute inset-0 animate-pulse-glow rounded-full bg-danger/20" />
                                   <XMark size={11} className="relative" />
                                 </span>
                               )}
@@ -125,7 +123,7 @@ export default function Problem() {
       </Reveal>
 
       <Reveal variant="up" delay={0.1} className="mt-14">
-        <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+        <div className="rounded-lg border border-white/10 bg-white/[0.02] p-6 md:p-8">
           <h2 className="heading-serif text-2xl md:text-3xl">Why does context break between departments?</h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
             Most B2B companies use 7-12 different SaaS tools. When a deal closes in CRM, the contract details don&apos;t automatically flow to finance for invoicing. When a candidate is hired, their data doesn&apos;t flow to payroll. Each handoff requires manual re-entry - and every re-entry is a place context can be lost, delayed, or gotten wrong. 38% of revenue operations leaders name inaccurate, low-quality data as a top challenge (Source: Forrester Revenue Operations Survey, 2024) - the direct cost of exactly this kind of disconnected handoff. These breaks compound: delayed kickoffs, wrong billing, compliance gaps, and zero visibility for leadership.

@@ -1,28 +1,28 @@
 'use client'
 
 import React from 'react'
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants, useReducedMotion } from 'framer-motion'
 
 const variants: Record<string, Variants> = {
   up: {
-    hidden: { opacity: 0, y: 72, filter: 'blur(10px)' },
-    show: { opacity: 1, y: 0, filter: 'blur(0px)' },
+    hidden: { opacity: 0, y: 14 },
+    show: { opacity: 1, y: 0 },
   },
   fade: {
-    hidden: { opacity: 0, filter: 'blur(8px)' },
-    show: { opacity: 1, filter: 'blur(0px)' },
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
   },
   left: {
-    hidden: { opacity: 0, x: -72, rotateY: -8, filter: 'blur(10px)' },
-    show: { opacity: 1, x: 0, rotateY: 0, filter: 'blur(0px)' },
+    hidden: { opacity: 0, x: -14 },
+    show: { opacity: 1, x: 0 },
   },
   right: {
-    hidden: { opacity: 0, x: 72, rotateY: 8, filter: 'blur(10px)' },
-    show: { opacity: 1, x: 0, rotateY: 0, filter: 'blur(0px)' },
+    hidden: { opacity: 0, x: 14 },
+    show: { opacity: 1, x: 0 },
   },
   scale: {
-    hidden: { opacity: 0, scale: 0.9, filter: 'blur(12px)' },
-    show: { opacity: 1, scale: 1, filter: 'blur(0px)' },
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0 },
   },
 }
 
@@ -36,26 +36,26 @@ interface RevealProps {
   amount?: number
 }
 
-/**
- * Fires a one-shot entrance animation when the element scrolls into view.
- */
+/** A restrained, one-shot entrance animation for section hierarchy. */
 export default function Reveal({
   children,
   variant = 'up',
   delay = 0,
-  duration = 0.9,
+  duration = 0.45,
   className = '',
   as = 'div',
-  amount = 0.25,
+  amount = 0.2,
 }: RevealProps) {
+  const reduceMotion = useReducedMotion()
   const MotionTag = (motion[as as keyof typeof motion] || motion.div) as any
+
   return (
     <MotionTag
       className={className}
       data-reveal={variant}
-      initial={false}
+      initial={reduceMotion ? false : 'hidden'}
       whileInView="show"
-      viewport={{ once: false, amount }}
+      viewport={{ once: true, amount }}
       transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
       variants={variants[variant]}
     >

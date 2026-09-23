@@ -1,6 +1,6 @@
 import Section from '@/components/ui/Section'
 import Reveal from '@/components/ui/Reveal'
-import { ArrowRight, Check, FileText, Shield, Target, Wallet, Zap } from '@/components/ui/Icons'
+import { Check, FileText, Shield, Target, Wallet, Zap } from '@/components/ui/Icons'
 
 const steps = [
   { stage: 'Account', owner: 'Commercial', detail: 'One organization record anchors the relationship.', icon: Target },
@@ -16,84 +16,37 @@ const steps = [
 ]
 
 const tracks = [
-  {
-    label: 'Commercial decision track',
-    note: 'The customer, deal, document and authority stay connected.',
-    steps: steps.slice(0, 5),
-  },
-  {
-    label: 'Execution & value track',
-    note: 'Optional engines join the flow only when the customer has enabled them.',
-    steps: steps.slice(5),
-  },
+  { label: 'Commercial decision track', note: 'Customer, deal, document and authority remain connected.', steps: steps.slice(0, 5) },
+  { label: 'Execution & value track', note: 'Optional engines join only when enabled.', steps: steps.slice(5) },
 ]
 
 const rails = ['Documents', 'Approvals', 'Workflow', 'Automation', 'Governance']
 
-function JourneyTrack({
-  label,
-  note,
-  items,
-  startIndex,
-}: {
-  label: string
-  note: string
-  items: typeof steps
-  startIndex: number
-}) {
+function JourneyTrack({ label, note, items, startIndex }: { label: string; note: string; items: typeof steps; startIndex: number }) {
   return (
     <div>
-      <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/38">{label}</p>
-        <p className="text-xs text-white/38">{note}</p>
+      <div className="mb-6 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">{label}</p>
+        <p className="text-xs text-white/35">{note}</p>
       </div>
 
-      <div className="overflow-x-auto pb-2">
-        <div className="flex min-w-[980px] items-stretch lg:min-w-0">
+      <div className="overflow-x-auto pb-3">
+        <div className="relative flex min-w-[920px] items-start gap-6 lg:min-w-0 lg:gap-8">
+          <span className="absolute left-4 right-4 top-[18px] h-px bg-white/[0.09]" aria-hidden />
           {items.map((step, index) => (
-            <div key={step.stage} className="contents">
-              <Reveal variant="up" delay={(startIndex + index) * 0.03} className="min-w-0 flex-1">
-                <div
-                  className={`relative h-full min-h-[220px] rounded-2xl border p-5 ${
-                    step.optional
-                      ? 'border-dashed border-white/[0.14] bg-white/[0.012]'
-                      : 'border-white/[0.08] bg-white/[0.026]'
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <span
-                      className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl ${
-                        step.optional
-                          ? 'border border-white/[0.08] bg-white/[0.025] text-white/45'
-                          : 'border border-gold-300/10 bg-gold-300/[0.07] text-gold-300'
-                      }`}
-                    >
-                      <step.icon size={16} />
-                    </span>
-                    {step.optional ? (
-                      <span className="whitespace-nowrap rounded-full border border-white/10 bg-white/[0.02] px-2.5 py-1 text-[8px] font-semibold uppercase tracking-[0.12em] text-white/38">
-                        Optional engine
-                      </span>
-                    ) : null}
-                  </div>
-
-                  <div className="mt-6">
-                    <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/36">{step.owner}</p>
-                    <h3 className="mt-1.5 text-base font-semibold leading-tight text-white">{step.stage}</h3>
-                    <p className="mt-3 max-w-[18rem] text-[12px] leading-[1.65] text-white/48">{step.detail}</p>
-                  </div>
+            <Reveal key={step.stage} variant="up" delay={(startIndex + index) * 0.025} className="relative min-w-0 flex-1">
+              <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.1] bg-ink-800 text-white/50">
+                <step.icon size={15} className={step.optional ? 'text-white/42' : 'text-gold-300'} />
+              </div>
+              <div className="mt-5 pr-3">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-white/30">{step.owner}</p>
+                  {step.optional ? <span className="text-[8px] font-semibold uppercase tracking-[0.12em] text-review">optional</span> : null}
                 </div>
-              </Reveal>
-
-              {index < items.length - 1 ? (
-                <div className="flex w-9 shrink-0 items-center justify-center" aria-hidden>
-                  <div className="relative flex w-full items-center">
-                    <span className="h-px flex-1 bg-gradient-to-r from-gold-300/10 via-gold-300/35 to-gold-300/10" />
-                    <ArrowRight size={14} className="-ml-1 shrink-0 text-gold-300/55" />
-                  </div>
-                </div>
-              ) : null}
-            </div>
+                <h3 className="mt-1.5 text-base font-semibold leading-tight text-white">{step.stage}</h3>
+                <p className="mt-2 max-w-[15rem] text-[12px] leading-[1.6] text-white/44">{step.detail}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -106,61 +59,43 @@ export default function ConnectedJourney() {
     <Section
       id="connected-journey"
       eyebrow="One business event, many owners"
-      title="Watch the work move without forcing every team into the same engine."
-      lead="The point of Infrakinetic is not that every function becomes one giant module. Each engine keeps clear ownership, while the platform carries context and governed handoffs between them."
-      className="border-b border-white/[0.06]"
+      title="The work moves. Ownership stays clear."
+      lead="Each engine keeps its own business responsibility while Infrakinetic carries the customer, document, decision and event context between them."
     >
-      <div className="mt-14 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-ink-800/45">
-        <div className="flex flex-col gap-4 border-b border-white/[0.07] px-5 py-5 md:flex-row md:items-center md:justify-between md:px-7">
+      <div className="feature-frame mt-14 px-6 py-7 md:px-8 md:py-9">
+        <div className="mb-9 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">Revenue journey</p>
-            <p className="mt-1 text-sm text-white/58">From account to renewal, with optional engines joining only when enabled.</p>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/48">A representative path from account to renewal. Optional engines can participate without becoming prerequisites for the rest of the flow.</p>
           </div>
-          <span className="w-fit rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/45">
-            Connected, not monolithic
-          </span>
+          <p className="max-w-xs text-xs leading-relaxed text-white/35 md:text-right">Connected does not mean monolithic. The platform carries context; engines keep ownership.</p>
         </div>
 
-        <div className="space-y-8 px-5 py-7 md:px-7 md:py-8">
+        <div className="space-y-12">
           <JourneyTrack label={tracks[0].label} note={tracks[0].note} items={tracks[0].steps} startIndex={0} />
-
-          <div className="flex items-center gap-4 px-1" aria-hidden>
-            <span className="h-px flex-1 bg-white/[0.07]" />
-            <span className="rounded-full border border-gold-300/15 bg-gold-300/[0.04] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-gold-300/70">
-              governed handoff into execution
-            </span>
-            <span className="h-px flex-1 bg-white/[0.07]" />
-          </div>
-
           <JourneyTrack label={tracks[1].label} note={tracks[1].note} items={tracks[1].steps} startIndex={5} />
         </div>
 
-        <div className="border-t border-white/[0.07] bg-white/[0.012] px-5 py-5 md:px-7">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-violet-300">The infrastructure underneath the journey</p>
-              <p className="mt-1 text-sm text-white/48">These capabilities stay common even as the business engines change.</p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {rails.map((item) => (
-                <span key={item} className="rounded-lg border border-violet-400/20 bg-violet-400/[0.05] px-3 py-1.5 text-[11px] font-medium text-violet-300">
-                  {item}
-                </span>
-              ))}
-            </div>
+        <div className="mt-10 grid gap-5 border-t border-white/[0.08] pt-6 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-violet-300">Shared underneath the journey</p>
+            <p className="mt-1.5 text-sm text-white/44">The common controls do not change when the enabled business engines do.</p>
+          </div>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 lg:justify-end">
+            {rails.map((item) => <span key={item} className="text-[11px] font-medium text-violet-300">{item}</span>)}
           </div>
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3 md:grid-cols-3">
+      <div className="mt-10 grid gap-8 md:grid-cols-3">
         {[
           ['Clear ownership', 'Sales remains Sales. Billing remains Billing. Finance remains Finance.'],
           ['Optional participation', 'If Payments or Finance is not enabled, Billing can still run cleanly.'],
           ['No context reset', 'The handoff keeps the originating customer, document, decision and event context.'],
         ].map(([title, body]) => (
-          <div key={title} className="rounded-xl border border-white/[0.07] bg-white/[0.015] p-4">
+          <div key={title}>
             <p className="text-sm font-semibold text-white">{title}</p>
-            <p className="mt-1.5 text-xs leading-relaxed text-white/45">{body}</p>
+            <p className="mt-2 text-xs leading-relaxed text-white/43">{body}</p>
           </div>
         ))}
       </div>

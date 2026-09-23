@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import LegalPageShell from '@/components/legal/LegalPageShell'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -14,220 +15,204 @@ export const metadata: Metadata = {
   },
 }
 
-const lastUpdated = '2026-08-27'
+const lastUpdated = '2026-09-23'
+
+const privacyNav = [
+  { href: '#who-we-are', label: 'Who we are' },
+  { href: '#data-we-collect', label: 'Data we collect' },
+  { href: '#processing-retention', label: 'Processing & retention' },
+  { href: '#sharing', label: 'Who we share it with' },
+  { href: '#rights', label: 'Your rights' },
+  { href: '#cookies', label: 'Cookies' },
+  { href: '#changes', label: 'Policy changes' },
+]
 
 export default function PrivacyPage() {
   return (
-    <main>
-      <section className="relative pb-16 pt-32 md:pt-40">
-        <div className="container-page">
-          <span className="eyebrow">Legal</span>
-          <h1 className="heading-serif mt-5 max-w-3xl text-4xl leading-[1.1] md:text-5xl">
-            Privacy Policy
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60">
-            Last updated:{' '}
-            {new Date(lastUpdated).toLocaleDateString('en-IN', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })}
-          </p>
-        </div>
-      </section>
+    <LegalPageShell
+      title="Privacy Policy"
+      lastUpdated={lastUpdated}
+      nav={privacyNav}
+      siblingHref="/terms"
+      siblingLabel="Terms of Use"
+    >
+      <p>
+        This Privacy Policy explains how Polynovea LLP
+        (&quot;Polynovea,&quot; &quot;Infrakinetic,&quot; &quot;we,&quot;
+        &quot;us&quot;) collects, uses, stores, shares, and protects
+        personal data when you visit{' '}
+        <Link
+          href="/"
+          className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+        >
+          infrakinetic.in
+        </Link>{' '}
+        or submit information through it. It is written to meet the notice
+        requirements of India&apos;s Digital Personal Data Protection Act,
+        2023 (DPDPA), under which we act as a Data Fiduciary and you act
+        as a Data Principal.
+      </p>
 
-      <section className="relative pb-24">
-        <div className="container-page">
-          <div className="guide-prose max-w-3xl">
-            <p>
-              This Privacy Policy explains how Polynovea LLP
-              (&quot;Polynovea,&quot; &quot;Infrakinetic,&quot; &quot;we,&quot;
-              &quot;us&quot;) collects, uses, stores, shares, and protects
-              personal data when you visit{' '}
-              <Link
-                href="/"
-                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
-              >
-                infrakinetic.in
-              </Link>{' '}
-              or submit information through it. It is written to meet the notice
-              requirements of India&apos;s Digital Personal Data Protection Act,
-              2023 (DPDPA), under which we act as a Data Fiduciary and you act
-              as a Data Principal.
-            </p>
+      <h2 id="who-we-are">Who we are</h2>
+      <p>
+        Polynovea LLP, the company behind Infrakinetic, is registered in
+        Vashi, Navi Mumbai, Maharashtra, India. You can reach us at{' '}
+        <a
+          href="mailto:admin@infrakinetic.in"
+          className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+        >
+          admin@infrakinetic.in
+        </a>
+        . Our designated Grievance Officer under the DPDPA is Raahul
+        Thakur, reachable at{' '}
+        <a
+          href="mailto:raahul.thakur@polynovea.in"
+          className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+        >
+          raahul.thakur@polynovea.in
+        </a>
+        . Unresolved grievances can be escalated to Subrojit Roy at{' '}
+        <a
+          href="mailto:subrojitroy@polynovea.in"
+          className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+        >
+          subrojitroy@polynovea.in
+        </a>
+        .
+      </p>
 
-            <h2>Who we are</h2>
-            <p>
-              Polynovea LLP, the company behind Infrakinetic, is registered in
-              Vashi, Navi Mumbai, Maharashtra, India. You can reach us at{' '}
-              <a
-                href="mailto:admin@infrakinetic.in"
-                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
-              >
-                admin@infrakinetic.in
-              </a>
-              . Our designated Grievance Officer under the DPDPA is Raahul
-              Thakur, reachable at{' '}
-              <a
-                href="mailto:raahul.thakur@polynovea.in"
-                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
-              >
-                raahul.thakur@polynovea.in
-              </a>
-              . Unresolved grievances can be escalated to Subrojit Roy at{' '}
-              <a
-                href="mailto:subrojitroy@polynovea.in"
-                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
-              >
-                subrojitroy@polynovea.in
-              </a>
-              .
-            </p>
+      <h2 id="data-we-collect">What personal data we collect</h2>
+      <p>
+        We collect two categories of personal data, for two different
+        purposes:
+      </p>
+      <h3>1. Data you submit through a form</h3>
+      <p>
+        When you submit the homepage enquiry form or request a platform
+        briefing, we collect your name, work email address, company name,
+        and the operating areas you want to review. If you explicitly join
+        Early Access, we also collect the role, company-size, timeline,
+        current-stack, problem-statement, and engine-selection information
+        you provide in that form.
+      </p>
+      <h3>2. Data collected automatically through analytics</h3>
+      <p>
+        We use Google Analytics to understand how visitors use this site.
+        Google Analytics collects your approximate location (derived from
+        IP address), device and browser type, pages visited, and time
+        spent on the site, using cookies and similar identifiers. We have
+        Google signals enabled, which means that if you are signed into a
+        Google account and have consented to Google&apos;s ad
+        personalization, Google Analytics may associate your visit to this
+        site with that Google account for cross-device reporting; Google,
+        not Infrakinetic, controls that association and the consent behind
+        it. You can review or revoke that consent at any time through{' '}
+        <a
+          href="https://myaccount.google.com/activitycontrols"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+        >
+          My Google Activity
+        </a>
+        . See{' '}
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+        >
+          Google&apos;s Privacy Policy
+        </a>{' '}
+        for how Google itself processes this data.
+      </p>
 
-            <h2>What personal data we collect</h2>
-            <p>
-              We collect two categories of personal data, for two different
-              purposes:
-            </p>
-            <h3>1. Data you submit through a form</h3>
-            <p>
-              When you request a platform briefing or submit the homepage
-              contact form, we collect your name, work email address, company
-              name, and which product areas you&apos;re interested in. This is
-              the only place on the site where you are asked to provide personal
-              data directly.
-            </p>
-            <h3>2. Data collected automatically through analytics</h3>
-            <p>
-              We use Google Analytics to understand how visitors use this site.
-              Google Analytics collects your approximate location (derived from
-              IP address), device and browser type, pages visited, and time
-              spent on the site, using cookies and similar identifiers. We have
-              Google signals enabled, which means that if you are signed into a
-              Google account and have consented to Google&apos;s ad
-              personalization, Google Analytics may associate your visit to this
-              site with that Google account for cross-device reporting; Google,
-              not Infrakinetic, controls that association and the consent behind
-              it. You can review or revoke that consent at any time through{' '}
-              <a
-                href="https://myaccount.google.com/activitycontrols"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
-              >
-                My Google Activity
-              </a>
-              . See{' '}
-              <a
-                href="https://policies.google.com/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
-              >
-                Google&apos;s Privacy Policy
-              </a>{' '}
-              for how Google itself processes this data.
-            </p>
+      <h2 id="processing-retention">Why we process it, and how long we keep it</h2>
+      <p>
+        Form submissions are processed to respond to your enquiry or
+        briefing request, to administer explicit Early Access registrations,
+        and to evaluate fit between your business and Infrakinetic&apos;s product. We retain form submissions for 12
+        months from the date of submission, after which they are deleted
+        unless you have become an active customer under a separate
+        agreement.
+      </p>
+      <p>
+        Analytics data is processed to understand site usage and improve
+        page content and performance. Google Analytics retains event-level
+        data (individual page views and interactions) for 2 months and
+        user-level data for 14 months, resetting on each new visit;
+        aggregated, non-identifying reporting data is retained longer for
+        trend analysis.
+      </p>
 
-            <h2>Why we process it, and how long we keep it</h2>
-            <p>
-              Form submissions are processed to respond to your briefing or
-              contact request and to evaluate fit between your business and
-              Infrakinetic&apos;s product. We retain form submissions for 12
-              months from the date of submission, after which they are deleted
-              unless you have become an active customer under a separate
-              agreement.
-            </p>
-            <p>
-              Analytics data is processed to understand site usage and improve
-              page content and performance. Google Analytics retains event-level
-              data (individual page views and interactions) for 2 months and
-              user-level data for 14 months, resetting on each new visit;
-              aggregated, non-identifying reporting data is retained longer for
-              trend analysis.
-            </p>
+      <h2 id="sharing">Who we share it with</h2>
+      <p>
+        Website form records are stored in our Supabase-backed website
+        datastore. Homepage enquiries and briefing requests may also be
+        forwarded to the Infrakinetic team through FormSubmit.co for email
+        notification. Early Access registrations are stored in the shared
+        Early Access datastore used by the Infrakinetic and Polynovea
+        websites. We do not sell personal data. Google Analytics processes
+        site-usage information as described above.
+      </p>
 
-            <h2>Who we share it with</h2>
-            <p>
-              Form submissions are transmitted through FormSubmit.co, a
-              third-party form-delivery service, which forwards the submission
-              by email to Infrakinetic&apos;s team. We do not sell personal
-              data, and we do not share it with any party outside Infrakinetic,
-              Polynovea, FormSubmit.co, and Google Analytics for the purposes
-              described above.
-            </p>
+      <h2 id="rights">Your rights under the DPDPA</h2>
+      <p>As a Data Principal, you have the right to:</p>
+      <ul>
+        <li>
+          <strong>Access</strong> - request a copy of the personal data we
+          hold about you.
+        </li>
+        <li>
+          <strong>Correction</strong> - request that inaccurate or
+          outdated data be corrected.
+        </li>
+        <li>
+          <strong>Erasure</strong> - request that we delete your personal
+          data, subject to any legal retention obligations.
+        </li>
+        <li>
+          <strong>Grievance redressal</strong> - raise a complaint with
+          our Grievance Officer if you believe your data has been
+          mishandled, and escalate to the Data Protection Board of India
+          if unresolved.
+        </li>
+        <li>
+          <strong>Nomination</strong> - nominate another individual to
+          exercise these rights on your behalf in the event of your death
+          or incapacity.
+        </li>
+      </ul>
+      <p>
+        To exercise any of these rights, or to withdraw consent for us to
+        process your data, email{' '}
+        <a
+          href="mailto:admin@infrakinetic.in"
+          className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
+        >
+          admin@infrakinetic.in
+        </a>{' '}
+        with the subject line &quot;Data request.&quot; Withdrawing
+        consent does not affect the lawfulness of processing carried out
+        before withdrawal.
+      </p>
 
-            <h2>Your rights under the DPDPA</h2>
-            <p>As a Data Principal, you have the right to:</p>
-            <ul>
-              <li>
-                <strong>Access</strong> - request a copy of the personal data we
-                hold about you.
-              </li>
-              <li>
-                <strong>Correction</strong> - request that inaccurate or
-                outdated data be corrected.
-              </li>
-              <li>
-                <strong>Erasure</strong> - request that we delete your personal
-                data, subject to any legal retention obligations.
-              </li>
-              <li>
-                <strong>Grievance redressal</strong> - raise a complaint with
-                our Grievance Officer if you believe your data has been
-                mishandled, and escalate to the Data Protection Board of India
-                if unresolved.
-              </li>
-              <li>
-                <strong>Nomination</strong> - nominate another individual to
-                exercise these rights on your behalf in the event of your death
-                or incapacity.
-              </li>
-            </ul>
-            <p>
-              To exercise any of these rights, or to withdraw consent for us to
-              process your data, email{' '}
-              <a
-                href="mailto:admin@infrakinetic.in"
-                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
-              >
-                admin@infrakinetic.in
-              </a>{' '}
-              with the subject line &quot;Data request.&quot; Withdrawing
-              consent does not affect the lawfulness of processing carried out
-              before withdrawal.
-            </p>
+      <h2 id="cookies">Cookies</h2>
+      <p>
+        This site uses cookies set by Google Analytics to distinguish
+        visitors and measure site usage. You can block or delete these
+        cookies through your browser settings at any time; doing so will
+        not affect your ability to browse the site, only our ability to
+        measure your visit.
+      </p>
 
-            <h2>Cookies</h2>
-            <p>
-              This site uses cookies set by Google Analytics to distinguish
-              visitors and measure site usage. You can block or delete these
-              cookies through your browser settings at any time; doing so will
-              not affect your ability to browse the site, only our ability to
-              measure your visit.
-            </p>
-
-            <h2>Changes to this policy</h2>
-            <p>
-              We may update this policy as our data practices change. Material
-              changes will update the &quot;Last updated&quot; date above.
-              Continued use of the site after a change constitutes acceptance of
-              the updated policy.
-            </p>
-
-            <p className="mt-8 text-sm text-white/50">
-              See also:{' '}
-              <Link
-                href="/terms"
-                className="text-gold-300 underline decoration-gold-300/40 underline-offset-4 hover:text-gold-200"
-              >
-                Terms of Use
-              </Link>
-              .
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
+      <h2 id="changes">Changes to this policy</h2>
+      <p>
+        We may update this policy as our data practices change. Material
+        changes will update the &quot;Last updated&quot; date above.
+        Continued use of the site after a change constitutes acceptance of
+        the updated policy.
+      </p>
+    </LegalPageShell>
   )
 }

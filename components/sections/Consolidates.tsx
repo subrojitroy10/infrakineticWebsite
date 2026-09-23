@@ -12,7 +12,7 @@ export default function Consolidates() {
     <Section id="consolidates" eyebrow={consolidates.eyebrow} title={consolidates.title} lead={consolidates.lead}>
       <div className="mt-12 grid gap-5 lg:grid-cols-2">
         <Reveal variant="left">
-          <ParallaxCard depth={16} className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+          <ParallaxCard depth={16} className="h-full rounded-lg border border-white/10 bg-white/[0.02] p-8">
             <h3 className="text-lg font-semibold text-white/70">Companies usually buy separately</h3>
             <div className="mt-6 grid grid-cols-2 gap-3">
               {consolidates.categories.map((category) => (
@@ -30,7 +30,7 @@ export default function Consolidates() {
         <Reveal variant="right" delay={0.1}>
           <ParallaxCard
             depth={22}
-            className="relative flex h-full flex-col justify-center overflow-hidden rounded-2xl border border-gold-400/30 bg-gradient-to-br from-gold-500/[0.12] to-violet-500/[0.03] p-8"
+            className="relative flex h-full flex-col justify-center overflow-hidden rounded-lg border border-gold-400/30 bg-gold-300/[0.045] p-8"
           >
             <h3 className="relative text-lg font-semibold text-gold-300">Infrakinetic</h3>
             <p className="relative mt-3 text-xl font-medium text-white md:text-2xl">

@@ -111,9 +111,7 @@ export default function BriefingClient() {
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-8 lg:grid-cols-2">
               <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                initial={false}
                 className="relative border-r border-white/10 pr-8 lg:pr-12"
               >
                 <span className="eyebrow">{cta.eyebrow}</span>
@@ -140,7 +138,7 @@ export default function BriefingClient() {
                       'Pilot scope & timeline - 4-6 weeks, your data, your pace',
                     ].map((item) => (
                       <div key={item} className="flex items-start gap-3">
-                        <span className="mt-0.5 grid h-5 w-5 place-items-center rounded-full bg-gold-300/20 text-gold-300">
+                        <span className="mt-0.5 grid h-5 w-5 place-items-center text-gold-300">
                           <Check size={10} />
                         </span>
                         <span className="text-sm text-white/70">{item}</span>
@@ -148,7 +146,7 @@ export default function BriefingClient() {
                     ))}
                   </div>
 
-                  <div className="mt-8 rounded-2xl border border-gold-300/30 bg-gold-300/[0.04] p-6">
+                  <div className="mt-8 border-l-2 border-gold-300/40 pl-5">
                     <p className="mb-2 text-sm font-semibold text-gold-300">
                       60 minutes. Technical. No sales fluff.
                     </p>
@@ -161,16 +159,10 @@ export default function BriefingClient() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+                initial={false}
                 className="relative"
               >
-                <div className="glass-card p-6 md:p-8">
+                <div className="feature-frame p-6 md:p-8">
                   <AnimatePresence mode="wait">
                     {submitted ? (
                       <motion.div
@@ -179,7 +171,7 @@ export default function BriefingClient() {
                         animate={{ opacity: 1, scale: 1 }}
                         className="flex h-full flex-col items-center justify-center py-10 text-center"
                       >
-                        <div className="grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-gold-300 to-violet-400 text-ink-900">
+                        <div className="grid h-14 w-14 place-items-center border border-gold-300/40 text-gold-300">
                           <Check size={26} />
                         </div>
                         <h3 className="heading-serif mt-6 text-2xl">
@@ -219,7 +211,7 @@ export default function BriefingClient() {
                               type={field.type}
                               required
                               placeholder={field.placeholder}
-                              className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-colors focus:border-gold-300/60 focus:bg-white/[0.05] light:border-black/10 light:bg-black/[0.03] light:text-black light:placeholder-black/30 light:focus:bg-black/[0.05]"
+                              className="w-full rounded-md border border-white/12 bg-ink-900/25 px-4 py-3 text-sm text-white placeholder-white/25 outline-none transition-colors focus:border-gold-300/60 light:border-black/10 light:bg-black/[0.02] light:text-black light:placeholder-black/30"
                             />
                           </div>
                         ))}
@@ -236,7 +228,7 @@ export default function BriefingClient() {
                                   type="button"
                                   key={area}
                                   onClick={() => toggle(area)}
-                                  className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all ${
+                                  className={`rounded-md border px-3.5 py-1.5 text-xs font-medium transition-colors ${
                                     active
                                       ? 'border-gold-300/60 bg-gold-300/15 text-gold-200'
                                       : 'border-white/10 bg-white/[0.02] text-white/50 hover:border-white/25'
@@ -285,34 +277,20 @@ export default function BriefingClient() {
         title="Who is the platform briefing for?"
         lead="The briefing is aimed at whoever owns the decision to run commercial, workforce, finance, and reporting on one connected platform instead of six disconnected tools."
       >
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-            <p className="mb-1 text-sm font-semibold text-white">
-              Founders & operators
-            </p>
-            <p className="text-sm text-white/50">
-              Deciding what the company runs its operations on before the stack
-              fragments across departments.
-            </p>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-            <p className="mb-1 text-sm font-semibold text-white">
-              Platform & engineering leads
-            </p>
-            <p className="text-sm text-white/50">
-              Evaluating the data model, tenant isolation, and event
-              architecture before committing to a migration.
-            </p>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-            <p className="mb-1 text-sm font-semibold text-white">
-              Finance & governance owners
-            </p>
-            <p className="text-sm text-white/50">
-              Assessing the ledger, approval engine, and audit trail against
-              compliance and control requirements.
-            </p>
-          </div>
+        <div className="mt-10 grid gap-x-10 md:grid-cols-3">
+          {[
+            ['01', 'Founders & operators', 'Deciding what the company runs its operations on before the stack fragments across departments.'],
+            ['02', 'Platform & engineering leads', 'Evaluating the data model, tenant isolation, and event architecture before committing to a migration.'],
+            ['03', 'Finance & governance owners', 'Assessing the ledger, approval engine, and audit trail against compliance and control requirements.'],
+          ].map(([number, title, body]) => (
+            <div key={title} className="grid grid-cols-[30px_minmax(0,1fr)] gap-3 border-t border-white/[0.09] py-6">
+              <span className="font-mono text-[10px] text-gold-300/55">{number}</span>
+              <div>
+                <p className="text-sm font-semibold text-white">{title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/50">{body}</p>
+              </div>
+            </div>
+          ))}
         </div>
         <KeyTakeaway>
           The briefing is a 60-minute architecture review led by a platform

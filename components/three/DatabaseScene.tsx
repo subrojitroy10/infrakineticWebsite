@@ -75,7 +75,7 @@ function ConnectedNode({ position, label }: { position: [number, number, number]
           distanceFactor={9}
           className="pointer-events-none select-none"
         >
-          <div className="whitespace-nowrap rounded-full border border-gold-400/30 bg-ink-900/80 px-3 py-1 text-[11px] font-semibold text-gold-300 backdrop-blur">
+          <div className="whitespace-nowrap rounded-full border border-gold-400/30 bg-ink-900/80 px-3 py-1 text-[11px] font-semibold text-gold-300">
             {label}
           </div>
         </Html>
