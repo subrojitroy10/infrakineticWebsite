@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check } from '@/components/ui/Icons'
 import { cta } from '@/lib/content'
-import { submitLead } from '@/lib/formsubmit'
+import { submitLead } from '@/lib/leadsubmit'
 import { FAQSection, KeyTakeaway } from '@/components/shared'
 import Section from '@/components/ui/Section'
 

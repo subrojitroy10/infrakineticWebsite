@@ -202,6 +202,9 @@ export default function Navbar() {
           <Link href="/migration" className="btn-ghost !px-5 !py-2.5 text-xs">
             Plan a migration
           </Link>
+          <Link href="/early-access" className="px-2 py-2 text-xs font-semibold text-gold-300 hover:text-gold-200">
+            Join Early Access
+          </Link>
           <Link href="/briefing" className="btn-primary !px-5 !py-2.5 text-xs">
             Talk through your stack
           </Link>
@@ -254,6 +257,13 @@ export default function Navbar() {
                 className="rounded-lg px-3 py-3 text-base font-medium text-white/70 hover:bg-white/5 hover:text-white"
               >
                 Assess a migration
+              </Link>
+              <Link
+                href="/early-access"
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-3 py-3 text-base font-semibold text-gold-300 hover:bg-white/5 hover:text-gold-200"
+              >
+                Join Early Access
               </Link>
               <Link
                 href="/briefing"

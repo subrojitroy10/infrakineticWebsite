@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
+import EarlyAccessRail from '@/components/sections/EarlyAccessRail'
 import ModularPlatform from '@/components/sections/ModularPlatform'
 import ConnectedJourney from '@/components/sections/ConnectedJourney'
 import EngineeringProof from '@/components/sections/EngineeringProof'
@@ -9,6 +10,7 @@ import SearchIntentLinks from '@/components/sections/SearchIntentLinks'
 import Contact from '@/components/sections/Contact'
 import { FAQSection } from '@/components/shared'
 import { homeFaqItems } from '@/lib/content'
+import { getInfrakineticEarlyAccessCount } from '@/lib/early-access-server'
 
 export const metadata: Metadata = {
   title: 'CRM, Billing, HR, Payroll & Finance Software',
@@ -16,10 +18,13 @@ export const metadata: Metadata = {
     'Start with CRM, billing, finance, HR, payroll or customer success. Infrakinetic adds shared documents, approvals, workflow, automation and governance underneath every enabled engine.',
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const earlyAccessCount = await getInfrakineticEarlyAccessCount()
+
   return (
     <main>
       <Hero />
+      <EarlyAccessRail count={earlyAccessCount} />
       <ModularPlatform />
       <ConnectedJourney />
       <EngineeringProof />

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Reveal from '@/components/ui/Reveal'
 import ParallaxCard from '@/components/ui/ParallaxCard'
 import { cta } from '@/lib/content'
-import { submitLead } from '@/lib/formsubmit'
+import { submitLead } from '@/lib/leadsubmit'
 import {
   Check,
   ArrowRight,

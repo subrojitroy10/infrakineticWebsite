@@ -173,6 +173,17 @@ discover, map, stage, execute, reconcile and verify.
 - AI output is bounded and must not bypass deterministic business controls.
 - Important actions preserve evidence, attribution and governed state transitions.
 
+## Controlled Early Access
+
+Infrakinetic is accepting explicit Early Access registrations for controlled onboarding cohorts. The public counter is shared with the Polynovea website and represents distinct organisations that have specifically submitted an Early Access registration.
+
+Requesting a platform briefing, submitting the ordinary homepage contact form, or being contacted through outbound sales does not increment the Early Access count.
+
+The Early Access form captures company and work-contact details, company size, expected timeline, engines or operating areas of interest, current software stack and the operational problem the organisation wants to solve. Cohort formation is controlled and is not represented as strict first-in-first-out queueing.
+
+Early Access: https://www.infrakinetic.in/early-access
+Platform briefing: https://www.infrakinetic.in/briefing
+
 ## Key pages
 
 - [Homepage](https://www.infrakinetic.in/): modular product model, shared platform infrastructure, connected journeys, engineering proof and current development frontier
@@ -190,7 +201,8 @@ discover, map, stage, execute, reconcile and verify.
 - [ERP software](https://www.infrakinetic.in/erp-software): familiar ERP-style finance, people, payroll, workflow and operating needs explained through Infrakinetic's modular architecture
 - [Business management software](https://www.infrakinetic.in/business-management-software): connected business software across multiple operating domains
 - [Business Operating System](https://www.infrakinetic.in/business-operating-system): category / positioning explanation, not the only search entry point
-- [Talk through your stack](https://www.infrakinetic.in/briefing): identify the smallest sensible starting stack for a real operational problem
+- [Controlled Early Access](https://www.infrakinetic.in/early-access): explicit registration for limited onboarding cohorts; this is the only website action that increments the public Early Access count
+- [Talk through your stack](https://www.infrakinetic.in/briefing): identify the smallest sensible starting stack for a real operational problem without joining Early Access
 
 ## Guides
 
